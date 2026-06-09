@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#c4452a" />
+  <meta name="description" content="Directory of shelters and services in Tucson and Pima County. Filter by who they serve and find phone, address, and hours." />
+  <title>Directory — Tucson Way</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="favicon/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip_to_content">Skip to main content</a>
+  <div id="offline-banner" class="offline-banner" hidden role="status" data-i18n="offline_banner"></div>
+
+  <header class="site-header">
+    <div class="container site-header__row">
+      <a class="brand" href="index.html" aria-label="Tucson Way">
+        <img class="brand__mark" src="icons/logo-icon.png" alt="" width="36" height="36" />
+        <span>Tucson<span class="brand__sep">·</span>Way</span>
+      </a>
+      <button type="button" class="lang-toggle" id="lang-toggle" data-i18n="lang_toggle" data-i18n-aria-label="lang_toggle_aria">
+        <i data-icon="globe" aria-hidden="true"></i>
+        <span>Español</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-primary" aria-label="Primary">
+    <div class="container">
+      <ul>
+        <li><a href="index.html"><i data-icon="home"></i><span data-i18n="nav_find_help">Find Help</span></a></li>
+        <li><a href="directory.html" aria-current="page"><i data-icon="list"></i><span data-i18n="nav_directory">Directory</span></a></li>
+        <li><a href="map.html"><i data-icon="map"></i><span data-i18n="nav_map">Map</span></a></li>
+        <li><a href="about.html"><i data-icon="info"></i><span data-i18n="nav_about">About</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="container">
+    <div class="dir-head">
+      <h1 data-i18n="dir_h1">Directory</h1>
+    </div>
+
+    <div class="controls" role="search">
+      <label class="sr-only" for="search" data-i18n="dir_search_label">Search resources</label>
+      <div class="search-wrap">
+        <span class="search-wrap__icon"><i data-icon="search"></i></span>
+        <input id="search" class="search-input" type="search" autocomplete="off"
+               data-i18n-placeholder="dir_search_placeholder"
+               placeholder="Search by name or service" />
+      </div>
+
+      <div>
+        <span class="sr-only" id="filter-label" data-i18n="dir_filter_label">Filter by who they serve</span>
+        <div class="filter-row" role="group" aria-labelledby="filter-label" id="filters"></div>
+      </div>
+
+      <div class="controls__row">
+        <button type="button" class="chip" id="near-me-btn" aria-pressed="false">
+          <i data-icon="location"></i>
+          <span data-i18n="dir_near_me">Sort by nearest</span>
+        </button>
+        <span class="results-meta" id="results-count" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <div id="results" class="results" aria-live="polite"></div>
+
+    <div id="no-results" class="no-results" hidden>
+      <i data-icon="search" aria-hidden="true"></i>
+      <p data-i18n="dir_no_results">No resources match these filters.</p>
+      <button type="button" class="chip" id="clear-filters" data-i18n="dir_clear_filters">Clear filters</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <svg class="site-footer__mountains" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 70 L0 50 L120 18 L210 42 L340 6 L470 38 L600 16 L740 44 L860 22 L1000 48 L1120 24 L1200 50 L1200 70 Z" fill="currentColor"/>
+    </svg>
+    <div class="site-footer__inner">
+      <div class="container">
+        <p class="site-footer__emergency"><i data-icon="warn"></i><span data-i18n="footer_emergency">In an emergency, call 911.</span></p>
+        <p data-i18n="footer_disclaimer">Tucson Way is an independent informational directory. It is not affiliated with the organizations listed and does not provide shelter, funding, or services directly. Information is provided as-is. Please call ahead to confirm availability.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/icons.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/directory.js"></script>
+</body>
+</html>

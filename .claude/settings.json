@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import json; json.load\\(open\\('data/resources.json'\\)\\); json.load\\(open\\('data/i18n.json'\\)\\); print\\('JSON OK'\\)\")",
+      "Bash(python -c \"import json; m=json.load\\(open\\('manifest.webmanifest'\\)\\); print\\('manifest OK, icons:', len\\(m['icons']\\)\\)\")",
+      "Bash(python -m http.server 8765 --bind 127.0.0.1)",
+      "Bash(which chrome *)",
+      "Read(//c/Program Files \\(x86\\)/Microsoft/Edge/Application/**)",
+      "Bash(mkdir -p \"/tmp/twshots\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --window-size=412,900 --screenshot=/tmp/twshots/home-mobile.png \"http://127.0.0.1:8765/index.html\")",
+      "Read(//c/Users/MarcS/AppData/Local/Temp/twshots/**)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --window-size=412,1600 --screenshot=home-mobile.png \"http://127.0.0.1:8765/index.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --window-size=412,1800 --screenshot=dir-mobile.png \"http://127.0.0.1:8765/directory.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --window-size=412,1100 --screenshot=map-mobile.png \"http://127.0.0.1:8765/map.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --hide-scrollbars --window-size=1280,1200 --screenshot=home-desktop.png \"http://127.0.0.1:8765/index.html\")",
+      "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless=new --disable-gpu --hide-scrollbars --window-size=412,1700 --screenshot=C:/Users/MarcS/AppData/Local/Temp/twshots/home-mobile.png http://127.0.0.1:8765/index.html)",
+      "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless=new --disable-gpu --hide-scrollbars --window-size=412,1900 --screenshot=C:/Users/MarcS/AppData/Local/Temp/twshots/home-mobile.png http://127.0.0.1:8765/index.html)",
+      "Bash(curl -s \"http://127.0.0.1:8765/css/styles.css\")",
+      "Bash('/c/Program Files/Google/Chrome/Application/chrome.exe' --headless=new --disable-gpu --window-size=412,1900 --screenshot=C:/Users/MarcS/AppData/Local/Temp/twshots/home-mobile.png http://127.0.0.1:8765/index.html)",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}

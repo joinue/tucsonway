@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#c4452a" />
+  <meta name="description" content="About Tucson Way, an independent informational directory of shelter and recovery resources in Tucson and Pima County." />
+  <title>About — Tucson Way</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="favicon/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip_to_content">Skip to main content</a>
+  <div id="offline-banner" class="offline-banner" hidden role="status" data-i18n="offline_banner"></div>
+
+  <header class="site-header">
+    <div class="container site-header__row">
+      <a class="brand" href="index.html" aria-label="Tucson Way">
+        <img class="brand__mark" src="icons/logo-icon.png" alt="" width="36" height="36" />
+        <span>Tucson<span class="brand__sep">·</span>Way</span>
+      </a>
+      <button type="button" class="lang-toggle" id="lang-toggle" data-i18n="lang_toggle" data-i18n-aria-label="lang_toggle_aria">
+        <i data-icon="globe" aria-hidden="true"></i>
+        <span>Español</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-primary" aria-label="Primary">
+    <div class="container">
+      <ul>
+        <li><a href="index.html"><i data-icon="home"></i><span data-i18n="nav_find_help">Find Help</span></a></li>
+        <li><a href="directory.html"><i data-icon="list"></i><span data-i18n="nav_directory">Directory</span></a></li>
+        <li><a href="map.html"><i data-icon="map"></i><span data-i18n="nav_map">Map</span></a></li>
+        <li><a href="about.html" aria-current="page"><i data-icon="info"></i><span data-i18n="nav_about">About</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="container prose">
+    <h1 data-i18n="about_h1">About Tucson Way</h1>
+    <p data-i18n="about_intro">Tucson Way is an independent informational directory that helps people in Tucson and Pima County find shelter and recovery resources.</p>
+    <p data-i18n="about_independence">Tucson Way is not affiliated with the organizations listed here. We do not provide shelter, funding, intake, or any direct services.</p>
+
+    <h2 data-i18n="about_privacy_h2">Privacy</h2>
+    <p data-i18n="about_privacy_p">This site does not require sign-in, does not collect personal information, and does not use tracking analytics that profile visitors. Your location, if you choose to share it, is used only on your device to sort the directory.</p>
+
+    <h2 data-i18n="about_data_h2">About the listings</h2>
+    <p data-i18n="about_data_p">Information is provided as-is and may change. Please call ahead to confirm hours, eligibility, and availability. Verified providers are sourced from the City of Tucson's Housing & Community Development department.</p>
+
+    <h2 data-i18n="about_contact_h2">Updates and corrections</h2>
+    <p data-i18n="about_contact_p">If a listing is out of date or missing, please notify the City of Tucson or the provider directly. They are the authoritative source.</p>
+  </main>
+
+  <footer class="site-footer">
+    <svg class="site-footer__mountains" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 70 L0 50 L120 18 L210 42 L340 6 L470 38 L600 16 L740 44 L860 22 L1000 48 L1120 24 L1200 50 L1200 70 Z" fill="currentColor"/>
+    </svg>
+    <div class="site-footer__inner">
+      <div class="container">
+        <p class="site-footer__emergency"><i data-icon="warn"></i><span data-i18n="footer_emergency">In an emergency, call 911.</span></p>
+        <p data-i18n="footer_disclaimer">Tucson Way is an independent informational directory. It is not affiliated with the organizations listed and does not provide shelter, funding, or services directly. Information is provided as-is. Please call ahead to confirm availability.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/icons.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
