@@ -5,7 +5,9 @@
      cookies, URL params, or sent anywhere. Refreshing the page wipes them.
    - Matching runs entirely in the browser against data/resources.json.
    - The static form is progressively enhanced into a one-question-at-a-time
-     wizard (progress bar, Back/Next, auto-advance on single-choice).
+     wizard (progress bar, Back/Next). Every step advances via an explicit
+     Next tap — no auto-advance, so single- and multi-choice questions behave
+     identically and keyboard users can arrow through radios safely.
      Without JS the plain form still renders; with JS the wizard takes over.
    - Results can be printed / saved as PDF via the print stylesheet.
 */
@@ -240,6 +242,7 @@
     head: null,
     nav: null,
     active: false,
+    hasResults: false,
   };
 
   function buildWizard() {
@@ -268,6 +271,9 @@
       '<button type="button" class="btn-secondary wizard-nav__back" id="wizard-back">' +
         TW.icon('chevron') + '<span data-i18n="match_back">' + escapeHtml(TW.t('match_back')) + '</span>' +
       '</button>' +
+      '<button type="button" class="btn-ghost wizard-nav__results" id="wizard-results" hidden>' +
+        '<span data-i18n="match_see_results">' + escapeHtml(TW.t('match_see_results')) + '</span>' +
+      '</button>' +
       '<button type="button" class="btn-primary wizard-nav__next" id="wizard-next"><span></span>' + TW.icon('arrow-right') + '</button>';
     $form.appendChild(nav);
     wizard.nav = nav;
@@ -283,6 +289,13 @@
         go(wizard.idx + 1);
       }
     });
+    /* Shortcut back to existing results while editing answers, so a one-field
+       change doesn't force a walk through every remaining question. */
+    nav.querySelector('#wizard-results').addEventListener('click', finish);
+
+    /* Focus target for each step so screen readers announce the new
+       question as the wizard advances. */
+    wizard.steps.forEach((s) => s.setAttribute('tabindex', '-1'));
 
     $form.classList.add('match-form--wizard');
     document.body.classList.add('wizard-on');
@@ -302,6 +315,7 @@
     if (!instant) {
       const top = wizard.head.getBoundingClientRect().top + window.scrollY - 76;
       if (window.scrollY > top) window.scrollTo({ top, behavior: 'smooth' });
+      wizard.steps[wizard.idx].focus({ preventScroll: true });
     }
   }
 
@@ -320,17 +334,29 @@
     if (back) back.style.visibility = wizard.idx === 0 ? 'hidden' : 'visible';
 
     const next = document.getElementById('wizard-next');
+    const last = wizard.idx >= n - 1;
     if (next) {
       const label = next.querySelector('span');
-      const last = wizard.idx >= n - 1;
+      const answered = stepAnswered(wizard.idx);
       label.textContent = last
         ? TW.t('match_see_results')
-        : (stepAnswered(wizard.idx) ? TW.t('match_next') : TW.t('match_skip_q'));
-      next.classList.toggle('btn-primary', true);
+        : (answered ? TW.t('match_next') : TW.t('match_skip_q'));
+      /* Unanswered steps show a quiet "Skip"; once the user picks something
+         the button promotes to a primary "Next" — the cue to move on, since
+         the wizard never advances on its own. */
+      next.classList.toggle('btn-primary', last || answered);
+      next.classList.toggle('btn-secondary', !last && !answered);
     }
+
+    /* "See my results" shortcut only matters when results already exist
+       (user came back via "Change my answers") and Next doesn't already
+       lead there. */
+    const resultsBtn = document.getElementById('wizard-results');
+    if (resultsBtn) resultsBtn.hidden = !wizard.hasResults || last;
   }
 
   function finish() {
+    wizard.hasResults = true;
     render(readAnswers());
   }
 
@@ -633,6 +659,8 @@
     if (restartBtn) restartBtn.addEventListener('click', () => {
       $form.reset();
       $form.querySelectorAll('.opt--on').forEach((o) => o.classList.remove('opt--on'));
+      wizard.hasResults = false;
+      $results.innerHTML = '';
       showForm();
     });
 
@@ -668,14 +696,6 @@
           $form.querySelectorAll('.opt input[name="' + name + '"]').forEach((sib) => {
             sib.closest('.opt').classList.toggle('opt--on', sib.checked);
           });
-          /* Single-choice answered → auto-advance after a beat so the
-             selection is visible. Never auto-advance past the last step. */
-          if (wizard.active && wizard.idx < wizard.steps.length - 1) {
-            const stepAtChange = wizard.idx;
-            setTimeout(() => {
-              if (wizard.idx === stepAtChange && !$form.hidden) go(wizard.idx + 1);
-            }, 350);
-          }
         } else {
           opt.classList.toggle('opt--on', input.checked);
         }

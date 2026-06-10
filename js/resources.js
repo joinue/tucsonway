@@ -18,6 +18,8 @@
   }
 
   function hostOf(url) {
+    /* Relative links (e.g. a local PDF) have no host — label by type instead */
+    if (/\.pdf(?:$|[?#])/i.test(url)) return 'PDF';
     try { return new URL(url).hostname.replace(/^www\./, ''); }
     catch (_) { return url; }
   }

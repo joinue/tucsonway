@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" />
-  <link rel="stylesheet" href="css/styles.css?v=32" />
+  <link rel="stylesheet" href="css/styles.css?v=39" />
   <script>(function(){try{var t=localStorage.getItem('tw.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body data-page="about">
@@ -21,10 +21,22 @@
   <div id="offline-banner" class="offline-banner" hidden role="status" data-i18n="offline_banner"></div>
 
   <header class="site-header">
-    <div class="container site-header__row">
+    <div class="container container--wide site-header__row">
       <a class="brand" href="index.html" aria-label="Tucson Compass">
-        <img class="brand__logo" src="icons/logo-horizontal.png" alt="Tucson Compass" height="36" />
+        <picture>
+          <source media="(min-width: 980px)" srcset="icons/logo-horizontal.png" />
+          <img class="brand__logo" src="icons/logo-icon-circle.png" alt="" />
+        </picture>
+        <span class="brand__name">Tucson Compass</span>
       </a>
+      <nav class="nav-primary" aria-label="Primary">
+        <ul>
+          <li><a href="index.html"><i data-icon="home"></i><span data-i18n="nav_find_help">Find Help</span></a></li>
+          <li><a href="directory.html"><i data-icon="list"></i><span data-i18n="nav_directory">Directory</span></a></li>
+          <li><a href="map.html"><i data-icon="map"></i><span data-i18n="nav_map">Map</span></a></li>
+          <li><a href="resources.html"><i data-icon="external"></i><span data-i18n="nav_resources">Resources</span></a></li>
+        </ul>
+      </nav>
       <div class="site-header__actions">
         <button type="button" class="header-btn theme-toggle" id="theme-toggle" aria-label="Switch theme" title="Switch theme"></button>
         <button type="button" class="header-btn lang-toggle" id="lang-toggle" data-i18n="lang_toggle" data-i18n-aria-label="lang_toggle_aria">
@@ -34,17 +46,6 @@
       </div>
     </div>
   </header>
-
-  <nav class="nav-primary" aria-label="Primary">
-    <div class="container">
-      <ul>
-        <li><a href="index.html"><i data-icon="home"></i><span data-i18n="nav_find_help">Find Help</span></a></li>
-        <li><a href="directory.html"><i data-icon="list"></i><span data-i18n="nav_directory">Directory</span></a></li>
-        <li><a href="map.html"><i data-icon="map"></i><span data-i18n="nav_map">Map</span></a></li>
-        <li><a href="resources.html"><i data-icon="external"></i><span data-i18n="nav_resources">Resources</span></a></li>
-      </ul>
-    </div>
-  </nav>
 
   <main id="main" class="container">
     <div class="prose">
@@ -66,7 +67,7 @@
       <p data-i18n="about_privacy_p">This site does not require sign-in, does not collect personal information, and does not use tracking analytics that profile visitors. Your location, if you choose to share it, is used only on your device to sort the directory. Your Find Your Fit answers never leave your phone.</p>
 
       <h2 data-i18n="about_data_h2">About the listings</h2>
-      <p data-i18n="about_data_p">Information is provided as-is and may change. Please call ahead to confirm hours, eligibility, and availability. Verified providers are sourced from the City of Tucson's Housing &amp; Community Development department.</p>
+      <p data-i18n="about_data_p">Information is provided as-is and may change. Please call ahead to confirm hours, eligibility, and availability. Listings are compiled from public sources, including the City of Tucson, the Tucson Pima Collaboration to End Homelessness (TPCH), Pima County, and the providers' own websites.</p>
 
       <h2 data-i18n="about_contact_h2">Updates and corrections</h2>
       <p data-i18n="about_contact_p">If a listing is out of date or missing, please notify the City of Tucson or the provider directly. They are the authoritative source.</p>
@@ -92,34 +93,48 @@
       <path class="site-footer__range site-footer__range--back" d="M0 140 L0 82 L70 60 L180 78 L300 42 L420 70 L540 36 L670 64 L800 40 L920 66 L1050 46 L1160 64 L1200 56 L1200 140 Z"/>
       <path class="site-footer__range site-footer__range--mid" d="M0 140 L0 100 L60 84 L160 104 L280 70 L400 96 L520 76 L640 100 L780 76 L900 102 L1040 80 L1160 104 L1200 92 L1200 140 Z"/>
       <path class="site-footer__range site-footer__range--front" d="M0 140 L0 120 L50 104 L130 122 L230 100 L340 124 L460 106 L580 126 L700 108 L820 128 L940 110 L1060 126 L1160 114 L1200 128 L1200 140 Z"/>
+      <path class="site-footer__saguaro" d="M176 118V81Q176 76 180 76Q184 76 184 81V118ZM166 106V92Q166 87 169.5 87Q173 87 173 92V99H176V106ZM184 102H187V94Q187 89 190.5 89Q194 89 194 94V109H184Z"/>
+      <path class="site-footer__saguaro" d="M1082 128V98Q1082 94 1085 94Q1088 94 1088 98V128ZM1074 116V106Q1074 102 1076.5 102Q1079 102 1079 106V111H1082V116Z"/>
     </svg>
     <div class="site-footer__inner">
-      <div class="container site-footer__grid">
-        <div class="site-footer__col site-footer__col--brand">
-          <a class="site-footer__brand" href="index.html" aria-label="Tucson Compass">
-            <img class="site-footer__logo" src="icons/logo-horizontal.png" alt="Tucson Compass" />
-          </a>
-          <p class="site-footer__tagline" data-i18n="footer_tagline">A way forward. Shelter, recovery, and help across Tucson and Pima County.</p>
-        </div>
-        <div class="site-footer__col site-footer__col--cta">
-          <a href="match.html" class="footer-cta">
+      <div class="container">
+        <a href="match.html" class="footer-cta">
+          <span class="footer-cta__body">
             <span class="footer-cta__badge" data-i18n="footer_cta_heading">Recommended</span>
             <span class="footer-cta__title" data-i18n="footer_cta_title">Find personalized services</span>
-            <span class="footer-cta__sub" data-i18n="footer_cta_sub">Answer a few questions · 1 minute · Private</span>
-            <span class="footer-cta__action">
-              <span data-i18n="footer_cta_action">Start now</span>
-              <span class="footer-cta__arrow" aria-hidden="true">→</span>
-            </span>
-          </a>
-        </div>
-        <div class="site-footer__col">
-          <h3 class="site-footer__heading" data-i18n="footer_help_now">Help right now</h3>
-          <ul class="site-footer__contacts">
-            <li><a href="tel:911"><strong>911</strong><span data-i18n="footer_emergency_short">Emergency</span></a></li>
-            <li><a href="tel:988"><strong>988</strong><span data-i18n="footer_988_short">Crisis &amp; mental health</span></a></li>
-            <li><a href="tel:211"><strong>211</strong><span data-i18n="footer_211_short">Info &amp; referral</span></a></li>
-            <li><a href="https://tpch.net/coordinated-entry-for-homeless-services/" target="_blank" rel="noopener"><strong data-i18n="footer_ce_short">Coordinated Entry</strong><span data-i18n="footer_ce_sub">Front door to housing</span></a></li>
-          </ul>
+            <span class="footer-cta__sub" data-i18n="footer_cta_sub">Answer a few questions &middot; 1 minute &middot; Private</span>
+          </span>
+          <span class="footer-cta__btn">
+            <span data-i18n="footer_cta_action">Start now</span>
+            <i data-icon="arrow-right" aria-hidden="true"></i>
+          </span>
+        </a>
+        <div class="site-footer__grid">
+          <div class="site-footer__col site-footer__col--brand">
+            <a class="site-footer__brand" href="index.html" aria-label="Tucson Compass">
+              <img class="site-footer__logo" src="icons/logo-horizontal.png" alt="Tucson Compass" />
+            </a>
+            <p class="site-footer__tagline" data-i18n="footer_tagline">A way forward. Shelter, recovery, and help across Tucson and Pima County.</p>
+          </div>
+          <div class="site-footer__col site-footer__col--explore">
+            <h3 class="site-footer__heading" data-i18n="footer_explore">Explore</h3>
+            <ul class="site-footer__links">
+              <li><a href="index.html" data-i18n="nav_find_help">Find Help</a></li>
+              <li><a href="directory.html" data-i18n="nav_directory">Directory</a></li>
+              <li><a href="map.html" data-i18n="nav_map">Map</a></li>
+              <li><a href="resources.html" data-i18n="nav_resources">Resources</a></li>
+              <li><a href="about.html" data-i18n="nav_about">About</a></li>
+            </ul>
+          </div>
+          <div class="site-footer__col site-footer__col--help">
+            <h3 class="site-footer__heading" data-i18n="footer_help_now">Help right now</h3>
+            <ul class="site-footer__contacts">
+              <li><a href="tel:911"><strong>911</strong><span data-i18n="footer_emergency_short">Emergency</span></a></li>
+              <li><a href="tel:988"><strong>988</strong><span data-i18n="footer_988_short">Crisis &amp; mental health</span></a></li>
+              <li><a href="tel:211"><strong>211</strong><span data-i18n="footer_211_short">Info &amp; referral</span></a></li>
+              <li><a href="https://tpch.net/coordinated-entry-for-homeless-services/" target="_blank" rel="noopener"><strong data-i18n="footer_ce_short">Coordinated Entry</strong><span data-i18n="footer_ce_sub">Front door to housing</span></a></li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="site-footer__bottom">
@@ -132,6 +147,6 @@
   </footer>
 
   <script src="js/icons.js?v=20"></script>
-  <script src="js/app.js?v=21"></script>
+  <script src="js/app.js?v=22"></script>
 </body>
 </html>

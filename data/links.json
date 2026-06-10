@@ -13,10 +13,12 @@
       "sub": "Free numbers that answer 24/7. Start here if you need help today.",
       "sub_es": "Números gratuitos que contestan las 24 horas. Empiece aquí si necesita ayuda hoy.",
       "links": [
-        { "name": "911 — Emergency", "tel": "911", "desc": "Immediate danger or medical emergency.", "desc_es": "Peligro inmediato o emergencia médica." },
-        { "name": "988 — Suicide & Crisis Lifeline", "tel": "988", "desc": "Mental health crisis. Call or text, 24/7, English and Spanish.", "desc_es": "Crisis de salud mental. Llame o envíe texto, 24/7, en inglés y español." },
+        { "name": "911: Emergency", "tel": "911", "desc": "Immediate danger or medical emergency.", "desc_es": "Peligro inmediato o emergencia médica." },
+        { "name": "988: Suicide & Crisis Lifeline", "tel": "988", "desc": "Mental health crisis. Call or text, 24/7, English and Spanish.", "desc_es": "Crisis de salud mental. Llame o envíe texto, 24/7, en inglés y español." },
+        { "name": "Crisis Text Line", "url": "https://www.crisistextline.org", "desc": "Text TALK to 741741 to reach a counselor by text, 24/7.", "desc_es": "Envíe TALK por texto al 741741 para hablar con un consejero por texto, 24/7." },
         { "name": "211 Arizona", "tel": "211", "url": "https://211arizona.org", "desc": "Statewide info and referral: housing, food, utilities, and more.", "desc_es": "Información y referencias en todo el estado: vivienda, comida, servicios públicos y más." },
         { "name": "Emerge! 24-hour DV hotline", "tel": "5207954266", "desc": "Domestic violence help, multilingual. Toll-free: 1-888-428-0101.", "desc_es": "Ayuda con violencia doméstica, multilingüe. Gratis: 1-888-428-0101." },
+        { "name": "SACASA: sexual assault crisis line", "tel": "5203277273", "desc": "Sexual assault crisis support, 24/7, English and Spanish. Toll-free: 1-800-400-1001.", "desc_es": "Apoyo en crisis por agresión sexual, 24/7, inglés y español. Gratis: 1-800-400-1001." },
         { "name": "Community-Wide Crisis Line (Solari)", "url": "https://crisisnetwork.solari.org", "desc": "Pima County's 24/7 behavioral-health crisis network.", "desc_es": "Red de crisis de salud mental del Condado de Pima, 24/7." }
       ]
     },
@@ -32,7 +34,28 @@
         { "name": "Coordinated Entry (TPCH)", "url": "https://tpch.net/coordinated-entry-for-homeless-services/", "desc": "The \"front door\" to housing services. One assessment connects you to programs.", "desc_es": "La \"puerta de entrada\" a los servicios de vivienda. Una evaluación lo conecta con programas." },
         { "name": "Live shelter bed dashboard", "url": "https://pimamaps.maps.arcgis.com/apps/dashboards/ca4fb93ec7014433b14e39a909873bd7", "desc": "Real-time shelter bed availability across Pima County.", "desc_es": "Disponibilidad de camas de refugio en tiempo real en el Condado de Pima." },
         { "name": "City of Tucson Housing First", "url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development/Homelessness/Housing-First", "desc": "Street outreach, emergency shelter, and housing navigation from the City.", "desc_es": "Alcance en la calle, refugio de emergencia y navegación de vivienda de la Ciudad." },
-        { "name": "TPCH — Tucson Pima Collaboration to End Homelessness", "url": "https://tpch.net", "desc": "Publishes the \"Need Help?\" guide and coordinates local homeless services.", "desc_es": "Publica la guía \"Need Help?\" y coordina los servicios locales para personas sin hogar." }
+        { "name": "TPCH: Tucson Pima Collaboration to End Homelessness", "url": "https://tpch.net", "desc": "Publishes the \"Need Help?\" guide and coordinates local homeless services.", "desc_es": "Publica la guía \"Need Help?\" y coordina los servicios locales para personas sin hogar." },
+        { "name": "Pio Decimo Center (Catholic Community Services)", "tel": "5206222801", "url": "https://www.ccs-soaz.org/agencies-ministries/pio-decimo-center", "desc": "Transitional housing for families with children, plus emergency assistance and housing counseling.", "desc_es": "Vivienda de transición para familias con hijos, más asistencia de emergencia y consejería de vivienda." }
+      ]
+    },
+    {
+      "id": "prevention",
+      "icon": "home",
+      "color": "prevention",
+      "title": "Worried about losing your housing?",
+      "title_es": "¿Le preocupa perder su vivienda?",
+      "sub": "Still housed, but falling behind? Act now, before an eviction is filed. These programs exist for exactly this moment, and the earlier you call, the more they can do.",
+      "sub_es": "¿Todavía tiene vivienda pero está atrasado? Actúe ahora, antes de que presenten un desalojo. Estos programas existen exactamente para este momento, y cuanto antes llame, más pueden hacer.",
+      "links": [
+        { "name": "Emergency Eviction Legal Services (EELS)", "tel": "5207243357", "url": "https://www.pima.gov/957/Emergency-Eviction-Legal-Services", "desc": "Free eviction lawyer (income limits apply) and court navigators for any Pima County tenant. Call 520-724-EELS the day you get a late notice or court papers.", "desc_es": "Abogado de desalojo gratuito (con límites de ingresos) y navegadores de corte para cualquier inquilino del Condado de Pima. Llame al 520-724-3357 el día que reciba un aviso de retraso o documentos de la corte." },
+        { "name": "211 Arizona: rent & utility help", "tel": "211", "desc": "Ask what rent and utility assistance programs are open right now.", "desc_es": "Pregunte qué programas de asistencia de renta y servicios públicos están abiertos ahora." },
+        { "name": "Pima County Community Action Agency", "tel": "5207242667", "url": "https://www.pima.gov/887/Community-Assistance-Division", "desc": "Eviction prevention, rent, mortgage, and utility help with budget coaching. Call M–F 8–5 (closed 12–1).", "desc_es": "Prevención de desalojo y ayuda con renta, hipoteca y servicios públicos, con asesoría de presupuesto. Llame L–V 8–5 (cerrado 12–1)." },
+        { "name": "Southern Arizona Legal Aid", "tel": "8002486789", "url": "https://www.sazlegalaid.org", "desc": "Free civil legal help beyond eviction: benefits denials, protection orders, guardianship.", "desc_es": "Ayuda legal civil gratuita más allá del desalojo: negaciones de beneficios, órdenes de protección, tutela." },
+        { "name": "Our Family Services: Homeless Prevention", "tel": "5203231708", "desc": "Rent help for housed families with kids and youth 18–24 behind on payments. Must call before an eviction notice arrives.", "desc_es": "Ayuda de renta para familias con hijos y jóvenes de 18–24 años atrasados en pagos. Debe llamar antes de que llegue un aviso de desalojo." },
+        { "name": "Pima Council on Aging (60+)", "tel": "5207907262", "desc": "One-time rent, mortgage, or utility help for adults 60 and older.", "desc_es": "Ayuda única con renta, hipoteca o servicios públicos para adultos de 60 años o más." },
+        { "name": "Project Action for Veterans (Primavera)", "tel": "5203083093", "desc": "Housing support and temporary financial help for veterans facing eviction or foreclosure.", "desc_es": "Apoyo de vivienda y ayuda financiera temporal para veteranos enfrentando desalojo o ejecución hipotecaria." },
+        { "name": "AZ Pet Project: ADOH flex funds", "url": "https://azpetproject.org", "desc": "One-time help up to $3,000: rent, utilities, deposits, car repairs, and pet costs.", "desc_es": "Ayuda única de hasta $3,000: renta, servicios públicos, depósitos, reparaciones de auto y gastos de mascotas." },
+        { "name": "TEP Lifeline discount", "url": "https://www.tep.com/customer-assistance/", "desc": "$20/month off your electric bill at or below 200% of poverty. Reapply every year.", "desc_es": "$20/mes de descuento en su factura de luz con ingresos al 200% de pobreza o menos. Vuelva a solicitar cada año." }
       ]
     },
     {
@@ -41,14 +64,17 @@
       "color": "emergency",
       "title": "Shelters & day centers",
       "title_es": "Refugios y centros de día",
-      "sub": "Call ahead — beds change daily. The Directory page has full details for each one.",
+      "sub": "Call ahead; beds change daily. The Directory page has full details for each one.",
       "sub_es": "Llame antes: las camas cambian a diario. La página Directorio tiene los detalles de cada uno.",
       "links": [
         { "name": "Salvation Army Hospitality House", "tel": "5206225411", "desc": "Emergency shelter for men, women, and families. Open 24/7.", "desc_es": "Refugio de emergencia para hombres, mujeres y familias. Abierto 24/7." },
-        { "name": "Gospel Rescue Mission — Center of Opportunity", "url": "https://grmtucson.com", "desc": "Emergency and recovery shelter for men, women, and women with children.", "desc_es": "Refugio de emergencia y recuperación para hombres, mujeres y mujeres con hijos." },
+        { "name": "Gospel Rescue Mission: Center of Opportunity", "url": "https://grmtucson.com", "desc": "Emergency and recovery shelter for men, women, and women with children.", "desc_es": "Refugio de emergencia y recuperación para hombres, mujeres y mujeres con hijos." },
         { "name": "Primavera Foundation", "url": "https://www.primavera.org", "desc": "Men's shelter, family shelter, women's shelter, and rental assistance.", "desc_es": "Refugio para hombres, para familias, para mujeres y ayuda con la renta." },
         { "name": "Sister José Women's Center", "url": "https://srjosewomenscenter.org", "desc": "Low-barrier day center and overnight program for women.", "desc_es": "Centro de día de bajas barreras y programa nocturno para mujeres." },
-        { "name": "Old Pueblo Community Services", "url": "https://helptucson.org", "desc": "Bridge housing, veteran housing, and recovery support.", "desc_es": "Vivienda puente, vivienda para veteranos y apoyo de recuperación." }
+        { "name": "Poverello House of Tucson", "url": "https://tucsonpoverello.com", "tel": "5206378916", "desc": "Day shelter: rest, meals, showers, laundry. Call to reserve; 10 guests/day, no overnight.", "desc_es": "Refugio diurno: descanso, comidas, duchas, lavandería. Llame para reservar; 10 huéspedes/día, sin servicio nocturno." },
+        { "name": "Old Pueblo Community Services", "url": "https://helptucson.org", "desc": "Bridge housing, veteran housing, and recovery support.", "desc_es": "Vivienda puente, vivienda para veteranos y apoyo de recuperación." },
+        { "name": "Cooling centers (May–October)", "url": "https://experience.arcgis.com/experience/559815d406654a5d915ac238a6d6267c", "desc": "Free AC, water, and rest during extreme heat. No ID, no questions. Dial 211 for the nearest one or a ride.", "desc_es": "Aire acondicionado, agua y descanso gratis durante el calor extremo. Sin identificación, sin preguntas. Marque 211 para el más cercano o un transporte." },
+        { "name": "Cooling center map & list (PDF, 2026)", "url": "docs/cooling-centers-map-2026.pdf", "desc": "Printable Beat the Heat list of every Pima County cooling center, with addresses, hours, and bus routes.", "desc_es": "Lista imprimible Beat the Heat de cada centro de enfriamiento del Condado de Pima, con direcciones, horarios y rutas de autobús." }
       ]
     },
     {
@@ -61,8 +87,9 @@
       "sub_es": "Despensas y comidas calientes gratis. La mayoría de los comedores no piden identificación.",
       "links": [
         { "name": "Community Food Bank of Southern Arizona", "url": "https://communityfoodbank.org", "desc": "Food pantries across Tucson and Pima County.", "desc_es": "Despensas de alimentos en Tucson y el Condado de Pima." },
+        { "name": "WIC (Pima County Health Dept.)", "tel": "5207247769", "url": "https://www.pima.gov/2180/Women-Infants-Children-WIC-Program", "desc": "Healthy food and breastfeeding support for pregnant women, new moms, and kids under 5. Four Tucson offices.", "desc_es": "Alimentos saludables y apoyo a la lactancia para embarazadas, mamás recientes y niños menores de 5 años. Cuatro oficinas en Tucson." },
         { "name": "Caridad Community Kitchen", "url": "https://communityfoodbank.org/Locations/Caridad", "desc": "Hot meals and culinary job training.", "desc_es": "Comidas calientes y capacitación laboral en cocina." },
-        { "name": "Casa Maria Soup Kitchen", "url": "https://casamariatucson.org", "desc": "Daily soup kitchen — meals, no questions asked.", "desc_es": "Comedor diario: comidas sin hacer preguntas." },
+        { "name": "Casa Maria Soup Kitchen", "url": "https://casamariatucson.org", "desc": "Daily soup kitchen. Meals, no questions asked.", "desc_es": "Comedor diario: comidas sin hacer preguntas." },
         { "name": "Z Mansion", "url": "https://zmansion.com", "desc": "Volunteer-run meals and basic medical care for people on the street.", "desc_es": "Comidas y atención médica básica de voluntarios para personas en la calle." }
       ]
     },
@@ -72,14 +99,18 @@
       "color": "drop_in",
       "title": "Health, mental health & recovery",
       "title_es": "Salud, salud mental y recuperación",
-      "sub": "Care on a sliding scale or free — insurance is not required to start.",
+      "sub": "Care on a sliding scale or free. Insurance is not required to start.",
       "sub_es": "Atención con tarifa según ingresos o gratis: no se requiere seguro para empezar.",
       "links": [
-        { "name": "El Rio Health", "url": "https://elrio.org", "desc": "Community health centers — medical, dental, and behavioral health.", "desc_es": "Centros de salud comunitarios: medicina, dental y salud mental." },
+        { "name": "El Rio Health", "url": "https://elrio.org", "desc": "Community health centers: medical, dental, and behavioral health.", "desc_es": "Centros de salud comunitarios: medicina, dental y salud mental." },
         { "name": "Crisis Response Center", "url": "https://www.crisisresponsecenter.com", "desc": "24/7 walk-in mental-health crisis care. 2802 E. District St.", "desc_es": "Atención de crisis de salud mental 24/7 sin cita. 2802 E. District St." },
         { "name": "CODAC Health, Recovery & Wellness", "url": "https://www.codac.org", "desc": "Substance-use treatment and mental health care.", "desc_es": "Tratamiento de uso de sustancias y salud mental." },
         { "name": "La Frontera Arizona", "url": "http://lafronteraaz.org", "desc": "Behavioral health, recovery, and supportive services.", "desc_es": "Salud mental, recuperación y servicios de apoyo." },
-        { "name": "Community Bridges (CBI)", "url": "https://communitybridgesaz.org", "desc": "Crisis stabilization, detox, and men's shelter access point.", "desc_es": "Estabilización de crisis, desintoxicación y punto de acceso al refugio para hombres." }
+        { "name": "Community Bridges (CBI)", "url": "https://communitybridgesaz.org", "desc": "Crisis stabilization, detox, and men's shelter access point.", "desc_es": "Estabilización de crisis, desintoxicación y punto de acceso al refugio para hombres." },
+        { "name": "St. Elizabeth's Health Center", "tel": "5206287871", "desc": "Sliding-scale medical, dental, and counseling for the uninsured. 140 W. Speedway Blvd.", "desc_es": "Atención médica, dental y consejería con tarifa según ingresos para personas sin seguro. 140 W. Speedway Blvd." },
+        { "name": "The Haven: women's recovery", "tel": "5206234590", "url": "https://thehaventucson.org", "desc": "Residential substance-use treatment for women. Moms can bring children age 4 and under.", "desc_es": "Tratamiento residencial de uso de sustancias para mujeres. Las mamás pueden traer hijos de 4 años o menos." },
+        { "name": "Free Narcan: Sonoran Prevention Works", "tel": "5204427688", "url": "https://spwaz.org/arizonanaloxone/", "desc": "Free naloxone, overdose-response training, and HIV/hep-C testing. No ID, no questions.", "desc_es": "Naloxona gratis, capacitación para responder a sobredosis y pruebas de VIH/hepatitis C. Sin identificación, sin preguntas." },
+        { "name": "Never Use Alone hotline", "tel": "8776961996", "desc": "If you have to use drugs alone, call first. They stay on the line and send help if you stop responding.", "desc_es": "Si tiene que usar drogas a solas, llame primero. Se quedan en la línea y envían ayuda si deja de responder." }
       ]
     },
     {
@@ -102,10 +133,11 @@
       "color": "veterans",
       "title": "Veterans",
       "title_es": "Veteranos",
-      "sub": "VA programs reach veterans on the street — a DD-214 helps but call either way.",
+      "sub": "VA programs reach veterans on the street. A DD-214 helps, but call either way.",
       "sub_es": "Los programas del VA llegan a veteranos en la calle: el DD-214 ayuda, pero llame de todos modos.",
       "links": [
         { "name": "VA Southern Arizona Health Care", "url": "https://www.va.gov/southern-arizona-health-care/", "desc": "VA hospital and homeless program. 3601 S. 6th Ave.", "desc_es": "Hospital del VA y programa para veteranos sin hogar. 3601 S. 6th Ave." },
+        { "name": "Esperanza En Escalante", "url": "https://esperanzaveterans.org", "tel": "5206752707", "desc": "Transitional and permanent housing for Veterans and their families. 14-acre campus.", "desc_es": "Vivienda de transición y permanente para veteranos y sus familias. Campus de 14 acres." },
         { "name": "National Call Center for Homeless Veterans", "tel": "18774243838", "desc": "24/7 hotline: 1-877-4AID-VET.", "desc_es": "Línea directa 24/7: 1-877-424-3838." }
       ]
     },
@@ -119,7 +151,8 @@
       "sub_es": "Las ubicaciones de los refugios son confidenciales. La línea directa es la puerta a todo.",
       "links": [
         { "name": "Emerge! Center Against Domestic Abuse", "url": "https://www.emergecenter.org", "tel": "5207954266", "desc": "24-hour hotline, emergency shelter, and support services.", "desc_es": "Línea directa 24 horas, refugio de emergencia y servicios de apoyo." },
-        { "name": "SAAF Anti-Violence Project", "url": "https://saaf.org", "desc": "Crisis line and advocacy for LGBTQ+ survivors: 1-800-553-9387.", "desc_es": "Línea de crisis y defensa para sobrevivientes LGBTQ+: 1-800-553-9387." }
+        { "name": "SAAF Anti-Violence Project", "url": "https://saaf.org", "desc": "Crisis line and advocacy for LGBTQ+ survivors: 1-800-553-9387.", "desc_es": "Línea de crisis y defensa para sobrevivientes LGBTQ+: 1-800-553-9387." },
+        { "name": "SACASA: Southern Arizona Center Against Sexual Assault", "tel": "5203277273", "url": "https://www.sacasa.org", "desc": "24/7 sexual assault crisis line, hospital advocacy, and trauma counseling. All genders.", "desc_es": "Línea de crisis por agresión sexual 24/7, acompañamiento en hospitales y consejería de trauma. Todos los géneros." }
       ]
     },
     {
@@ -134,7 +167,9 @@
         { "name": "Sullivan Jackson Employment Center", "tel": "5207247300", "desc": "Pima County job center for people experiencing homelessness. 400 E. 26th St.", "desc_es": "Centro de empleo del Condado de Pima para personas sin hogar. 400 E. 26th St." },
         { "name": "Arizona DES", "url": "https://des.az.gov", "desc": "Apply for SNAP (food stamps), cash assistance, and AHCCCS (Medicaid).", "desc_es": "Solicite SNAP (cupones de comida), asistencia en efectivo y AHCCCS (Medicaid)." },
         { "name": "Tucson Homeless Work Program", "url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development", "desc": "Paid day-work crew with connection to services, run by the City.", "desc_es": "Trabajo pagado por día con conexión a servicios, dirigido por la Ciudad." },
-        { "name": "Interfaith Community Services", "url": "https://www.icstucson.org", "desc": "Emergency financial assistance, food bank, and case management.", "desc_es": "Asistencia financiera de emergencia, banco de alimentos y manejo de casos." }
+        { "name": "Interfaith Community Services", "url": "https://www.icstucson.org", "desc": "Emergency financial assistance, food bank, and case management.", "desc_es": "Asistencia financiera de emergencia, banco de alimentos y manejo de casos." },
+        { "name": "VITA free tax prep (United Way)", "url": "https://unitedwaytucson.org/vita/", "desc": "Free IRS-certified tax preparation for households earning up to $89,000. Claim refunds and credits you're owed. In-person, online, and DIY options through October.", "desc_es": "Preparación de impuestos gratuita con certificación del IRS para hogares con ingresos de hasta $89,000. Reclame reembolsos y créditos que le corresponden. Opciones en persona, en línea y por su cuenta hasta octubre." },
+        { "name": "Tucson Indian Center", "tel": "5208847131", "url": "https://www.ticenter.org", "desc": "Job training, emergency assistance, and culturally specific services for Native Americans of any tribe (intertribal). 160 N. Stone Ave.", "desc_es": "Capacitación laboral, asistencia de emergencia y servicios culturalmente específicos para indígenas americanos de cualquier tribu (intertribal). 160 N. Stone Ave." }
       ]
     },
     {
@@ -146,7 +181,8 @@
       "sub": "Eviction prevention and aging services for people 60 and older.",
       "sub_es": "Prevención de desalojo y servicios para personas de 60 años o más.",
       "links": [
-        { "name": "Pima Council on Aging", "url": "https://pcoa.org", "desc": "Help line, housing help, and supports for older adults and caregivers.", "desc_es": "Línea de ayuda, apoyo con vivienda y servicios para adultos mayores y cuidadores." }
+        { "name": "Pima Council on Aging", "url": "https://pcoa.org", "desc": "Help line, housing help, and supports for older adults and caregivers.", "desc_es": "Línea de ayuda, apoyo con vivienda y servicios para adultos mayores y cuidadores." },
+        { "name": "Administration of Resources & Choices (ARC)", "tel": "5203392801", "url": "https://arc-az.org", "desc": "24-hour crisis line for adults 55+ facing domestic violence or abuse. Advocacy and assistance.", "desc_es": "Línea de crisis 24 horas para adultos de 55+ años que enfrentan violencia doméstica o abuso. Defensa y asistencia." }
       ]
     },
     {
@@ -155,7 +191,7 @@
       "color": "outreach",
       "title": "Pets",
       "title_es": "Mascotas",
-      "sub": "Don't give up your pet to get help — these programs keep you together.",
+      "sub": "Don't give up your pet to get help. These programs keep you together.",
       "sub_es": "No tiene que renunciar a su mascota para recibir ayuda: estos programas los mantienen juntos.",
       "links": [
         { "name": "AZ Pet Project", "url": "https://azpetproject.org", "desc": "Pet food, supplies, vet care, and temporary boarding during a housing crisis.", "desc_es": "Comida, suministros, atención veterinaria y alojamiento temporal para mascotas durante una crisis de vivienda." }
@@ -170,7 +206,9 @@
       "sub": "Reentry guides and programs that welcome people with a record.",
       "sub_es": "Guías de reingreso y programas que aceptan a personas con antecedentes.",
       "links": [
-        { "name": "Pima County Justice Services — Getting Out guide", "url": "https://www.pima.gov", "desc": "The \"Guidelines on Getting Out\" (GOGO) reentry guide: housing, ID, work, benefits.", "desc_es": "La guía de reingreso \"Guidelines on Getting Out\" (GOGO): vivienda, identificación, trabajo, beneficios." }
+        { "name": "Crisis Response & Intervention Community Resources guide (2024)", "url": "docs/crisis-response-community-resources-2024.pdf", "desc": "Pima County Justice Services' full reentry guide (PDF): shelter, transitional and sober-living housing, ID, warrants, jobs, benefits, and family matters.", "desc_es": "La guía completa de reingreso de Servicios de Justicia del Condado de Pima (PDF): refugio, vivienda de transición y de sobriedad, identificación, órdenes judiciales, trabajo, beneficios y asuntos familiares." },
+        { "name": "Pima County Justice Services", "tel": "5207249933", "url": "https://www.pima.gov/239/Justice-Services", "desc": "The county office behind the guide. 201 N. Stone Ave., 2nd Floor.", "desc_es": "La oficina del condado que publica la guía. 201 N. Stone Ave., 2do piso." },
+        { "name": "Works Temp Service (Primavera)", "tel": "5208825383", "desc": "Day labor and job-search help for people with a record (except level 3 sex offenses). Lunches and bus passes. Call ahead.", "desc_es": "Trabajo por día y ayuda de búsqueda de empleo para personas con antecedentes (excepto delitos sexuales nivel 3). Almuerzos y pases de autobús. Llame antes." }
       ]
     },
     {
@@ -182,8 +220,9 @@
       "sub": "Reference links for professionals. Print this page for a desk copy.",
       "sub_es": "Enlaces de referencia para profesionales. Imprima esta página para tener una copia en su escritorio.",
       "links": [
-        { "name": "TPCH — Continuum of Care", "url": "https://tpch.net", "desc": "Local CoC: member agencies, committees, data, and the Need Help? guide.", "desc_es": "CoC local: agencias miembro, comités, datos y la guía Need Help?" },
-        { "name": "City of Tucson — Housing & Community Development", "url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development", "desc": "City housing programs, homelessness response, and provider lists.", "desc_es": "Programas de vivienda de la Ciudad, respuesta a la falta de vivienda y listas de proveedores." },
+        { "name": "TPCH: Continuum of Care", "url": "https://tpch.net", "desc": "Local CoC: member agencies, committees, data, and the Need Help? guide.", "desc_es": "CoC local: agencias miembro, comités, datos y la guía Need Help?" },
+        { "name": "Pima County reentry guide (PDF)", "url": "docs/crisis-response-community-resources-2024.pdf", "desc": "Crisis Response & Intervention Community Resources 2024: printable desk copy from Justice Services.", "desc_es": "Crisis Response & Intervention Community Resources 2024: copia imprimible de Servicios de Justicia." },
+        { "name": "City of Tucson: Housing & Community Development", "url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development", "desc": "City housing programs, homelessness response, and provider lists.", "desc_es": "Programas de vivienda de la Ciudad, respuesta a la falta de vivienda y listas de proveedores." },
         { "name": "Pima County", "url": "https://www.pima.gov", "desc": "County services: justice services, health department, and assistance programs.", "desc_es": "Servicios del Condado: servicios de justicia, departamento de salud y programas de asistencia." },
         { "name": "HUD income limits", "url": "https://www.huduser.gov/portal/datasets/il.html", "desc": "Official AMI income limits used for program eligibility.", "desc_es": "Límites de ingresos oficiales (AMI) usados para la elegibilidad de programas." }
       ]

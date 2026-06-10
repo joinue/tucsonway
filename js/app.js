@@ -90,7 +90,13 @@
       document.documentElement.removeAttribute('data-theme');
     }
   }
+  function syncThemeColorMeta() {
+    // Keep browser chrome (Android URL bar etc.) in step with the theme.
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', getEffectiveTheme() === 'dark' ? '#11151e' : '#c4452a');
+  }
   function updateThemeButton() {
+    syncThemeColorMeta();
     const btn = document.getElementById('theme-toggle');
     if (!btn) return;
     const effective = getEffectiveTheme();

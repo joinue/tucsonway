@@ -1,6 +1,8 @@
 /* Tucson Compass — map page (Leaflet + OpenStreetMap).
-   App-like mobile UX: Map/List view toggle, FAB locate-me, compact hotline pill
-   that opens a modal sheet. Desktop keeps the side-by-side map + list. */
+   App-like mobile UX: Map/List view toggle, labeled locate FAB with toast
+   feedback, compact hotline pill that opens a modal sheet, and an app frame
+   (no page scroll) in Map view. Tablet/desktop keep the side-by-side map +
+   list; the mouse wheel scrolls the page — Ctrl/Cmd+wheel zooms the map. */
 (function () {
   'use strict';
 
@@ -45,6 +47,9 @@
   const $locateFab = document.getElementById('locate-fab');
   const $count = document.getElementById('map-results-count');
   const $listCountBadge = document.getElementById('view-toggle-count');
+  const $listHead = document.getElementById('map-list-head');
+  const $hint = document.getElementById('map-hint');
+  const $toast = document.getElementById('map-toast');
   const $list = document.getElementById('map-list');
   const $noResults = document.getElementById('map-no-results');
   const $hotlineBlock = document.getElementById('hotline-block');
@@ -279,7 +284,40 @@
     });
   }
 
+  /* ---------- toast + hint overlays ---------- */
+  let toastTimer = null;
+  function showToast(msg, ms) {
+    if (!$toast) return;
+    $toast.textContent = msg;
+    $toast.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { $toast.hidden = true; }, ms || 4000);
+  }
+
+  /* One-time "tap a pin" hint — phones only (the lead paragraph that says
+     this is hidden there). Cleared forever once the user opens any popup. */
+  const HINT_KEY = 'tw.map.hintDone';
+  let hintTimer = null;
+  function maybeShowHint() {
+    try { if (localStorage.getItem(HINT_KEY)) return; } catch (e) { /* ignore */ }
+    if (!window.matchMedia('(max-width: 719px)').matches) return;
+    $hint.hidden = false;
+    hintTimer = setTimeout(() => { $hint.hidden = true; }, 10000);
+  }
+  function dismissHint() {
+    clearTimeout(hintTimer);
+    if (!$hint.hidden) $hint.hidden = true;
+    try { localStorage.setItem(HINT_KEY, '1'); } catch (e) { /* ignore */ }
+  }
+
   /* ---------- filter chips ---------- */
+  /* The phone chip row scrolls horizontally behind a fade (CSS mask); clear
+     the fade once the row is scrolled to the end so nothing looks cut off. */
+  function syncFilterFade() {
+    const atEnd = $filters.scrollLeft + $filters.clientWidth >= $filters.scrollWidth - 4;
+    $filters.dataset.scrollEnd = String(atEnd);
+  }
+
   function renderFilters() {
     $filters.innerHTML = '';
     CATEGORIES.forEach((cat) => {
@@ -305,6 +343,7 @@
       });
       $filters.appendChild(btn);
     });
+    syncFilterFade();
   }
 
   /* ---------- list ---------- */
@@ -344,20 +383,37 @@
     const countText = TW.t('dir_results_count').replace('{n}', String(list.length));
     $count.textContent = countText;
     if ($listCountBadge) $listCountBadge.textContent = String(list.length);
+    if ($listHead) {
+      /* Phone list view has no other place that shows the result count */
+      $listHead.hidden = none;
+      $listHead.textContent = '';
+      const c = document.createElement('span');
+      c.textContent = countText;
+      $listHead.appendChild(c);
+      if (userPos) {
+        const s = document.createElement('span');
+        s.textContent = TW.t('map_sorted_nearest');
+        $listHead.appendChild(s);
+      }
+    }
 
     $list.querySelectorAll('.map-list__card').forEach((card) => {
       card.addEventListener('click', () => {
         const id = card.dataset.id;
         const r = resources.find((x) => x.id === id);
         if (!r) return;
-        /* On mobile, hop to the map view to show the pin */
-        if (currentView === 'list' && window.matchMedia('(max-width: 979px)').matches) {
+        /* On phones, hop to the map view to show the pin */
+        if (currentView === 'list' && window.matchMedia('(max-width: 719px)').matches) {
           setView('map');
         }
         setActive(id);
         const m = markersById.get(id);
         if (m && map) {
-          map.flyTo([r.lat, r.lng], Math.max(map.getZoom(), 15), { duration: 0.6 });
+          /* Fly to the marker's display position (fanned-out pins sit a few
+             meters off their true coords); zoom deeper for those so the
+             shared-building pins visibly separate. */
+          const targetZoom = Math.max(map.getZoom(), m.twOffset ? 17 : 15);
+          map.flyTo(m.getLatLng(), targetZoom, { duration: 0.6 });
           m.openPopup();
         }
       });
@@ -365,6 +421,38 @@
   }
 
   /* ---------- markers ---------- */
+  /* Every place gets its own always-visible pin — no clustering, since it
+     hides what's on the map and users zoom in anyway. A few providers share
+     one building (identical coordinates), which would stack pins exactly on
+     top of each other forever; fan those out ~28m in a tiny circle so each
+     one is visible and tappable once zoomed in. */
+  function displayPositions(list) {
+    const byCoord = new Map();
+    list.forEach((r) => {
+      const key = r.lat.toFixed(5) + ',' + r.lng.toFixed(5);
+      if (!byCoord.has(key)) byCoord.set(key, []);
+      byCoord.get(key).push(r.id);
+    });
+    const pos = new Map();
+    byCoord.forEach((ids) => {
+      ids.forEach((id, i) => {
+        const r = list.find((x) => x.id === id);
+        if (ids.length === 1) {
+          pos.set(id, { lat: r.lat, lng: r.lng, offset: false });
+        } else {
+          const angle = (2 * Math.PI * i) / ids.length + 0.6;
+          const d = 0.00028; /* ≈ 28 m */
+          pos.set(id, {
+            lat: r.lat + d * Math.sin(angle),
+            lng: r.lng + d * Math.cos(angle),
+            offset: true,
+          });
+        }
+      });
+    });
+    return pos;
+  }
+
   function renderMarkers(opts) {
     if (!map) return;
     opts = opts || {};
@@ -373,17 +461,21 @@
     markersById.clear();
 
     const list = visibleResources();
+    const positions = displayPositions(list);
     list.forEach((r) => {
       const cat = primaryCategoryFor(r);
-      const m = L.marker([r.lat, r.lng], {
+      const p = positions.get(r.id);
+      const m = L.marker([p.lat, p.lng], {
         icon: pinIcon(cat, activeId === r.id),
         title: r.name,
         alt: r.name,
         keyboard: true,
       });
+      m.twOffset = p.offset;
       m.bindPopup(popupHtml(r), { maxWidth: 260, autoPanPadding: [24, 24] });
       m.on('popupopen', () => {
-        setActive(r.id, { skipMap: true });
+        dismissHint();
+        setActive(r.id);
         TW.hydrateIcons(document.querySelector('.leaflet-popup-content') || document);
       });
       m.on('popupclose', () => { if (activeId === r.id) setActive(null); });
@@ -430,8 +522,11 @@
   function setView(v) {
     currentView = v;
     $mapLayout.dataset.view = v;
-    $viewMap.setAttribute('aria-selected', String(v === 'map'));
-    $viewList.setAttribute('aria-selected', String(v === 'list'));
+    /* The body attribute drives the phone app frame (no page scroll in Map
+       view) and the hotline pill's position (above the list in List view). */
+    document.body.dataset.mapView = v;
+    $viewMap.setAttribute('aria-pressed', String(v === 'map'));
+    $viewList.setAttribute('aria-pressed', String(v === 'list'));
     /* Leaflet needs invalidateSize when its container becomes visible after being hidden */
     if (v === 'map' && map) {
       setTimeout(() => map.invalidateSize(), 60);
@@ -456,25 +551,35 @@
   }
 
   function syncLocateUI(state) {
-    /* state: 'idle' | 'searching' | 'on' | 'error' */
+    /* state: 'idle' | 'searching' | 'on' | 'error'
+       Both controls reflect every state: the chip (tablet/desktop) via its
+       label, the FAB (phones) via its label + pulse — the FAB used to stay
+       silent, so a denied geolocation prompt looked like a dead button. */
     const chipLabel = $locateChip.querySelector('span');
+    const fabLabel = $locateFab.querySelector('.map-fab__label');
+    $locateFab.classList.toggle('is-searching', state === 'searching');
     if (state === 'searching') {
       $locateChip.disabled = true;
       if (chipLabel) chipLabel.textContent = TW.t('dir_near_me_searching');
+      if (fabLabel) fabLabel.textContent = TW.t('map_near_me_searching');
     } else if (state === 'on') {
       $locateChip.disabled = false;
       $locateChip.setAttribute('aria-pressed', 'true');
       $locateFab.setAttribute('aria-pressed', 'true');
       if (chipLabel) chipLabel.textContent = TW.t('map_locate_me_on');
+      if (fabLabel) fabLabel.textContent = TW.t('map_near_me_on');
     } else if (state === 'error') {
       $locateChip.disabled = false;
       if (chipLabel) chipLabel.textContent = TW.t('dir_near_me_unavailable');
+      if (fabLabel) fabLabel.textContent = TW.t('map_near_me');
+      showToast(TW.t('map_locate_error'), 5000);
       setTimeout(() => syncLocateUI('idle'), 3000);
     } else { /* idle */
       $locateChip.disabled = false;
       $locateChip.setAttribute('aria-pressed', 'false');
       $locateFab.setAttribute('aria-pressed', 'false');
       if (chipLabel) chipLabel.textContent = TW.t('map_locate_me');
+      if (fabLabel) fabLabel.textContent = TW.t('map_near_me');
     }
   }
 
@@ -515,14 +620,46 @@
     $locateFab.addEventListener('click', toggleLocate);
   }
 
+  /* ---------- wheel zoom (mouse devices) ---------- */
+  /* A mouse wheel over the map used to zoom it, swallowing the page scroll —
+     the classic embedded-map trap. Scroll now moves the page; Ctrl/Cmd+wheel
+     (and trackpad pinch, which browsers report as ctrl+wheel) zooms the map,
+     with a toast teaching the gesture. Touch devices keep one-finger pan: the
+     phone layout is an app frame, so there's no page scroll to trap there. */
+  function wireWheelZoom() {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    map.scrollWheelZoom.disable();
+    const mapEl = document.getElementById('map');
+    let zoomCooldown = false;
+    let hintCooldown = false;
+    mapEl.addEventListener('wheel', (e) => {
+      if (e.ctrlKey || e.metaKey) {
+        e.preventDefault();
+        if (zoomCooldown) return;
+        zoomCooldown = true;
+        setTimeout(() => { zoomCooldown = false; }, 90);
+        const dir = e.deltaY < 0 ? 1 : -1;
+        map.setZoomAround(map.mouseEventToContainerPoint(e), map.getZoom() + dir);
+      } else if (!hintCooldown) {
+        /* Page scrolls normally; teach the zoom gesture without nagging */
+        hintCooldown = true;
+        setTimeout(() => { hintCooldown = false; }, 8000);
+        const isMac = /Mac/.test(navigator.platform || '');
+        showToast(TW.t('map_zoom_hint').replace('{key}', isMac ? '⌘' : 'Ctrl'), 2500);
+      }
+    }, { passive: false });
+  }
+
   /* ---------- boot ---------- */
   async function boot() {
     const data = await TW.loadResources();
     resources = data.resources || [];
 
+    document.body.dataset.mapView = currentView;
+
     map = L.map('map', {
       zoomControl: true,
-      scrollWheelZoom: true,
+      scrollWheelZoom: true, /* wireWheelZoom() turns this off on mouse devices */
     }).setView([32.2226, -110.9747], 12);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -530,24 +667,27 @@
       attribution: TW.t('map_attribution'),
     }).addTo(map);
 
-    map.on('popupclose', () => { if (activeId) setActive(null); });
-
     renderHotlines();
     renderFilters();
     renderAll();
     wireViewToggle();
     wireModal();
     wireLocate();
+    wireWheelZoom();
+    maybeShowHint();
+
+    $filters.addEventListener('scroll', syncFilterFade, { passive: true });
+    window.addEventListener('resize', syncFilterFade);
 
     /* Resize handling — if user rotates / resizes across the breakpoint,
        reset the layout so neither pane stays accidentally hidden. */
-    const mq = window.matchMedia('(min-width: 980px)');
+    const mq = window.matchMedia('(min-width: 720px)');
     mq.addEventListener('change', () => {
       if (mq.matches) {
-        /* Desktop: ensure both panes visible regardless of dataset */
+        /* Split layout: ensure both panes visible regardless of dataset */
         if (map) setTimeout(() => map.invalidateSize(), 60);
       } else {
-        /* Mobile: respect current view */
+        /* Phone: respect current view */
         setView(currentView);
       }
     });

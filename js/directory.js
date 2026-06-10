@@ -5,13 +5,14 @@
   'use strict';
 
   const CATEGORIES = [
-    'all', 'emergency', 'family', 'women', 'men',
-    'youth', 'veterans', 'domestic_violence', 'employment', 'outreach', 'civic',
+    'all', 'emergency', 'heat', 'family', 'women', 'men',
+    'youth', 'veterans', 'domestic_violence', 'prevention', 'employment', 'outreach', 'civic',
   ];
 
   /* Map category -> icon name (some categories also reuse 'need' icons) */
   const CAT_ICON = {
     emergency: 'bed',
+    heat: 'sun',
     family: 'family',
     women: 'women',
     men: 'men',
@@ -23,6 +24,7 @@
     civic: 'civic',
     drop_in: 'drop_in',
     coordinated_entry: 'coordinated_entry',
+    prevention: 'home',
   };
 
   /* Org logos shown opposite the category icon for brand recognition.
@@ -45,6 +47,7 @@
     ['tucson_homeless_work_program',   'city-of-tucson.webp'],
     ['tucson_ward',                    'city-of-tucson.webp'],
     ['pima_county_crisis_line',        'pima-county.webp'],
+    ['pima_eels',                      'pima-county.webp'],
   ];
 
   function logoFor(r) {
@@ -127,7 +130,7 @@
       return 'family';
     }
 
-    const order = ['women', 'men', 'family', 'youth', 'veterans', 'drop_in', 'coordinated_entry', 'employment', 'civic', 'outreach'];
+    const order = ['women', 'men', 'family', 'youth', 'veterans', 'heat', 'drop_in', 'coordinated_entry', 'employment', 'civic', 'outreach'];
     for (const c of order) if (cats.includes(c)) return c;
     return 'outreach';
   }

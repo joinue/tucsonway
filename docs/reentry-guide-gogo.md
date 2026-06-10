@@ -1,6 +1,8 @@
 # Guidelines on Getting Out (GOGO) — Reentry Resource Guide
 
-A guide produced by **Pima County Justice Services** (in partnership with the City of Tucson and TPCH) to help people transition back to the community after incarceration. 2024 edition.
+A guide produced by **Pima County Justice Services** (in partnership with the City of Tucson and TPCH) to help people transition back to the community after incarceration. 2024 edition, published under the cover title *"Crisis Response & Intervention Community Resources."*
+
+> **Source PDF:** [crisis-response-community-resources-2024.pdf](crisis-response-community-resources-2024.pdf) (linked on the site's Resources page under "After incarceration" and "For caseworkers").
 
 ## Source / Publisher
 
@@ -140,7 +142,7 @@ A guide produced by **Pima County Justice Services** (in partnership with the Ci
 | Resource | Phone | Notes |
 |----------|-------|-------|
 | **988 Suicide & Crisis Lifeline** | **988** | 24/7 national |
-| Community-wide Crisis Line | 1-866-495-6735 / (520) 662-6000; TTY 1-888-248-5998 | 24/7 mental health |
+| Community-wide Crisis Line | 1-866-495-6735 / (520) 622-6000; TTY 1-888-248-5998 | 24/7 mental health |
 | **Crisis Response Center** (walk-in 24/7) | (520) 301-2284 | 2802 E. District St., Tucson, AZ 85714 |
 | 2-1-1 Arizona | dial 2-1-1 | All AZ counties |
 | ARC — Late-life DV (55+) | (520) 339-2801 24-hr / (520) 623-9383 | arc-az.org |
