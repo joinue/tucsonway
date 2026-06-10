@@ -102,6 +102,16 @@
     // they crowd out general services for everyone who picks "mental health".
     if (m.lgbtq_focused && !a.gender.includes('lgbtq')) return { keep: false };
 
+    // domestic-violence-specialized programs only apply to someone fleeing or
+    // recovering from abuse. Keep them when the user says yes or prefers not to
+    // say (just in case), but omit when they explicitly say no so they don't
+    // crowd out general shelter. Still honor them if the user picked the DV/
+    // safety need directly — that's an explicit request that overrides "no".
+    if ((r.categories || []).includes('domestic_violence')
+        && a.dv === 'no' && !a.needs.includes('dv')) {
+      return { keep: false };
+    }
+
     // housing-status alignment (only filter if user said something)
     if (a.housing && a.housing !== 'skip' && a.housing !== 'for_someone' && m.housing) {
       const userBucket = (a.housing === 'at_risk') ? 'at_risk' : 'unhoused';
@@ -384,6 +394,22 @@
       '<a class="match-card__dir" href="' + escapeHtml(TW.directionsUrl(r.address)) + '" target="_blank" rel="noopener">' +
         TW.icon('compass') +
         '<span>' + escapeHtml(TW.t('card_directions')) + '</span>' +
+        TW.newTabHint() +
+      '</a>'
+    );
+  }
+
+  /* Surface a curated website link (e.g. the cooling-center heat-relief map)
+     as its own action. Gated on website_label so only resources whose link is
+     worth leaving results for show one — keeps most cards to call/directions. */
+  function websiteActionFor(r) {
+    const label = TW.fieldByLang(r, 'website_label');
+    if (!r.website || !label) return '';
+    return (
+      '<a class="match-card__site" href="' + escapeHtml(r.website) + '" target="_blank" rel="noopener">' +
+        TW.icon('external') +
+        '<span>' + escapeHtml(label) + '</span>' +
+        TW.newTabHint() +
       '</a>'
     );
   }
@@ -457,6 +483,7 @@
         '<div class="match-card__actions">' +
           phoneActionFor(r) +
           directionsActionFor(r) +
+          websiteActionFor(r) +
           shareActionFor(r) +
         '</div>' +
       '</article>'
@@ -648,6 +675,15 @@
     TW.hydrateIcons($results);
     wireShareButtons($results);
     updatePrintHeader();
+
+    /* Move focus to the results heading so screen readers land on (and
+       announce) the results, instead of re-reading the whole list via a
+       live region. preventScroll keeps the smooth scroll-to-top below. */
+    const resultsHeading = $results.querySelector('h2');
+    if (resultsHeading) {
+      resultsHeading.setAttribute('tabindex', '-1');
+      resultsHeading.focus({ preventScroll: true });
+    }
 
     const printBtn = document.getElementById('match-print');
     if (printBtn) printBtn.addEventListener('click', () => window.print());

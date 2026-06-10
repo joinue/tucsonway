@@ -19,6 +19,7 @@
         { "name": "211 Arizona", "tel": "211", "url": "https://211arizona.org", "desc": "Statewide info and referral: housing, food, utilities, and more.", "desc_es": "Información y referencias en todo el estado: vivienda, comida, servicios públicos y más." },
         { "name": "Emerge! 24-hour DV hotline", "tel": "5207954266", "desc": "Domestic violence help, multilingual. Toll-free: 1-888-428-0101.", "desc_es": "Ayuda con violencia doméstica, multilingüe. Gratis: 1-888-428-0101." },
         { "name": "SACASA: sexual assault crisis line", "tel": "5203277273", "desc": "Sexual assault crisis support, 24/7, English and Spanish. Toll-free: 1-800-400-1001.", "desc_es": "Apoyo en crisis por agresión sexual, 24/7, inglés y español. Gratis: 1-800-400-1001." },
+        { "name": "SAAF Anti-Violence Project (LGBTQ+)", "tel": "18005539387", "desc": "Crisis line and advocacy for LGBTQ+ survivors of violence and abuse.", "desc_es": "Línea de crisis y defensa para sobrevivientes LGBTQ+ de violencia y abuso." },
         { "name": "Community-Wide Crisis Line (Solari)", "url": "https://crisisnetwork.solari.org", "desc": "Pima County's 24/7 behavioral-health crisis network.", "desc_es": "Red de crisis de salud mental del Condado de Pima, 24/7." }
       ]
     },
@@ -34,8 +35,7 @@
         { "name": "Coordinated Entry (TPCH)", "url": "https://tpch.net/coordinated-entry-for-homeless-services/", "desc": "The \"front door\" to housing services. One assessment connects you to programs.", "desc_es": "La \"puerta de entrada\" a los servicios de vivienda. Una evaluación lo conecta con programas." },
         { "name": "Live shelter bed dashboard", "url": "https://pimamaps.maps.arcgis.com/apps/dashboards/ca4fb93ec7014433b14e39a909873bd7", "desc": "Real-time shelter bed availability across Pima County.", "desc_es": "Disponibilidad de camas de refugio en tiempo real en el Condado de Pima." },
         { "name": "City of Tucson Housing First", "url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development/Homelessness/Housing-First", "desc": "Street outreach, emergency shelter, and housing navigation from the City.", "desc_es": "Alcance en la calle, refugio de emergencia y navegación de vivienda de la Ciudad." },
-        { "name": "TPCH: Tucson Pima Collaboration to End Homelessness", "url": "https://tpch.net", "desc": "Publishes the \"Need Help?\" guide and coordinates local homeless services.", "desc_es": "Publica la guía \"Need Help?\" y coordina los servicios locales para personas sin hogar." },
-        { "name": "Pio Decimo Center (Catholic Community Services)", "tel": "5206222801", "url": "https://www.ccs-soaz.org/agencies-ministries/pio-decimo-center", "desc": "Transitional housing for families with children, plus emergency assistance and housing counseling.", "desc_es": "Vivienda de transición para familias con hijos, más asistencia de emergencia y consejería de vivienda." }
+        { "name": "TPCH: Tucson Pima Collaboration to End Homelessness", "url": "https://tpch.net", "desc": "Publishes the \"Need Help?\" guide and coordinates local homeless services.", "desc_es": "Publica la guía \"Need Help?\" y coordina los servicios locales para personas sin hogar." }
       ]
     },
     {
@@ -59,20 +59,14 @@
       ]
     },
     {
-      "id": "shelter",
-      "icon": "bed",
-      "color": "emergency",
-      "title": "Shelters & day centers",
-      "title_es": "Refugios y centros de día",
-      "sub": "Call ahead; beds change daily. The Directory page has full details for each one.",
-      "sub_es": "Llame antes: las camas cambian a diario. La página Directorio tiene los detalles de cada uno.",
+      "id": "cooling",
+      "icon": "sun",
+      "color": "heat",
+      "title": "Cooling & heat relief",
+      "title_es": "Enfriamiento y alivio del calor",
+      "sub": "Free places to cool down during extreme heat. No ID, no questions. Looking for shelters and day centers? They're on the Directory, with addresses and directions.",
+      "sub_es": "Lugares gratuitos para refrescarse durante el calor extremo. Sin identificación, sin preguntas. ¿Busca refugios y centros de día? Están en el Directorio, con direcciones y cómo llegar.",
       "links": [
-        { "name": "Salvation Army Hospitality House", "tel": "5206225411", "desc": "Emergency shelter for men, women, and families. Open 24/7.", "desc_es": "Refugio de emergencia para hombres, mujeres y familias. Abierto 24/7." },
-        { "name": "Gospel Rescue Mission: Center of Opportunity", "url": "https://grmtucson.com", "desc": "Emergency and recovery shelter for men, women, and women with children.", "desc_es": "Refugio de emergencia y recuperación para hombres, mujeres y mujeres con hijos." },
-        { "name": "Primavera Foundation", "url": "https://www.primavera.org", "desc": "Men's shelter, family shelter, women's shelter, and rental assistance.", "desc_es": "Refugio para hombres, para familias, para mujeres y ayuda con la renta." },
-        { "name": "Sister José Women's Center", "url": "https://srjosewomenscenter.org", "desc": "Low-barrier day center and overnight program for women.", "desc_es": "Centro de día de bajas barreras y programa nocturno para mujeres." },
-        { "name": "Poverello House of Tucson", "url": "https://tucsonpoverello.com", "tel": "5206378916", "desc": "Day shelter: rest, meals, showers, laundry. Call to reserve; 10 guests/day, no overnight.", "desc_es": "Refugio diurno: descanso, comidas, duchas, lavandería. Llame para reservar; 10 huéspedes/día, sin servicio nocturno." },
-        { "name": "Old Pueblo Community Services", "url": "https://helptucson.org", "desc": "Bridge housing, veteran housing, and recovery support.", "desc_es": "Vivienda puente, vivienda para veteranos y apoyo de recuperación." },
         { "name": "Cooling centers (May–October)", "url": "https://experience.arcgis.com/experience/559815d406654a5d915ac238a6d6267c", "desc": "Free AC, water, and rest during extreme heat. No ID, no questions. Dial 211 for the nearest one or a ride.", "desc_es": "Aire acondicionado, agua y descanso gratis durante el calor extremo. Sin identificación, sin preguntas. Marque 211 para el más cercano o un transporte." },
         { "name": "Cooling center map & list (PDF, 2026)", "url": "docs/cooling-centers-map-2026.pdf", "desc": "Printable Beat the Heat list of every Pima County cooling center, with addresses, hours, and bus routes.", "desc_es": "Lista imprimible Beat the Heat de cada centro de enfriamiento del Condado de Pima, con direcciones, horarios y rutas de autobús." }
       ]
@@ -80,13 +74,17 @@
     {
       "id": "food",
       "icon": "food",
-      "color": "youth",
+      "color": "food",
       "title": "Food & meals",
       "title_es": "Comida y comidas",
       "sub": "Free groceries and hot meals. No ID needed at most meal programs.",
       "sub_es": "Despensas y comidas calientes gratis. La mayoría de los comedores no piden identificación.",
       "links": [
-        { "name": "Community Food Bank of Southern Arizona", "url": "https://communityfoodbank.org", "desc": "Food pantries across Tucson and Pima County.", "desc_es": "Despensas de alimentos en Tucson y el Condado de Pima." },
+        { "name": "Find Food Now (Community Food Bank map)", "url": "https://www.communityfoodbank.org/get-help/", "desc": "Search food pantries and hot meals near you by ZIP code or cross streets.", "desc_es": "Busque despensas y comidas calientes cerca de usted por código postal o calles." },
+        { "name": "Community Food Bank of Southern Arizona", "url": "https://communityfoodbank.org", "desc": "Food pantries across Tucson and Pima County. Also helps you apply for SNAP and AHCCCS.", "desc_es": "Despensas de alimentos en Tucson y el Condado de Pima. También ayuda a solicitar SNAP y AHCCCS." },
+        { "name": "Free hot-meal schedule (PDF)", "url": "docs/Prepared-Meals-One-Sheet_June-2026_WEB.pdf", "desc": "Printable list of free prepared-meal sites across Tucson, with days, hours, and addresses.", "desc_es": "Lista imprimible de sitios de comidas preparadas gratuitas en Tucson, con días, horarios y direcciones." },
+        { "name": "Food pantry directory (PDF)", "url": "docs/CFB-Combined-Food-Directory-April-2026.pdf", "desc": "The Community Food Bank's full directory of food pantries (TEFAP, CSFP, and general).", "desc_es": "El directorio completo de despensas del Community Food Bank (TEFAP, CSFP y general)." },
+        { "name": "SNAP food-stamp enrollment help (Community Food Bank)", "tel": "5206220525", "url": "https://www.communityfoodbank.org/get-help/", "desc": "Free one-on-one help applying for SNAP food stamps (and AHCCCS health coverage). Monthly money for groceries.", "desc_es": "Ayuda gratuita y personal para solicitar SNAP (cupones de comida) y AHCCCS (seguro médico). Dinero mensual para comestibles." },
         { "name": "WIC (Pima County Health Dept.)", "tel": "5207247769", "url": "https://www.pima.gov/2180/Women-Infants-Children-WIC-Program", "desc": "Healthy food and breastfeeding support for pregnant women, new moms, and kids under 5. Four Tucson offices.", "desc_es": "Alimentos saludables y apoyo a la lactancia para embarazadas, mamás recientes y niños menores de 5 años. Cuatro oficinas en Tucson." },
         { "name": "Caridad Community Kitchen", "url": "https://communityfoodbank.org/Locations/Caridad", "desc": "Hot meals and culinary job training.", "desc_es": "Comidas calientes y capacitación laboral en cocina." },
         { "name": "Casa Maria Soup Kitchen", "url": "https://casamariatucson.org", "desc": "Daily soup kitchen. Meals, no questions asked.", "desc_es": "Comedor diario: comidas sin hacer preguntas." },
@@ -139,20 +137,6 @@
         { "name": "VA Southern Arizona Health Care", "url": "https://www.va.gov/southern-arizona-health-care/", "desc": "VA hospital and homeless program. 3601 S. 6th Ave.", "desc_es": "Hospital del VA y programa para veteranos sin hogar. 3601 S. 6th Ave." },
         { "name": "Esperanza En Escalante", "url": "https://esperanzaveterans.org", "tel": "5206752707", "desc": "Transitional and permanent housing for Veterans and their families. 14-acre campus.", "desc_es": "Vivienda de transición y permanente para veteranos y sus familias. Campus de 14 acres." },
         { "name": "National Call Center for Homeless Veterans", "tel": "18774243838", "desc": "24/7 hotline: 1-877-4AID-VET.", "desc_es": "Línea directa 24/7: 1-877-424-3838." }
-      ]
-    },
-    {
-      "id": "dv",
-      "icon": "domestic_violence",
-      "color": "domestic_violence",
-      "title": "Domestic violence & safety",
-      "title_es": "Violencia doméstica y seguridad",
-      "sub": "Shelter locations are confidential. The hotline is the door to everything.",
-      "sub_es": "Las ubicaciones de los refugios son confidenciales. La línea directa es la puerta a todo.",
-      "links": [
-        { "name": "Emerge! Center Against Domestic Abuse", "url": "https://www.emergecenter.org", "tel": "5207954266", "desc": "24-hour hotline, emergency shelter, and support services.", "desc_es": "Línea directa 24 horas, refugio de emergencia y servicios de apoyo." },
-        { "name": "SAAF Anti-Violence Project", "url": "https://saaf.org", "desc": "Crisis line and advocacy for LGBTQ+ survivors: 1-800-553-9387.", "desc_es": "Línea de crisis y defensa para sobrevivientes LGBTQ+: 1-800-553-9387." },
-        { "name": "SACASA: Southern Arizona Center Against Sexual Assault", "tel": "5203277273", "url": "https://www.sacasa.org", "desc": "24/7 sexual assault crisis line, hospital advocacy, and trauma counseling. All genders.", "desc_es": "Línea de crisis por agresión sexual 24/7, acompañamiento en hospitales y consejería de trauma. Todos los géneros." }
       ]
     },
     {

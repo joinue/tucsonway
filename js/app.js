@@ -147,14 +147,46 @@
       window.navigator.standalone === true; // iOS Safari
   }
 
-  function buildInstallNudge() {
+  function isIOS() {
+    const ua = navigator.userAgent || '';
+    // iPadOS 13+ presents as a Mac, so also check for a touch-capable "Mac".
+    return /iPhone|iPad|iPod/.test(ua) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  }
+
+  function isIOSSafari() {
+    // On iOS, only Safari can add to the home screen. Chrome/Firefox/Edge on
+    // iOS (CriOS/FxiOS/EdgiOS/OPiOS/GSA) can't, so don't show them the guidance.
+    return isIOS() && !/CriOS|FxiOS|EdgiOS|OPiOS|GSA/.test(navigator.userAgent || '');
+  }
+
+  function dismissInstallNudge() {
+    try { localStorage.setItem(INSTALL_DISMISS_KEY, String(Date.now())); } catch (_) {}
+    hideInstallNudge();
+  }
+
+  function buildInstallNudge(iosMode) {
     if (document.getElementById('install-nudge')) return;
     const div = document.createElement('div');
     div.id = 'install-nudge';
     div.className = 'install-nudge';
     div.hidden = true;
     div.setAttribute('role', 'region');
-    div.setAttribute('aria-label', 'Install app');
+    div.setAttribute('aria-label', t('aria_install_app') !== 'aria_install_app' ? t('aria_install_app') : 'Install app');
+    if (iosMode) {
+      // iOS Safari can't be triggered programmatically; show manual steps and
+      // only a dismiss button.
+      div.innerHTML =
+        '<div class="install-nudge__body">' +
+          '<span class="install-nudge__text" data-i18n="install_ios_prompt">' + t('install_ios_prompt') + '</span>' +
+        '</div>' +
+        '<div class="install-nudge__actions">' +
+          '<button type="button" id="install-nudge-dismiss" class="install-nudge__btn" data-i18n="install_dismiss">' + t('install_dismiss') + '</button>' +
+        '</div>';
+      document.body.appendChild(div);
+      document.getElementById('install-nudge-dismiss').addEventListener('click', dismissInstallNudge);
+      return;
+    }
     div.innerHTML =
       '<div class="install-nudge__body">' +
         '<span class="install-nudge__text" data-i18n="install_prompt">' + t('install_prompt') + '</span>' +
@@ -171,15 +203,12 @@
       deferredInstallPrompt = null;
       hideInstallNudge();
     });
-    document.getElementById('install-nudge-dismiss').addEventListener('click', () => {
-      try { localStorage.setItem(INSTALL_DISMISS_KEY, String(Date.now())); } catch (_) {}
-      hideInstallNudge();
-    });
+    document.getElementById('install-nudge-dismiss').addEventListener('click', dismissInstallNudge);
   }
 
-  function showInstallNudge() {
+  function showInstallNudge(iosMode) {
     if (isStandalone() || recentlyDismissed()) return;
-    buildInstallNudge();
+    buildInstallNudge(iosMode);
     const el = document.getElementById('install-nudge');
     if (el) el.hidden = false;
   }
@@ -195,6 +224,9 @@
     // installable everywhere via the browser's own menu.)
     if (document.body.dataset.page !== 'about') return;
     if (isStandalone() || recentlyDismissed()) return;
+    // iOS Safari never fires beforeinstallprompt, so show manual
+    // Add-to-Home-Screen guidance instead.
+    if (isIOSSafari()) { showInstallNudge(true); return; }
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredInstallPrompt = e;
@@ -230,6 +262,13 @@
   }
 
   // ---------- helpers used by other scripts ----------
+  // Visually-hidden hint appended inside links that open a new tab, so screen
+  // readers warn before the context switches. Sighted users see the external
+  // icon instead. (WCAG 3.2.5)
+  TW.newTabHint = function () {
+    return '<span class="sr-only"> (' + t('opens_new_tab') + ')</span>';
+  };
+
   TW.formatPhone = function (tel) {
     // best-effort US format: (NNN) NNN-NNNN, or 1-NNN-NNN-NNNN
     const d = String(tel).replace(/\D/g, '');

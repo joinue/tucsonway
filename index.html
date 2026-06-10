@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" />
-  <link rel="stylesheet" href="css/styles.css?v=39" />
+  <link rel="stylesheet" href="css/styles.css?v=46" />
   <script>(function(){try{var t=localStorage.getItem('tw.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body data-page="home">
@@ -31,7 +31,7 @@
         </picture>
         <span class="brand__name">Tucson Compass</span>
       </a>
-      <nav class="nav-primary" aria-label="Primary">
+      <nav class="nav-primary" aria-label="Primary" data-i18n-aria-label="aria_nav_primary">
         <ul>
           <li><a href="index.html" aria-current="page"><i data-icon="home"></i><span data-i18n="nav_find_help">Find Help</span></a></li>
           <li><a href="directory.html"><i data-icon="list"></i><span data-i18n="nav_directory">Directory</span></a></li>
@@ -49,51 +49,59 @@
     </div>
   </header>
 
-  <main id="main" class="container home-main">
+  <main id="main" class="home-main">
 
-    <!-- Emergency strip — unmistakable, no reading required -->
-    <div class="urgent-strip" role="group" aria-label="Emergency numbers">
-      <a class="urgent-tile urgent-tile--911" href="tel:911">
-        <span class="urgent-tile__num">911</span>
-        <span class="urgent-tile__body">
-          <span class="urgent-tile__label" data-i18n="home_emergency_label">Emergency</span>
-          <span class="urgent-tile__desc" data-i18n="home_emergency_desc">Danger or medical</span>
-        </span>
-      </a>
-      <a class="urgent-tile urgent-tile--988" href="tel:988">
-        <span class="urgent-tile__num">988</span>
-        <span class="urgent-tile__body">
-          <span class="urgent-tile__label" data-i18n="home_988_label">Crisis</span>
-          <span class="urgent-tile__desc" data-i18n="home_988_desc">Mental health · 24/7</span>
-        </span>
-      </a>
-      <a class="urgent-tile urgent-tile--211" href="tel:211">
-        <span class="urgent-tile__num">211</span>
-        <span class="urgent-tile__body">
-          <span class="urgent-tile__label" data-i18n="home_211_label">Info & referral</span>
-          <span class="urgent-tile__desc" data-i18n="home_211_desc">Housing, food, help</span>
-        </span>
-      </a>
-    </div>
+    <!-- Hero: downtown Tucson skyline behind the emergency numbers, the
+         headline, and the primary "get matched" call to action. -->
+    <section class="home-hero" aria-labelledby="hero-title">
+      <div class="home-hero__inner container">
 
-    <section class="hero" aria-labelledby="hero-title">
-      <span class="eyebrow" data-i18n="home_eyebrow">Tucson + Pima County</span>
-      <h1 id="hero-title" data-i18n="home_hero_h1">A way forward in Tucson.</h1>
-      <p class="lead" data-i18n="home_hero_lead">For anyone facing homelessness, or at risk of losing their home. Find shelter, recovery, and help, right now.</p>
+        <!-- Emergency strip — unmistakable, no reading required -->
+        <div class="urgent-strip" role="group" aria-label="Emergency numbers" data-i18n-aria-label="aria_emergency_numbers">
+          <a class="urgent-tile urgent-tile--911" href="tel:911">
+            <span class="urgent-tile__num">911</span>
+            <span class="urgent-tile__body">
+              <span class="urgent-tile__label" data-i18n="home_emergency_label">Emergency</span>
+              <span class="urgent-tile__desc" data-i18n="home_emergency_desc">Danger or medical</span>
+            </span>
+          </a>
+          <a class="urgent-tile urgent-tile--988" href="tel:988">
+            <span class="urgent-tile__num">988</span>
+            <span class="urgent-tile__body">
+              <span class="urgent-tile__label" data-i18n="home_988_label">Crisis</span>
+              <span class="urgent-tile__desc" data-i18n="home_988_desc">Mental health · 24/7</span>
+            </span>
+          </a>
+          <a class="urgent-tile urgent-tile--211" href="tel:211">
+            <span class="urgent-tile__num">211</span>
+            <span class="urgent-tile__body">
+              <span class="urgent-tile__label" data-i18n="home_211_label">Info & referral</span>
+              <span class="urgent-tile__desc" data-i18n="home_211_desc">Housing, food, help</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="home-hero__copy">
+          <span class="eyebrow" data-i18n="home_eyebrow">Tucson + Pima County</span>
+          <h1 id="hero-title" data-i18n="home_hero_h1">A way forward in Tucson.</h1>
+          <p class="lead" data-i18n="home_hero_lead">For anyone facing homelessness, or at risk of losing their home. Find shelter, recovery, and help, right now.</p>
+        </div>
+
+        <!-- Primary path: take the questionnaire. Big, unambiguous CTA. -->
+        <a href="match.html" class="match-cta">
+          <span class="match-cta__icon"><i data-icon="check"></i></span>
+          <span class="match-cta__body">
+            <span class="match-cta__eyebrow" data-i18n="home_match_cta_eyebrow">Recommended · 1 minute · Private</span>
+            <span class="match-cta__title" id="match-cta-title" data-i18n="home_match_cta_title">Get matched with services</span>
+            <span class="match-cta__sub" data-i18n="home_match_cta_sub">Answer a few questions and we'll show you what fits your situation.</span>
+          </span>
+          <span class="match-cta__arrow" aria-hidden="true"><i data-icon="arrow-right"></i></span>
+        </a>
+
+      </div>
     </section>
 
-    <!-- Primary path: take the questionnaire. Big, unambiguous CTA. -->
-    <section aria-labelledby="match-cta-title">
-      <a href="match.html" class="match-cta">
-        <span class="match-cta__icon"><i data-icon="check"></i></span>
-        <span class="match-cta__body">
-          <span class="match-cta__eyebrow" data-i18n="home_match_cta_eyebrow">Recommended · 1 minute · Private</span>
-          <span class="match-cta__title" id="match-cta-title" data-i18n="home_match_cta_title">Get matched with services</span>
-          <span class="match-cta__sub" data-i18n="home_match_cta_sub">Answer a few questions and we'll show you what fits your situation.</span>
-        </span>
-        <span class="match-cta__arrow" aria-hidden="true"><i data-icon="arrow-right"></i></span>
-      </a>
-    </section>
+    <div class="container home-content">
 
     <!-- Alternate path: browse by category for users who already know what they need. -->
     <section aria-labelledby="need-title">
@@ -158,35 +166,37 @@
     <section aria-labelledby="tools-title">
       <h2 id="tools-title" data-i18n="home_tools_h2">Other tools</h2>
       <div class="tools-row">
-        <a class="tool-tile" href="map.html">
+        <a class="tool-tile" href="map.html" style="--c: var(--cat-family)">
           <span class="tool-tile__icon"><i data-icon="map"></i></span>
           <span>
             <span class="tool-tile__label" data-i18n="tool_map_label">Map of all places</span>
             <span class="tool-tile__sub" data-i18n="tool_map_sub">See locations near you</span>
           </span>
         </a>
-        <a class="tool-tile" href="https://pimamaps.maps.arcgis.com/apps/dashboards/ca4fb93ec7014433b14e39a909873bd7" target="_blank" rel="noopener">
+        <a class="tool-tile" href="https://pimamaps.maps.arcgis.com/apps/dashboards/ca4fb93ec7014433b14e39a909873bd7" target="_blank" rel="noopener" style="--c: var(--cat-emergency)">
           <span class="tool-tile__icon"><i data-icon="bed"></i></span>
           <span>
             <span class="tool-tile__label" data-i18n="tool_beds_label">Live bed availability</span>
             <span class="tool-tile__sub" data-i18n="tool_beds_sub">Real-time, Pima County</span>
           </span>
+          <span class="sr-only" data-i18n="opens_new_tab">opens in a new tab</span>
         </a>
-        <a class="tool-tile" href="resources.html#g-shelter">
+        <a class="tool-tile" href="resources.html#g-cooling" style="--c: var(--cat-heat)">
           <span class="tool-tile__icon"><i data-icon="sun"></i></span>
           <span>
             <span class="tool-tile__label" data-i18n="tool_cooling_label">Cooling centers</span>
             <span class="tool-tile__sub" data-i18n="tool_cooling_sub">Beat the heat · map &amp; list</span>
           </span>
         </a>
-        <a class="tool-tile" href="https://tpch.net/coordinated-entry-for-homeless-services/" target="_blank" rel="noopener">
+        <a class="tool-tile" href="https://tpch.net/coordinated-entry-for-homeless-services/" target="_blank" rel="noopener" style="--c: var(--cat-prevention)">
           <span class="tool-tile__icon"><i data-icon="home"></i></span>
           <span>
             <span class="tool-tile__label" data-i18n="tool_ce_label">Help getting housing</span>
             <span class="tool-tile__sub" data-i18n="tool_ce_sub">Coordinated Entry (TPCH)</span>
           </span>
+          <span class="sr-only" data-i18n="opens_new_tab">opens in a new tab</span>
         </a>
-        <a class="tool-tile" href="resources.html">
+        <a class="tool-tile" href="resources.html" style="--c: var(--cat-civic)">
           <span class="tool-tile__icon"><i data-icon="external"></i></span>
           <span>
             <span class="tool-tile__label" data-i18n="tool_links_label">All resources &amp; links</span>
@@ -195,6 +205,8 @@
         </a>
       </div>
     </section>
+
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -255,14 +267,14 @@
               <li><a href="tel:911"><strong>911</strong><span data-i18n="footer_emergency_short">Emergency</span></a></li>
               <li><a href="tel:988"><strong>988</strong><span data-i18n="footer_988_short">Crisis &amp; mental health</span></a></li>
               <li><a href="tel:211"><strong>211</strong><span data-i18n="footer_211_short">Info &amp; referral</span></a></li>
-              <li><a href="https://tpch.net/coordinated-entry-for-homeless-services/" target="_blank" rel="noopener"><strong data-i18n="footer_ce_short">Coordinated Entry</strong><span data-i18n="footer_ce_sub">Front door to housing</span></a></li>
+              <li><a href="https://tpch.net/coordinated-entry-for-homeless-services/" target="_blank" rel="noopener"><strong data-i18n="footer_ce_short">Coordinated Entry</strong><span data-i18n="footer_ce_sub">Front door to housing</span><span class="sr-only" data-i18n="opens_new_tab">opens in a new tab</span></a></li>
             </ul>
           </div>
         </div>
       </div>
       <div class="site-footer__bottom">
         <div class="container site-footer__bottom-row">
-          <p class="site-footer__disclaimer" data-i18n="footer_disclaimer">Tucson Compass is an independent informational directory. It is not affiliated with the organizations listed and does not provide shelter, funding, or services directly. Information is provided as-is. Please call ahead to confirm availability.</p>
+          <p class="site-footer__disclaimer" data-i18n="footer_disclaimer">Tucson Compass is an independent, free informational directory. It is not affiliated with, and does not endorse, the organizations listed, and does not provide shelter, funding, food, or services directly. Listings are compiled from public sources and may be incomplete or out of date. Information is provided as-is, without warranty, and is not legal, medical, or crisis advice. Always call ahead to confirm hours, eligibility, and availability before traveling. We are not responsible for the content or services of third-party websites or organizations.</p>
           <p class="site-footer__copy">&copy; 2026 Tucson Compass &middot; <a href="about.html" data-i18n="footer_about_link">About this site</a></p>
         </div>
       </div>
@@ -270,6 +282,6 @@
   </footer>
 
   <script src="js/icons.js?v=20"></script>
-  <script src="js/app.js?v=22"></script>
+  <script src="js/app.js?v=23"></script>
 </body>
 </html>

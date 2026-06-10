@@ -5,13 +5,14 @@
   'use strict';
 
   const CATEGORIES = [
-    'all', 'emergency', 'heat', 'family', 'women', 'men',
+    'all', 'emergency', 'food', 'heat', 'family', 'women', 'men',
     'youth', 'veterans', 'domestic_violence', 'prevention', 'employment', 'outreach', 'civic',
   ];
 
   /* Map category -> icon name (some categories also reuse 'need' icons) */
   const CAT_ICON = {
     emergency: 'bed',
+    food: 'food',
     heat: 'sun',
     family: 'family',
     women: 'women',
@@ -30,6 +31,10 @@
   /* Org logos shown opposite the category icon for brand recognition.
      Match by id prefix so multi-location orgs share one logo. */
   const LOGOS = [
+    ['community_food_bank',            'community-food-bank-sa.jpg'],
+    ['the_lot_on_22nd',                'lot-on-22nd.png'],
+    ['casa_maria',                     'casa-maria.jpg'],
+    ['community_on_wheels',            'community-on-wheels.png'],
     ['gospel_rescue_mission',          'gospel-rescue-mission.png'],
     ['primavera',                      'primavera.jpg'],
     ['salvation_army',                 'salvation-army.png'],
@@ -48,6 +53,7 @@
     ['tucson_ward',                    'city-of-tucson.webp'],
     ['pima_county_crisis_line',        'pima-county.webp'],
     ['pima_eels',                      'pima-county.webp'],
+    ['cooling_centers_heat_relief',    'pima-county.webp'],
   ];
 
   function logoFor(r) {
@@ -130,7 +136,7 @@
       return 'family';
     }
 
-    const order = ['women', 'men', 'family', 'youth', 'veterans', 'heat', 'drop_in', 'coordinated_entry', 'employment', 'civic', 'outreach'];
+    const order = ['women', 'men', 'family', 'youth', 'veterans', 'heat', 'food', 'drop_in', 'coordinated_entry', 'employment', 'civic', 'prevention', 'outreach'];
     for (const c of order) if (cats.includes(c)) return c;
     return 'outreach';
   }
@@ -166,6 +172,7 @@
           '<span class="act__label">' + TW.t('card_directions') + '</span>' +
           '<span class="act__val">' + escapeHtml(address.split(',')[0]) + '</span>' +
         '</span>' +
+        TW.newTabHint() +
       '</a>'
     );
   }
@@ -178,6 +185,21 @@
           '<span class="act__label">' + TW.t('card_email') + '</span>' +
           '<span class="act__val">' + escapeHtml(email) + '</span>' +
         '</span>' +
+      '</a>'
+    );
+  }
+
+  function websiteButton(url, label) {
+    let host = url;
+    try { host = new URL(url).hostname.replace(/^www\./, ''); } catch (e) { /* keep raw */ }
+    return (
+      '<a class="act act--dir" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' +
+        TW.icon('external') +
+        '<span class="act__txt">' +
+          '<span class="act__label">' + escapeHtml(label) + '</span>' +
+          '<span class="act__val">' + escapeHtml(host) + '</span>' +
+        '</span>' +
+        TW.newTabHint() +
       '</a>'
     );
   }
@@ -200,11 +222,21 @@
       addrHtml = '<p class="card__addr">' + TW.icon('pin') + '<span>' + escapeHtml(r.address) + '</span></p>';
     }
 
+    /* When "Sort by nearest" is active, show how far each place is so the
+       order is legible. Only with a fix and real coords (km -> miles). */
+    let distHtml = '';
+    if (userPos && r.lat && r.lng) {
+      const miles = TW.haversine(userPos, { lat: r.lat, lng: r.lng }) * 0.621371;
+      distHtml = '<p class="card__dist">' + TW.icon('compass') +
+        '<span>' + escapeHtml(TW.t('dir_distance_mi').replace('{n}', miles.toFixed(1))) + '</span></p>';
+    }
+
     const phones = r.phone || [];
     const actions = [];
     if (phones.length) actions.push(phoneButton(phones[0], true, color));
     if (r.address && !r.confidential_location) actions.push(directionsButton(r.address));
     if (r.email) actions.push(emailButton(r.email));
+    if (r.website) actions.push(websiteButton(r.website, TW.fieldByLang(r, 'website_label') || TW.t('card_website')));
     /* additional phone lines as smaller secondary actions if no directions */
     phones.slice(1).forEach((p) => actions.push(phoneButton(p, false, color)));
 
@@ -257,6 +289,7 @@
           '</div>' +
           (badges.length ? '<div class="badges">' + badges.join('') + '</div>' : '') +
           addrHtml +
+          distHtml +
           moreHtml +
           (actions.length ? '<div class="' + actionsCls + '">' + actions.join('') + '</div>' : '') +
           approxNote +
@@ -285,12 +318,22 @@
     });
 
     if (userPos) {
+      // Near-me: distance dominates — the user explicitly wants closest first.
       list = list
         .map((r) => ({
           r,
           d: r.lat && r.lng ? TW.haversine(userPos, { lat: r.lat, lng: r.lng }) : Infinity,
         }))
         .sort((a, b) => a.d - b.d)
+        .map((x) => x.r);
+    } else if (activeFilter !== 'all') {
+      // Float dedicated matches first: a resource whose *defining* category is
+      // the active filter (e.g. cooling centers under "heat") ranks above one
+      // that merely also offers it (a shelter with a daytime cooling room).
+      // Stable within each tier so JSON order is preserved otherwise.
+      list = list
+        .map((r, i) => ({ r, i, t: primaryCategoryFor(r) === activeFilter ? 0 : 1 }))
+        .sort((a, b) => a.t - b.t || a.i - b.i)
         .map((x) => x.r);
     }
 

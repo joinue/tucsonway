@@ -14,7 +14,9 @@
       "Pima County Heat Relief Network (pima.gov/2307/Cooling-Centers)",
       "United Way of Tucson & Southern Arizona community resources list — cross-checked against current org websites, June 2026",
       "Pima County Health Department WIC Program (pima.gov/2180)",
-      "Individual organization websites (SACASA, SALA, The Haven, Tucson Indian Center, Sonoran Prevention Works, Catholic Community Services/Pio Decimo)"
+      "Individual organization websites (SACASA, SALA, The Haven, Tucson Indian Center, Sonoran Prevention Works, Catholic Community Services/Pio Decimo)",
+      "Community Food Bank of Southern Arizona: Prepared Meals / Comidas Preparadas one-sheet (June 2026)",
+      "Community Food Bank of Southern Arizona: Combined Food Directory (April 2026); communityfoodbank.org/get-help"
     ],
     "notes": "Legacy entries (12 originals from City of Tucson list) have surveyed coordinates. New entries added 2026-06-09 from TPCH and partner sources have null lat/lng. Geocode via OpenStreetMap Nominatim before mapping. Users are always steered to call ahead. Entries added 2026-06-10 (SACASA, CAA, SALA, Pio Decimo, The Haven, Tucson Indian Center, WIC, St. Elizabeth’s, SPW) were geocoded via Nominatim at add time.",
     "coords_status": "partial: see per-entry lat/lng"
@@ -109,7 +111,8 @@
           "unhoused"
         ],
         "intake": "walk_in"
-      }
+      },
+      "website": "https://www.salvationarmytucson.org/hospitality-house-shelter"
     },
     {
       "id": "primavera_mens_shelter",
@@ -138,7 +141,7 @@
       "hours_notes_es": "Llame de 7 a 9 a.m. lunes, miércoles, jueves, viernes (NO los martes) para reservar una cama esa noche. Repita diariamente hasta que haya cupo.",
       "notes": "Showers, laundry, meals, hygiene supplies, clothing, case management, in-house medical/behavioral care, day shelter (cooling center), computer lab.",
       "notes_es": "Duchas, lavandería, comidas, productos de higiene, ropa, gestión de casos, atención médica/conductual interna, refugio diurno (centro de enfriamiento), laboratorio de computación.",
-      "source_url": "https://www.primavera.org/what-we-do/survival/mens-shelter.html",
+      "source_url": "https://primavera.org/emergency-services/#men",
       "match": {
         "g": "men",
         "ages": [
@@ -158,7 +161,8 @@
           "unhoused"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://primavera.org/emergency-services/#men"
     },
     {
       "id": "gospel_rescue_mission_coo",
@@ -188,7 +192,7 @@
       "hours_notes_es": "Admisiones diarias L–V 8 a.m. (primeras 10); llame para cita de admisión de emergencia.",
       "notes": "Case management, addiction recovery, job-skills training, counseling. Main GRM campus. See also: 28th St (men) and Miracle Mile (women & children) campuses.",
       "notes_es": "Gestión de casos, recuperación de adicciones, capacitación laboral, consejería. Campus principal de GRM. Vea también: 28th St (hombres) y Miracle Mile (mujeres y niños).",
-      "source_url": "https://grmtucson.com",
+      "source_url": "https://www.grmtucson.com/center-of-opportunity/about-coop/",
       "match": {
         "g": "any",
         "kids": "ok",
@@ -203,7 +207,8 @@
           "unhoused"
         ],
         "intake": "walk_in"
-      }
+      },
+      "website": "https://www.grmtucson.com/center-of-opportunity/about-coop/"
     },
     {
       "id": "gospel_rescue_mission_28th",
@@ -246,7 +251,8 @@
           "unhoused"
         ],
         "intake": "walk_in"
-      }
+      },
+      "website": "https://grmtucson.com"
     },
     {
       "id": "gospel_rescue_mission_miracle_mile",
@@ -287,7 +293,8 @@
           "unhoused"
         ],
         "intake": "appointment"
-      }
+      },
+      "website": "https://grmtucson.com"
     },
     {
       "id": "primavera_family_pathways",
@@ -314,7 +321,7 @@
       "hours_notes_es": "Sin cita: 9 a.m.–12:30 p.m. lun, mié, jue, vie, o llame para cita.",
       "notes": "Scattered-site rental units in the community with intensive case management. Prevents multiple relocations. Women with children needing immediate shelter are referred to GRM Women & Children's at (520) 740-1501.",
       "notes_es": "Unidades de alquiler dispersas en la comunidad con gestión intensiva de casos. Evita reubicaciones múltiples. Las mujeres con hijos que necesitan refugio inmediato son referidas a GRM Mujeres y Niños al (520) 740-1501.",
-      "source_url": "https://www.primavera.org",
+      "source_url": "https://primavera.org/emergency-services/#pathways",
       "match": {
         "kids": "required",
         "needs": [
@@ -324,7 +331,8 @@
           "unhoused"
         ],
         "intake": "mixed"
-      }
+      },
+      "website": "https://primavera.org/emergency-services/#pathways"
     },
     {
       "id": "pio_decimo_center",
@@ -365,7 +373,8 @@
           "at_risk"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://www.ccs-soaz.org/agencies-ministries/pio-decimo-center"
     },
     {
       "id": "primavera_hip_drop_in",
@@ -397,7 +406,7 @@
       "hours_notes_es": "Sin cita: L, M, J, V 9 a.m.–12:30 p.m. (no martes ni fines de semana). Centro de Recursos: L–V 8:30 a.m.–4:30 p.m. Entrada Coordinada por teléfono L, M, J, V 1–4 p.m.; mar 8 a.m.–4 p.m.",
       "notes": "Mail service for ~2,500 individuals. Cooling day shelter. Mobile showers. ID & birth certificate services. El Rio mobile clinic 9 a.m. on 2nd/4th Wednesdays (first-come). Pet food, hygiene, clothing, food boxes, bike storage. Serves ~8,000/year.",
       "notes_es": "Servicio de correo para ~2,500 personas. Refugio diurno de enfriamiento. Duchas móviles. Servicios de identificación y certificados de nacimiento. Clínica móvil El Rio 9 a.m. los segundos y cuartos miércoles (orden de llegada). Comida para mascotas, higiene, ropa, cajas de comida, almacenamiento de bicicletas. Atiende ~8,000/año.",
-      "source_url": "https://www.primavera.org",
+      "source_url": "https://primavera.org/emergency-services/#drop-in",
       "match": {
         "needs": [
           "shelter",
@@ -410,7 +419,8 @@
           "unhoused"
         ],
         "intake": "walk_in"
-      }
+      },
+      "website": "https://primavera.org/emergency-services/#drop-in"
     },
     {
       "id": "sister_jose",
@@ -455,7 +465,8 @@
           "unhoused"
         ],
         "intake": "walk_in"
-      }
+      },
+      "website": "https://srjosewomenscenter.org"
     },
     {
       "id": "poverello_house",
@@ -500,7 +511,8 @@
           "unhoused"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://tucsonpoverello.com"
     },
     {
       "id": "primavera_casa_paloma",
@@ -531,7 +543,7 @@
       "hours_notes_es": "Centro de Hospitalidad (servicios diurnos) L–V 8 a.m.–12:30 p.m. Llame para elegibilidad residencial y cita.",
       "notes": "Location confidential (near Speedway/Main area). Laundry, meals, showers, hygiene, clothes & jewelry closet, pet supports, in-house medical/behavioral care, art/poetry workshops, community garden.",
       "notes_es": "Ubicación confidencial (cerca del área Speedway/Main). Lavandería, comidas, duchas, higiene, armario de ropa y joyería, apoyo para mascotas, atención médica/conductual interna, talleres de arte/poesía, jardín comunitario.",
-      "source_url": "https://www.primavera.org",
+      "source_url": "https://primavera.org/emergency-services/#paloma",
       "match": {
         "g": "women",
         "needs": [
@@ -545,7 +557,8 @@
           "unhoused"
         ],
         "intake": "mixed"
-      }
+      },
+      "website": "https://primavera.org/emergency-services/#paloma"
     },
     {
       "id": "emerge",
@@ -589,7 +602,8 @@
         ],
         "intake": "call",
         "crisis": true
-      }
+      },
+      "website": "https://www.emergecenter.org"
     },
     {
       "id": "saaf_anti_violence",
@@ -634,7 +648,8 @@
         ],
         "intake": "call",
         "crisis": true
-      }
+      },
+      "website": "https://saaf.org"
     },
     {
       "id": "sacasa",
@@ -683,7 +698,8 @@
           "any"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://www.sacasa.org"
     },
     {
       "id": "our_family_services_youth",
@@ -743,7 +759,8 @@
           "at_risk"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://ourfamilyservices.org/homeless-youth/"
     },
     {
       "id": "our_family_services_prevention",
@@ -772,7 +789,7 @@
       "hours_notes_es": "Teléfono solo lunes a jueves. Oficina administrativa cerrada los viernes.",
       "notes": "Goal: keep clients in their current rental unit. Funds cannot cover furniture, moving costs, app fees, or deposits. Landlord W-9 and lease required.",
       "notes_es": "Meta: mantener clientes en su unidad de alquiler actual. Los fondos no cubren muebles, costos de mudanza, tarifas de solicitud ni depósitos. Se requiere W-9 del propietario y contrato.",
-      "source_url": "https://ourfamilyservices.org",
+      "source_url": "https://www.ourfamilyservices.org/homeless-families/",
       "match": {
         "ages": [
           18,
@@ -785,7 +802,8 @@
           "at_risk"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://www.ourfamilyservices.org/homeless-families/"
     },
     {
       "id": "pima_eels",
@@ -820,7 +838,8 @@
           "at_risk"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://www.pima.gov/957/Emergency-Eviction-Legal-Services"
     },
     {
       "id": "pima_community_action_agency",
@@ -855,7 +874,8 @@
           "at_risk"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://www.pima.gov/887/Community-Assistance-Division"
     },
     {
       "id": "southern_arizona_legal_aid",
@@ -896,7 +916,8 @@
           "any"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://www.sazlegalaid.org"
     },
     {
       "id": "youth_on_their_own",
@@ -943,7 +964,8 @@
           "at_risk"
         ],
         "intake": "referral"
-      }
+      },
+      "website": "https://yotoaz.org"
     },
     {
       "id": "va_homeless_program",
@@ -998,7 +1020,8 @@
           "at_risk"
         ],
         "intake": "walk_in"
-      }
+      },
+      "website": "https://www.va.gov/southern-arizona-health-care/"
     },
     {
       "id": "primavera_project_action_veterans",
@@ -1029,7 +1052,7 @@
       "hours_notes_es": "L–V 8 a.m.–mediodía, 1–4:30 p.m. (cerrado mediodía–1 p.m.). Llame primero al (520) 308-3093 para entrevista telefónica / evaluación de elegibilidad.",
       "notes": "Housing support + temporary financial assistance. CARF accredited through early 2027. Welcomes those leaving transitional housing, shelter, DV, hospital, or jail.",
       "notes_es": "Apoyo de vivienda + asistencia financiera temporal. Acreditado por CARF hasta principios de 2027. Da la bienvenida a quienes salen de vivienda de transición, refugio, violencia doméstica, hospital o cárcel.",
-      "source_url": "https://www.primavera.org",
+      "source_url": "https://primavera.org/emergency-services/#veterans",
       "match": {
         "vet": true,
         "post_incarceration": true,
@@ -1043,7 +1066,8 @@
           "unhoused"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://primavera.org/emergency-services/#veterans"
     },
     {
       "id": "esperanza_en_escalante",
@@ -1090,7 +1114,8 @@
           "at_risk"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://esperanzaveterans.org"
     },
     {
       "id": "sullivan_jackson",
@@ -1130,7 +1155,8 @@
           "unhoused"
         ],
         "intake": "referral"
-      }
+      },
+      "website": "https://www.pima.gov/988/Sullivan-Jackson-Employment-Center"
     },
     {
       "id": "city_housing_first",
@@ -1171,7 +1197,8 @@
           "unhoused"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://www.tucsonaz.gov/Departments/Housing-Community-Development/Homelessness/Housing-First"
     },
     {
       "id": "cooling_centers_heat_relief",
@@ -1199,6 +1226,9 @@
       "hours_notes_es": "Centros de enfriamiento del Condado: principios de mayo a octubre. Centros de la Ciudad de Tucson (6 sitios en rutas de Sun Tran): 1 de junio–30 de septiembre, diario 12–4 p.m. Las bibliotecas públicas también son espacios de enfriamiento durante su horario.",
       "notes": "Heat is the deadliest weather hazard in Pima County. The Heat Relief Network map shows cooling centers, hydration stations, water fountains, and splash pads countywide. Dial 211 for the nearest location or help with a ride.",
       "notes_es": "El calor es el peligro climático más mortal en el Condado de Pima. El mapa de la Red de Alivio del Calor muestra centros de enfriamiento, estaciones de hidratación, fuentes de agua y splash pads en todo el condado. Marque 211 para la ubicación más cercana o ayuda con transporte.",
+      "website": "https://experience.arcgis.com/experience/559815d406654a5d915ac238a6d6267c",
+      "website_label": "View heat-relief map",
+      "website_label_es": "Ver mapa de alivio del calor",
       "source_url": "https://experience.arcgis.com/experience/559815d406654a5d915ac238a6d6267c",
       "match": {
         "needs": [
@@ -1241,7 +1271,7 @@
       "hours_notes_es": "L–V 8 a.m.–4 p.m. (ventana de comida/sin cita). Llame para elegibilidad de vivienda.",
       "notes": "Housing First. Semi-private rooms in units with kitchen, refrigerator, secured storage, on-site laundry. Case management, substance abuse counseling, employment coaching. Also operates Casa Santa Clara (men's TH), Oasis House (women's TH, 3 locations), Veteran Programs (dry/abstinence-based, separate from Low Barrier), and the Tucson Homeless Work Program.",
       "notes_es": "Housing First. Habitaciones semi-privadas en unidades con cocina, refrigerador, almacenamiento seguro, lavandería en el sitio. Gestión de casos, consejería para abuso de sustancias, coaching de empleo. También opera Casa Santa Clara (vivienda de transición para hombres), Oasis House (vivienda de transición para mujeres, 3 ubicaciones), Programas para Veteranos (sin alcohol/drogas, separado de Bajo Umbral), y el Programa de Trabajo para Personas Sin Hogar de Tucson.",
-      "source_url": "https://helptucson.org",
+      "source_url": "https://helptucson.org/services/bridge-housing-low-demand-shelter/",
       "match": {
         "kids": "ok",
         "post_incarceration": true,
@@ -1255,7 +1285,8 @@
           "unhoused"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://helptucson.org/services/bridge-housing-low-demand-shelter/"
     },
     {
       "id": "community_bridges_mens_shelter",
@@ -1296,7 +1327,8 @@
           "unhoused"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://communitybridgesaz.org"
     },
     {
       "id": "tucson_homeless_work_program",
@@ -1324,7 +1356,7 @@
       "hours_notes_es": "Contacte a OPCS para el horario actual.",
       "notes": "NOT a government program. Collaboration of OPCS, Catholic Community Services, Salvation Army, Arizona Complete Health, Primavera, El Rio, Sister José, Caridad Community Kitchen, plus TMC Foundation, HSL, Walmart, Hillman, Desert Diamond, Pima County, City of Tucson. As of March 2019: 642 employed, 178,000+ lbs trash removed at 211 sites, 1/3+ of graduates in their own homes.",
       "notes_es": "NO es un programa gubernamental. Colaboración de OPCS, Catholic Community Services, Salvation Army, Arizona Complete Health, Primavera, El Rio, Sister José, Caridad Community Kitchen, más TMC Foundation, HSL, Walmart, Hillman, Desert Diamond, Condado de Pima, Ciudad de Tucson. A marzo de 2019: 642 empleados, más de 178,000 libras de basura removidas en 211 sitios, más de 1/3 de los graduados en sus propios hogares.",
-      "source_url": "https://helptucson.org",
+      "source_url": "https://helptucson.org/services/tucson-homeless-work-program/",
       "match": {
         "needs": [
           "employment"
@@ -1333,7 +1365,8 @@
           "unhoused"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://helptucson.org/services/tucson-homeless-work-program/"
     },
     {
       "id": "tucson_indian_center",
@@ -1372,7 +1405,8 @@
           "any"
         ],
         "intake": "walk_in"
-      }
+      },
+      "website": "https://www.ticenter.org"
     },
     {
       "id": "interfaith_community_services",
@@ -1419,7 +1453,8 @@
           "at_risk"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://www.icstucson.org"
     },
     {
       "id": "la_frontera_rapp",
@@ -1451,7 +1486,7 @@
       "hours_notes_es": "L–V 8 a.m.–3 p.m. (recepción) / 8 a.m.–4 p.m. Solo sin cita.",
       "notes": "Readily Accessible People Program (RAPP). SAMHSA PATH-grant funded. Drop-in: hygiene kits, computer/phone access, substance abuse treatment referrals, programs with showers/laundry.",
       "notes_es": "Programa de Personas Fácilmente Accesibles (RAPP). Financiado por subvención SAMHSA PATH. Sin cita: kits de higiene, acceso a computadora/teléfono, referencias para tratamiento de abuso de sustancias, programas con duchas/lavandería.",
-      "source_url": "http://lafronteraaz.org",
+      "source_url": "https://lafronteraaz.org",
       "match": {
         "needs": [
           "shelter",
@@ -1464,7 +1499,8 @@
           "unhoused"
         ],
         "intake": "walk_in"
-      }
+      },
+      "website": "https://lafronteraaz.org"
     },
     {
       "id": "pcoa_prevention",
@@ -1503,7 +1539,8 @@
           "at_risk"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://pcoa.org"
     },
     {
       "id": "az_pet_project_adoh",
@@ -1536,7 +1573,8 @@
           "unhoused"
         ],
         "intake": "online"
-      }
+      },
+      "website": "https://azpetproject.org"
     },
     {
       "id": "crisis_response_center",
@@ -1572,7 +1610,8 @@
         ],
         "intake": "walk_in",
         "crisis": true
-      }
+      },
+      "website": "https://www.crisisresponsecenter.com"
     },
     {
       "id": "pima_county_crisis_line",
@@ -1621,7 +1660,8 @@
         ],
         "intake": "call",
         "crisis": true
-      }
+      },
+      "website": "https://crisisnetwork.solari.org"
     },
     {
       "id": "codac",
@@ -1661,7 +1701,8 @@
           "any"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://www.codac.org"
     },
     {
       "id": "la_frontera_center",
@@ -1685,7 +1726,7 @@
       "eligibility_notes_es": "Tratamiento ambulatorio y residencial de salud mental y abuso de sustancias.",
       "hours_notes": "Call for current intake hours.",
       "hours_notes_es": "Llame para horarios de admisión actuales.",
-      "source_url": "http://lafronteraaz.org",
+      "source_url": "https://lafronteracenter.org/",
       "match": {
         "needs": [
           "mental_health",
@@ -1695,7 +1736,8 @@
           "any"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://lafronteracenter.org/"
     },
     {
       "id": "the_haven",
@@ -1734,7 +1776,8 @@
           "any"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://thehaventucson.org"
     },
     {
       "id": "community_food_bank",
@@ -1758,9 +1801,9 @@
       "eligibility_notes_es": "Todos los necesitados. Generalmente se requiere identificación con foto.",
       "hours_notes": "Tue/Wed/Fri 8 a.m.–2 p.m.; Thu 12 p.m.–6 p.m.; 4th Sat 9 a.m.–12 p.m.",
       "hours_notes_es": "Mar/Mié/Vie 8 a.m.–2 p.m.; Jue 12 p.m.–6 p.m.; 4to sáb 9 a.m.–12 p.m.",
-      "notes": "ALL FOOD BANKS CLOSED 12/25/2025–1/2/2026. Additional distribution sites listed at communityfoodbank.org.",
-      "notes_es": "TODOS LOS BANCOS DE ALIMENTOS CERRADOS 25/12/2025–2/1/2026. Sitios de distribución adicionales en communityfoodbank.org.",
-      "source_url": "https://communityfoodbank.org",
+      "notes": "Use the 'Find Food Now' map at communityfoodbank.org/get-help to search food pantries and hot meals near you by ZIP code or cross streets. Staff can also help you apply for SNAP food stamps and AHCCCS health coverage. More distribution sites across Southern Arizona.",
+      "notes_es": "Use el mapa 'Find Food Now' en communityfoodbank.org/get-help para buscar despensas y comidas calientes cerca de usted por código postal o calles. El personal también ayuda a solicitar SNAP (cupones de comida) y AHCCCS (seguro médico). Más sitios de distribución en todo el sur de Arizona.",
+      "source_url": "https://communityfoodbank.org/get-help/",
       "match": {
         "needs": [
           "food"
@@ -1769,7 +1812,8 @@
           "any"
         ],
         "intake": "walk_in"
-      }
+      },
+      "website": "https://communityfoodbank.org/get-help/"
     },
     {
       "id": "casa_maria",
@@ -1802,7 +1846,8 @@
           "any"
         ],
         "intake": "walk_in"
-      }
+      },
+      "website": "https://casamariatucson.org"
     },
     {
       "id": "caridad",
@@ -1834,6 +1879,425 @@
         "needs": [
           "food",
           "employment"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://communityfoodbank.org/Locations/Caridad"
+    },
+    {
+      "id": "saguaro_christian_church",
+      "name": "Saguaro Christian Church: Free Meal",
+      "categories": [
+        "food"
+      ],
+      "address": "8302 E. Broadway Blvd., Tucson, AZ 85710",
+      "confidential_location": false,
+      "lat": 32.220884,
+      "lng": -110.815161,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5202965901"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free hot meal, open to anyone. No ID required.",
+      "eligibility_notes_es": "Comida caliente gratuita, abierta a todos. No se requiere identificación.",
+      "hours_notes": "Wednesdays 5 p.m.–6:30 p.m.",
+      "hours_notes_es": "Miércoles 5 p.m.–6:30 p.m.",
+      "notes": "Free prepared meal listed on the Community Food Bank Prepared Meals schedule. Call ahead to confirm.",
+      "notes_es": "Comida preparada gratuita en el calendario de Comidas Preparadas del Community Food Bank. Llame para confirmar.",
+      "source_url": "https://saguarocc.org",
+      "match": {
+        "needs": [
+          "food"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://saguarocc.org"
+    },
+    {
+      "id": "northminster_presbyterian",
+      "name": "Northminster Presbyterian Church: Free Meal",
+      "categories": [
+        "food"
+      ],
+      "address": "2450 E. Fort Lowell Rd., Tucson, AZ 85719",
+      "confidential_location": false,
+      "lat": 32.264822,
+      "lng": -110.935832,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5203277121"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free hot meal, open to anyone. No ID required.",
+      "eligibility_notes_es": "Comida caliente gratuita, abierta a todos. No se requiere identificación.",
+      "hours_notes": "Mondays 5 p.m.–6 p.m.",
+      "hours_notes_es": "Lunes 5 p.m.–6 p.m.",
+      "notes": "Free prepared meal listed on the Community Food Bank Prepared Meals schedule. Call ahead to confirm.",
+      "notes_es": "Comida preparada gratuita en el calendario de Comidas Preparadas del Community Food Bank. Llame para confirmar.",
+      "source_url": "https://npctucson.org",
+      "match": {
+        "needs": [
+          "food"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://npctucson.org"
+    },
+    {
+      "id": "friendship_missionary_baptist",
+      "name": "Friendship Missionary Baptist Church: Free Meal",
+      "categories": [
+        "food"
+      ],
+      "address": "850 N. 11th Ave., Tucson, AZ 85705",
+      "confidential_location": false,
+      "lat": 32.232253,
+      "lng": -110.976282,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206222690"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free hot meal, open to anyone. No ID required.",
+      "eligibility_notes_es": "Comida caliente gratuita, abierta a todos. No se requiere identificación.",
+      "hours_notes": "2nd & 4th Saturdays, 11 a.m.",
+      "hours_notes_es": "2º y 4º sábados, 11 a.m.",
+      "notes": "Free prepared meal listed on the Community Food Bank Prepared Meals schedule. Call ahead to confirm.",
+      "notes_es": "Comida preparada gratuita en el calendario de Comidas Preparadas del Community Food Bank. Llame para confirmar.",
+      "source_url": "https://fmbctucson.org",
+      "match": {
+        "needs": [
+          "food"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://fmbctucson.org"
+    },
+    {
+      "id": "holy_family_catholic",
+      "name": "Holy Family Catholic Church: Free Meal",
+      "categories": [
+        "food"
+      ],
+      "address": "338 W. University Blvd., Tucson, AZ 85705",
+      "confidential_location": false,
+      "lat": 32.231663,
+      "lng": -110.977472,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206236773"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free hot meal, open to anyone. No ID required.",
+      "eligibility_notes_es": "Comida caliente gratuita, abierta a todos. No se requiere identificación.",
+      "hours_notes": "Sundays 3 p.m.–4 p.m.",
+      "hours_notes_es": "Domingos 3 p.m.–4 p.m.",
+      "notes": "Free prepared meal listed on the Community Food Bank Prepared Meals schedule. Call ahead to confirm.",
+      "notes_es": "Comida preparada gratuita en el calendario de Comidas Preparadas del Community Food Bank. Llame para confirmar.",
+      "source_url": "https://holyfamilytucson.org",
+      "match": {
+        "needs": [
+          "food"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://holyfamilytucson.org"
+    },
+    {
+      "id": "the_lot_on_22nd",
+      "name": "The Lot on 22nd",
+      "categories": [
+        "food"
+      ],
+      "address": "4343 E. 22nd St., Tucson, AZ 85711",
+      "confidential_location": false,
+      "lat": 32.20707,
+      "lng": -110.89988,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5203314209"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free hot meal, open to anyone. No ID required.",
+      "eligibility_notes_es": "Comida caliente gratuita, abierta a todos. No se requiere identificación.",
+      "hours_notes": "Thursdays & Sundays 5:15 p.m.–7:15 p.m.",
+      "hours_notes_es": "Jueves y domingos 5:15 p.m.–7:15 p.m.",
+      "notes": "Free prepared meal listed on the Community Food Bank Prepared Meals schedule. Call ahead to confirm.",
+      "notes_es": "Comida preparada gratuita en el calendario de Comidas Preparadas del Community Food Bank. Llame para confirmar.",
+      "source_url": "https://theloton22nd.org",
+      "match": {
+        "needs": [
+          "food"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://theloton22nd.org"
+    },
+    {
+      "id": "sharon_seventh_day_adventist",
+      "name": "Sharon Seventh-day Adventist Church: Free Meal",
+      "categories": [
+        "food"
+      ],
+      "address": "955 N. 10th Ave., Tucson, AZ 85705",
+      "confidential_location": false,
+      "lat": 32.233607,
+      "lng": -110.974959,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5202611881"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free hot meal, open to anyone. No ID required.",
+      "eligibility_notes_es": "Comida caliente gratuita, abierta a todos. No se requiere identificación.",
+      "hours_notes": "Thursdays 11 a.m.–12:30 p.m.",
+      "hours_notes_es": "Jueves 11 a.m.–12:30 p.m.",
+      "notes": "Free prepared meal listed on the Community Food Bank Prepared Meals schedule. Call ahead to confirm.",
+      "notes_es": "Comida preparada gratuita en el calendario de Comidas Preparadas del Community Food Bank. Llame para confirmar.",
+      "match": {
+        "needs": [
+          "food"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      }
+    },
+    {
+      "id": "grace_st_pauls_episcopal",
+      "name": "Grace St. Paul's Episcopal Church: Free Meal",
+      "categories": [
+        "food"
+      ],
+      "address": "2331 E. Adams St., Tucson, AZ 85719",
+      "confidential_location": false,
+      "lat": 32.240747,
+      "lng": -110.93766,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5203276857"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free breakfast and lunch, open to anyone. No ID required.",
+      "eligibility_notes_es": "Desayuno y almuerzo gratuitos, abiertos a todos. No se requiere identificación.",
+      "hours_notes": "Mon, Wed & Fri, breakfast & lunch 9 a.m.–12 p.m.",
+      "hours_notes_es": "Lun, mié y vie, desayuno y almuerzo 9 a.m.–12 p.m.",
+      "notes": "Free prepared meal listed on the Community Food Bank Prepared Meals schedule. Call ahead to confirm.",
+      "notes_es": "Comida preparada gratuita en el calendario de Comidas Preparadas del Community Food Bank. Llame para confirmar.",
+      "source_url": "https://gsptucson.org",
+      "match": {
+        "needs": [
+          "food"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://gsptucson.org"
+    },
+    {
+      "id": "southside_presbyterian",
+      "name": "Southside Presbyterian Church: Free Meal",
+      "categories": [
+        "food"
+      ],
+      "address": "317 W. 23rd St., Tucson, AZ 85713",
+      "confidential_location": false,
+      "lat": 32.205262,
+      "lng": -110.973875,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206236857"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free hot meal, open to anyone. No ID required.",
+      "eligibility_notes_es": "Comida caliente gratuita, abierta a todos. No se requiere identificación.",
+      "hours_notes": "Mondays & Fridays 7 a.m.–9 a.m.",
+      "hours_notes_es": "Lunes y viernes 7 a.m.–9 a.m.",
+      "notes": "Free prepared meal listed on the Community Food Bank Prepared Meals schedule. Call ahead to confirm.",
+      "notes_es": "Comida preparada gratuita en el calendario de Comidas Preparadas del Community Food Bank. Llame para confirmar.",
+      "source_url": "https://southsidepresbyterian.org",
+      "match": {
+        "needs": [
+          "food"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://southsidepresbyterian.org"
+    },
+    {
+      "id": "his_presence_church_az",
+      "name": "His Presence Church Arizona: Free Meal",
+      "categories": [
+        "food"
+      ],
+      "address": "4108 E. North St., Tucson, AZ 85712",
+      "confidential_location": false,
+      "lat": 32.249411,
+      "lng": -110.905661,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5207222217"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free food boxes and hot meals, open to anyone.",
+      "eligibility_notes_es": "Cajas de comida y comidas calientes gratuitas, abiertas a todos.",
+      "hours_notes": "2nd & 4th Thursdays: food boxes 1 p.m.–5 p.m., hot meals 3 p.m.–5 p.m.",
+      "hours_notes_es": "2º y 4º jueves: cajas de comida 1 p.m.–5 p.m., comidas calientes 3 p.m.–5 p.m.",
+      "notes": "Free prepared meal listed on the Community Food Bank Prepared Meals schedule. Call ahead to confirm.",
+      "notes_es": "Comida preparada gratuita en el calendario de Comidas Preparadas del Community Food Bank. Llame para confirmar.",
+      "source_url": "https://hpcaz.org",
+      "match": {
+        "needs": [
+          "food"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://hpcaz.org"
+    },
+    {
+      "id": "community_cares_tucson",
+      "name": "Community Cares Tucson",
+      "categories": [
+        "food"
+      ],
+      "address": "Armory Park, 220 S. 5th Ave., Tucson, AZ 85701",
+      "confidential_location": false,
+      "lat": 32.21532,
+      "lng": -110.965879,
+      "coords_approximate": true,
+      "phone": [],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free hot meal, open to anyone. No ID required.",
+      "eligibility_notes_es": "Comida caliente gratuita, abierta a todos. No se requiere identificación.",
+      "hours_notes": "Wednesdays 6 p.m.–8 p.m. Hot meals while supplies last.",
+      "hours_notes_es": "Miércoles 6 p.m.–8 p.m. Comidas calientes hasta agotar existencias.",
+      "notes": "Meal served at Armory Park. Listed on the Community Food Bank Prepared Meals schedule.",
+      "notes_es": "Comida servida en Armory Park. En el calendario de Comidas Preparadas del Community Food Bank.",
+      "match": {
+        "needs": [
+          "food"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      }
+    },
+    {
+      "id": "community_on_wheels",
+      "name": "Community on Wheels (COW)",
+      "categories": [
+        "food"
+      ],
+      "address": "Santa Rita Park, 400 S. 3rd Ave., Tucson, AZ 85701",
+      "confidential_location": false,
+      "lat": 32.20818,
+      "lng": -110.962418,
+      "coords_approximate": true,
+      "phone": [],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free hot meal, open to anyone. No ID required.",
+      "eligibility_notes_es": "Comida caliente gratuita, abierta a todos. No se requiere identificación.",
+      "hours_notes": "Saturdays 4 p.m. Hot meals while supplies last.",
+      "hours_notes_es": "Sábados 4 p.m. Comidas calientes hasta agotar existencias.",
+      "notes": "Meal served at Santa Rita Park. Listed on the Community Food Bank Prepared Meals schedule.",
+      "notes_es": "Comida servida en Santa Rita Park. En el calendario de Comidas Preparadas del Community Food Bank.",
+      "source_url": "https://communityonwheels.org",
+      "match": {
+        "needs": [
+          "food"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://communityonwheels.org"
+    },
+    {
+      "id": "mosque_yousuf",
+      "name": "Mosque Yousuf: Free Meal",
+      "categories": [
+        "food"
+      ],
+      "address": "250 W. Speedway Blvd., Tucson, AZ 85705",
+      "confidential_location": false,
+      "lat": 32.235846,
+      "lng": -110.975246,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206244100"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free hot meal, open to anyone. No ID required.",
+      "eligibility_notes_es": "Comida caliente gratuita, abierta a todos. No se requiere identificación.",
+      "hours_notes": "Tuesdays 10:30 a.m.–12 p.m.",
+      "hours_notes_es": "Martes 10:30 a.m.–12 p.m.",
+      "notes": "Free prepared meal listed on the Community Food Bank Prepared Meals schedule. Call ahead to confirm.",
+      "notes_es": "Comida preparada gratuita en el calendario de Comidas Preparadas del Community Food Bank. Llame para confirmar.",
+      "match": {
+        "needs": [
+          "food"
         ],
         "housing": [
           "any"
@@ -1892,7 +2356,8 @@
           "any"
         ],
         "intake": "walk_in"
-      }
+      },
+      "website": "https://www.pima.gov/2180/Women-Infants-Children-WIC-Program"
     },
     {
       "id": "el_rio_homeless_clinic",
@@ -1928,7 +2393,8 @@
           "at_risk"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://elrio.org"
     },
     {
       "id": "st_elizabeths_health_center",
@@ -1963,7 +2429,8 @@
           "any"
         ],
         "intake": "call"
-      }
+      },
+      "website": "https://www.ccs-soaz.org/agencies-ministries/st-elizabeths-health-center"
     },
     {
       "id": "z_mansion",
@@ -2000,7 +2467,8 @@
           "any"
         ],
         "intake": "walk_in"
-      }
+      },
+      "website": "https://zmansion.com"
     },
     {
       "id": "sonoran_prevention_works",
@@ -2037,7 +2505,8 @@
           "any"
         ],
         "intake": "walk_in"
-      }
+      },
+      "website": "https://spwaz.org/arizonanaloxone/"
     },
     {
       "id": "tucson_ward_1",
@@ -2061,7 +2530,8 @@
       "open_24_7": false,
       "eligibility_notes": "Serves residents of Ward 1, Tucson. Council office for constituent services and referrals.",
       "eligibility_notes_es": "Atiende a residentes del Distrito 1 de Tucson. Oficina del concejo para servicios al constituyente y referencias.",
-      "source_url": "https://www.tucsonaz.gov/Mayor-Council"
+      "source_url": "https://www.tucsonaz.gov/Mayor-Council",
+      "website": "https://www.tucsonaz.gov/Government/Mayor-Council-and-City-Manager/City-Council-Wards/Ward-1"
     },
     {
       "id": "tucson_ward_2",
@@ -2085,7 +2555,8 @@
       "open_24_7": false,
       "eligibility_notes": "Serves residents of Ward 2, Tucson. Council office for constituent services and referrals.",
       "eligibility_notes_es": "Atiende a residentes del Distrito 2 de Tucson. Oficina del concejo para servicios al constituyente y referencias.",
-      "source_url": "https://www.tucsonaz.gov/Mayor-Council"
+      "source_url": "https://www.tucsonaz.gov/Mayor-Council",
+      "website": "https://www.tucsonaz.gov/Government/Mayor-Council-and-City-Manager/City-Council-Wards/Ward-2"
     },
     {
       "id": "tucson_ward_3",
@@ -2109,7 +2580,8 @@
       "open_24_7": false,
       "eligibility_notes": "Serves residents of Ward 3, Tucson. Council office for constituent services and referrals.",
       "eligibility_notes_es": "Atiende a residentes del Distrito 3 de Tucson. Oficina del concejo para servicios al constituyente y referencias.",
-      "source_url": "https://www.tucsonaz.gov/Mayor-Council"
+      "source_url": "https://www.tucsonaz.gov/Mayor-Council",
+      "website": "https://www.tucsonaz.gov/Government/Mayor-Council-and-City-Manager/City-Council-Wards/Ward-3"
     },
     {
       "id": "tucson_ward_4",
@@ -2133,7 +2605,8 @@
       "open_24_7": false,
       "eligibility_notes": "Serves residents of Ward 4, Tucson. Council office for constituent services and referrals.",
       "eligibility_notes_es": "Atiende a residentes del Distrito 4 de Tucson. Oficina del concejo para servicios al constituyente y referencias.",
-      "source_url": "https://www.tucsonaz.gov/Mayor-Council"
+      "source_url": "https://www.tucsonaz.gov/Mayor-Council",
+      "website": "https://www.tucsonaz.gov/Government/Mayor-Council-and-City-Manager/City-Council-Wards/Ward-4"
     },
     {
       "id": "tucson_ward_5",
@@ -2157,7 +2630,8 @@
       "open_24_7": false,
       "eligibility_notes": "Serves residents of Ward 5, Tucson. Council office for constituent services and referrals.",
       "eligibility_notes_es": "Atiende a residentes del Distrito 5 de Tucson. Oficina del concejo para servicios al constituyente y referencias.",
-      "source_url": "https://www.tucsonaz.gov/Mayor-Council"
+      "source_url": "https://www.tucsonaz.gov/Mayor-Council",
+      "website": "https://www.tucsonaz.gov/Government/Mayor-Council-and-City-Manager/City-Council-Wards/Ward-5"
     },
     {
       "id": "tucson_ward_6",
@@ -2181,7 +2655,8 @@
       "open_24_7": false,
       "eligibility_notes": "Serves residents of Ward 6, Tucson. Council office for constituent services and referrals.",
       "eligibility_notes_es": "Atiende a residentes del Distrito 6 de Tucson. Oficina del concejo para servicios al constituyente y referencias.",
-      "source_url": "https://www.tucsonaz.gov/Mayor-Council"
+      "source_url": "https://www.tucsonaz.gov/Mayor-Council",
+      "website": "https://www.tucsonaz.gov/Government/Mayor-Council-and-City-Manager/City-Council-Wards/Ward-6"
     }
   ]
 }

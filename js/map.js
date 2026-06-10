@@ -6,13 +6,34 @@
 (function () {
   'use strict';
 
-  const CATEGORIES = [
-    'all', 'emergency', 'family', 'women', 'men',
-    'youth', 'veterans', 'employment', 'civic',
+  /* Filters are framed as a sentence: "I am [who] looking for [what]".
+     WHO is a population the user identifies with; WHAT is a type of help.
+     The two axes combine (AND), but a WHO match is inclusive — a provider
+     with no population tag serves everyone, so picking "Women" still keeps
+     food banks, job centers, and advocacy in view, not just women's shelters. */
+  /* [filter value, i18n key]. Map-specific singular labels ("Woman", not the
+     directory's plural "Women") so the sentence reads naturally. */
+  const WHO_OPTS = [
+    ['all', 'map_filter_anyone'], ['women', 'map_who_woman'], ['men', 'map_who_man'],
+    ['family', 'map_who_family'], ['youth', 'map_who_youth'], ['veterans', 'map_who_veteran'],
   ];
+  const NEED_OPTS = [
+    ['all', 'map_filter_anything'], ['emergency', 'map_need_shelter'], ['food', 'map_need_food'],
+    ['employment', 'map_need_employment'], ['civic', 'map_need_advocacy'],
+  ];
+  const POP_TAGS = ['women', 'men', 'family', 'youth', 'veterans'];
+
+  function servesWho(r, who) {
+    if (who === 'all') return true;
+    const cats = r.categories || [];
+    if (cats.includes(who)) return true;
+    // No population tag at all => general service, open to everyone.
+    return !POP_TAGS.some((p) => cats.includes(p));
+  }
 
   const CAT_ICON = {
     emergency: 'bed',
+    food: 'food',
     family: 'family',
     women: 'women',
     men: 'men',
@@ -26,12 +47,13 @@
 
   const PRIMARY_ORDER = [
     'emergency', 'domestic_violence', 'women', 'family',
-    'youth', 'veterans', 'men', 'employment', 'civic', 'outreach',
+    'youth', 'veterans', 'men', 'food', 'employment', 'civic', 'outreach',
   ];
 
   /* ---------- state ---------- */
   let resources = [];
-  let activeFilter = 'all';
+  let whoFilter = 'all';
+  let needFilter = 'all';
   let userPos = null;
   let activeId = null;
   let currentView = 'map'; /* 'map' or 'list' (mobile only) */
@@ -108,8 +130,11 @@
 
   function visibleResources() {
     let list = mappableResources();
-    if (activeFilter !== 'all') {
-      list = list.filter((r) => (r.categories || []).includes(activeFilter));
+    if (whoFilter !== 'all') {
+      list = list.filter((r) => servesWho(r, whoFilter));
+    }
+    if (needFilter !== 'all') {
+      list = list.filter((r) => (r.categories || []).includes(needFilter));
     }
     if (userPos) {
       list = list
@@ -146,6 +171,22 @@
     });
   }
 
+  /* Food providers run on fixed meal/distribution windows, so showing up
+     outside them is a wasted trip. Surface the days/hours right on the card.
+     Other categories (shelters, hotlines) are far less time-boxed, so we leave
+     hours off theirs to keep the cards uncluttered. */
+  function foodHoursHtml(r, cls) {
+    if (!(r.categories || []).includes('food')) return '';
+    const hours = TW.fieldByLang(r, 'hours_notes');
+    if (!hours) return '';
+    const tag = cls.startsWith('popup') ? 'div' : 'span';
+    return (
+      '<' + tag + ' class="' + cls + '">' +
+        TW.icon('clock') + '<span>' + escapeHtml(hours) + '</span>' +
+      '</' + tag + '>'
+    );
+  }
+
   /* ---------- popup / cards ---------- */
   function badgeHtml(r) {
     const b = [];
@@ -177,6 +218,7 @@
           '<span class="act__label">' + TW.t('card_directions') + '</span>' +
           '<span class="act__val">' + escapeHtml(address.split(',')[0]) + '</span>' +
         '</span>' +
+        TW.newTabHint() +
       '</a>'
     );
   }
@@ -193,6 +235,21 @@
     );
   }
 
+  function websiteActionHtml(url, label) {
+    let host = url;
+    try { host = new URL(url).hostname.replace(/^www\./, ''); } catch (e) { /* keep raw */ }
+    return (
+      '<a class="act act--dir" href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' +
+        TW.icon('external') +
+        '<span class="act__txt">' +
+          '<span class="act__label">' + escapeHtml(label) + '</span>' +
+          '<span class="act__val">' + escapeHtml(host) + '</span>' +
+        '</span>' +
+        TW.newTabHint() +
+      '</a>'
+    );
+  }
+
   function popupHtml(r) {
     const primary = primaryCategoryFor(r);
     const color = 'var(--cat-' + primary + ')';
@@ -205,6 +262,7 @@
     if (phone) actions.push(phoneActionHtml(phone, color));
     if (r.address) actions.push(directionsActionHtml(r.address));
     if (r.email) actions.push(emailActionHtml(r.email));
+    if (r.website) actions.push(websiteActionHtml(r.website, TW.fieldByLang(r, 'website_label') || TW.t('card_website')));
 
     return (
       '<div class="popup" style="--c:' + color + '">' +
@@ -217,6 +275,7 @@
         '</div>' +
         (badges ? '<div class="popup__badges">' + badges + '</div>' : '') +
         (r.address ? '<p class="popup__addr">' + escapeHtml(r.address) + '</p>' : '') +
+        foodHoursHtml(r, 'popup__hours') +
         (dist ? '<div class="popup__meta"><strong>' + escapeHtml(dist) + '</strong></div>' : '') +
         (actions.length ? '<div class="popup__actions">' + actions.join('') + '</div>' : '') +
       '</div>'
@@ -318,32 +377,150 @@
     $filters.dataset.scrollEnd = String(atEnd);
   }
 
+  /* Custom listbox so the open menu can be branded (native <select> popups
+     can't be styled). Implements the WAI-ARIA listbox pattern: a button
+     (aria-haspopup/expanded) toggles a role="listbox" of role="option"s,
+     navigated with arrows/Home/End/Enter/Esc and aria-activedescendant.
+     The trigger lights up with the accent + the selection's icon once a real
+     value is chosen. `opts` is [value, i18nKey] pairs. */
+  let selUid = 0;
+
+  function buildFilterPart(labelKey, opts, active, onPick) {
+    const uid = 'twsel-' + (++selUid);
+    let current = active;
+    let open = false;
+    let activeIdx = Math.max(0, opts.findIndex(([v]) => v === current));
+
+    const part = document.createElement('div');
+    part.className = 'map-filter-part';
+
+    const lead = document.createElement('span');
+    lead.className = 'map-filter-part__lead';
+    lead.id = uid + '-lead';
+    lead.textContent = TW.t(labelKey);
+    part.appendChild(lead);
+
+    const wrap = document.createElement('div');
+    wrap.className = 'tw-select';
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tw-select__btn';
+    btn.id = uid + '-btn';
+    btn.setAttribute('aria-haspopup', 'listbox');
+    btn.setAttribute('aria-expanded', 'false');
+
+    const glyph = document.createElement('span');
+    glyph.className = 'tw-select__glyph';
+    glyph.setAttribute('aria-hidden', 'true');
+    const valEl = document.createElement('span');
+    valEl.className = 'tw-select__value';
+    valEl.id = uid + '-val';
+    const chev = document.createElement('span');
+    chev.className = 'tw-select__chev';
+    chev.setAttribute('aria-hidden', 'true');
+    chev.innerHTML = TW.icon('chevron');
+    btn.setAttribute('aria-labelledby', lead.id + ' ' + valEl.id);
+    btn.append(glyph, valEl, chev);
+
+    const menu = document.createElement('ul');
+    menu.className = 'tw-select__menu';
+    menu.id = uid + '-menu';
+    menu.setAttribute('role', 'listbox');
+    menu.setAttribute('tabindex', '-1');
+    menu.setAttribute('aria-labelledby', lead.id);
+    menu.hidden = true;
+
+    const optEls = opts.map(([val, key], i) => {
+      const li = document.createElement('li');
+      li.className = 'tw-select__opt';
+      li.id = uid + '-opt-' + i;
+      li.setAttribute('role', 'option');
+      li.dataset.value = val;
+      const ic = val !== 'all' ? CAT_ICON[val] : null;
+      li.innerHTML =
+        '<span class="tw-select__opt-icon" aria-hidden="true">' + (ic ? TW.icon(ic) : '') + '</span>' +
+        '<span class="tw-select__opt-label">' + escapeHtml(TW.t(key)) + '</span>' +
+        '<span class="tw-select__opt-check" aria-hidden="true">' + TW.icon('check') + '</span>';
+      li.addEventListener('click', () => choose(i));
+      li.addEventListener('mousemove', () => setActive(i));
+      menu.appendChild(li);
+      return li;
+    });
+
+    function renderValue() {
+      const found = opts.find(([v]) => v === current) || opts[0];
+      valEl.textContent = TW.t(found[1]);
+      const ic = found[0] !== 'all' ? CAT_ICON[found[0]] : null;
+      glyph.innerHTML = ic ? TW.icon(ic) : '';
+      wrap.dataset.active = String(found[0] !== 'all');
+      optEls.forEach((li) => li.setAttribute('aria-selected', String(li.dataset.value === current)));
+    }
+    function setActive(i) {
+      activeIdx = i;
+      optEls.forEach((li, n) => li.classList.toggle('is-active', n === i));
+      menu.setAttribute('aria-activedescendant', optEls[i].id);
+      optEls[i].scrollIntoView({ block: 'nearest' });
+    }
+    function openMenu() {
+      if (open) return;
+      open = true;
+      menu.hidden = false;
+      wrap.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      setActive(Math.max(0, opts.findIndex(([v]) => v === current)));
+      menu.focus();
+      document.addEventListener('click', onDocClick, true);
+    }
+    function closeMenu(focusBtn) {
+      if (!open) return;
+      open = false;
+      menu.hidden = true;
+      wrap.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.removeEventListener('click', onDocClick, true);
+      if (focusBtn) btn.focus();
+    }
+    function choose(i) {
+      current = opts[i][0];
+      renderValue();
+      closeMenu(true);
+      onPick(current);
+      renderAll();
+    }
+    function onDocClick(e) { if (!wrap.contains(e.target)) closeMenu(false); }
+
+    btn.addEventListener('click', () => (open ? closeMenu(true) : openMenu()));
+    btn.addEventListener('keydown', (e) => {
+      if (['ArrowDown', 'ArrowUp', 'Enter', ' '].includes(e.key)) { e.preventDefault(); openMenu(); }
+    });
+    menu.addEventListener('keydown', (e) => {
+      switch (e.key) {
+        case 'ArrowDown': e.preventDefault(); setActive(Math.min(activeIdx + 1, optEls.length - 1)); break;
+        case 'ArrowUp': e.preventDefault(); setActive(Math.max(activeIdx - 1, 0)); break;
+        case 'Home': e.preventDefault(); setActive(0); break;
+        case 'End': e.preventDefault(); setActive(optEls.length - 1); break;
+        case 'Enter': case ' ': e.preventDefault(); choose(activeIdx); break;
+        case 'Escape': e.preventDefault(); closeMenu(true); break;
+        case 'Tab': closeMenu(false); break;
+        default: break;
+      }
+    });
+
+    wrap.append(btn, menu);
+    part.appendChild(wrap);
+    renderValue();
+    return part;
+  }
+
   function renderFilters() {
     $filters.innerHTML = '';
-    CATEGORIES.forEach((cat) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'chip';
-      btn.setAttribute('aria-pressed', String(cat === activeFilter));
-      btn.dataset.filter = cat;
-      if (cat !== 'all') {
-        const dot = document.createElement('span');
-        dot.className = 'chip__dot';
-        dot.style.setProperty('--cat', 'var(--cat-' + cat + ')');
-        dot.setAttribute('aria-hidden', 'true');
-        btn.appendChild(dot);
-      }
-      const label = document.createElement('span');
-      label.textContent = TW.t('filter_' + cat);
-      btn.appendChild(label);
-      btn.addEventListener('click', () => {
-        activeFilter = cat;
-        renderFilters();
-        renderAll();
-      });
-      $filters.appendChild(btn);
-    });
-    syncFilterFade();
+    $filters.appendChild(
+      buildFilterPart('map_filter_who', WHO_OPTS, whoFilter, (v) => { whoFilter = v; })
+    );
+    $filters.appendChild(
+      buildFilterPart('map_filter_need', NEED_OPTS, needFilter, (v) => { needFilter = v; })
+    );
   }
 
   /* ---------- list ---------- */
@@ -367,6 +544,7 @@
             (cats ? '<span>' + cats + '</span>' : '') +
           '</span>' +
           (r.address ? '<span class="map-list__addr">' + escapeHtml(r.address) + '</span>' : '') +
+          foodHoursHtml(r, 'map-list__hours') +
           (badges ? '<span class="map-list__badges">' + badges + '</span>' : '') +
         '</span>' +
       '</button>'
@@ -413,7 +591,17 @@
              meters off their true coords); zoom deeper for those so the
              shared-building pins visibly separate. */
           const targetZoom = Math.max(map.getZoom(), m.twOffset ? 17 : 15);
-          map.flyTo(m.getLatLng(), targetZoom, { duration: 0.6 });
+          /* The popup opens upward from the pin, so centering the pin clips
+             the popup against the top edge. On the desktop split layout, aim
+             the map a bit above the pin so it sits lower in the viewport and
+             the popup has room. */
+          let target = m.getLatLng();
+          if (window.matchMedia('(min-width: 720px)').matches) {
+            const pt = map.project(target, targetZoom);
+            const offsetY = Math.round(map.getSize().y * 0.22);
+            target = map.unproject(pt.subtract(L.point(0, offsetY)), targetZoom);
+          }
+          map.flyTo(target, targetZoom, { duration: 0.6 });
           m.openPopup();
         }
       });

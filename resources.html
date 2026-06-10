@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" />
-  <link rel="stylesheet" href="css/styles.css?v=39" />
+  <link rel="stylesheet" href="css/styles.css?v=46" />
   <script>(function(){try{var t=localStorage.getItem('tw.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body data-page="resources">
@@ -30,7 +30,7 @@
         </picture>
         <span class="brand__name">Tucson Compass</span>
       </a>
-      <nav class="nav-primary" aria-label="Primary">
+      <nav class="nav-primary" aria-label="Primary" data-i18n-aria-label="aria_nav_primary">
         <ul>
           <li><a href="index.html"><i data-icon="home"></i><span data-i18n="nav_find_help">Find Help</span></a></li>
           <li><a href="directory.html"><i data-icon="list"></i><span data-i18n="nav_directory">Directory</span></a></li>
@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <nav class="jump-row" id="res-jump" aria-label="Sections"></nav>
+    <nav class="jump-row" id="res-jump" aria-label="Sections" data-i18n-aria-label="aria_sections"></nav>
 
     <div id="res-groups"></div>
 
@@ -130,14 +130,14 @@
               <li><a href="tel:911"><strong>911</strong><span data-i18n="footer_emergency_short">Emergency</span></a></li>
               <li><a href="tel:988"><strong>988</strong><span data-i18n="footer_988_short">Crisis &amp; mental health</span></a></li>
               <li><a href="tel:211"><strong>211</strong><span data-i18n="footer_211_short">Info &amp; referral</span></a></li>
-              <li><a href="https://tpch.net/coordinated-entry-for-homeless-services/" target="_blank" rel="noopener"><strong data-i18n="footer_ce_short">Coordinated Entry</strong><span data-i18n="footer_ce_sub">Front door to housing</span></a></li>
+              <li><a href="https://tpch.net/coordinated-entry-for-homeless-services/" target="_blank" rel="noopener"><strong data-i18n="footer_ce_short">Coordinated Entry</strong><span data-i18n="footer_ce_sub">Front door to housing</span><span class="sr-only" data-i18n="opens_new_tab">opens in a new tab</span></a></li>
             </ul>
           </div>
         </div>
       </div>
       <div class="site-footer__bottom">
         <div class="container site-footer__bottom-row">
-          <p class="site-footer__disclaimer" data-i18n="footer_disclaimer">Tucson Compass is an independent informational directory. It is not affiliated with the organizations listed and does not provide shelter, funding, or services directly. Information is provided as-is. Please call ahead to confirm availability.</p>
+          <p class="site-footer__disclaimer" data-i18n="footer_disclaimer">Tucson Compass is an independent, free informational directory. It is not affiliated with, and does not endorse, the organizations listed, and does not provide shelter, funding, food, or services directly. Listings are compiled from public sources and may be incomplete or out of date. Information is provided as-is, without warranty, and is not legal, medical, or crisis advice. Always call ahead to confirm hours, eligibility, and availability before traveling. We are not responsible for the content or services of third-party websites or organizations.</p>
           <p class="site-footer__copy">&copy; 2026 Tucson Compass &middot; <a href="about.html" data-i18n="footer_about_link">About this site</a></p>
         </div>
       </div>
@@ -145,7 +145,7 @@
   </footer>
 
   <script src="js/icons.js?v=20"></script>
-  <script src="js/app.js?v=22"></script>
-  <script src="js/resources.js?v=2"></script>
+  <script src="js/app.js?v=23"></script>
+  <script src="js/resources.js?v=4"></script>
 </body>
 </html>
