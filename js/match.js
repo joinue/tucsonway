@@ -4,15 +4,19 @@
    - Answers live ONLY in component memory. Never written to localStorage,
      cookies, URL params, or sent anywhere. Refreshing the page wipes them.
    - Matching runs entirely in the browser against data/resources.json.
+   - The static form is progressively enhanced into a one-question-at-a-time
+     wizard (progress bar, Back/Next, auto-advance on single-choice).
+     Without JS the plain form still renders; with JS the wizard takes over.
+   - Results can be printed / saved as PDF via the print stylesheet.
 */
 (function () {
   'use strict';
 
   let resources = [];
-  let quickAccess = [];
 
   const $form = document.getElementById('match-form');
   const $results = document.getElementById('match-results');
+  const $printHeader = document.getElementById('print-header');
 
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, (c) => ({
@@ -24,7 +28,7 @@
 
   function readAnswers() {
     const fd = new FormData($form);
-    const answers = {
+    return {
       needs: fd.getAll('needs'),
       housing: fd.get('housing') || '',
       age: fd.get('age') || '',
@@ -37,7 +41,6 @@
       tribal: fd.get('tribal') || '',
       reentry: fd.get('reentry') || '',
     };
-    return answers;
   }
 
   /* -------------------- age helpers -------------------- */
@@ -92,6 +95,11 @@
     // tribal-only programs
     if (m.tribal_only && a.tribal !== 'yes') return { keep: false };
 
+    // identity-specialized programs (e.g. SAAF's LGBTQ anti-violence work)
+    // are only relevant when the user tells us they're LGBTQ+ — otherwise
+    // they crowd out general services for everyone who picks "mental health".
+    if (m.lgbtq_focused && !a.gender.includes('lgbtq')) return { keep: false };
+
     // housing-status alignment (only filter if user said something)
     if (a.housing && a.housing !== 'skip' && a.housing !== 'for_someone' && m.housing) {
       const userBucket = (a.housing === 'at_risk') ? 'at_risk' : 'unhoused';
@@ -99,12 +107,7 @@
       const ok = programServes.includes('any')
         || programServes.includes(userBucket)
         || (userBucket === 'unhoused' && programServes.includes('unhoused'));
-      if (!ok) {
-        // exception: if user is housed-at-risk but program is only unhoused,
-        // and user picked a need only that program offers, still surface it.
-        // For now: skip.
-        return { keep: false };
-      }
+      if (!ok) return { keep: false };
     }
 
     /* ---------- SOFT SCORING ---------- */
@@ -229,6 +232,108 @@
     return 'other';
   }
 
+  /* ==================== WIZARD ==================== */
+
+  const wizard = {
+    steps: [],
+    idx: 0,
+    head: null,
+    nav: null,
+    active: false,
+  };
+
+  function buildWizard() {
+    wizard.steps = Array.from($form.querySelectorAll('.qsection'));
+    if (!wizard.steps.length) return;
+
+    /* Progress header (step count + bar) at the top of the form */
+    const head = document.createElement('div');
+    head.className = 'wizard-head';
+    head.id = 'wizard-head';
+    head.innerHTML =
+      '<div class="wizard-head__row">' +
+        '<span class="wizard-head__step" id="wizard-step"></span>' +
+        '<span class="wizard-head__privacy">' + TW.icon('check') +
+          '<span data-i18n="match_privacy_title">' + escapeHtml(TW.t('match_privacy_title')) + '</span>' +
+        '</span>' +
+      '</div>' +
+      '<div class="wizard-bar" aria-hidden="true"><span class="wizard-bar__fill" id="wizard-fill"></span></div>';
+    $form.insertBefore(head, $form.firstChild);
+    wizard.head = head;
+
+    /* Back / Next footer */
+    const nav = document.createElement('div');
+    nav.className = 'wizard-nav';
+    nav.innerHTML =
+      '<button type="button" class="btn-secondary wizard-nav__back" id="wizard-back">' +
+        TW.icon('chevron') + '<span data-i18n="match_back">' + escapeHtml(TW.t('match_back')) + '</span>' +
+      '</button>' +
+      '<button type="button" class="btn-primary wizard-nav__next" id="wizard-next"><span></span>' + TW.icon('arrow-right') + '</button>';
+    $form.appendChild(nav);
+    wizard.nav = nav;
+    /* flip the Back chevron */
+    const backSvg = nav.querySelector('#wizard-back svg');
+    if (backSvg) backSvg.style.transform = 'rotate(180deg)';
+
+    nav.querySelector('#wizard-back').addEventListener('click', () => go(wizard.idx - 1));
+    nav.querySelector('#wizard-next').addEventListener('click', () => {
+      if (wizard.idx >= wizard.steps.length - 1) {
+        finish();
+      } else {
+        go(wizard.idx + 1);
+      }
+    });
+
+    $form.classList.add('match-form--wizard');
+    document.body.classList.add('wizard-on');
+    wizard.active = true;
+    go(0, true);
+  }
+
+  function stepAnswered(i) {
+    const sec = wizard.steps[i];
+    return !!sec && !!sec.querySelector('input:checked');
+  }
+
+  function go(i, instant) {
+    wizard.idx = Math.max(0, Math.min(i, wizard.steps.length - 1));
+    wizard.steps.forEach((s, n) => s.classList.toggle('qsection--active', n === wizard.idx));
+    updateWizardChrome();
+    if (!instant) {
+      const top = wizard.head.getBoundingClientRect().top + window.scrollY - 76;
+      if (window.scrollY > top) window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  function updateWizardChrome() {
+    if (!wizard.active) return;
+    const n = wizard.steps.length;
+    const x = wizard.idx + 1;
+    const stepEl = document.getElementById('wizard-step');
+    if (stepEl) {
+      stepEl.textContent = TW.t('match_progress').replace('{x}', x).replace('{n}', n);
+    }
+    const fill = document.getElementById('wizard-fill');
+    if (fill) fill.style.width = Math.round((x / n) * 100) + '%';
+
+    const back = document.getElementById('wizard-back');
+    if (back) back.style.visibility = wizard.idx === 0 ? 'hidden' : 'visible';
+
+    const next = document.getElementById('wizard-next');
+    if (next) {
+      const label = next.querySelector('span');
+      const last = wizard.idx >= n - 1;
+      label.textContent = last
+        ? TW.t('match_see_results')
+        : (stepAnswered(wizard.idx) ? TW.t('match_next') : TW.t('match_skip_q'));
+      next.classList.toggle('btn-primary', true);
+    }
+  }
+
+  function finish() {
+    render(readAnswers());
+  }
+
   /* -------------------- rendering -------------------- */
 
   function phoneActionFor(r) {
@@ -284,7 +389,36 @@
       ? '<p class="match-card__addr match-card__addr--confidential">' + TW.icon('warn') + ' <span>' + escapeHtml(TW.t('match_loc_confidential')) + '</span></p>'
       : (r.address ? '<p class="match-card__addr">' + TW.icon('pin') + ' <span>' + escapeHtml(r.address) + '</span></p>' : '');
 
-    const detailHref = 'directory.html#r-' + encodeURIComponent(r.id);
+    /* Full details inline (same collapsible pattern as the directory) so
+       nobody has to leave their results to learn eligibility and hours. */
+    const detailFields = [];
+    const elig = TW.fieldByLang(r, 'eligibility_notes');
+    const hours = TW.fieldByLang(r, 'hours_notes');
+    const notes = TW.fieldByLang(r, 'notes');
+    if (elig) detailFields.push({ label: TW.t('card_eligibility'), val: elig });
+    if (hours) detailFields.push({ label: TW.t('card_hours'), val: hours });
+    if (notes) detailFields.push({ label: TW.t('card_notes'), val: notes });
+    (r.phone || []).slice(1).forEach((p) => {
+      detailFields.push({
+        label: p.label || TW.t('card_call'),
+        val: TW.formatPhone(p.tel) + (p.ext ? ' ' + TW.t('match_phone_ext') + ' ' + p.ext : ''),
+      });
+    });
+
+    const moreHtml = detailFields.length
+      ? '<details class="card__more">' +
+          '<summary class="card__more-toggle">' +
+            '<span class="card__more-text card__more-text--show">' + escapeHtml(TW.t('card_show_details')) + '</span>' +
+            '<span class="card__more-text card__more-text--hide">' + escapeHtml(TW.t('card_hide_details')) + '</span>' +
+            TW.icon('chevron') +
+          '</summary>' +
+          '<div class="card__more-body">' +
+            detailFields
+              .map((f) => '<div class="card__field"><span class="card__field-label">' + escapeHtml(f.label) + '</span><span class="card__field-val">' + escapeHtml(f.val) + '</span></div>')
+              .join('') +
+          '</div>' +
+        '</details>'
+      : '';
 
     return (
       '<article class="match-card">' +
@@ -293,13 +427,11 @@
           why +
         '</div>' +
         addr +
+        moreHtml +
         '<div class="match-card__actions">' +
           phoneActionFor(r) +
           directionsActionFor(r) +
           shareActionFor(r) +
-          '<a class="match-card__more" href="' + detailHref + '">' +
-            TW.icon('chevron') + '<span>' + escapeHtml(TW.t('match_full_details')) + '</span>' +
-          '</a>' +
         '</div>' +
       '</article>'
     );
@@ -382,74 +514,129 @@
     );
   }
 
+  /* Recap chips — pull the visible (already localized) label of every
+     checked option so the user sees what the results are based on. */
+  function recapHtml() {
+    const labels = Array.from($form.querySelectorAll('.opt input:checked'))
+      .map((inp) => {
+        if (inp.value === 'skip') return null;
+        const span = inp.closest('.opt').querySelector('span');
+        return span ? span.textContent.trim() : null;
+      })
+      .filter(Boolean);
+    if (!labels.length) return '';
+    return (
+      '<ul class="answer-recap" aria-label="' + escapeHtml(TW.t('match_your_answers')) + '">' +
+        labels.map((l) => '<li>' + escapeHtml(l) + '</li>').join('') +
+      '</ul>'
+    );
+  }
+
+  function toolbarHtml() {
+    return (
+      '<div class="results-toolbar">' +
+        '<button type="button" class="btn-secondary" id="match-print">' +
+          TW.icon('printer') + '<span>' + escapeHtml(TW.t('match_print')) + '</span>' +
+        '</button>' +
+        '<button type="button" class="btn-secondary" id="match-edit">' +
+          TW.icon('list') + '<span>' + escapeHtml(TW.t('match_edit_answers')) + '</span>' +
+        '</button>' +
+        '<button type="button" class="btn-ghost" id="match-restart">' +
+          TW.icon('close') + '<span>' + escapeHtml(TW.t('match_reset')) + '</span>' +
+        '</button>' +
+      '</div>'
+    );
+  }
+
+  function updatePrintHeader() {
+    if (!$printHeader) return;
+    const locale = TW.lang() === 'es' ? 'es' : 'en-US';
+    const date = new Date().toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' });
+    $printHeader.innerHTML =
+      '<p class="print-header__brand">' + escapeHtml(TW.t('site_title')) + ' — ' + escapeHtml(TW.t('match_print_title')) + '</p>' +
+      '<p class="print-header__meta">' +
+        escapeHtml(TW.t('match_print_date').replace('{date}', date)) + ' · ' +
+        escapeHtml(TW.t('match_print_note')) +
+      '</p>';
+  }
+
+  function showForm() {
+    $results.hidden = true;
+    $form.hidden = false;
+    if (wizard.active) go(0, true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   function render(answers) {
     /* Run scoring */
     const scored = resources
       // Civic / advocacy entries (city ward offices, etc.) are not direct services.
-      // Skip them in matching even if a future entry lacks a `match` block.
       .filter((r) => !(r.categories || []).includes('civic'))
       .map((r) => ({ r, ev: evaluate(r, answers) }))
       .filter((x) => x.ev.keep && x.ev.score > 0);
 
+    let html = '';
+
     if (!scored.length) {
       const body = TW.t('match_no_match_body');
       const linked = body.replace('2-1-1', '<a href="tel:211">2-1-1</a>');
-      $results.innerHTML =
-        '<h2 class="match-results__h2">' + escapeHtml(TW.t('match_no_match_h2')) + '</h2>' +
+      html =
+        '<div class="results-head"><h2>' + escapeHtml(TW.t('match_no_match_h2')) + '</h2></div>' +
+        toolbarHtml() +
         '<p class="note">' + linked + '</p>';
-      $results.hidden = false;
-      TW.hydrateIcons($results);
-      $results.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      return;
-    }
+    } else {
+      /* Sort by score within scored list, then bucket */
+      scored.sort((a, b) => b.ev.score - a.ev.score);
 
-    /* Sort by score within scored list, then bucket */
-    scored.sort((a, b) => b.ev.score - a.ev.score);
+      const buckets = {};
+      scored.forEach((x) => {
+        const b = bucketFor(x.r, answers);
+        (buckets[b] = buckets[b] || []).push(x);
+      });
 
-    const buckets = {};
-    scored.forEach((x) => {
-      const b = bucketFor(x.r, answers);
-      (buckets[b] = buckets[b] || []).push(x);
-    });
+      const subTmpl = scored.length === 1 ? TW.t('match_results_sub_one') : TW.t('match_results_sub_many');
+      html += '<div class="results-head">' +
+                '<div><h2>' + escapeHtml(TW.t('match_results_h2')) + '</h2>' +
+                '<p class="match-results__sub">' + escapeHtml(subTmpl.replace('{n}', scored.length)) + '</p></div>' +
+              '</div>';
+      html += toolbarHtml();
+      html += recapHtml();
+      html += crisisCalloutHtml(answers);
 
-    /* Build group sections in NEED_GROUPS order */
-    let html = '';
-    html += crisisCalloutHtml(answers);
-    html += '<h2 class="match-results__h2">' + escapeHtml(TW.t('match_results_h2')) + '</h2>';
-    const subTmpl = scored.length === 1 ? TW.t('match_results_sub_one') : TW.t('match_results_sub_many');
-    html += '<p class="match-results__sub">' + escapeHtml(subTmpl.replace('{n}', scored.length)) + '</p>';
-
-    NEED_GROUPS.forEach((groupId) => {
-      const list = buckets[groupId];
-      if (!list || !list.length) return;
-      const title = TW.t('match_group_' + groupId);
-      html += '<section class="match-group">';
-      html += '<h3 class="match-group__title">' + escapeHtml(title) + ' <span class="match-group__count">' + list.length + '</span></h3>';
-      html += '<div class="match-group__grid">';
-      list.forEach((x) => { html += cardHtml(x.r, x.ev.reasons); });
-      html += '</div>';
-      html += '</section>';
-    });
-
-    html += '<div class="match-actions match-actions--bottom">' +
-              '<button type="button" class="btn-secondary" id="match-revise">' +
-                TW.icon('chevron') + '<span>' + escapeHtml(TW.t('match_revise')) + '</span>' +
-              '</button>' +
-            '</div>';
-
-    $results.innerHTML = html;
-    $results.hidden = false;
-    TW.hydrateIcons($results);
-    wireShareButtons($results);
-
-    const revise = document.getElementById('match-revise');
-    if (revise) {
-      revise.addEventListener('click', () => {
-        $form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      NEED_GROUPS.forEach((groupId) => {
+        const list = buckets[groupId];
+        if (!list || !list.length) return;
+        const title = TW.t('match_group_' + groupId);
+        html += '<section class="match-group">';
+        html += '<h3 class="match-group__title">' + escapeHtml(title) + ' <span class="match-group__count">' + list.length + '</span></h3>';
+        html += '<div class="match-group__grid">';
+        list.forEach((x) => { html += cardHtml(x.r, x.ev.reasons); });
+        html += '</div>';
+        html += '</section>';
       });
     }
 
-    $results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    $results.innerHTML = html;
+    $results.hidden = false;
+    $form.hidden = true;
+    TW.hydrateIcons($results);
+    wireShareButtons($results);
+    updatePrintHeader();
+
+    const printBtn = document.getElementById('match-print');
+    if (printBtn) printBtn.addEventListener('click', () => window.print());
+
+    const editBtn = document.getElementById('match-edit');
+    if (editBtn) editBtn.addEventListener('click', showForm);
+
+    const restartBtn = document.getElementById('match-restart');
+    if (restartBtn) restartBtn.addEventListener('click', () => {
+      $form.reset();
+      $form.querySelectorAll('.opt--on').forEach((o) => o.classList.remove('opt--on'));
+      showForm();
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   /* -------------------- form behavior -------------------- */
@@ -457,8 +644,12 @@
   function wireForm() {
     $form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const a = readAnswers();
-      render(a);
+      /* Enter inside the wizard advances; on the last step it submits */
+      if (wizard.active && wizard.idx < wizard.steps.length - 1) {
+        go(wizard.idx + 1);
+        return;
+      }
+      finish();
     });
 
     $form.addEventListener('reset', () => {
@@ -467,7 +658,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    /* Visual feedback on selected options */
+    /* Visual feedback on selected options + wizard reactions */
     $form.querySelectorAll('.opt input').forEach((input) => {
       input.addEventListener('change', () => {
         const opt = input.closest('.opt');
@@ -477,9 +668,18 @@
           $form.querySelectorAll('.opt input[name="' + name + '"]').forEach((sib) => {
             sib.closest('.opt').classList.toggle('opt--on', sib.checked);
           });
+          /* Single-choice answered → auto-advance after a beat so the
+             selection is visible. Never auto-advance past the last step. */
+          if (wizard.active && wizard.idx < wizard.steps.length - 1) {
+            const stepAtChange = wizard.idx;
+            setTimeout(() => {
+              if (wizard.idx === stepAtChange && !$form.hidden) go(wizard.idx + 1);
+            }, 350);
+          }
         } else {
           opt.classList.toggle('opt--on', input.checked);
         }
+        updateWizardChrome();
       });
     });
   }
@@ -489,9 +689,14 @@
   async function boot() {
     const data = await TW.loadResources();
     resources = data.resources || [];
-    quickAccess = data.quick_access || [];
     wireForm();
+    buildWizard();
   }
+
+  document.addEventListener('tw:langchange', () => {
+    updateWizardChrome();
+    updatePrintHeader();
+  });
 
   if (TW.t && TW.t('site_title') !== 'site_title') {
     boot();

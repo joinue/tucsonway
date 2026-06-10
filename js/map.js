@@ -365,8 +365,9 @@
   }
 
   /* ---------- markers ---------- */
-  function renderMarkers() {
+  function renderMarkers(opts) {
     if (!map) return;
+    opts = opts || {};
     if (markerLayer) markerLayer.remove();
     markerLayer = L.layerGroup().addTo(map);
     markersById.clear();
@@ -390,7 +391,7 @@
       markersById.set(r.id, m);
     });
 
-    if (list.length) {
+    if (list.length && !opts.skipFit) {
       const points = list.map((r) => [r.lat, r.lng]);
       if (userPos) points.push([userPos.lat, userPos.lng]);
       const bounds = L.latLngBounds(points);
@@ -411,9 +412,18 @@
     });
   }
 
-  function renderAll() {
+  function renderAll(opts) {
     renderList();
-    renderMarkers();
+    renderMarkers(opts);
+  }
+
+  /* Center the map on the user at roughly a 2-mile radius. Used right
+     after a successful geolocation so the map doesn't re-fit to all pins. */
+  function zoomToUser() {
+    if (!userPos || !map) return;
+    const radiusMeters = 2 * 1609.344; // 2 miles
+    const bounds = L.latLng(userPos.lat, userPos.lng).toBounds(radiusMeters * 2);
+    map.flyToBounds(bounds, { duration: 0.7, maxZoom: 15 });
   }
 
   /* ---------- view toggle (mobile) ---------- */
@@ -487,7 +497,8 @@
         userPos = { lat: pos.coords.latitude, lng: pos.coords.longitude };
         syncLocateUI('on');
         setUserMarker();
-        renderAll();
+        renderAll({ skipFit: true });
+        zoomToUser();
       },
       () => { syncLocateUI('error'); },
       { enableHighAccuracy: false, timeout: 8000, maximumAge: 60000 }

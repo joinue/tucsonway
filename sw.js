@@ -6,7 +6,7 @@
    - Cache-first for CSS/JS/icons
    - Stale-while-revalidate for OSM map tiles
 */
-const VERSION = 'v19';
+const VERSION = 'v21';
 const SHELL = 'tw-shell-' + VERSION;
 const RUNTIME = 'tw-runtime-' + VERSION;
 
@@ -17,14 +17,17 @@ const SHELL_ASSETS = [
   './map.html',
   './match.html',
   './about.html',
+  './resources.html',
   './css/styles.css',
   './js/app.js',
   './js/icons.js',
   './js/directory.js',
   './js/map.js',
   './js/match.js',
+  './js/resources.js',
   './data/resources.json',
   './data/i18n.json',
+  './data/links.json',
   './manifest.webmanifest',
   './icons/logo-icon.png',
   './favicon/favicon.ico',

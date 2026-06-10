@@ -67,6 +67,18 @@
   --night-blue:      #1a3a6b;
   --night-blue-deep: #122a4f;
 
+  /* Footer scene — light mode default is DAY (sun, no stars, warm sky).
+     Dark token blocks below override these to a NIGHT sky (moon + stars). */
+  --footer-sky:                linear-gradient(180deg, #4d7da2 0%, #7aa7c8 100%);
+  --footer-celestial-fill:     #ffd56b;
+  --footer-celestial-opacity:  1;
+  --footer-glow-opacity:       0.30;
+  --footer-star-opacity:       0;
+  --footer-range-back-fill:    #c1d4e3;
+  --footer-range-back-opacity: 0.32;
+  --footer-range-mid-fill:     #a3bbd0;
+  --footer-range-mid-opacity:  0.48;
+
   --link:    #1f4f8b;
   --focus:   #2563eb;
 
@@ -147,6 +159,16 @@
     --shadow-sm: 0 1px 2px rgba(0,0,0,.4), 0 1px 3px rgba(0,0,0,.3);
     --shadow-md: 0 2px 4px rgba(0,0,0,.4), 0 8px 20px rgba(0,0,0,.4);
     --shadow-lg: 0 4px 8px rgba(0,0,0,.4), 0 16px 36px rgba(0,0,0,.5);
+    /* Footer scene — NIGHT (moon + stars) */
+    --footer-sky:                var(--dusk);
+    --footer-celestial-fill:     #f4ead0;
+    --footer-celestial-opacity:  0.92;
+    --footer-glow-opacity:       0.08;
+    --footer-star-opacity:       0.85;
+    --footer-range-back-fill:    #dbe4f3;
+    --footer-range-back-opacity: 0.08;
+    --footer-range-mid-fill:     #dbe4f3;
+    --footer-range-mid-opacity:  0.14;
   }
 }
 :root[data-theme="dark"] {
@@ -174,6 +196,16 @@
   --shadow-sm: 0 1px 2px rgba(0,0,0,.4), 0 1px 3px rgba(0,0,0,.3);
   --shadow-md: 0 2px 4px rgba(0,0,0,.4), 0 8px 20px rgba(0,0,0,.4);
   --shadow-lg: 0 4px 8px rgba(0,0,0,.4), 0 16px 36px rgba(0,0,0,.5);
+  /* Footer scene — NIGHT (moon + stars) */
+  --footer-sky:                var(--dusk);
+  --footer-celestial-fill:     #f4ead0;
+  --footer-celestial-opacity:  0.92;
+  --footer-glow-opacity:       0.08;
+  --footer-star-opacity:       0.85;
+  --footer-range-back-fill:    #dbe4f3;
+  --footer-range-back-opacity: 0.08;
+  --footer-range-mid-fill:     #dbe4f3;
+  --footer-range-mid-opacity:  0.14;
 }
 
 
@@ -231,8 +263,8 @@ button { font: inherit; }
 @media (min-width: 980px) { .container { max-width: 960px; } }
 @media (min-width: 1100px) { .container { max-width: 1180px; } }
 
-main { padding: 56px 0 64px; }
-@media (min-width: 720px) { main { padding-top: 72px; } }
+main { padding: 4px 0 56px; }
+@media (min-width: 720px) { main { padding-top: 24px; } }
 
 
 /* =============================================================================
@@ -251,7 +283,7 @@ h2 {
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.015em;
-  margin: 36px 0 14px;
+  margin: 28px 0 12px;
 }
 h3 {
   font-size: var(--fs-h3);
@@ -282,10 +314,10 @@ a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset:
 }
 
 .lead {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--ink-soft);
-  margin: 0 0 32px;
-  max-width: 40ch;
+  margin: 0 0 22px;
+  max-width: 44ch;
   line-height: 1.45;
   font-weight: 400;
 }
@@ -389,9 +421,9 @@ a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset:
 .nav-primary {
   background: var(--bg);
   border-bottom: 1px solid var(--border);
-  margin-bottom: 40px;
+  margin-bottom: 16px;
 }
-@media (min-width: 720px) { .nav-primary { margin-bottom: 56px; } }
+@media (min-width: 720px) { .nav-primary { margin-bottom: 32px; } }
 .nav-primary ul {
   display: flex;
   margin: 0;
@@ -421,7 +453,8 @@ a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset:
   color: var(--ink);
   border-bottom-color: var(--accent);
 }
-.nav-primary svg { width: 18px; height: 18px; }
+.nav-primary svg { width: 22px; height: 22px; }
+.nav-primary [data-icon] { display: inline-flex; flex: 0 0 auto; }
 
 
 /* =============================================================================
@@ -481,8 +514,8 @@ a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset:
 .act {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
+  gap: 8px;
+  padding: 9px 11px;
   min-height: var(--tap);
   text-decoration: none;
   border: 1px solid var(--border-strong);
@@ -492,11 +525,17 @@ a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset:
   color: var(--ink);
   transition: transform .1s ease, box-shadow .15s ease, background .12s ease, border-color .12s ease;
 }
+@media (min-width: 640px) {
+  .act { gap: 10px; padding: 12px 14px; }
+}
 .act:hover { box-shadow: var(--shadow-sm); text-decoration: none; }
-.act svg { width: 22px; height: 22px; flex: 0 0 22px; }
+.act svg { width: 20px; height: 20px; flex: 0 0 20px; }
+@media (min-width: 640px) {
+  .act svg { width: 22px; height: 22px; flex: 0 0 22px; }
+}
 .act__label {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.66rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   opacity: 0.75;
@@ -504,12 +543,23 @@ a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset:
   margin-bottom: 2px;
   font-weight: 600;
 }
+@media (min-width: 640px) {
+  .act__label { font-size: 0.72rem; }
+}
 .act__val {
   display: block;
-  font-size: 1.02rem;
+  font-size: 0.96rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.15;
+  /* Long street names (e.g. "1234 N Stone Ave") would otherwise force
+     the 2-column action grid to overflow on narrow phones. */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (min-width: 640px) {
+  .act__val { font-size: 1.02rem; white-space: normal; }
 }
 .act__txt { flex: 1; min-width: 0; }
 
@@ -531,9 +581,16 @@ a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset:
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: box-shadow .15s ease, transform .12s ease, border-color .12s ease;
+  scroll-margin-top: 80px; /* clear the sticky header on anchor jumps */
+}
+/* Deep-linked card (directory.html#r-id): hold a visible highlight long
+   enough for the eye to land on it. */
+.card--target {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent), var(--shadow-md);
 }
 .card:hover { box-shadow: var(--shadow-md); border-color: var(--border-strong); }
-.card__body { padding: 14px 14px 14px; min-width: 0; }
+.card__body { padding: 12px 12px; min-width: 0; }
 @media (min-width: 640px) {
   .card__body { padding: 18px 20px 20px; }
 }
@@ -541,34 +598,34 @@ a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset:
 .card__top {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
+  gap: 10px;
+  margin-bottom: 8px;
 }
 @media (min-width: 640px) {
-  .card__top { align-items: flex-start; gap: 14px; }
+  .card__top { align-items: flex-start; gap: 14px; margin-bottom: 10px; }
 }
 .card__icon-frame {
-  width: 42px;
-  height: 42px;
-  flex: 0 0 42px;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: var(--c);
   color: #fff;
-  border-radius: 12px;
+  border-radius: 10px;
   box-shadow: 0 4px 14px -4px color-mix(in srgb, var(--c) 50%, transparent);
 }
-.card__icon-frame svg { width: 22px; height: 22px; }
+.card__icon-frame svg { width: 20px; height: 20px; }
 @media (min-width: 640px) {
-  .card__icon-frame { width: 44px; height: 44px; flex: 0 0 44px; }
+  .card__icon-frame { width: 44px; height: 44px; flex: 0 0 44px; border-radius: 12px; }
   .card__icon-frame svg { width: 24px; height: 24px; }
 }
 .card__heading { min-width: 0; flex: 1; }
 .card__logo {
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
   background: #fff;
   border: 1px solid var(--border);
@@ -582,7 +639,7 @@ a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset:
   .card__logo { flex: 0 0 44px; width: 44px; height: 44px; padding: 4px; }
 }
 .card__name {
-  font-size: 1.08rem;
+  font-size: 1.02rem;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.015em;
@@ -597,27 +654,28 @@ a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset:
   font-size: 0.82rem;
   font-weight: 500;
   color: var(--ink-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /* Wrap to as many lines as needed — truncating with an ellipsis hid which
+     populations a service serves, which is exactly the info people need. */
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 @media (min-width: 640px) {
-  .card__cats { font-size: 0.85rem; margin-top: 4px; white-space: normal; }
+  .card__cats { font-size: 0.85rem; margin-top: 4px; }
 }
 
 .card__addr {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 0.93rem;
+  font-size: 0.9rem;
   color: var(--ink-soft);
-  margin-bottom: 10px;
-  line-height: 1.4;
+  margin-bottom: 8px;
+  line-height: 1.35;
 }
 .card__addr svg { width: 16px; height: 16px; flex: 0 0 16px; margin-top: 2px; color: var(--ink-muted); }
 .card__addr--confidential { font-style: italic; color: var(--ink-muted); }
 @media (min-width: 640px) {
-  .card__addr { font-size: 0.96rem; margin-bottom: 12px; }
+  .card__addr { font-size: 0.96rem; margin-bottom: 12px; line-height: 1.4; }
   .card__addr svg { width: 18px; height: 18px; flex: 0 0 18px; }
 }
 
@@ -645,12 +703,17 @@ a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset:
 
 .card__actions {
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
-  margin-top: 12px;
+  margin-top: 10px;
 }
-@media (min-width: 480px) {
-  .card__actions { grid-template-columns: 1fr 1fr; }
-  .card__actions--solo { grid-template-columns: 1fr; }
+.card__actions--solo { grid-template-columns: 1fr; }
+/* On phones, stack actions one per row. The 2-column grid forced long
+   phone/address values to ellipsis-truncate (and could push a button past
+   the card edge); full-width rows give each value room to show in full. */
+@media (max-width: 639px) {
+  .card__actions { grid-template-columns: 1fr; }
+  .act__val { white-space: normal; overflow: visible; text-overflow: clip; }
 }
 @media (min-width: 640px) {
   .card__actions { margin-top: 16px; }
@@ -768,17 +831,6 @@ a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset:
 /* =============================================================================
    15. PAGE — home
    ============================================================================= */
-/* Pull the urgent strip close to the nav on mobile — same trick as the
-   directory page. The nav is already a clear landmark; we don't need a
-   big top gap before the 911/211 tiles. */
-.home-main { padding-top: 16px; }
-@media (min-width: 720px) { .home-main { padding-top: 56px; } }
-
-body[data-page="home"] .nav-primary { margin-bottom: 16px; }
-@media (min-width: 720px) {
-  body[data-page="home"] .nav-primary { margin-bottom: 40px; }
-}
-
 /* Hero — tighter than the default eyebrow/h1/lead so the page can get to
    the CTA + need-grid sooner. Scoped to .hero so other pages' typography
    (about, match) keeps the bigger default treatment. */
@@ -925,7 +977,7 @@ body[data-page="home"] .nav-primary { margin-bottom: 16px; }
   box-shadow: var(--shadow-sm);
 }
 @media (min-width: 560px) {
-  .need-tile { gap: 14px; padding: 28px 14px 22px; min-height: 148px; }
+  .need-tile { gap: 12px; padding: 20px 14px 18px; min-height: 124px; }
 }
 .need-tile:hover {
   transform: translateY(-3px);
@@ -965,11 +1017,14 @@ body[data-page="home"] .nav-primary { margin-bottom: 16px; }
 /* Tools row */
 .tools-row {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 24px;
 }
 @media (min-width: 640px) {
-  .tools-row { grid-template-columns: 1fr 1fr 1fr; }
+  .tools-row { grid-template-columns: 1fr 1fr; gap: 12px; }
+}
+@media (min-width: 1100px) {
+  .tools-row { grid-template-columns: repeat(4, 1fr); }
 }
 .tool-tile {
   display: flex;
@@ -1022,18 +1077,6 @@ body[data-page="home"] .nav-primary { margin-bottom: 16px; }
 /* =============================================================================
    16. PAGE — directory
    ============================================================================= */
-/* Directory page: pull the H1 close to the nav. The nav already shows
-   "Directory" is active, so the H1 here reads as a small secondary label,
-   not a hero. We override main's default 56px padding-top AND shrink the
-   nav-primary margin via the body[data-page="directory"] selector. */
-.dir-main { padding-top: 4px; }
-@media (min-width: 720px) { .dir-main { padding-top: 24px; } }
-
-body[data-page="directory"] .nav-primary { margin-bottom: 16px; }
-@media (min-width: 720px) {
-  body[data-page="directory"] .nav-primary { margin-bottom: 32px; }
-}
-
 .dir-head {
   display: flex;
   align-items: flex-end;
@@ -1046,6 +1089,23 @@ body[data-page="directory"] .nav-primary { margin-bottom: 16px; }
   font-size: 1.5rem;
   letter-spacing: -0.02em;
   margin-bottom: 0;
+}
+/* On phones, the primary nav already highlights "Directory" with
+   aria-current. Visually hide the H1 to reclaim ~50px above the fold,
+   but keep it in the DOM for screen readers and SEO. */
+@media (max-width: 639px) {
+  .dir-head { margin: 0; gap: 0; }
+  .dir-head h1 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
 }
 @media (min-width: 640px) {
   .dir-head { margin-bottom: 18px; }
@@ -1099,6 +1159,37 @@ body[data-page="directory"] .nav-primary { margin-bottom: 16px; }
   flex-wrap: wrap;
   gap: 6px;
 }
+/* On phones the 11 categories are laid out in a single horizontally
+   scrollable row instead of wrapping to 2–3 rows, reclaiming vertical
+   space above the results. The scroll is contained by the parent grid
+   track (`.controls > * { min-width: 0 }`), so it can't widen the page
+   or push the search input off-screen. Scrollbar is hidden; scroll-snap
+   makes paging feel deliberate. Tap target stays ≥34px. */
+@media (max-width: 639px) {
+  .filter-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    /* a little breathing room so chip shadows/edges aren't clipped */
+    padding-bottom: 2px;
+  }
+  .filter-row::-webkit-scrollbar { display: none; }
+  .filter-row .chip {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    min-height: 34px;
+    padding: 5px 11px;
+    font-size: 0.86rem;
+    gap: 6px;
+  }
+  .filter-row .chip__dot {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+  }
+}
 @media (min-width: 640px) {
   .filter-row { gap: 8px; }
 }
@@ -1137,14 +1228,9 @@ body[data-page="directory"] .nav-primary { margin-bottom: 16px; }
    Desktop (≥980px) returns to the side-by-side map + list with full controls.
    ============================================================================= */
 
-/* On the map page only, dial down the top padding so more screen is map */
-body[data-page="map"] main { padding-top: 4px; padding-bottom: 28px; }
-@media (min-width: 720px) { body[data-page="map"] main { padding-top: 24px; padding-bottom: 48px; } }
-
-body[data-page="map"] .nav-primary { margin-bottom: 16px; }
-@media (min-width: 720px) {
-  body[data-page="map"] .nav-primary { margin-bottom: 32px; }
-}
+/* On the map page only, trim the bottom padding so more screen is map */
+body[data-page="map"] main { padding-bottom: 28px; }
+@media (min-width: 720px) { body[data-page="map"] main { padding-bottom: 48px; } }
 
 .map-head { margin-bottom: 14px; }
 .map-head h1 { margin-bottom: 4px; font-size: clamp(1.7rem, 5.5vw, 2.4rem); }
@@ -1258,18 +1344,33 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
     padding: 2px 20px 4px;
   }
   body[data-page="map"] #map-filters::-webkit-scrollbar { display: none; }
+  /* Match the directory page's filter-pill sizing for a consistent feel. */
   body[data-page="map"] #map-filters .chip {
-    min-height: 32px;
-    padding: 4px 12px;
-    font-size: 0.85rem;
+    min-height: 34px;
+    padding: 5px 11px;
+    font-size: 0.86rem;
+    gap: 6px;
     flex-shrink: 0;
   }
-  body[data-page="map"] .map-controls { gap: 8px; margin-bottom: 10px; }
+  body[data-page="map"] .map-controls { gap: 10px; margin-bottom: 12px; }
 
   body[data-page="map"] .hotline-pill {
     order: 10;
     margin-top: 14px;
     margin-bottom: 0;
+  }
+
+  /* Full-bleed map: break out of the container's 20px side padding so
+     the map runs edge-to-edge on phones (Google/Apple Maps style). */
+  body[data-page="map"] .map-layout__map-wrap {
+    margin-left: -20px;
+    margin-right: -20px;
+    border-radius: 0;
+  }
+  body[data-page="map"] #map {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 }
 .map-controls__row {
@@ -1340,24 +1441,27 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
   background: var(--bg-warm);
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
-  margin-bottom: 12px;
+  /* Lives inside .map-layout now (below the map, above the list); the grid
+     gap handles spacing, so no extra margin is needed. */
+  margin: 0;
 }
 .view-toggle__btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 40px;
+  min-height: 46px;
   background: transparent;
   border: 0;
   border-radius: var(--radius-pill);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--ink-muted);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   transition: background .12s ease, color .12s ease;
 }
-.view-toggle__btn svg { width: 16px; height: 16px; }
+.view-toggle__btn svg { width: 18px; height: 18px; }
 .view-toggle__btn[aria-selected="true"] {
   background: var(--bg-elev);
   color: var(--ink);
@@ -1652,6 +1756,8 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
   border-radius: 50% 50% 50% 0;
   box-shadow: 0 3px 8px rgba(0,0,0,.28);
   transform: rotate(-45deg);
+  transform-origin: center;
+  transition: transform .15s ease, box-shadow .15s ease;
   position: relative;
 }
 .map-pin-rich > svg {
@@ -1662,7 +1768,10 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
   stroke-width: 2.2;
 }
 .map-pin-rich.is-active {
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--cat, var(--accent)) 35%, transparent), 0 3px 8px rgba(0,0,0,.28);
+  /* Scale up + bigger halo so the tapped place is unmistakable against the
+     other pins. The pin is rotated -45deg, so the scale rides on top of it. */
+  transform: rotate(-45deg) scale(1.18);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--cat, var(--accent)) 40%, transparent), 0 4px 10px rgba(0,0,0,.32);
   z-index: 1000;
 }
 
@@ -1708,6 +1817,8 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
   display: flex;
   align-items: flex-start;
   gap: 8px;
+  /* leave room for the round close button in the top-right corner */
+  padding-right: 26px;
 }
 .leaflet-popup-content .popup__icon {
   width: 26px;
@@ -1765,6 +1876,41 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
 .leaflet-popup-content .popup__actions .act { min-height: 38px; padding: 6px 10px; }
 .leaflet-popup-content .popup__actions .act__label { font-size: 0.62rem; }
 .leaflet-popup-content .popup__actions .act__val { font-size: 0.88rem; }
+
+/* Touch sizing: on phones the popup is the primary way to act on a place,
+   so widen it and grow the Call/Directions buttons to full tap targets.
+   Leaflet's default close button is a tiny glyph — give it a real hit area. */
+@media (max-width: 979px) {
+  .leaflet-popup-content { width: 244px !important; }
+  .leaflet-popup-content .popup__actions { gap: 7px; }
+  .leaflet-popup-content .popup__actions .act { min-height: 48px; padding: 9px 12px; }
+  .leaflet-popup-content .popup__actions .act__label { font-size: 0.66rem; }
+  .leaflet-popup-content .popup__actions .act__val { font-size: 0.96rem; }
+  .leaflet-popup-content .popup__actions .act svg { width: 22px; height: 22px; flex: 0 0 22px; }
+}
+.leaflet-popup-close-button {
+  width: 30px !important;
+  height: 30px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px !important;
+  font-weight: 600;
+  color: var(--ink-muted) !important;
+  background: var(--bg-elev) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 50% !important;
+  top: 6px !important;
+  right: 6px !important;
+  box-shadow: var(--shadow-sm);
+}
+.leaflet-popup-close-button:hover { color: var(--ink) !important; background: var(--bg-warm) !important; }
+
+/* Float popups above the zoom control. Leaflet puts the popup pane at
+   z-index 700 and the control corners at 1000, so a popup opening near the
+   top-left corner is drawn behind the +/- buttons and clipped. Lift the
+   popup pane above the controls so the whole card is always readable. */
+.leaflet-popup-pane { z-index: 1100; }
 
 /* Leaflet ships `.leaflet-container a { color: #0078A8 }` which beats our
    `.act--call { color: #fff }` on specificity, leaving blue text on the
@@ -1843,32 +1989,34 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
 
 /* Mountain horizon — three SVG layers create parallax depth.
    Front silhouette is painted in the page bg so the page visually "drops" into
-   the dusk sky. Back and mid ranges sit behind, painted in faint warm tones. */
+   the sky. Sky background is themed: daytime in light mode, night in dark mode. */
 .site-footer__mountains {
   display: block;
   width: 100%;
   height: clamp(110px, 14vw, 160px);
   margin-bottom: -1px; /* hairline gap fix between SVG and footer body */
+  background: var(--footer-sky);
 }
-/* Night sky: moon + scattered stars over silhouette ranges. */
+/* Celestial body + scattered stars over silhouette ranges. Light mode renders
+   as DAY (sun, no stars); dark mode restores the NIGHT sky (moon + stars). */
 .site-footer__moon {
-  fill: #f4ead0;
-  opacity: 0.92;
+  fill: var(--footer-celestial-fill);
+  opacity: var(--footer-celestial-opacity);
 }
 .site-footer__moon-glow {
-  fill: #f4ead0;
-  opacity: 0.08;
+  fill: var(--footer-celestial-fill);
+  opacity: var(--footer-glow-opacity);
 }
 .site-footer__star {
   fill: #ffffff;
-  opacity: 0.85;
+  opacity: var(--footer-star-opacity);
 }
 .site-footer__star--bright {
   fill: #ffffff;
-  opacity: 1;
+  opacity: var(--footer-star-opacity);
 }
-.site-footer__range--back  { fill: #dbe4f3; opacity: 0.08; }
-.site-footer__range--mid   { fill: #dbe4f3; opacity: 0.14; }
+.site-footer__range--back  { fill: var(--footer-range-back-fill); opacity: var(--footer-range-back-opacity); }
+.site-footer__range--mid   { fill: var(--footer-range-mid-fill);  opacity: var(--footer-range-mid-opacity); }
 .site-footer__range--front { fill: var(--bg); opacity: 1; }
 
 .site-footer__inner {
@@ -1976,40 +2124,21 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
 .footer-cta {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 22px 22px 18px;
-  background: linear-gradient(135deg, #2a5594 0%, var(--night-blue) 60%, var(--night-blue-deep) 100%);
+  gap: 10px;
+  padding: 18px 20px 16px;
+  background: var(--night-blue);
   color: #fff;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   text-decoration: none;
   font-weight: 600;
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  box-shadow:
-    0 10px 28px -10px rgba(26, 58, 107, .65),
-    inset 0 0 0 1px rgba(255, 255, 255, .12);
-  transition: transform 180ms ease, box-shadow 220ms ease;
-}
-/* Soft radial glow in the top-right corner for visual depth without busyness */
-.footer-cta::before {
-  content: "";
-  position: absolute;
-  top: -40%;
-  right: -25%;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(255, 255, 255, .18) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: -1;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12);
+  transition: background 160ms ease, box-shadow 160ms ease;
 }
 .footer-cta:hover {
-  transform: translateY(-2px);
   text-decoration: none;
   color: #fff;
-  box-shadow:
-    0 16px 36px -10px rgba(26, 58, 107, .75),
-    inset 0 0 0 1px rgba(255, 255, 255, .18);
+  background: #224a85;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
 }
 
 .footer-cta__badge {
@@ -2017,7 +2146,7 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
   display: inline-flex;
   align-items: center;
   padding: 4px 10px;
-  background: rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .14);
   border-radius: 999px;
   font-size: 0.68rem;
   font-weight: 700;
@@ -2026,8 +2155,8 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
   line-height: 1;
 }
 .footer-cta__title {
-  font-size: 1.3rem;
-  font-weight: 800;
+  font-size: 1.2rem;
+  font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.015em;
 }
@@ -2360,6 +2489,7 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
   border: 1.5px solid transparent;
   transition: transform 100ms ease, box-shadow 120ms ease, background 120ms ease;
 }
+.btn-primary svg, .btn-secondary svg, .btn-ghost svg { width: 18px; height: 18px; flex: 0 0 18px; }
 .btn-primary {
   background: var(--accent);
   color: var(--accent-ink);
@@ -2395,7 +2525,9 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
 }
-:root[data-theme="dark"] .crisis-callout,
+:root[data-theme="dark"] .crisis-callout {
+  background: linear-gradient(180deg, #3a1810 0%, #2a1208 100%);
+}
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .crisis-callout {
     background: linear-gradient(180deg, #3a1810 0%, #2a1208 100%);
@@ -2411,7 +2543,9 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
   font-weight: 800;
 }
 .crisis-callout__title svg { width: 22px; height: 22px; }
-:root[data-theme="dark"] .crisis-callout__title,
+:root[data-theme="dark"] .crisis-callout__title {
+  color: #ffb29a;
+}
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .crisis-callout__title {
     color: #ffb29a;
@@ -2556,11 +2690,13 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
   font-size: var(--fs-small);
   font-weight: 600;
   text-decoration: none;
+  white-space: nowrap; /* phone numbers must never wrap mid-number */
 }
 .match-card__call {
   background: var(--accent);
   color: var(--accent-ink);
 }
+.match-card__call svg { width: 16px; height: 16px; flex: 0 0 16px; }
 .match-card__call:hover { background: var(--accent-deep); }
 .match-card__call small { opacity: 0.85; font-weight: 500; }
 .match-card__more {
@@ -2620,22 +2756,22 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
   gap: 14px;
   padding: 14px 16px;
   margin: 12px 0 20px;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+  background: var(--accent);
   color: var(--accent-ink);
   border-radius: var(--radius-lg);
   text-decoration: none;
-  box-shadow: var(--shadow-md);
-  transition: transform 120ms ease, box-shadow 160ms ease;
-  min-height: 80px;
+  box-shadow: var(--shadow-sm);
+  transition: background 140ms ease, box-shadow 160ms ease;
+  min-height: 76px;
 }
 @media (min-width: 640px) {
-  .match-cta { gap: 18px; padding: 20px 22px; margin: 20px 0 28px; min-height: 96px; }
+  .match-cta { gap: 16px; padding: 16px 20px; margin: 16px 0 24px; min-height: 84px; }
 }
 .match-cta:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-lg);
+  background: var(--accent-deep);
+  box-shadow: var(--shadow-md);
 }
-.match-cta:active { transform: translateY(0); }
+.match-cta:active { box-shadow: var(--shadow-sm); }
 .match-cta__icon {
   display: inline-flex;
   align-items: center; justify-content: center;
@@ -2684,34 +2820,6 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
   .match-cta__arrow { display: none; }
 }
 
-/* Crisis strip above the questionnaire on match.html */
-.match-crisis-strip {
-  margin: 20px 0 8px;
-  padding: 14px 14px 16px;
-  background: var(--bg-warm);
-  border: 1.5px solid var(--emergency);
-  border-radius: var(--radius);
-}
-:root[data-theme="dark"] .match-crisis-strip,
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .match-crisis-strip { background: var(--bg-elev); }
-}
-.match-crisis-strip__title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 0 12px;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--emergency);
-}
-.match-crisis-strip__title svg { width: 20px; height: 20px; }
-.match-crisis-strip__row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-
 /* Directions + share buttons on match cards */
 .match-card__dir, .match-card__share {
   display: inline-flex;
@@ -2726,6 +2834,7 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
   background: var(--bg-warm);
   color: var(--ink);
   border: 1px solid var(--border-strong);
+  white-space: nowrap;
 }
 .match-card__dir:hover, .match-card__share:hover { background: var(--bg-deep); }
 .match-card__dir svg, .match-card__share svg { width: 16px; height: 16px; }
@@ -2948,4 +3057,485 @@ body[data-page="map"] .nav-primary { margin-bottom: 16px; }
 
   /* Links: black text, no underline noise from anchor hrefs */
   a, a:visited { color: #000 !important; text-decoration: none !important; }
+}
+
+
+/* =============================================================================
+   23. PAGE — match: wizard (one question at a time)
+   ----------------------------------------------------------------------------
+   match.js upgrades the static form into a stepper: a progress header, one
+   visible qsection, and a Back / Skip / Next footer. The plain form remains
+   the no-JS fallback (all fieldsets visible, submit button at the end).
+   ============================================================================= */
+/* Focused single-column survey — don't let the wizard sprawl across the
+   wide desktop container. */
+.match-main { max-width: 760px; }
+
+.match-head { margin-bottom: 0; }
+.match-head h1 { margin-bottom: 4px; font-size: clamp(1.7rem, 5.5vw, 2.3rem); }
+.match-head .lead { margin-bottom: 8px; font-size: 1.05rem; }
+
+.wizard-head { margin: 10px 0 12px; }
+.wizard-head__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.wizard-head__step {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+.wizard-head__privacy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-tiny);
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+.wizard-head__privacy svg { width: 13px; height: 13px; }
+.wizard-bar {
+  height: 6px;
+  background: var(--bg-deep);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+.wizard-bar__fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+  transition: width 240ms cubic-bezier(.4, 0, .2, 1);
+}
+
+/* Wizard mode: the progress header repeats the privacy promise, so the
+   large banner above the form is redundant — reclaim the screen for Q1. */
+body.wizard-on .privacy-banner { display: none; }
+
+/* Wizard mode: show only the active question */
+.match-form--wizard { gap: 14px; }
+.match-form--wizard .qsection { display: none; }
+.match-form--wizard .qsection--active {
+  display: block;
+  animation: tw-step-in 200ms ease-out;
+}
+@keyframes tw-step-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* In wizard mode the progress header counts questions, so hide the number
+   chip inside the legend and let the question read as a clean heading. */
+.match-form--wizard .qnum { display: none; }
+.match-form--wizard .qsection__legend { font-size: 1.18rem; margin-bottom: 6px; }
+.match-form--wizard .match-actions { display: none; }
+
+/* Bigger, easier targets inside the wizard */
+.match-form--wizard .opt { min-height: 48px; font-size: 1rem; padding: 10px 16px; }
+
+.wizard-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+}
+.wizard-nav__back { flex: 0 0 auto; min-height: 46px; padding: 9px 16px; }
+.wizard-nav__next {
+  flex: 0 0 auto;
+  margin-left: auto;
+  min-height: 46px;
+  padding: 9px 22px;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap);
+  padding: 12px 16px;
+  background: transparent;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius);
+  color: var(--ink-muted);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 120ms ease, background 120ms ease;
+}
+.btn-ghost:hover { color: var(--ink); background: var(--bg-warm); }
+
+/* ---------- results header + toolbar ---------- */
+.results-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-bottom: 6px;
+}
+.results-head h2 { margin: 0 0 2px; font-size: clamp(1.6rem, 5vw, 2.1rem); }
+.match-results__sub { margin: 0; color: var(--ink-muted); }
+
+.results-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 22px;
+}
+.results-toolbar .btn-secondary,
+.results-toolbar .btn-ghost {
+  min-height: 44px;
+  padding: 8px 16px;
+  font-size: var(--fs-small);
+}
+.results-toolbar svg { width: 16px; height: 16px; }
+
+/* What the user told us — compact recap chips above the groups */
+.answer-recap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+.answer-recap li {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* =============================================================================
+   24. PAGE — resources (organized link hub)
+   ============================================================================= */
+.res-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px 18px;
+  margin-bottom: 14px;
+}
+.res-head__text { min-width: 0; }
+.res-head h1 { margin-bottom: 6px; }
+.res-head .lead { margin-bottom: 0; }
+.res-head__actions { flex: 0 0 auto; padding-bottom: 4px; }
+.res-head__actions .btn-secondary { min-height: 44px; padding: 8px 16px; font-size: var(--fs-small); }
+.res-head__actions svg { width: 16px; height: 16px; }
+
+/* Jump-to-section chips */
+.jump-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 26px;
+}
+.jump-row a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 5px 13px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--bg-elev);
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+.jump-row a:hover { background: var(--bg-warm); color: var(--ink); }
+.jump-row .chip__dot { width: 8px; height: 8px; flex: 0 0 8px; }
+
+.res-group { margin-bottom: 30px; scroll-margin-top: 84px; }
+.res-group__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 4px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border-strong);
+}
+.res-group__icon {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gc, var(--accent));
+  color: #fff;
+  border-radius: 8px;
+}
+.res-group__icon svg { width: 17px; height: 17px; }
+.res-group__head h2 { margin: 0; font-size: 1.18rem; }
+.res-group__sub {
+  margin: 8px 0 12px;
+  font-size: var(--fs-small);
+  color: var(--ink-muted);
+  max-width: 70ch;
+}
+.res-group__grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 700px) {
+  .res-group__grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+}
+
+.link-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--ink);
+  min-height: var(--tap);
+  transition: border-color 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+.link-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-warm);
+  text-decoration: none;
+}
+.link-card__icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--gc, var(--accent)) 12%, var(--bg-elev));
+  color: var(--gc, var(--accent));
+  border: 1px solid color-mix(in srgb, var(--gc, var(--accent)) 25%, var(--border));
+  border-radius: 9px;
+  margin-top: 1px;
+}
+.link-card__icon svg { width: 17px; height: 17px; }
+.link-card__body { flex: 1; min-width: 0; }
+.link-card__name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 0.99rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.link-card__name svg { width: 13px; height: 13px; flex: 0 0 13px; color: var(--ink-muted); }
+.link-card__desc {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+.link-card__meta {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--link);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.link-card--tel .link-card__meta { color: var(--accent-deep); }
+
+.res-note {
+  margin-top: 6px;
+  font-size: var(--fs-small);
+  color: var(--ink-muted);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.res-note svg { width: 16px; height: 16px; flex: 0 0 16px; margin-top: 2px; }
+
+/* =============================================================================
+   25. PRINT — match results + resources page
+   ----------------------------------------------------------------------------
+   "Print / Save as PDF" produces a clean handout: header with site + date,
+   the matched services grouped with phone + address, crisis numbers, and the
+   call-ahead disclaimer. Everything else (form, nav, footer) is stripped.
+   ============================================================================= */
+.print-header { display: none; }
+
+@media print {
+  /* Match page: print ONLY the results (plus disclaimer) */
+  body[data-page="match"] .match-head,
+  body[data-page="match"] .privacy-banner,
+  body[data-page="match"] .wizard-head,
+  body[data-page="match"] #match-form,
+  body[data-page="match"] .results-toolbar { display: none !important; }
+
+  .print-header {
+    display: block;
+    border-bottom: 2pt solid #000;
+    padding-bottom: 6pt;
+    margin-bottom: 10pt;
+  }
+  .print-header__brand {
+    font-size: 16pt;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: #000;
+    margin: 0 0 2pt;
+  }
+  .print-header__meta {
+    font-size: 9pt;
+    color: #333;
+    margin: 0;
+  }
+
+  .match-results { margin-top: 0 !important; }
+  .results-head h2 { font-size: 15pt !important; color: #000 !important; margin: 0 0 2pt !important; }
+  .match-results__sub { font-size: 9.5pt !important; color: #333 !important; margin-bottom: 6pt !important; }
+
+  .answer-recap { margin: 0 0 10pt !important; }
+  .answer-recap li {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #777 !important;
+    font-size: 8pt !important;
+    padding: 1pt 6pt !important;
+  }
+
+  .crisis-callout {
+    background: #fff !important;
+    border: 1.5pt solid #000 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 8pt !important;
+    margin-bottom: 10pt !important;
+    page-break-inside: avoid;
+  }
+  .crisis-callout__title { color: #000 !important; font-size: 11.5pt !important; margin-bottom: 6pt !important; }
+  .crisis-callout__title svg { display: none !important; }
+  .crisis-callout__item {
+    border: none !important;
+    background: none !important;
+    padding: 2pt 0 !important;
+    display: block !important;
+  }
+  .crisis-callout__call {
+    background: none !important;
+    color: #000 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    display: inline !important;
+    font-size: 11pt !important;
+  }
+  .crisis-callout__call svg { display: none !important; }
+  .crisis-callout__meta { display: inline !important; margin-left: 6pt; }
+  .crisis-callout__meta strong { font-size: 10pt !important; color: #000 !important; }
+  .crisis-callout__meta span { font-size: 9pt !important; color: #333 !important; margin-left: 4pt; }
+
+  .match-group { margin-bottom: 10pt !important; }
+  .match-group__title {
+    font-size: 12pt !important;
+    color: #000 !important;
+    border-bottom: 1pt solid #000 !important;
+    padding-bottom: 2pt !important;
+    margin-bottom: 5pt !important;
+  }
+  .match-group__count { display: none !important; }
+  .match-group__grid { display: block !important; }
+
+  .match-card {
+    display: block !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    background: #fff !important;
+    border: 1px solid #888 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 6pt 8pt !important;
+    margin-bottom: 5pt !important;
+  }
+  .match-card__name { font-size: 11pt !important; color: #000 !important; }
+  .match-card__why { margin: 1pt 0 !important; }
+  .match-card__why li {
+    background: #fff !important;
+    border: 1px solid #999 !important;
+    color: #333 !important;
+    font-size: 7.5pt !important;
+    padding: 0 4pt !important;
+  }
+  .match-card__addr { color: #000 !important; font-size: 9.5pt !important; }
+  .match-card__addr svg { display: none !important; }
+  .match-card__actions { display: block !important; margin-top: 2pt !important; }
+  .match-card__call {
+    display: inline !important;
+    background: none !important;
+    color: #000 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    font-size: 10.5pt !important;
+    font-weight: 700 !important;
+  }
+  .match-card__call svg { display: none !important; }
+  .match-card__call::before { content: "Tel: "; }
+  .match-card__dir, .match-card__share, .match-card__more { display: none !important; }
+
+  .match-disclaimer {
+    background: #fff !important;
+    border: none !important;
+    border-top: 1pt solid #888 !important;
+    border-radius: 0 !important;
+    color: #333 !important;
+    font-size: 8pt !important;
+    padding: 6pt 0 0 !important;
+    margin-top: 10pt !important;
+  }
+  .match-disclaimer svg { display: none !important; }
+
+  /* Resources page: linear list of groups with URLs/numbers visible */
+  body[data-page="resources"] .res-head__actions,
+  body[data-page="resources"] .jump-row { display: none !important; }
+  .res-group { margin-bottom: 10pt !important; page-break-inside: auto; }
+  .res-group__head { border-bottom: 1pt solid #000 !important; padding-bottom: 2pt !important; }
+  .res-group__head h2 { font-size: 12pt !important; color: #000 !important; margin: 0 !important; }
+  .res-group__icon { display: none !important; }
+  .res-group__sub { font-size: 8.5pt !important; color: #333 !important; margin: 2pt 0 4pt !important; }
+  .res-group__grid { display: block !important; }
+  .link-card {
+    display: block !important;
+    page-break-inside: avoid;
+    border: none !important;
+    border-bottom: 0.5pt solid #bbb !important;
+    border-radius: 0 !important;
+    padding: 3pt 0 !important;
+    background: #fff !important;
+  }
+  .link-card__icon { display: none !important; }
+  .link-card__name { font-size: 10.5pt !important; color: #000 !important; }
+  .link-card__name svg { display: none !important; }
+  .link-card__desc { font-size: 9pt !important; color: #333 !important; margin-top: 0 !important; }
+  .link-card__meta {
+    font-size: 9.5pt !important;
+    color: #000 !important;
+    font-weight: 700 !important;
+    margin-top: 1pt !important;
+    white-space: normal !important;
+  }
+  .res-note { font-size: 8pt !important; color: #333 !important; }
+  .res-note svg { display: none !important; }
 }

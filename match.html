@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -14,10 +14,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" />
-  <link rel="stylesheet" href="css/styles.css?v=22" />
+  <link rel="stylesheet" href="css/styles.css?v=32" />
   <script>(function(){try{var t=localStorage.getItem('tw.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
-<body>
+<body data-page="match">
   <a class="skip-link" href="#main" data-i18n="skip_to_content">Skip to main content</a>
   <div id="offline-banner" class="offline-banner" hidden role="status" data-i18n="offline_banner"></div>
 
@@ -30,7 +30,7 @@
         <button type="button" class="header-btn theme-toggle" id="theme-toggle" aria-label="Switch theme" title="Switch theme"></button>
         <button type="button" class="header-btn lang-toggle" id="lang-toggle" data-i18n="lang_toggle" data-i18n-aria-label="lang_toggle_aria">
           <i data-icon="globe" aria-hidden="true"></i>
-          <span>EspaÃ±ol</span>
+          <span>Español</span>
         </button>
       </div>
     </div>
@@ -42,15 +42,14 @@
         <li><a href="index.html"><i data-icon="home"></i><span data-i18n="nav_find_help">Find Help</span></a></li>
         <li><a href="directory.html"><i data-icon="list"></i><span data-i18n="nav_directory">Directory</span></a></li>
         <li><a href="map.html"><i data-icon="map"></i><span data-i18n="nav_map">Map</span></a></li>
-        <li><a href="about.html"><i data-icon="info"></i><span data-i18n="nav_about">About</span></a></li>
+        <li><a href="resources.html"><i data-icon="external"></i><span data-i18n="nav_resources">Resources</span></a></li>
       </ul>
     </div>
   </nav>
 
   <main id="main" class="container match-main">
 
-    <section aria-labelledby="match-title">
-      <span class="eyebrow" data-i18n="match_eyebrow">Personalized</span>
+    <section class="match-head" aria-labelledby="match-title">
       <h1 id="match-title" data-i18n="match_h1">Find Your Fit</h1>
       <p class="lead" data-i18n="match_lead">Answer a few questions and we'll show you the services that fit your situation.</p>
 
@@ -62,35 +61,6 @@
         </div>
       </div>
 
-      <div class="match-crisis-strip" role="group" aria-labelledby="match-crisis-title">
-        <p class="match-crisis-strip__title" id="match-crisis-title">
-          <i data-icon="warn" aria-hidden="true"></i>
-          <span data-i18n="match_crisis_strip_title">In danger or in crisis right now?</span>
-        </p>
-        <div class="match-crisis-strip__row">
-          <a class="urgent-tile urgent-tile--911" href="tel:911">
-            <span class="urgent-tile__num">911</span>
-            <span class="urgent-tile__body">
-              <span class="urgent-tile__label" data-i18n="home_emergency_label">Emergency</span>
-              <span class="urgent-tile__desc" data-i18n="match_crisis_911">Danger or medical</span>
-            </span>
-          </a>
-          <a class="urgent-tile urgent-tile--988" href="tel:988">
-            <span class="urgent-tile__num">988</span>
-            <span class="urgent-tile__body">
-              <span class="urgent-tile__label" data-i18n="home_988_label">Crisis</span>
-              <span class="urgent-tile__desc" data-i18n="match_crisis_988">Mental health Â· 24/7</span>
-            </span>
-          </a>
-          <a class="urgent-tile urgent-tile--dv" href="tel:5207954266">
-            <span class="urgent-tile__num"><i data-icon="domestic_violence" aria-hidden="true"></i></span>
-            <span class="urgent-tile__body">
-              <span class="urgent-tile__label">Emerge!</span>
-              <span class="urgent-tile__desc" data-i18n="match_crisis_dv">24/7 DV hotline (Emerge!)</span>
-            </span>
-          </a>
-        </div>
-      </div>
     </section>
 
     <form id="match-form" class="match-form" novalidate>
@@ -132,9 +102,9 @@
       <fieldset class="qsection">
         <legend class="qsection__legend"><span class="qnum">3</span><span data-i18n="match_q_age">Your age</span></legend>
         <div class="opts" data-q="age">
-          <label class="opt"><input type="radio" name="age" value="12_17"><span data-i18n="match_age_12_17">12â€“17</span></label>
-          <label class="opt"><input type="radio" name="age" value="18_24"><span data-i18n="match_age_18_24">18â€“24</span></label>
-          <label class="opt"><input type="radio" name="age" value="25_59"><span data-i18n="match_age_25_59">25â€“59</span></label>
+          <label class="opt"><input type="radio" name="age" value="12_17"><span data-i18n="match_age_12_17">12–17</span></label>
+          <label class="opt"><input type="radio" name="age" value="18_24"><span data-i18n="match_age_18_24">18–24</span></label>
+          <label class="opt"><input type="radio" name="age" value="25_59"><span data-i18n="match_age_25_59">25–59</span></label>
           <label class="opt"><input type="radio" name="age" value="60_plus"><span data-i18n="match_age_60">60 or older</span></label>
           <label class="opt"><input type="radio" name="age" value="skip"><span data-i18n="match_skip">Prefer not to say</span></label>
         </div>
@@ -241,6 +211,10 @@
       </div>
     </form>
 
+    <!-- Print-only header: filled by match.js with site name + date when
+         the user prints / saves their results as a PDF. -->
+    <div class="print-header" id="print-header" aria-hidden="true"></div>
+
     <section id="match-results" class="match-results" aria-live="polite" hidden>
       <!-- populated by match.js -->
     </section>
@@ -284,10 +258,10 @@
           <a href="match.html" class="footer-cta">
             <span class="footer-cta__badge" data-i18n="footer_cta_heading">Recommended</span>
             <span class="footer-cta__title" data-i18n="footer_cta_title">Find personalized services</span>
-            <span class="footer-cta__sub" data-i18n="footer_cta_sub">Answer a few questions Â· 1 minute Â· Private</span>
+            <span class="footer-cta__sub" data-i18n="footer_cta_sub">Answer a few questions · 1 minute · Private</span>
             <span class="footer-cta__action">
               <span data-i18n="footer_cta_action">Start now</span>
-              <span class="footer-cta__arrow" aria-hidden="true">â†’</span>
+              <span class="footer-cta__arrow" aria-hidden="true">→</span>
             </span>
           </a>
         </div>
@@ -310,8 +284,8 @@
     </div>
   </footer>
 
-  <script src="js/icons.js?v=19"></script>
-  <script src="js/app.js?v=19"></script>
-  <script src="js/match.js?v=19"></script>
+  <script src="js/icons.js?v=20"></script>
+  <script src="js/app.js?v=21"></script>
+  <script src="js/match.js?v=21"></script>
 </body>
 </html>

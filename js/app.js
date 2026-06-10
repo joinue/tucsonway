@@ -184,6 +184,10 @@
   }
 
   function wireInstallNudge() {
+    // Limit the install nudge to the About page so it doesn't interrupt
+    // users seeking help on Home/Directory/Map/Match. (The PWA stays
+    // installable everywhere via the browser's own menu.)
+    if (document.body.dataset.page !== 'about') return;
     if (isStandalone() || recentlyDismissed()) return;
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();

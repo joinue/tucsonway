@@ -4,20 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#c4452a" />
-  <meta name="description" content="Map of shelters and services in Tucson and Pima County, color-coded by service type." />
-  <title>Map - Tucson Compass</title>
+  <meta name="description" content="Every helpful link and phone number for homeless services in Tucson and Pima County, organized by need: crisis lines, housing, food, health, youth, veterans, and more." />
+  <meta name="robots" content="index, follow" />
+  <title>Resources &amp; Links - Tucson Compass</title>
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="favicon/favicon.ico" sizes="any" />
   <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
   <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
-  <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" />
   <link rel="stylesheet" href="css/styles.css?v=32" />
   <script>(function(){try{var t=localStorage.getItem('tw.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
-<body data-page="map">
+<body data-page="resources">
   <a class="skip-link" href="#main" data-i18n="skip_to_content">Skip to main content</a>
   <div id="offline-banner" class="offline-banner" hidden role="status" data-i18n="offline_banner"></div>
 
@@ -41,97 +41,35 @@
       <ul>
         <li><a href="index.html"><i data-icon="home"></i><span data-i18n="nav_find_help">Find Help</span></a></li>
         <li><a href="directory.html"><i data-icon="list"></i><span data-i18n="nav_directory">Directory</span></a></li>
-        <li><a href="map.html" aria-current="page"><i data-icon="map"></i><span data-i18n="nav_map">Map</span></a></li>
-        <li><a href="resources.html"><i data-icon="external"></i><span data-i18n="nav_resources">Resources</span></a></li>
+        <li><a href="map.html"><i data-icon="map"></i><span data-i18n="nav_map">Map</span></a></li>
+        <li><a href="resources.html" aria-current="page"><i data-icon="external"></i><span data-i18n="nav_resources">Resources</span></a></li>
       </ul>
     </div>
   </nav>
 
-  <main id="main" class="container container--wide">
-    <div class="map-head">
-      <h1 data-i18n="map_h1">Map</h1>
-      <p class="lead lead--tight" data-i18n="map_lead">Tap a place to call or get directions. Some shelters keep their address private. Find their hotlines below.</p>
-    </div>
-
-    <div class="map-controls">
-      <span class="sr-only" id="map-filter-label" data-i18n="dir_filter_label">Filter by who they serve</span>
-      <div class="filter-row" role="group" aria-labelledby="map-filter-label" id="map-filters"></div>
-      <div class="map-controls__row">
-        <button type="button" class="chip chip--solid" id="locate-me-btn" aria-pressed="false">
-          <i data-icon="location"></i>
-          <span data-i18n="map_locate_me">Use my location</span>
+  <main id="main" class="container">
+    <div class="res-head">
+      <div class="res-head__text">
+        <h1 data-i18n="res_h1">Resources &amp; links</h1>
+        <p class="lead" data-i18n="res_lead">Every helpful website and phone number, in one place. Crisis lines first.</p>
+      </div>
+      <div class="res-head__actions">
+        <button type="button" class="btn-secondary" id="res-print">
+          <i data-icon="printer" aria-hidden="true"></i>
+          <span data-i18n="res_print">Print this list</span>
         </button>
-        <span class="results-meta" id="map-results-count" aria-live="polite"></span>
       </div>
     </div>
 
-    <div class="map-layout" id="map-layout" data-view="map">
-      <div class="map-layout__map-wrap">
-        <div id="map" class="map-layout__map" role="region" aria-label="Map of resources"></div>
-        <!-- Floating action button (mobile only) -->
-        <button type="button" class="map-fab" id="locate-fab" aria-pressed="false" aria-label="Use my location" title="Use my location">
-          <i data-icon="location" aria-hidden="true"></i>
-        </button>
-      </div>
-      <!-- Map / List view toggle (mobile only) — below the map, above the list -->
-      <div class="view-toggle" role="tablist" aria-label="View">
-        <button class="view-toggle__btn" type="button" role="tab" aria-selected="true" data-view="map" id="view-map-btn">
-          <i data-icon="map" aria-hidden="true"></i>
-          <span data-i18n="map_view_map">Map</span>
-        </button>
-        <button class="view-toggle__btn" type="button" role="tab" aria-selected="false" data-view="list" id="view-list-btn">
-          <i data-icon="list" aria-hidden="true"></i>
-          <span data-i18n="map_view_list">List</span>
-          <span class="view-toggle__count" id="view-toggle-count" aria-hidden="true"></span>
-        </button>
-      </div>
-      <aside class="map-layout__list" aria-label="Places list">
-        <div id="map-list" class="map-list"></div>
-        <div id="map-no-results" class="no-results no-results--compact" hidden>
-          <p data-i18n="dir_no_results">No resources match these filters.</p>
-        </div>
-      </aside>
-    </div>
+    <nav class="jump-row" id="res-jump" aria-label="Sections"></nav>
 
-    <!-- Compact hotline pill (mobile) — taps to open modal -->
-    <button type="button" class="hotline-pill" id="hotline-pill" hidden aria-haspopup="dialog">
-      <span class="hotline-pill__icon"><i data-icon="phone" aria-hidden="true"></i></span>
-      <span class="hotline-pill__body">
-        <span class="hotline-pill__label" data-i18n="map_hotlines_pill_label">Confidential hotlines</span>
-        <span class="hotline-pill__sub" id="hotline-pill-count"></span>
-      </span>
-      <span class="hotline-pill__chev"><i data-icon="chevron" aria-hidden="true"></i></span>
-    </button>
+    <div id="res-groups"></div>
 
-    <!-- Full hotline block (desktop) — same data, expanded -->
-    <section class="hotline-block" id="hotline-block" aria-labelledby="hotlines-title" hidden>
-      <header class="hotline-block__head">
-        <span class="hotline-block__icon"><i data-icon="phone" aria-hidden="true"></i></span>
-        <div>
-          <h2 id="hotlines-title" class="hotline-block__title" data-i18n="map_hotlines_h2">Hotlines (no walk-in location)</h2>
-          <p class="hotline-block__sub" data-i18n="map_hotlines_sub">These shelters keep their address confidential for safety. Call to be connected.</p>
-        </div>
-      </header>
-      <div class="hotline-block__items" id="hotline-items"></div>
-    </section>
+    <p class="res-note">
+      <i data-icon="info" aria-hidden="true"></i>
+      <span data-i18n="res_note">Links open each organization's own website. Information changes — call ahead to confirm hours and availability.</span>
+    </p>
   </main>
-
-  <!-- Hotline modal (mobile) -->
-  <div class="modal" id="hotline-modal" role="dialog" aria-modal="true" aria-labelledby="hotline-modal-title" hidden>
-    <div class="modal__backdrop" data-modal-close></div>
-    <div class="modal__panel">
-      <header class="modal__head">
-        <div>
-          <h2 id="hotline-modal-title" class="modal__title" data-i18n="map_hotlines_h2">Hotlines (no walk-in location)</h2>
-          <p class="modal__sub" data-i18n="map_hotlines_sub">These shelters keep their address confidential for safety. Call to be connected.</p>
-        </div>
-        <button type="button" class="modal__close" data-modal-close aria-label="Close">
-          <i data-icon="close" aria-hidden="true"></i>
-        </button>
-      </header>
-      <div class="modal__body" id="hotline-modal-items"></div>
-    </div>
-  </div>
 
   <footer class="site-footer">
     <svg class="site-footer__mountains" viewBox="0 0 1200 140" preserveAspectRatio="none" aria-hidden="true">
@@ -191,9 +129,8 @@
     </div>
   </footer>
 
-  <script src="vendor/leaflet/leaflet.js"></script>
   <script src="js/icons.js?v=20"></script>
   <script src="js/app.js?v=21"></script>
-  <script src="js/map.js?v=20"></script>
+  <script src="js/resources.js?v=1"></script>
 </body>
 </html>

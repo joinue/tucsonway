@@ -356,6 +356,21 @@
     });
   }
 
+  /* Deep links like directory.html#r-some_id arrive before the cards exist
+     (they render after the JSON loads), so the browser's native anchor jump
+     finds nothing. Re-run it ourselves: scroll, open details, flash. */
+  function focusHashCard() {
+    const id = decodeURIComponent((location.hash || '').slice(1));
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (!el) return;
+    const more = el.querySelector('.card__more');
+    if (more) more.open = true;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    el.classList.add('card--target');
+    setTimeout(() => el.classList.remove('card--target'), 2600);
+  }
+
   async function boot() {
     readUrlFilter();
     const data = await TW.loadResources();
@@ -365,6 +380,8 @@
     wireSearch();
     wireClear();
     wireNearMe();
+    focusHashCard();
+    window.addEventListener('hashchange', focusHashCard);
   }
 
   document.addEventListener('tw:langchange', () => {
