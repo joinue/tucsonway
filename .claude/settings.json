@@ -214,7 +214,9 @@
       "Bash(node verify-cooling.js)",
       "Bash(pkill -f \"http.server 8741\")",
       "Bash(perl -0pi -e 's/      \"verified\": true,\\\\n//g' data/resources.json)",
-      "Bash(node -e 'JSON.parse\\(require\\(\"fs\"\\).readFileSync\\(\"data/resources.json\",\"utf8\"\\)\\);console.log\\(\"JSON still valid, entries:\",require\\(\"./data/resources.json\"\\).resources.length\\)')"
+      "Bash(node -e 'JSON.parse\\(require\\(\"fs\"\\).readFileSync\\(\"data/resources.json\",\"utf8\"\\)\\);console.log\\(\"JSON still valid, entries:\",require\\(\"./data/resources.json\"\\).resources.length\\)')",
+      "Bash(git commit -m 'Expand resources, add cooling/crisis content, fix sourcing claim *)",
+      "Bash(git commit -m 'Clarify homepage hero audience and locale *)"
     ],
     "additionalDirectories": [
       "C:\\Users\\MarcS\\AppData\\Local\\Temp\\twverify",
