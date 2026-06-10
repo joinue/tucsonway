@@ -1,12 +1,18 @@
 {
   "_meta": {
-    "compiled": "2026-06",
+    "compiled": "2026-06-09",
     "sources": [
       "City of Tucson Housing & Community Development",
-      "ShelterListings.org (Tucson, AZ)"
+      "Tucson Pima Collaboration to End Homelessness (TPCH): Need Help? Guide, December 2025",
+      "TPCH Coordinated Entry Access Points Directory",
+      "TPCH Youth Need Help Directory",
+      "Pima County Justice Services: Guidelines on Getting Out (GOGO) 2024",
+      "Individual organization websites (Primavera, OPCS, Sister José, Our Family Services, GRM, Salvation Army)",
+      "ShelterListings.org (Tucson, AZ)",
+      "OpenStreetMap Nominatim (geocoding)"
     ],
-    "notes": "Coordinates for verified providers are approximated from Tucson's address grid. They place pins close to the correct block but should be replaced with surveyed lat/lng before launch. Users are always steered to call ahead.",
-    "coords_status": "approximate"
+    "notes": "Legacy entries (12 originals from City of Tucson list) have surveyed coordinates. New entries added 2026-06-09 from TPCH and partner sources have null lat/lng. Geocode via OpenStreetMap Nominatim before mapping. Users are always steered to call ahead.",
+    "coords_status": "partial: see per-entry lat/lng"
   },
   "quick_access": [
     {
@@ -15,6 +21,13 @@
       "purpose": "Immediate danger or medical emergency",
       "purpose_es": "Peligro inmediato o emergencia médica",
       "tel": "911"
+    },
+    {
+      "id": "988",
+      "label": "988",
+      "purpose": "Suicide & Crisis Lifeline (24/7)",
+      "purpose_es": "Línea de Vida para Suicidio y Crisis (24/7)",
+      "tel": "988"
     },
     {
       "id": "211",
@@ -42,244 +55,1108 @@
     {
       "id": "salvation_army_hospitality_house",
       "name": "Salvation Army Hospitality House",
-      "categories": ["emergency", "men", "women", "family", "veterans"],
+      "categories": [
+        "emergency",
+        "men",
+        "women",
+        "family",
+        "veterans"
+      ],
       "address": "1002 N. Main Ave., Tucson, AZ",
       "confidential_location": false,
-      "lat": 32.2289,
-      "lng": -110.9774,
-      "coords_approximate": true,
-      "phone": [{ "label": "Main", "tel": "5207959671" }],
+      "lat": 32.23503,
+      "lng": -110.97748,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main / intake",
+          "tel": "5206225411",
+          "ext": "0"
+        },
+        {
+          "label": "Social Services / family assistance",
+          "tel": "5207921111"
+        },
+        {
+          "label": "Coordinated Entry by phone (M–Sun 2–7p)",
+          "tel": "5207959671"
+        }
+      ],
       "hotline_24h": false,
       "open_24_7": true,
-      "eligibility_notes": "Men, women (separate areas), 2 family apartments. Respite, special needs, and veterans served.",
-      "eligibility_notes_es": "Hombres, mujeres (áreas separadas), 2 apartamentos familiares. Atiende a personas en recuperación, con necesidades especiales y veteranos.",
-      "hours_notes": "Open 24/7. 100 beds, laundry, showers, 2 meals/day.",
-      "hours_notes_es": "Abierto las 24 horas. 100 camas, lavandería, duchas, 2 comidas al día.",
-      "notes": "Motel vouchers may be available for families with special needs.",
-      "notes_es": "Pueden estar disponibles vales de motel para familias con necesidades especiales.",
+      "eligibility_notes": "Men, women (separate areas), and families. 114-bed facility with 4 family apartments. Photo ID required.",
+      "eligibility_notes_es": "Hombres, mujeres (áreas separadas) y familias. Instalación de 114 camas con 4 apartamentos familiares. Se requiere identificación con foto.",
+      "hours_notes": "Open 24/7. Intake 9 a.m. daily. 21-day emergency stay; 4-month transitional. 2 meals/day, laundry, showers, TV.",
+      "hours_notes_es": "Abierto las 24 horas. Admisión 9 a.m. diariamente. Estancia de emergencia 21 días; transición 4 meses. 2 comidas/día, lavandería, duchas, TV.",
+      "notes": "Motel vouchers may be available for families. Annual: 88,000+ meals, 27,000+ people served. Guests participate in Bible study and Sunday worship.",
+      "notes_es": "Pueden estar disponibles vales de motel para familias. Anualmente: más de 88,000 comidas, más de 27,000 personas atendidas. Los huéspedes participan en estudios bíblicos y servicios dominicales.",
       "verified": true,
-      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development"
+      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development",
+      "match": {
+        "g": "any",
+        "kids": "ok",
+        "faith": true,
+        "needs": [
+          "shelter",
+          "food",
+          "showers"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "walk_in"
+      }
     },
     {
       "id": "primavera_mens_shelter",
       "name": "Primavera Men's Shelter",
-      "categories": ["emergency", "men"],
-      "address": "200 E. Benson Highway, Tucson, AZ",
+      "categories": [
+        "emergency",
+        "men"
+      ],
+      "address": "200 E. Benson Highway, Tucson, AZ 85713",
       "confidential_location": false,
-      "lat": 32.1909,
-      "lng": -110.9620,
-      "coords_approximate": true,
-      "phone": [{ "label": "Main", "tel": "5206234300" }],
+      "lat": 32.18618,
+      "lng": -110.96615,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206234300"
+        }
+      ],
       "hotline_24h": false,
       "open_24_7": false,
-      "eligibility_notes": "Men. 7-night stays, extendable to 60 days if eligible.",
-      "eligibility_notes_es": "Hombres. Estancias de 7 noches, extensibles a 60 días si califica.",
-      "hours_notes": "Call exactly at 9:00 a.m. to reserve a bed for that night; repeat daily until a bed opens.",
-      "hours_notes_es": "Llame exactamente a las 9:00 a.m. para reservar una cama esa noche; repita diariamente hasta que haya cupo.",
-      "notes": "Path from emergency shelter toward long-term housing.",
-      "notes_es": "Ruta desde refugio de emergencia hacia vivienda a largo plazo.",
+      "eligibility_notes": "Unaccompanied men 18+. Must be sober. No level 2 or 3 sex offense convictions. 7-night initial stay, extendable up to 90 days total if eligible.",
+      "eligibility_notes_es": "Hombres no acompañados 18+. Debe estar sobrio. Sin condenas por delitos sexuales nivel 2 o 3. Estancia inicial de 7 noches, extensible hasta 90 días totales si califica.",
+      "hours_notes": "Call 7–9 a.m. Monday, Wednesday, Thursday, Friday (NOT Tuesdays) to reserve a bed for that evening. Repeat daily until a bed opens.",
+      "hours_notes_es": "Llame de 7 a 9 a.m. lunes, miércoles, jueves, viernes (NO los martes) para reservar una cama esa noche. Repita diariamente hasta que haya cupo.",
+      "notes": "Showers, laundry, meals, hygiene supplies, clothing, case management, in-house medical/behavioral care, day shelter (cooling center), computer lab.",
+      "notes_es": "Duchas, lavandería, comidas, productos de higiene, ropa, gestión de casos, atención médica/conductual interna, refugio diurno (centro de enfriamiento), laboratorio de computación.",
       "verified": true,
-      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development"
+      "source_url": "https://www.primavera.org/what-we-do/survival/mens-shelter.html",
+      "match": {
+        "g": "men",
+        "ages": [
+          18,
+          999
+        ],
+        "sober": true,
+        "needs": [
+          "shelter",
+          "food",
+          "showers",
+          "employment",
+          "mental_health",
+          "substance_use"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "call"
+      }
     },
     {
       "id": "gospel_rescue_mission_coo",
       "name": "Center of Opportunity (Gospel Rescue Mission)",
-      "categories": ["emergency", "men", "women", "family"],
+      "categories": [
+        "emergency",
+        "men",
+        "women",
+        "family"
+      ],
       "address": "4550 S. Palo Verde, Tucson, AZ",
       "confidential_location": false,
-      "lat": 32.1623,
-      "lng": -110.9342,
-      "coords_approximate": true,
-      "phone": [{ "label": "Main", "tel": "5207401501" }],
+      "lat": 32.16722,
+      "lng": -110.91766,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5207401501"
+        }
+      ],
       "hotline_24h": false,
       "open_24_7": false,
       "eligibility_notes": "Men, women, and women with children. Includes addiction recovery and restoration programs.",
       "eligibility_notes_es": "Hombres, mujeres y mujeres con hijos. Incluye programas de recuperación de adicciones y restauración.",
-      "hours_notes": "Call for current intake hours.",
-      "hours_notes_es": "Llame para conocer los horarios de admisión actuales.",
-      "notes": "Case management, addiction recovery, job-skills training, counseling. Campus covers GRM men's/women's emergency, extended, restoration, and women-and-children programs.",
-      "notes_es": "Gestión de casos, recuperación de adicciones, capacitación laboral, consejería. El campus cubre programas de emergencia, extendidos, de restauración y para mujeres con hijos.",
+      "hours_notes": "Daily intakes M–F 8 a.m. (first 10); call for emergency intake appointment.",
+      "hours_notes_es": "Admisiones diarias L–V 8 a.m. (primeras 10); llame para cita de admisión de emergencia.",
+      "notes": "Case management, addiction recovery, job-skills training, counseling. Main GRM campus. See also: 28th St (men) and Miracle Mile (women & children) campuses.",
+      "notes_es": "Gestión de casos, recuperación de adicciones, capacitación laboral, consejería. Campus principal de GRM. Vea también: 28th St (hombres) y Miracle Mile (mujeres y niños).",
       "verified": true,
-      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development"
+      "source_url": "https://grmtucson.com",
+      "match": {
+        "g": "any",
+        "kids": "ok",
+        "faith": true,
+        "needs": [
+          "shelter",
+          "food",
+          "substance_use",
+          "employment"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "walk_in"
+      }
+    },
+    {
+      "id": "gospel_rescue_mission_28th",
+      "name": "Gospel Rescue Mission: 28th St Campus",
+      "categories": [
+        "emergency",
+        "men"
+      ],
+      "address": "312 W. 28th St, Tucson, AZ",
+      "confidential_location": false,
+      "lat": 32.200634,
+      "lng": -110.973341,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5207401501",
+          "ext": "7212"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Men. Shelter, employment, housing, recovery, outreach.",
+      "eligibility_notes_es": "Hombres. Refugio, empleo, vivienda, recuperación, alcance comunitario.",
+      "hours_notes": "Intake 4:00–5:15 p.m.",
+      "hours_notes_es": "Admisión 4:00–5:15 p.m.",
+      "verified": true,
+      "source_url": "https://grmtucson.com",
+      "match": {
+        "g": "men",
+        "ages": [
+          18,
+          999
+        ],
+        "faith": true,
+        "needs": [
+          "shelter",
+          "employment",
+          "substance_use"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "walk_in"
+      }
+    },
+    {
+      "id": "gospel_rescue_mission_miracle_mile",
+      "name": "Gospel Rescue Mission: Miracle Mile (Women & Children)",
+      "categories": [
+        "emergency",
+        "women",
+        "family"
+      ],
+      "address": "707 W. Miracle Mile, Tucson, AZ 85705",
+      "confidential_location": false,
+      "lat": 32.260705,
+      "lng": -110.98297,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5207401501",
+          "ext": "7101"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Unaccompanied women and women with children. Life skills training, short- and long-term recovery programs available.",
+      "eligibility_notes_es": "Mujeres no acompañadas y mujeres con hijos. Capacitación en habilidades para la vida, programas de recuperación a corto y largo plazo disponibles.",
+      "hours_notes": "Intake by appointment. Call to schedule.",
+      "hours_notes_es": "Admisión con cita previa. Llame para programar.",
+      "verified": true,
+      "source_url": "https://grmtucson.com",
+      "match": {
+        "g": "women",
+        "kids": "ok",
+        "faith": true,
+        "needs": [
+          "shelter",
+          "substance_use",
+          "employment"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "appointment"
+      }
     },
     {
       "id": "primavera_family_pathways",
       "name": "Primavera Family Pathways Shelter",
-      "categories": ["family"],
-      "address": "702 S. 6th Ave., Tucson, AZ",
+      "categories": [
+        "family"
+      ],
+      "address": "702 S. 6th Ave., Tucson, AZ 85701",
       "confidential_location": false,
-      "lat": 32.2126,
-      "lng": -110.9683,
-      "coords_approximate": true,
-      "phone": [{ "label": "Main", "tel": "5206235111" }],
+      "lat": 32.2132,
+      "lng": -110.96863,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206235111"
+        }
+      ],
       "hotline_24h": false,
       "open_24_7": false,
-      "eligibility_notes": "Families. By appointment.",
-      "eligibility_notes_es": "Familias. Solo con cita previa.",
-      "hours_notes": "Call to schedule an intake appointment.",
-      "hours_notes_es": "Llame para programar una cita de admisión.",
-      "notes": "Women with children needing immediate shelter are referred to Gospel Rescue Mission Women & Children's at (520) 740-1501.",
-      "notes_es": "Mujeres con hijos que necesitan refugio inmediato son referidas a Gospel Rescue Mission Mujeres y Niños al (520) 740-1501.",
+      "eligibility_notes": "Families of any configuration with minor children, currently experiencing homelessness.",
+      "eligibility_notes_es": "Familias de cualquier configuración con menores, actualmente experimentando falta de vivienda.",
+      "hours_notes": "Walk-in: 9 a.m.–12:30 p.m. Mon, Wed, Thu, Fri, or call for appointment.",
+      "hours_notes_es": "Sin cita: 9 a.m.–12:30 p.m. lun, mié, jue, vie, o llame para cita.",
+      "notes": "Scattered-site rental units in the community with intensive case management. Prevents multiple relocations. Women with children needing immediate shelter are referred to GRM Women & Children's at (520) 740-1501.",
+      "notes_es": "Unidades de alquiler dispersas en la comunidad con gestión intensiva de casos. Evita reubicaciones múltiples. Las mujeres con hijos que necesitan refugio inmediato son referidas a GRM Mujeres y Niños al (520) 740-1501.",
       "verified": true,
-      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development"
+      "source_url": "https://www.primavera.org",
+      "match": {
+        "kids": "required",
+        "needs": [
+          "shelter"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "mixed"
+      }
+    },
+    {
+      "id": "primavera_hip_drop_in",
+      "name": "Primavera Resource Center & HIP Drop-In",
+      "categories": [
+        "drop_in",
+        "coordinated_entry",
+        "men",
+        "women",
+        "family"
+      ],
+      "address": "702 S. 6th Ave., Tucson, AZ 85701",
+      "confidential_location": false,
+      "lat": 32.2132,
+      "lng": -110.96863,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206235111"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Anyone experiencing homelessness. One of only two facilities in Pima County offering in-person Coordinated Entry assessments.",
+      "eligibility_notes_es": "Cualquier persona sin hogar. Una de las dos únicas instalaciones en el Condado de Pima que ofrece evaluaciones de Entrada Coordinada en persona.",
+      "hours_notes": "Drop-In: M, W, Th, F 9 a.m.–12:30 p.m. (no Tue/weekends). Resource Center: M–F 8:30 a.m.–4:30 p.m. CE by phone M, W, Th, F 1–4 p.m.; Tue 8 a.m.–4 p.m.",
+      "hours_notes_es": "Sin cita: L, M, J, V 9 a.m.–12:30 p.m. (no martes ni fines de semana). Centro de Recursos: L–V 8:30 a.m.–4:30 p.m. Entrada Coordinada por teléfono L, M, J, V 1–4 p.m.; mar 8 a.m.–4 p.m.",
+      "notes": "Mail service for ~2,500 individuals. Cooling day shelter. Mobile showers. ID & birth certificate services. El Rio mobile clinic 9 a.m. on 2nd/4th Wednesdays (first-come). Pet food, hygiene, clothing, food boxes, bike storage. Serves ~8,000/year.",
+      "notes_es": "Servicio de correo para ~2,500 personas. Refugio diurno de enfriamiento. Duchas móviles. Servicios de identificación y certificados de nacimiento. Clínica móvil El Rio 9 a.m. los segundos y cuartos miércoles (orden de llegada). Comida para mascotas, higiene, ropa, cajas de comida, almacenamiento de bicicletas. Atiende ~8,000/año.",
+      "verified": true,
+      "source_url": "https://www.primavera.org",
+      "match": {
+        "needs": [
+          "shelter",
+          "food",
+          "showers",
+          "id_mail",
+          "health"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "walk_in"
+      }
     },
     {
       "id": "sister_jose",
       "name": "Sister José Women's Center",
-      "categories": ["women", "emergency"],
-      "address": "1050 S. Park Ave., Tucson, AZ",
+      "categories": [
+        "women",
+        "emergency",
+        "drop_in",
+        "pet_friendly"
+      ],
+      "address": "1050 S. Park Ave., Tucson, AZ 85719",
       "confidential_location": false,
-      "lat": 32.2079,
-      "lng": -110.9522,
-      "coords_approximate": true,
-      "phone": [{ "label": "Main", "tel": "5209093905" }],
+      "lat": 32.20883,
+      "lng": -110.9563,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5209093905"
+        }
+      ],
       "email": "welcome@sisterjose.org",
       "hotline_24h": false,
       "open_24_7": false,
-      "eligibility_notes": "Women.",
-      "eligibility_notes_es": "Mujeres.",
-      "hours_notes": "Low-barrier day center plus a Winter Night Program for overnight stays. Call for current hours.",
-      "hours_notes_es": "Centro diurno de bajo umbral y programa nocturno de invierno. Llame para horarios actuales.",
+      "eligibility_notes": "Women only. Low-barrier, trauma-informed, Housing First approach. Companion pets welcome.",
+      "eligibility_notes_es": "Solo mujeres. Bajo umbral, informado por trauma, enfoque Housing First. Se permiten mascotas de compañía.",
+      "hours_notes": "Day program M–Sat 9 a.m.–4 p.m. Overnight shelter: 54 beds, pet-friendly.",
+      "hours_notes_es": "Programa diurno L–S 9 a.m.–4 p.m. Refugio nocturno: 54 camas, se admiten mascotas.",
+      "notes": "Only low-barrier women-only shelter in Southern Arizona. CREATE Program: residential life skills + job readiness with stipend. Meals, showers, laundry, clothing, hygiene, blankets, WiFi, on-site medical/behavioral care, case navigation.",
+      "notes_es": "Único refugio de bajo umbral exclusivo para mujeres en el sur de Arizona. Programa CREATE: habilidades para la vida residenciales + preparación laboral con estipendio. Comidas, duchas, lavandería, ropa, higiene, mantas, WiFi, atención médica/conductual en el sitio, navegación de casos.",
       "verified": true,
-      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development"
+      "source_url": "https://srjosewomenscenter.org",
+      "match": {
+        "g": "women",
+        "pets": true,
+        "needs": [
+          "shelter",
+          "food",
+          "showers",
+          "mental_health"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "walk_in"
+      }
     },
     {
       "id": "primavera_casa_paloma",
       "name": "Primavera Casa Paloma Women's Shelter",
-      "categories": ["women"],
+      "categories": [
+        "women",
+        "drop_in"
+      ],
       "address": null,
       "confidential_location": true,
       "lat": null,
       "lng": null,
-      "phone": [{ "label": "Main", "tel": "5206235111" }],
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206235111"
+        },
+        {
+          "label": "Day services drop-in",
+          "tel": "5208820820"
+        }
+      ],
       "hotline_24h": false,
       "open_24_7": false,
-      "eligibility_notes": "Women only.",
-      "eligibility_notes_es": "Solo mujeres.",
-      "hours_notes": "Call for eligibility and appointment.",
-      "hours_notes_es": "Llame para conocer la elegibilidad y programar una cita.",
-      "notes": "Location is confidential for the safety of guests. Crisis shelter (short-term) plus transitional housing.",
-      "notes_es": "Ubicación confidencial por la seguridad de las residentes. Refugio de crisis (corto plazo) y vivienda de transición.",
+      "eligibility_notes": "Unaccompanied women. Crisis shelter (short-term) plus transitional housing.",
+      "eligibility_notes_es": "Mujeres no acompañadas. Refugio de crisis (corto plazo) y vivienda de transición.",
+      "hours_notes": "Hospitality Center (day services) M–F 8 a.m.–12:30 p.m. Call for residential eligibility and appointment.",
+      "hours_notes_es": "Centro de Hospitalidad (servicios diurnos) L–V 8 a.m.–12:30 p.m. Llame para elegibilidad residencial y cita.",
+      "notes": "Location confidential (near Speedway/Main area). Laundry, meals, showers, hygiene, clothes & jewelry closet, pet supports, in-house medical/behavioral care, art/poetry workshops, community garden.",
+      "notes_es": "Ubicación confidencial (cerca del área Speedway/Main). Lavandería, comidas, duchas, higiene, armario de ropa y joyería, apoyo para mascotas, atención médica/conductual interna, talleres de arte/poesía, jardín comunitario.",
       "verified": true,
-      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development"
+      "source_url": "https://www.primavera.org",
+      "match": {
+        "g": "women",
+        "needs": [
+          "shelter",
+          "food",
+          "showers",
+          "health",
+          "mental_health"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "mixed"
+      }
     },
     {
       "id": "emerge",
       "name": "Emerge! Center Against Domestic Abuse",
-      "categories": ["domestic_violence"],
+      "categories": [
+        "domestic_violence"
+      ],
       "address": null,
       "confidential_location": true,
       "lat": null,
       "lng": null,
       "phone": [
-        { "label": "24-hr hotline (multilingual)", "tel": "5207954266" },
-        { "label": "24-hr toll-free", "tel": "8884280101" }
+        {
+          "label": "24-hr hotline (multilingual)",
+          "tel": "5207954266"
+        },
+        {
+          "label": "24-hr toll-free",
+          "tel": "18884280101"
+        }
       ],
       "hotline_24h": true,
       "open_24_7": true,
-      "eligibility_notes": "Survivors of domestic abuse and their children.",
-      "eligibility_notes_es": "Sobrevivientes de abuso doméstico y sus hijos.",
+      "eligibility_notes": "Survivors of domestic abuse and their children. Family, friends, and community members may also call for support.",
+      "eligibility_notes_es": "Sobrevivientes de abuso doméstico y sus hijos. Familia, amigos y miembros de la comunidad también pueden llamar para apoyo.",
       "hours_notes": "Hotline answered 24 hours, multilingual.",
       "hours_notes_es": "Línea directa atendida las 24 horas, multilingüe.",
-      "notes": "Location is confidential. Hotline is the gateway to all services; friends and family may call too.",
-      "notes_es": "La ubicación es confidencial. La línea directa es la puerta de entrada a todos los servicios; amigos y familiares también pueden llamar.",
+      "notes": "Location confidential. Hotline is the gateway to all services.",
+      "notes_es": "Ubicación confidencial. La línea directa es la puerta de entrada a todos los servicios.",
       "verified": true,
-      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development"
+      "source_url": "https://www.emergecenter.org",
+      "match": {
+        "kids": "ok",
+        "needs": [
+          "dv",
+          "shelter"
+        ],
+        "housing": [
+          "unhoused",
+          "at_risk",
+          "any"
+        ],
+        "intake": "call",
+        "crisis": true
+      }
+    },
+    {
+      "id": "saaf_anti_violence",
+      "name": "SAAF Anti-Violence Project (LGBTQ DV)",
+      "categories": [
+        "domestic_violence",
+        "lgbtq",
+        "crisis"
+      ],
+      "address": "375 S. Euclid Ave., Tucson, AZ 85719",
+      "confidential_location": false,
+      "lat": 32.216907,
+      "lng": -110.957194,
+      "phone": [
+        {
+          "label": "LGBTQ Crisis Line (toll-free)",
+          "tel": "18005539387"
+        },
+        {
+          "label": "Local",
+          "tel": "5206240348"
+        }
+      ],
+      "hotline_24h": true,
+      "open_24_7": false,
+      "eligibility_notes": "LGBTQ-oriented domestic violence and anti-violence support. Operated by Southern Arizona AIDS Foundation.",
+      "eligibility_notes_es": "Apoyo contra la violencia doméstica y antiviolencia orientado a LGBTQ. Operado por Southern Arizona AIDS Foundation.",
+      "hours_notes": "Crisis line 8 a.m.–7 p.m. Emergency shelter intakes M–F only.",
+      "hours_notes_es": "Línea de crisis 8 a.m.–7 p.m. Admisiones de refugio de emergencia solo L–V.",
+      "verified": true,
+      "source_url": "https://saaf.org",
+      "match": {
+        "lgbtq_focused": true,
+        "needs": [
+          "dv",
+          "shelter",
+          "mental_health"
+        ],
+        "housing": [
+          "unhoused",
+          "at_risk",
+          "any"
+        ],
+        "intake": "call",
+        "crisis": true
+      }
     },
     {
       "id": "our_family_services_youth",
-      "name": "Our Family Services — Youth",
-      "categories": ["youth"],
-      "address": "2590 N. Alvernon Way, Tucson, AZ",
+      "name": "Our Family Services: Youth & Young Adults",
+      "categories": [
+        "youth"
+      ],
+      "address": "2590 N. Alvernon Way, Tucson, AZ 85712",
       "confidential_location": false,
-      "lat": 32.2517,
-      "lng": -110.9117,
-      "coords_approximate": true,
+      "lat": 32.25397,
+      "lng": -110.90965,
+      "coords_approximate": false,
       "phone": [
-        { "label": "Youth 12–17", "tel": "5203205122" },
-        { "label": "Young adults 18–24", "tel": "5203231708" },
-        { "label": "Toll-free", "tel": "18005378696" }
+        {
+          "label": "Youth 12–17 (24/7 Safe Place)",
+          "tel": "5203205122"
+        },
+        {
+          "label": "Young adults 18–24 housing",
+          "tel": "5203231708"
+        },
+        {
+          "label": "Coordinated Entry by phone",
+          "tel": "5203231708",
+          "ext": "295"
+        },
+        {
+          "label": "Toll-free",
+          "tel": "18005378696"
+        }
       ],
       "email": "intake@ourfamilyservices.org",
+      "hotline_24h": true,
+      "open_24_7": false,
+      "eligibility_notes": "Youth ages 12–17 (Reunion House / Safe Place) and young adults 18–24 (housing & supportive services).",
+      "eligibility_notes_es": "Jóvenes de 12 a 17 años (Reunion House / Safe Place) y adultos jóvenes de 18 a 24 años (vivienda y servicios de apoyo).",
+      "hours_notes": "Reunion House (12–17) is 24/7. Young adult housing M–F. Coordinated Entry: phone only M–Th 9 a.m.–5 p.m.",
+      "hours_notes_es": "Reunion House (12–17) es 24/7. Vivienda para adultos jóvenes L–V. Entrada Coordinada: solo por teléfono L–J 9 a.m.–5 p.m.",
+      "notes": "Safe Place: text 'Safe' + your location to 44357; reply '2chat' to talk to a counselor. Specialized services for LGBTQ, teen parents, trafficking survivors, and YA with disabilities.",
+      "notes_es": "Safe Place: envíe 'Safe' + su ubicación al 44357; responda '2chat' para hablar con un consejero. Servicios especializados para LGBTQ, padres adolescentes, sobrevivientes de tráfico humano y adultos jóvenes con discapacidades.",
+      "verified": true,
+      "source_url": "https://ourfamilyservices.org/homeless-youth/",
+      "match": {
+        "ages": [
+          12,
+          24
+        ],
+        "needs": [
+          "shelter",
+          "mental_health",
+          "employment",
+          "health",
+          "benefits",
+          "id_mail"
+        ],
+        "housing": [
+          "unhoused",
+          "at_risk"
+        ],
+        "intake": "call"
+      }
+    },
+    {
+      "id": "our_family_services_prevention",
+      "name": "Our Family Services: Homeless Prevention Program",
+      "categories": [
+        "prevention",
+        "family",
+        "youth"
+      ],
+      "address": "2590 N. Alvernon Way, Tucson, AZ 85712",
+      "confidential_location": false,
+      "lat": 32.25397,
+      "lng": -110.90965,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5203231708"
+        }
+      ],
       "hotline_24h": false,
       "open_24_7": false,
-      "eligibility_notes": "Youth ages 12–17 and young adults 18–24.",
-      "eligibility_notes_es": "Jóvenes de 12 a 17 años y adultos jóvenes de 18 a 24 años.",
-      "hours_notes": "Call for current intake hours.",
-      "hours_notes_es": "Llame para conocer los horarios de admisión actuales.",
-      "notes": "Safe Place: text 'Safe' plus your location to 44357; reply '2chat' to talk to a counselor.",
-      "notes_es": "Safe Place: envíe 'Safe' y su ubicación al 44357; responda '2chat' para hablar con un consejero.",
+      "eligibility_notes": "Currently HOUSED families with minor children, or housed individual youth 18–24, at imminent risk due to financial hardship or late notices. Income at or below 80% AMI. Must be on lease in own name. NOT for those already with eviction notices, court dates, or locked out.",
+      "eligibility_notes_es": "Familias con menores ya con vivienda, o jóvenes individuales 18–24 ya con vivienda, en riesgo inminente por dificultades financieras o avisos de retraso. Ingresos al 80% AMI o menos. Debe estar en contrato a su nombre. NO para quienes ya tienen avisos de desalojo, fechas de corte o están cerrados de su vivienda.",
+      "hours_notes": "Phone Monday–Thursday only. Admin office closed Fridays.",
+      "hours_notes_es": "Teléfono solo lunes a jueves. Oficina administrativa cerrada los viernes.",
+      "notes": "Goal: keep clients in their current rental unit. Funds cannot cover furniture, moving costs, app fees, or deposits. Landlord W-9 and lease required.",
+      "notes_es": "Meta: mantener clientes en su unidad de alquiler actual. Los fondos no cubren muebles, costos de mudanza, tarifas de solicitud ni depósitos. Se requiere W-9 del propietario y contrato.",
       "verified": true,
-      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development"
+      "source_url": "https://ourfamilyservices.org",
+      "match": {
+        "ages": [
+          18,
+          999
+        ],
+        "needs": [
+          "rent_assistance"
+        ],
+        "housing": [
+          "at_risk"
+        ],
+        "intake": "call"
+      }
     },
     {
       "id": "youth_on_their_own",
       "name": "Youth on Their Own",
-      "categories": ["youth"],
-      "address": "2525 N. Country Club Rd., Tucson, AZ",
+      "categories": [
+        "youth"
+      ],
+      "address": "2525 N. Country Club Rd., Tucson, AZ 85716",
       "confidential_location": false,
-      "lat": 32.2512,
-      "lng": -110.9305,
-      "coords_approximate": true,
+      "lat": 32.253,
+      "lng": -110.92691,
+      "coords_approximate": false,
       "phone": [
-        { "label": "Main", "tel": "5202931136" },
-        { "label": "Toll-free", "tel": "8664968612" }
+        {
+          "label": "Main",
+          "tel": "5202931136"
+        },
+        {
+          "label": "Toll-free",
+          "tel": "18664968612"
+        }
       ],
       "hotline_24h": false,
       "open_24_7": false,
-      "eligibility_notes": "Homeless and unaccompanied students, grades 6–12 (McKinney-Vento).",
-      "eligibility_notes_es": "Estudiantes sin hogar o no acompañados, grados 6 a 12 (McKinney-Vento).",
-      "hours_notes": "Apply through a school liaison (principal, teacher, or counselor).",
-      "hours_notes_es": "Solicite a través de un enlace escolar (director, maestro o consejero).",
-      "notes": "Education support rather than overnight shelter.",
-      "notes_es": "Apoyo educativo, no es refugio nocturno.",
+      "eligibility_notes": "Homeless and unaccompanied students, grades 6–12, under age 22 (McKinney-Vento definition). Not in physical custody of long-term parent/guardian.",
+      "eligibility_notes_es": "Estudiantes sin hogar y no acompañados, grados 6 a 12, menores de 22 años (definición McKinney-Vento). Sin custodia física de padre/tutor a largo plazo.",
+      "hours_notes": "Apply through a school liaison (principal, teacher, or counselor) or at yotoaz.org.",
+      "hours_notes_es": "Solicite a través de un enlace escolar (director, maestro o consejero) o en yotoaz.org.",
+      "notes": "Education support, NOT overnight shelter. Monthly stipend up to $350 (attendance-based). Free Mini Mall (food, hygiene, school supplies). Alumni program for post-high-school transition.",
+      "notes_es": "Apoyo educativo, NO refugio nocturno. Estipendio mensual hasta $350 (basado en asistencia). Mini Mall gratuito (comida, higiene, útiles escolares). Programa de exalumnos para transición posterior a la secundaria.",
       "verified": true,
-      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development"
+      "source_url": "https://yotoaz.org",
+      "match": {
+        "ages": [
+          12,
+          21
+        ],
+        "needs": [
+          "employment",
+          "food",
+          "benefits"
+        ],
+        "housing": [
+          "unhoused",
+          "at_risk"
+        ],
+        "intake": "referral"
+      }
     },
     {
       "id": "va_homeless_program",
       "name": "VA Hospital Homeless Program",
-      "categories": ["veterans"],
-      "address": "3601 S. 6th Ave., Building 9, Tucson, AZ",
+      "categories": [
+        "veterans"
+      ],
+      "address": "3601 S. 6th Ave., Building 90, Tucson, AZ 85723",
       "confidential_location": false,
-      "lat": 32.1750,
-      "lng": -110.9683,
-      "coords_approximate": true,
-      "phone": [{ "label": "Main", "tel": "5207921450", "ext": "1839" }],
+      "lat": 32.18145,
+      "lng": -110.9648,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main hospital",
+          "tel": "5207921450"
+        },
+        {
+          "label": "Homeless Program",
+          "tel": "5207921450",
+          "ext": "1839"
+        },
+        {
+          "label": "VA Health Connect (24/7)",
+          "tel": "18772524866"
+        },
+        {
+          "label": "Mental Health Care",
+          "tel": "5206294884"
+        }
+      ],
       "hotline_24h": false,
       "open_24_7": false,
-      "eligibility_notes": "Veterans. Requires DD-214 military record.",
-      "eligibility_notes_es": "Veteranos. Requiere el documento militar DD-214.",
-      "hours_notes": "Call for current intake hours.",
-      "hours_notes_es": "Llame para conocer los horarios de admisión actuales.",
+      "eligibility_notes": "Veterans. DD-214 military record typically required.",
+      "eligibility_notes_es": "Veteranos. Generalmente se requiere el documento militar DD-214.",
+      "hours_notes": "Homeless drop-in M–F 7:30 a.m.–2 p.m.: showers, laundry, additional services. Call for current intake hours.",
+      "hours_notes_es": "Atención sin cita para personas sin hogar L–V 7:30 a.m.–2 p.m.: duchas, lavandería, servicios adicionales. Llame para horarios de admisión actuales.",
+      "notes": "Part of SAVAHCS (Southern Arizona VA Healthcare System). Provides detox, medical, psychiatric, and rehabilitative care.",
+      "notes_es": "Parte de SAVAHCS (Sistema de Atención Médica para Veteranos del Sur de Arizona). Proporciona desintoxicación, atención médica, psiquiátrica y rehabilitadora.",
       "verified": true,
-      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development"
+      "source_url": "https://www.va.gov/southern-arizona-health-care/",
+      "match": {
+        "vet": true,
+        "needs": [
+          "shelter",
+          "mental_health",
+          "substance_use",
+          "health",
+          "showers"
+        ],
+        "housing": [
+          "unhoused",
+          "at_risk"
+        ],
+        "intake": "walk_in"
+      }
+    },
+    {
+      "id": "primavera_project_action_veterans",
+      "name": "Project Action for Veterans (Primavera)",
+      "categories": [
+        "veterans",
+        "prevention"
+      ],
+      "address": "3504 S. 6th Ave., Ste. 150, Tucson, AZ 85713",
+      "confidential_location": false,
+      "lat": 32.182995,
+      "lng": -110.968384,
+      "phone": [
+        {
+          "label": "Tucson office",
+          "tel": "5203083093"
+        },
+        {
+          "label": "Rural / Sierra Vista (Warrior Healing Center, 1838 Paseo San Luis)",
+          "tel": "5203026596"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Veterans with at least 1 day active duty, discharge other than dishonorable. Must be experiencing homelessness, in foreclosure, or facing eviction. Household income at or below HUD limits.",
+      "eligibility_notes_es": "Veteranos con al menos 1 día de servicio activo, descarga distinta a deshonrosa. Debe estar experimentando falta de vivienda, en ejecución hipotecaria, o enfrentando desalojo. Ingresos familiares al límite HUD o menos.",
+      "hours_notes": "M–F 8 a.m.–noon, 1–4:30 p.m. (closed noon–1 p.m.). Call (520) 308-3093 for phone interview / eligibility screening first.",
+      "hours_notes_es": "L–V 8 a.m.–mediodía, 1–4:30 p.m. (cerrado mediodía–1 p.m.). Llame primero al (520) 308-3093 para entrevista telefónica / evaluación de elegibilidad.",
+      "notes": "Housing support + temporary financial assistance. CARF accredited through early 2027. Welcomes those leaving transitional housing, shelter, DV, hospital, or jail.",
+      "notes_es": "Apoyo de vivienda + asistencia financiera temporal. Acreditado por CARF hasta principios de 2027. Da la bienvenida a quienes salen de vivienda de transición, refugio, violencia doméstica, hospital o cárcel.",
+      "verified": true,
+      "source_url": "https://www.primavera.org",
+      "match": {
+        "vet": true,
+        "post_incarceration": true,
+        "needs": [
+          "rent_assistance",
+          "shelter",
+          "mental_health"
+        ],
+        "housing": [
+          "at_risk",
+          "unhoused"
+        ],
+        "intake": "call"
+      }
     },
     {
       "id": "sullivan_jackson",
       "name": "Sullivan Jackson Employment Center",
-      "categories": ["employment"],
-      "address": "400 E. 26th Street, Tucson, AZ",
+      "categories": [
+        "employment"
+      ],
+      "address": "400 E. 26th Street, Tucson, AZ 85713",
       "confidential_location": false,
-      "lat": 32.2010,
-      "lng": -110.9657,
-      "coords_approximate": true,
-      "phone": [{ "label": "Main", "tel": "5207247300" }],
+      "lat": 32.20273,
+      "lng": -110.95415,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5207247300"
+        }
+      ],
       "hotline_24h": false,
       "open_24_7": false,
-      "eligibility_notes": "People experiencing homelessness who are ready for employment support.",
-      "eligibility_notes_es": "Personas sin hogar listas para recibir apoyo laboral.",
-      "hours_notes": "Intake by appointment with a case manager.",
-      "hours_notes_es": "Admisión con cita previa con un gestor de casos.",
-      "notes": "Operated by Pima County.",
-      "notes_es": "Operado por el Condado de Pima.",
+      "eligibility_notes": "People experiencing homelessness who are unemployed, job-willing, and referred by a community-based agency.",
+      "eligibility_notes_es": "Personas sin hogar desempleadas, dispuestas a trabajar, y referidas por una agencia comunitaria.",
+      "hours_notes": "M–F 8 a.m.–5 p.m. Intake by appointment only. NO walk-ins. Two-week Employability Skills training after basic needs are met.",
+      "hours_notes_es": "L–V 8 a.m.–5 p.m. Admisión solo con cita previa. NO se aceptan visitas sin cita. Capacitación de Habilidades de Empleabilidad de dos semanas después de cubrir las necesidades básicas.",
+      "notes": "Operated by Pima County. Clients consistently obtain full-time unsubsidized employment above minimum wage. Aftercare up to 1 year post-employment.",
+      "notes_es": "Operado por el Condado de Pima. Los clientes obtienen consistentemente empleo a tiempo completo no subsidiado por encima del salario mínimo. Cuidados posteriores hasta 1 año después del empleo.",
       "verified": true,
-      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development"
+      "source_url": "https://www.pima.gov",
+      "match": {
+        "ages": [
+          18,
+          999
+        ],
+        "needs": [
+          "employment"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "referral"
+      }
     },
     {
       "id": "city_housing_first",
       "name": "City of Tucson Housing First Program",
-      "categories": ["outreach"],
+      "categories": [
+        "outreach"
+      ],
+      "address": null,
+      "confidential_location": false,
+      "lat": null,
+      "lng": null,
+      "phone": [
+        {
+          "label": "Outreach connection (dial 311)",
+          "tel": "311"
+        },
+        {
+          "label": "Find a shelter bed",
+          "tel": "5205596829"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Street outreach reaches people where they are; supportive housing follows.",
+      "eligibility_notes_es": "Alcance comunitario llega a las personas donde están; le sigue vivienda de apoyo.",
+      "hours_notes": "Outreach-based. No fixed public location. Mobile shower 4 days/week.",
+      "hours_notes_es": "Basado en alcance comunitario. Sin ubicación pública fija. Duchas móviles 4 días/semana.",
+      "notes": "Street outreach, mobile showers, emergency shelter (~200 nightly across 4 City-owned shelters), housing navigation, permanent supportive housing, Homeless Protocol (encampment response). 311 to connect; (520) 559-6829 for shelter bed.",
+      "notes_es": "Alcance comunitario, duchas móviles, refugio de emergencia (~200 por noche en 4 refugios municipales), navegación de vivienda, vivienda de apoyo permanente, Protocolo de Personas sin Hogar (respuesta a campamentos). Marque 311 para conectarse; (520) 559-6829 para cama de refugio.",
+      "verified": true,
+      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development/Homelessness/Housing-First",
+      "match": {
+        "needs": [
+          "shelter",
+          "outreach",
+          "showers"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "call"
+      }
+    },
+    {
+      "id": "opcs_low_barrier_bridge",
+      "name": "Old Pueblo Community Services (OPCS): Low Barrier Bridge Housing",
+      "categories": [
+        "emergency",
+        "men",
+        "women",
+        "family"
+      ],
+      "address": "2323 S Park Avenue, Tucson, AZ 85713",
+      "confidential_location": false,
+      "lat": 32.195198,
+      "lng": -110.956001,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5205460122"
+        }
+      ],
+      "email": "info@helptucson.org",
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Homeless individuals and families that do not meet the requirements of traditional shelter. Vulnerability-prioritized intake. Sobriety NOT required.",
+      "eligibility_notes_es": "Personas y familias sin hogar que no cumplen los requisitos de refugio tradicional. Admisión priorizada por vulnerabilidad. NO se requiere sobriedad.",
+      "hours_notes": "M–F 8 a.m.–4 p.m. (food/drop-in window). Call for housing eligibility.",
+      "hours_notes_es": "L–V 8 a.m.–4 p.m. (ventana de comida/sin cita). Llame para elegibilidad de vivienda.",
+      "notes": "Housing First. Semi-private rooms in units with kitchen, refrigerator, secured storage, on-site laundry. Case management, substance abuse counseling, employment coaching. Also operates Casa Santa Clara (men's TH), Oasis House (women's TH, 3 locations), Veteran Programs (dry/abstinence-based, separate from Low Barrier), and the Tucson Homeless Work Program.",
+      "notes_es": "Housing First. Habitaciones semi-privadas en unidades con cocina, refrigerador, almacenamiento seguro, lavandería en el sitio. Gestión de casos, consejería para abuso de sustancias, coaching de empleo. También opera Casa Santa Clara (vivienda de transición para hombres), Oasis House (vivienda de transición para mujeres, 3 ubicaciones), Programas para Veteranos (sin alcohol/drogas, separado de Bajo Umbral), y el Programa de Trabajo para Personas Sin Hogar de Tucson.",
+      "verified": true,
+      "source_url": "https://helptucson.org",
+      "match": {
+        "kids": "ok",
+        "post_incarceration": true,
+        "needs": [
+          "shelter",
+          "mental_health",
+          "substance_use",
+          "employment"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "call"
+      }
+    },
+    {
+      "id": "community_bridges_mens_shelter",
+      "name": "Community Bridges, Inc.: Men's Shelter (Toole)",
+      "categories": [
+        "emergency",
+        "men"
+      ],
+      "address": "250 S Toole Ave, Tucson, AZ 85701",
+      "confidential_location": false,
+      "lat": 32.220167,
+      "lng": -110.963333,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5203475715"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Men. New shelter as of Dec 2025 per TPCH guide.",
+      "eligibility_notes_es": "Hombres. Nuevo refugio a partir de diciembre 2025 según la guía TPCH.",
+      "hours_notes": "Call for current intake hours.",
+      "hours_notes_es": "Llame para horarios de admisión actuales.",
+      "notes": "CBI also operates a behavioral health access point at 250 S Toole Ave Ste B (520-323-1312) and the Toole PCMH primary care clinic (520-488-5405).",
+      "notes_es": "CBI también opera un punto de acceso de salud conductual en 250 S Toole Ave Ste B (520-323-1312) y la clínica de atención primaria Toole PCMH (520-488-5405).",
+      "verified": true,
+      "source_url": "https://communitybridgesaz.org",
+      "match": {
+        "g": "men",
+        "ages": [
+          18,
+          999
+        ],
+        "needs": [
+          "shelter"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "call"
+      }
+    },
+    {
+      "id": "tucson_homeless_work_program",
+      "name": "Tucson Homeless Work Program",
+      "categories": [
+        "employment",
+        "work_program"
+      ],
+      "address": "2323 S Park Avenue, Tucson, AZ 85713",
+      "confidential_location": false,
+      "lat": 32.195198,
+      "lng": -110.956001,
+      "phone": [
+        {
+          "label": "Via OPCS",
+          "tel": "5205460122"
+        }
+      ],
+      "email": "info@helptucson.org",
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "People currently residing in an emergency shelter.",
+      "eligibility_notes_es": "Personas que actualmente residen en un refugio de emergencia.",
+      "hours_notes": "Contact OPCS for current schedule.",
+      "hours_notes_es": "Contacte a OPCS para el horario actual.",
+      "notes": "NOT a government program. Collaboration of OPCS, Catholic Community Services, Salvation Army, Arizona Complete Health, Primavera, El Rio, Sister José, Caridad Community Kitchen, plus TMC Foundation, HSL, Walmart, Hillman, Desert Diamond, Pima County, City of Tucson. As of March 2019: 642 employed, 178,000+ lbs trash removed at 211 sites, 1/3+ of graduates in their own homes.",
+      "notes_es": "NO es un programa gubernamental. Colaboración de OPCS, Catholic Community Services, Salvation Army, Arizona Complete Health, Primavera, El Rio, Sister José, Caridad Community Kitchen, más TMC Foundation, HSL, Walmart, Hillman, Desert Diamond, Condado de Pima, Ciudad de Tucson. A marzo de 2019: 642 empleados, más de 178,000 libras de basura removidas en 211 sitios, más de 1/3 de los graduados en sus propios hogares.",
+      "verified": true,
+      "source_url": "https://helptucson.org",
+      "match": {
+        "needs": [
+          "employment"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "call"
+      }
+    },
+    {
+      "id": "interfaith_community_services",
+      "name": "Interfaith Community Services (Coordinated Entry)",
+      "categories": [
+        "coordinated_entry",
+        "food"
+      ],
+      "address": "2820 W. Ina Rd., Tucson, AZ 85741",
+      "confidential_location": false,
+      "lat": 32.338643,
+      "lng": -111.06973,
+      "phone": [
+        {
+          "label": "CE direct line",
+          "tel": "5204770989"
+        },
+        {
+          "label": "Main",
+          "tel": "5202976049",
+          "ext": "4999"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Anyone experiencing homelessness. Coordinated Entry assessment access point (phone only).",
+      "eligibility_notes_es": "Cualquier persona sin hogar. Punto de acceso de evaluación de Entrada Coordinada (solo por teléfono).",
+      "hours_notes": "Coordinated Entry by phone: M–Th 9 a.m.–4 p.m., F 9 a.m.–12 p.m. Food bank: M/W/F/Sat 8–11 a.m.; T/Th 8–11 a.m. + 5–6:30 p.m. (*TEFAP)",
+      "hours_notes_es": "Entrada Coordinada por teléfono: L–J 9 a.m.–4 p.m., V 9 a.m.–12 p.m. Banco de alimentos: L/M/V/sáb 8–11 a.m.; M/J 8–11 a.m. + 5–6:30 p.m.",
+      "notes": "Also operates East Location at 8701 E. Old Spanish Trail (520-731-3076). Food bank, job search assistance, resume help, computer training, bus passes, ID help, rent assistance.",
+      "notes_es": "También opera ubicación Este en 8701 E. Old Spanish Trail (520-731-3076). Banco de alimentos, asistencia de búsqueda de empleo, ayuda con currículum, capacitación informática, pases de autobús, ayuda con identificación, asistencia de alquiler.",
+      "verified": true,
+      "source_url": "https://www.icstucson.org",
+      "match": {
+        "needs": [
+          "shelter",
+          "food",
+          "employment",
+          "rent_assistance",
+          "id_mail",
+          "transportation"
+        ],
+        "housing": [
+          "unhoused",
+          "at_risk"
+        ],
+        "intake": "call"
+      }
+    },
+    {
+      "id": "la_frontera_rapp",
+      "name": "La Frontera RAPP Day Center",
+      "categories": [
+        "coordinated_entry",
+        "drop_in",
+        "behavioral_health"
+      ],
+      "address": "4554 S. Palo Verde Rd., Ste. 2, Tucson, AZ 85713",
+      "confidential_location": false,
+      "lat": 32.168204,
+      "lng": -110.917654,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5208828422"
+        },
+        {
+          "label": "After-hours",
+          "tel": "5204909186"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Anyone experiencing homelessness. In-person Coordinated Entry access point (walk-in only).",
+      "eligibility_notes_es": "Cualquier persona sin hogar. Punto de acceso de Entrada Coordinada en persona (solo sin cita).",
+      "hours_notes": "M–F 8 a.m.–3 p.m. (lobby) / 8 a.m.–4 p.m. Walk-in only.",
+      "hours_notes_es": "L–V 8 a.m.–3 p.m. (recepción) / 8 a.m.–4 p.m. Solo sin cita.",
+      "notes": "Readily Accessible People Program (RAPP). SAMHSA PATH-grant funded. Drop-in: hygiene kits, computer/phone access, substance abuse treatment referrals, programs with showers/laundry.",
+      "notes_es": "Programa de Personas Fácilmente Accesibles (RAPP). Financiado por subvención SAMHSA PATH. Sin cita: kits de higiene, acceso a computadora/teléfono, referencias para tratamiento de abuso de sustancias, programas con duchas/lavandería.",
+      "verified": true,
+      "source_url": "http://lafronteraaz.org",
+      "match": {
+        "needs": [
+          "shelter",
+          "showers",
+          "mental_health",
+          "substance_use",
+          "id_mail"
+        ],
+        "housing": [
+          "unhoused"
+        ],
+        "intake": "walk_in"
+      }
+    },
+    {
+      "id": "pcoa_prevention",
+      "name": "Pima Council on Aging: Homelessness Prevention",
+      "categories": [
+        "prevention"
+      ],
+      "address": null,
+      "confidential_location": false,
+      "lat": null,
+      "lng": null,
+      "phone": [
+        {
+          "label": "Helpline",
+          "tel": "5207907262"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Adults age 60+. One-time support only. Must be able to sustainably cover own bills going forward.",
+      "eligibility_notes_es": "Adultos de 60+ años. Solo apoyo único. Debe poder cubrir sus propias facturas de manera sostenible en adelante.",
+      "hours_notes": "Call PCOA Helpline for initial screening.",
+      "hours_notes_es": "Llame a la línea de ayuda de PCOA para evaluación inicial.",
+      "notes": "Can cover rent, mortgage, move-in costs, utilities, property taxes. Apply by phone or via web portal at pcoa.org.",
+      "notes_es": "Puede cubrir alquiler, hipoteca, costos de mudanza, servicios públicos, impuestos de propiedad. Solicite por teléfono o en el portal web pcoa.org.",
+      "verified": true,
+      "source_url": "https://pcoa.org",
+      "match": {
+        "ages": [
+          60,
+          999
+        ],
+        "needs": [
+          "rent_assistance"
+        ],
+        "housing": [
+          "at_risk"
+        ],
+        "intake": "call"
+      }
+    },
+    {
+      "id": "az_pet_project_adoh",
+      "name": "AZ Pet Project: ADOH Flex Funds",
+      "categories": [
+        "prevention",
+        "pet_friendly"
+      ],
       "address": null,
       "confidential_location": false,
       "lat": null,
@@ -287,14 +1164,519 @@
       "phone": [],
       "hotline_24h": false,
       "open_24_7": false,
-      "eligibility_notes": "Street outreach reaches people where they are; supportive housing follows.",
-      "eligibility_notes_es": "Alcance comunitario llega a las personas donde están; le sigue vivienda de apoyo.",
-      "hours_notes": "Outreach-based. No fixed public location.",
-      "hours_notes_es": "Basado en alcance comunitario. Sin ubicación pública fija.",
-      "notes": "Street outreach, emergency shelter, housing navigation, and supportive housing.",
-      "notes_es": "Alcance comunitario, refugio de emergencia, navegación de vivienda y vivienda de apoyo.",
+      "eligibility_notes": "Statewide (any Arizona resident). Income at or below 80% AMI. One-time, $3,000 max per household.",
+      "eligibility_notes_es": "Todo el estado (cualquier residente de Arizona). Ingresos al 80% AMI o menos. Único, máximo $3,000 por hogar.",
+      "hours_notes": "Submit Request Assistance Form online.",
+      "hours_notes_es": "Envíe el formulario de Solicitud de Asistencia en línea.",
+      "notes": "Flex funds (ADOH = Arizona Department of Housing) covering: rent, pet rent, pet deposits, utilities, vet care, employment expenses, mortgages, critical home/car repairs, moving expenses, deposits, critical furniture. Stands out for pet-related coverage.",
+      "notes_es": "Fondos flexibles (ADOH = Departamento de Vivienda de Arizona) que cubren: alquiler, alquiler de mascotas, depósitos de mascotas, servicios públicos, atención veterinaria, gastos de empleo, hipotecas, reparaciones críticas del hogar/auto, gastos de mudanza, depósitos, muebles críticos. Destaca por la cobertura relacionada con mascotas.",
       "verified": true,
-      "source_url": "https://www.tucsonaz.gov/Departments/Housing-Community-Development/Homelessness/Housing-First"
+      "source_url": "https://azpetproject.org",
+      "match": {
+        "pets": true,
+        "needs": [
+          "rent_assistance"
+        ],
+        "housing": [
+          "at_risk",
+          "unhoused"
+        ],
+        "intake": "online"
+      }
+    },
+    {
+      "id": "crisis_response_center",
+      "name": "Crisis Response Center (CRC)",
+      "categories": [
+        "behavioral_health",
+        "crisis"
+      ],
+      "address": "2802 E. District Street, Tucson, AZ 85714",
+      "confidential_location": false,
+      "lat": 32.174756,
+      "lng": -110.931844,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5203012284"
+        }
+      ],
+      "hotline_24h": true,
+      "open_24_7": true,
+      "eligibility_notes": "Anyone experiencing a mental health crisis. Walk-in 24/7.",
+      "eligibility_notes_es": "Cualquier persona experimentando una crisis de salud mental. Sin cita 24/7.",
+      "hours_notes": "24/7 walk-in.",
+      "hours_notes_es": "Sin cita 24/7.",
+      "verified": true,
+      "source_url": "https://www.crisisresponsecenter.com",
+      "match": {
+        "needs": [
+          "mental_health",
+          "substance_use"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in",
+        "crisis": true
+      }
+    },
+    {
+      "id": "pima_county_crisis_line",
+      "name": "Pima County Community-wide Crisis Line",
+      "categories": [
+        "behavioral_health",
+        "crisis"
+      ],
+      "address": null,
+      "confidential_location": false,
+      "lat": null,
+      "lng": null,
+      "phone": [
+        {
+          "label": "Crisis Line",
+          "tel": "18664956735"
+        },
+        {
+          "label": "Local",
+          "tel": "5206626000"
+        },
+        {
+          "label": "TTY/TDD",
+          "tel": "18882485998"
+        },
+        {
+          "label": "Warm Line (HOPE Inc, non-crisis)",
+          "tel": "5207709909"
+        }
+      ],
+      "hotline_24h": true,
+      "open_24_7": true,
+      "eligibility_notes": "Anyone experiencing a mental health crisis.",
+      "eligibility_notes_es": "Cualquier persona experimentando una crisis de salud mental.",
+      "hours_notes": "Crisis Line 24/7. Warm Line: 8 a.m.–10 p.m. (English), 8 a.m.–1 p.m. (Spanish).",
+      "hours_notes_es": "Línea de Crisis 24/7. Línea Cálida: 8 a.m.–10 p.m. (inglés), 8 a.m.–1 p.m. (español).",
+      "notes": "Operated by Solari Crisis Response Network. Also: AZ Complete Health Tohono O'Odham Crisis Line 1-844-423-8759; Tribal Warm Line 1-855-728-8630.",
+      "notes_es": "Operado por Solari Crisis Response Network. También: Línea de Crisis Tohono O'Odham AZ Complete Health 1-844-423-8759; Línea Cálida Tribal 1-855-728-8630.",
+      "verified": true,
+      "source_url": "https://crisisnetwork.solari.org",
+      "match": {
+        "needs": [
+          "mental_health"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "call",
+        "crisis": true
+      }
+    },
+    {
+      "id": "codac",
+      "name": "CODAC Behavioral Health Services",
+      "categories": [
+        "behavioral_health"
+      ],
+      "address": "1650 E. Ft. Lowell Rd., #202, Tucson, AZ 85719",
+      "confidential_location": false,
+      "lat": 32.264736,
+      "lng": -110.946988,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5203274505"
+        },
+        {
+          "label": "24/7 line",
+          "tel": "5202021792"
+        }
+      ],
+      "hotline_24h": true,
+      "open_24_7": false,
+      "eligibility_notes": "Behavioral health, substance use disorder, and mental health services. AHCCCS accepted.",
+      "eligibility_notes_es": "Salud conductual, trastorno por uso de sustancias y servicios de salud mental. Se acepta AHCCCS.",
+      "hours_notes": "Call or visit website for eligibility and enrollment.",
+      "hours_notes_es": "Llame o visite el sitio web para elegibilidad e inscripción.",
+      "notes": "Multiple programs including MAT (Medication-Assisted Treatment). CODAC also operates the CODAC Pima Youth Shelter for youth 12–17 already in CODAC services (2050 E. 8th St, call 520-495-5537).",
+      "notes_es": "Múltiples programas incluyendo MAT (Tratamiento Asistido por Medicamentos). CODAC también opera el Refugio Juvenil CODAC Pima para jóvenes de 12–17 ya en servicios de CODAC (2050 E. 8th St, llame al 520-495-5537).",
+      "verified": true,
+      "source_url": "https://www.codac.org",
+      "match": {
+        "needs": [
+          "mental_health",
+          "substance_use"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "call"
+      }
+    },
+    {
+      "id": "la_frontera_center",
+      "name": "La Frontera Center",
+      "categories": [
+        "behavioral_health"
+      ],
+      "address": "504 W. 29th St., Tucson, AZ 85713",
+      "confidential_location": false,
+      "lat": 32.199583,
+      "lng": -110.976308,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5208385600"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Outpatient and residential mental health and substance abuse treatment.",
+      "eligibility_notes_es": "Tratamiento ambulatorio y residencial de salud mental y abuso de sustancias.",
+      "hours_notes": "Call for current intake hours.",
+      "hours_notes_es": "Llame para horarios de admisión actuales.",
+      "verified": true,
+      "source_url": "http://lafronteraaz.org",
+      "match": {
+        "needs": [
+          "mental_health",
+          "substance_use"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "call"
+      }
+    },
+    {
+      "id": "community_food_bank",
+      "name": "Community Food Bank of Southern Arizona",
+      "categories": [
+        "food"
+      ],
+      "address": "3003 S. Country Club Rd., Tucson, AZ 85713",
+      "confidential_location": false,
+      "lat": 32.188822,
+      "lng": -110.92511,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206220525"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "All in need. Photo ID typically required.",
+      "eligibility_notes_es": "Todos los necesitados. Generalmente se requiere identificación con foto.",
+      "hours_notes": "Tue/Wed/Fri 8 a.m.–2 p.m.; Thu 12 p.m.–6 p.m.; 4th Sat 9 a.m.–12 p.m.",
+      "hours_notes_es": "Mar/Mié/Vie 8 a.m.–2 p.m.; Jue 12 p.m.–6 p.m.; 4to sáb 9 a.m.–12 p.m.",
+      "notes": "ALL FOOD BANKS CLOSED 12/25/2025–1/2/2026. Additional distribution sites listed at communityfoodbank.org.",
+      "notes_es": "TODOS LOS BANCOS DE ALIMENTOS CERRADOS 25/12/2025–2/1/2026. Sitios de distribución adicionales en communityfoodbank.org.",
+      "verified": true,
+      "source_url": "https://communityfoodbank.org",
+      "match": {
+        "needs": [
+          "food"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      }
+    },
+    {
+      "id": "casa_maria",
+      "name": "Casa Maria Soup Kitchen",
+      "categories": [
+        "food"
+      ],
+      "address": "352 E. 25th St., Tucson, AZ 85713",
+      "confidential_location": false,
+      "lat": 32.203614,
+      "lng": -110.964588,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206240312"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free food, clothing, shelter assistance to anyone in need.",
+      "eligibility_notes_es": "Comida gratis, ropa, asistencia de refugio para cualquier persona necesitada.",
+      "hours_notes": "Daily 8:30 a.m.–11:30 a.m. (except Thanksgiving & Christmas).",
+      "hours_notes_es": "Diario 8:30 a.m.–11:30 a.m. (excepto Día de Acción de Gracias y Navidad).",
+      "verified": true,
+      "source_url": "https://casamariatucson.org",
+      "match": {
+        "needs": [
+          "food"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      }
+    },
+    {
+      "id": "caridad",
+      "name": "Caridad Community Kitchen",
+      "categories": [
+        "food",
+        "employment"
+      ],
+      "address": "845 N. Main Ave., Tucson, AZ",
+      "confidential_location": false,
+      "lat": 32.232179,
+      "lng": -110.978011,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5208825641"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free community meals; also runs a culinary & job-skills training program.",
+      "eligibility_notes_es": "Comidas comunitarias gratuitas; también opera un programa de capacitación culinaria y de habilidades laborales.",
+      "hours_notes": "Free meals Tue & Thu 2 p.m.–4 p.m. Also at Salvation Army Hospitality House (1002 N. Main) M/W/F 11 a.m.–12:30 p.m.",
+      "hours_notes_es": "Comidas gratuitas Mar y Jue 2 p.m.–4 p.m. También en Salvation Army Hospitality House (1002 N. Main) L/M/V 11 a.m.–12:30 p.m.",
+      "notes": "Part of the Community Food Bank network.",
+      "notes_es": "Parte de la red Community Food Bank.",
+      "verified": true,
+      "source_url": "https://communityfoodbank.org/Locations/Caridad",
+      "match": {
+        "needs": [
+          "food",
+          "employment"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      }
+    },
+    {
+      "id": "el_rio_homeless_clinic",
+      "name": "El Rio Community Health Center: Homeless Clinic",
+      "categories": [
+        "health"
+      ],
+      "address": "1230 S. Cherrybell Stravenue, Tucson, AZ",
+      "confidential_location": false,
+      "lat": 32.20565,
+      "lng": -110.947881,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206703909"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Specializes in homeless population. Primary care services in clinic, during outreach, and via collaborations.",
+      "eligibility_notes_es": "Se especializa en población sin hogar. Servicios de atención primaria en clínica, durante alcance comunitario y mediante colaboraciones.",
+      "hours_notes": "M–F 7 a.m.–8 p.m.",
+      "hours_notes_es": "L–V 7 a.m.–8 p.m.",
+      "notes": "El Rio also operates a mobile outreach team that visits Primavera HIP and other sites. Address updated in Dec 2025 (previously 1 W. Broadway as HealthOn Broadway).",
+      "notes_es": "El Rio también opera un equipo móvil de alcance comunitario que visita Primavera HIP y otros sitios. Dirección actualizada en diciembre de 2025 (anteriormente 1 W. Broadway como HealthOn Broadway).",
+      "verified": true,
+      "source_url": "https://elrio.org",
+      "match": {
+        "needs": [
+          "health"
+        ],
+        "housing": [
+          "unhoused",
+          "at_risk"
+        ],
+        "intake": "call"
+      }
+    },
+    {
+      "id": "z_mansion",
+      "name": "Z Mansion: Sunday Free Clinic & Brunch",
+      "categories": [
+        "health",
+        "food"
+      ],
+      "address": "288 N. Church Ave., Tucson, AZ 85701",
+      "confidential_location": false,
+      "lat": 32.225648,
+      "lng": -110.973036,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5209079057"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Anyone in need. Free clinic does NOT issue prescriptions.",
+      "eligibility_notes_es": "Cualquier persona necesitada. La clínica gratuita NO emite recetas.",
+      "hours_notes": "Free clinic Sundays 9 a.m.–12 p.m. Brunch Sundays 9:30 a.m.–10:30 a.m.",
+      "hours_notes_es": "Clínica gratuita los domingos 9 a.m.–12 p.m. Brunch los domingos 9:30 a.m.–10:30 a.m.",
+      "verified": true,
+      "source_url": "https://zmansion.com",
+      "match": {
+        "needs": [
+          "food",
+          "health"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      }
+    },
+    {
+      "id": "tucson_ward_1",
+      "name": "Tucson Ward 1: Lane Santa Cruz",
+      "categories": [
+        "civic"
+      ],
+      "address": "940 W. Alameda St., Tucson, AZ",
+      "confidential_location": false,
+      "lat": 32.2223476,
+      "lng": -110.9878527,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Ward office",
+          "tel": "5207914040"
+        }
+      ],
+      "email": "ward1@tucsonaz.gov",
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Serves residents of Ward 1, Tucson. Council office for constituent services and referrals.",
+      "eligibility_notes_es": "Atiende a residentes del Distrito 1 de Tucson. Oficina del concejo para servicios al constituyente y referencias.",
+      "verified": true,
+      "source_url": "https://www.tucsonaz.gov/Mayor-Council"
+    },
+    {
+      "id": "tucson_ward_2",
+      "name": "Tucson Ward 2: Paul Cunningham",
+      "categories": [
+        "civic"
+      ],
+      "address": "7575 E. Speedway Blvd., Tucson, AZ",
+      "confidential_location": false,
+      "lat": 32.235637,
+      "lng": -110.8306425,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Ward office",
+          "tel": "5207914687"
+        }
+      ],
+      "email": "ward2@tucsonaz.gov",
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Serves residents of Ward 2, Tucson. Council office for constituent services and referrals.",
+      "eligibility_notes_es": "Atiende a residentes del Distrito 2 de Tucson. Oficina del concejo para servicios al constituyente y referencias.",
+      "verified": true,
+      "source_url": "https://www.tucsonaz.gov/Mayor-Council"
+    },
+    {
+      "id": "tucson_ward_3",
+      "name": "Tucson Ward 3: Kevin Dahl",
+      "categories": [
+        "civic"
+      ],
+      "address": "1510 E. Grant Rd., Tucson, AZ",
+      "confidential_location": false,
+      "lat": 32.2497993,
+      "lng": -110.949557,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Ward office",
+          "tel": "5207914711"
+        }
+      ],
+      "email": "ward3@tucsonaz.gov",
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Serves residents of Ward 3, Tucson. Council office for constituent services and referrals.",
+      "eligibility_notes_es": "Atiende a residentes del Distrito 3 de Tucson. Oficina del concejo para servicios al constituyente y referencias.",
+      "verified": true,
+      "source_url": "https://www.tucsonaz.gov/Mayor-Council"
+    },
+    {
+      "id": "tucson_ward_4",
+      "name": "Tucson Ward 4: Nikki Lee",
+      "categories": [
+        "civic"
+      ],
+      "address": "8123 E. Poinciana Dr., Tucson, AZ",
+      "confidential_location": false,
+      "lat": 32.1683251,
+      "lng": -110.8234861,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Ward office",
+          "tel": "5207913199"
+        }
+      ],
+      "email": "ward4@tucsonaz.gov",
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Serves residents of Ward 4, Tucson. Council office for constituent services and referrals.",
+      "eligibility_notes_es": "Atiende a residentes del Distrito 4 de Tucson. Oficina del concejo para servicios al constituyente y referencias.",
+      "verified": true,
+      "source_url": "https://www.tucsonaz.gov/Mayor-Council"
+    },
+    {
+      "id": "tucson_ward_5",
+      "name": "Tucson Ward 5: Selina Barajas",
+      "categories": [
+        "civic"
+      ],
+      "address": "4300 S. Park Ave., Tucson, AZ",
+      "confidential_location": false,
+      "lat": 32.1729539,
+      "lng": -110.9563625,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Ward office",
+          "tel": "5207914231"
+        }
+      ],
+      "email": "ward5@tucsonaz.gov",
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Serves residents of Ward 5, Tucson. Council office for constituent services and referrals.",
+      "eligibility_notes_es": "Atiende a residentes del Distrito 5 de Tucson. Oficina del concejo para servicios al constituyente y referencias.",
+      "verified": true,
+      "source_url": "https://www.tucsonaz.gov/Mayor-Council"
+    },
+    {
+      "id": "tucson_ward_6",
+      "name": "Tucson Ward 6: Miranda Schubert",
+      "categories": [
+        "civic"
+      ],
+      "address": "3202 E. 1st St., Tucson, AZ",
+      "confidential_location": false,
+      "lat": 32.2350413,
+      "lng": -110.9250303,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Ward office",
+          "tel": "5207914601"
+        }
+      ],
+      "email": "ward6@tucsonaz.gov",
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Serves residents of Ward 6, Tucson. Council office for constituent services and referrals.",
+      "eligibility_notes_es": "Atiende a residentes del Distrito 6 de Tucson. Oficina del concejo para servicios al constituyente y referencias.",
+      "verified": true,
+      "source_url": "https://www.tucsonaz.gov/Mayor-Council"
     }
   ]
 }

@@ -1,5 +1,5 @@
 Tucson Homeless Resources — Master Directory
-For: tucsonway.org seed content
+For: tucsoncompass.org seed content
 Compiled: June 2026
 Sources: City of Tucson Housing & Community Development; ShelterListings.org (Tucson, AZ)
 

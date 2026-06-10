@@ -1,0 +1,317 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#c4452a" />
+  <meta name="description" content="Private questionnaire that matches you to Tucson and Pima County homeless and housing services. Your answers stay on your device." />
+  <meta name="robots" content="index, follow" />
+  <title>Find Your Fit - Tucson Compass</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="favicon/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="css/styles.css?v=22" />
+  <script>(function(){try{var t=localStorage.getItem('tw.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip_to_content">Skip to main content</a>
+  <div id="offline-banner" class="offline-banner" hidden role="status" data-i18n="offline_banner"></div>
+
+  <header class="site-header">
+    <div class="container site-header__row">
+      <a class="brand" href="index.html" aria-label="Tucson Compass">
+        <img class="brand__logo" src="icons/logo-horizontal.png" alt="Tucson Compass" height="36" />
+      </a>
+      <div class="site-header__actions">
+        <button type="button" class="header-btn theme-toggle" id="theme-toggle" aria-label="Switch theme" title="Switch theme"></button>
+        <button type="button" class="header-btn lang-toggle" id="lang-toggle" data-i18n="lang_toggle" data-i18n-aria-label="lang_toggle_aria">
+          <i data-icon="globe" aria-hidden="true"></i>
+          <span>EspaÃ±ol</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-primary" aria-label="Primary">
+    <div class="container">
+      <ul>
+        <li><a href="index.html"><i data-icon="home"></i><span data-i18n="nav_find_help">Find Help</span></a></li>
+        <li><a href="directory.html"><i data-icon="list"></i><span data-i18n="nav_directory">Directory</span></a></li>
+        <li><a href="map.html"><i data-icon="map"></i><span data-i18n="nav_map">Map</span></a></li>
+        <li><a href="about.html"><i data-icon="info"></i><span data-i18n="nav_about">About</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main" class="container match-main">
+
+    <section aria-labelledby="match-title">
+      <span class="eyebrow" data-i18n="match_eyebrow">Personalized</span>
+      <h1 id="match-title" data-i18n="match_h1">Find Your Fit</h1>
+      <p class="lead" data-i18n="match_lead">Answer a few questions and we'll show you the services that fit your situation.</p>
+
+      <div class="privacy-banner" role="note">
+        <span class="privacy-banner__icon"><i data-icon="check"></i></span>
+        <div>
+          <p class="privacy-banner__title" data-i18n="match_privacy_title">Your answers stay on your device.</p>
+          <p class="privacy-banner__body" data-i18n="match_privacy_body">Nothing is saved, sent, or tracked. Refresh the page and everything is gone. You can skip any question.</p>
+        </div>
+      </div>
+
+      <div class="match-crisis-strip" role="group" aria-labelledby="match-crisis-title">
+        <p class="match-crisis-strip__title" id="match-crisis-title">
+          <i data-icon="warn" aria-hidden="true"></i>
+          <span data-i18n="match_crisis_strip_title">In danger or in crisis right now?</span>
+        </p>
+        <div class="match-crisis-strip__row">
+          <a class="urgent-tile urgent-tile--911" href="tel:911">
+            <span class="urgent-tile__num">911</span>
+            <span class="urgent-tile__body">
+              <span class="urgent-tile__label" data-i18n="home_emergency_label">Emergency</span>
+              <span class="urgent-tile__desc" data-i18n="match_crisis_911">Danger or medical</span>
+            </span>
+          </a>
+          <a class="urgent-tile urgent-tile--988" href="tel:988">
+            <span class="urgent-tile__num">988</span>
+            <span class="urgent-tile__body">
+              <span class="urgent-tile__label" data-i18n="home_988_label">Crisis</span>
+              <span class="urgent-tile__desc" data-i18n="match_crisis_988">Mental health Â· 24/7</span>
+            </span>
+          </a>
+          <a class="urgent-tile urgent-tile--dv" href="tel:5207954266">
+            <span class="urgent-tile__num"><i data-icon="domestic_violence" aria-hidden="true"></i></span>
+            <span class="urgent-tile__body">
+              <span class="urgent-tile__label">Emerge!</span>
+              <span class="urgent-tile__desc" data-i18n="match_crisis_dv">24/7 DV hotline (Emerge!)</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <form id="match-form" class="match-form" novalidate>
+
+      <!-- 1. NEEDS -->
+      <fieldset class="qsection">
+        <legend class="qsection__legend"><span class="qnum">1</span><span data-i18n="match_q_needs">What do you need help with right now?</span></legend>
+        <p class="qsection__help" data-i18n="match_q_needs_help">Pick all that apply.</p>
+        <div class="opts" data-q="needs" data-multi="true">
+          <label class="opt"><input type="checkbox" name="needs" value="shelter"><span data-i18n="match_need_shelter">Place to sleep</span></label>
+          <label class="opt"><input type="checkbox" name="needs" value="food"><span data-i18n="match_need_food">Food / meals</span></label>
+          <label class="opt"><input type="checkbox" name="needs" value="showers"><span data-i18n="match_need_showers">Showers / hygiene / laundry</span></label>
+          <label class="opt"><input type="checkbox" name="needs" value="rent_assistance"><span data-i18n="match_need_rent">Help paying rent / utilities</span></label>
+          <label class="opt"><input type="checkbox" name="needs" value="mental_health"><span data-i18n="match_need_mental">Mental health support</span></label>
+          <label class="opt"><input type="checkbox" name="needs" value="substance_use"><span data-i18n="match_need_substance">Substance use / recovery</span></label>
+          <label class="opt"><input type="checkbox" name="needs" value="dv"><span data-i18n="match_need_dv">Domestic violence / safety</span></label>
+          <label class="opt"><input type="checkbox" name="needs" value="health"><span data-i18n="match_need_health">Medical / dental care</span></label>
+          <label class="opt"><input type="checkbox" name="needs" value="id_mail"><span data-i18n="match_need_id">ID, birth certificate, mail</span></label>
+          <label class="opt"><input type="checkbox" name="needs" value="employment"><span data-i18n="match_need_employment">Job or job training</span></label>
+          <label class="opt"><input type="checkbox" name="needs" value="transportation"><span data-i18n="match_need_transport">Transportation</span></label>
+          <label class="opt"><input type="checkbox" name="needs" value="benefits"><span data-i18n="match_need_benefits">SNAP / AHCCCS / benefits</span></label>
+        </div>
+      </fieldset>
+
+      <!-- 2. HOUSING SITUATION -->
+      <fieldset class="qsection">
+        <legend class="qsection__legend"><span class="qnum">2</span><span data-i18n="match_q_housing">What's your housing situation?</span></legend>
+        <div class="opts" data-q="housing">
+          <label class="opt"><input type="radio" name="housing" value="unhoused_outside"><span data-i18n="match_housing_outside">Unsheltered (street, vehicle, outside)</span></label>
+          <label class="opt"><input type="radio" name="housing" value="unhoused_shelter"><span data-i18n="match_housing_shelter">In emergency shelter now</span></label>
+          <label class="opt"><input type="radio" name="housing" value="unhoused_temp"><span data-i18n="match_housing_temp">Temporary (motel, friends, family)</span></label>
+          <label class="opt"><input type="radio" name="housing" value="at_risk"><span data-i18n="match_housing_at_risk">Housed but at risk of losing it</span></label>
+          <label class="opt"><input type="radio" name="housing" value="for_someone"><span data-i18n="match_housing_for_someone">Looking for someone else</span></label>
+          <label class="opt"><input type="radio" name="housing" value="skip"><span data-i18n="match_skip">Prefer not to say</span></label>
+        </div>
+      </fieldset>
+
+      <!-- 3. AGE -->
+      <fieldset class="qsection">
+        <legend class="qsection__legend"><span class="qnum">3</span><span data-i18n="match_q_age">Your age</span></legend>
+        <div class="opts" data-q="age">
+          <label class="opt"><input type="radio" name="age" value="12_17"><span data-i18n="match_age_12_17">12â€“17</span></label>
+          <label class="opt"><input type="radio" name="age" value="18_24"><span data-i18n="match_age_18_24">18â€“24</span></label>
+          <label class="opt"><input type="radio" name="age" value="25_59"><span data-i18n="match_age_25_59">25â€“59</span></label>
+          <label class="opt"><input type="radio" name="age" value="60_plus"><span data-i18n="match_age_60">60 or older</span></label>
+          <label class="opt"><input type="radio" name="age" value="skip"><span data-i18n="match_skip">Prefer not to say</span></label>
+        </div>
+      </fieldset>
+
+      <!-- 4. WHO'S WITH YOU -->
+      <fieldset class="qsection">
+        <legend class="qsection__legend"><span class="qnum">4</span><span data-i18n="match_q_with">Who's with you?</span></legend>
+        <p class="qsection__help" data-i18n="match_q_with_help">Pick all that apply.</p>
+        <div class="opts" data-q="with" data-multi="true">
+          <label class="opt"><input type="checkbox" name="with" value="alone"><span data-i18n="match_with_alone">Just me</span></label>
+          <label class="opt"><input type="checkbox" name="with" value="partner"><span data-i18n="match_with_partner">Partner / spouse</span></label>
+          <label class="opt"><input type="checkbox" name="with" value="children"><span data-i18n="match_with_children">Minor children</span></label>
+          <label class="opt"><input type="checkbox" name="with" value="pets"><span data-i18n="match_with_pets">Pet(s)</span></label>
+          <label class="opt"><input type="checkbox" name="with" value="other_family"><span data-i18n="match_with_other_family">Other family</span></label>
+        </div>
+      </fieldset>
+
+      <!-- 5. VETERAN -->
+      <fieldset class="qsection">
+        <legend class="qsection__legend"><span class="qnum">5</span><span data-i18n="match_q_vet">Are you a veteran?</span></legend>
+        <div class="opts" data-q="vet">
+          <label class="opt"><input type="radio" name="vet" value="yes"><span data-i18n="match_yes">Yes</span></label>
+          <label class="opt"><input type="radio" name="vet" value="no"><span data-i18n="match_no">No</span></label>
+          <label class="opt"><input type="radio" name="vet" value="skip"><span data-i18n="match_skip">Prefer not to say</span></label>
+        </div>
+      </fieldset>
+
+      <!-- 6. GENDER -->
+      <fieldset class="qsection">
+        <legend class="qsection__legend"><span class="qnum">6</span><span data-i18n="match_q_gender">How do you identify? (optional)</span></legend>
+        <p class="qsection__help" data-i18n="match_q_gender_help">Helps match gender-specific shelters. Pick all that apply.</p>
+        <div class="opts" data-q="gender" data-multi="true">
+          <label class="opt"><input type="checkbox" name="gender" value="woman"><span data-i18n="match_gender_woman">Woman</span></label>
+          <label class="opt"><input type="checkbox" name="gender" value="man"><span data-i18n="match_gender_man">Man</span></label>
+          <label class="opt"><input type="checkbox" name="gender" value="nonbinary"><span data-i18n="match_gender_nb">Non-binary / other</span></label>
+          <label class="opt"><input type="checkbox" name="gender" value="lgbtq"><span data-i18n="match_gender_lgbtq">LGBTQ+</span></label>
+        </div>
+      </fieldset>
+
+      <!-- 7. DV -->
+      <fieldset class="qsection">
+        <legend class="qsection__legend"><span class="qnum">7</span><span data-i18n="match_q_dv">Are you fleeing or recovering from domestic abuse?</span></legend>
+        <div class="opts" data-q="dv">
+          <label class="opt"><input type="radio" name="dv" value="yes"><span data-i18n="match_yes">Yes</span></label>
+          <label class="opt"><input type="radio" name="dv" value="no"><span data-i18n="match_no">No</span></label>
+          <label class="opt"><input type="radio" name="dv" value="skip"><span data-i18n="match_skip">Prefer not to say</span></label>
+        </div>
+      </fieldset>
+
+      <!-- 8. SUBSTANCE USE -->
+      <fieldset class="qsection">
+        <legend class="qsection__legend"><span class="qnum">8</span><span data-i18n="match_q_sub">Substance use</span></legend>
+        <p class="qsection__help" data-i18n="match_q_sub_help">Some programs require sobriety. Housing First programs welcome you either way.</p>
+        <div class="opts" data-q="substance">
+          <label class="opt"><input type="radio" name="substance" value="sober"><span data-i18n="match_sub_sober">Sober</span></label>
+          <label class="opt"><input type="radio" name="substance" value="seeking"><span data-i18n="match_sub_seeking">Currently using and seeking treatment</span></label>
+          <label class="opt"><input type="radio" name="substance" value="not_seeking"><span data-i18n="match_sub_not_seeking">Currently using and not seeking treatment</span></label>
+          <label class="opt"><input type="radio" name="substance" value="skip"><span data-i18n="match_skip">Prefer not to say</span></label>
+        </div>
+      </fieldset>
+
+      <!-- 9. FAITH -->
+      <fieldset class="qsection">
+        <legend class="qsection__legend"><span class="qnum">9</span><span data-i18n="match_q_faith">Are faith-based programs OK with you?</span></legend>
+        <p class="qsection__help" data-i18n="match_q_faith_help">Many shelters here are Christian (Bible study, chapel). Some are not.</p>
+        <div class="opts" data-q="faith">
+          <label class="opt"><input type="radio" name="faith" value="comfortable"><span data-i18n="match_faith_yes">Yes, I'm comfortable</span></label>
+          <label class="opt"><input type="radio" name="faith" value="no_pref"><span data-i18n="match_faith_no_pref">No preference</span></label>
+          <label class="opt"><input type="radio" name="faith" value="non_religious"><span data-i18n="match_faith_no">Prefer non-religious</span></label>
+          <label class="opt"><input type="radio" name="faith" value="skip"><span data-i18n="match_skip">Prefer not to say</span></label>
+        </div>
+      </fieldset>
+
+      <!-- 10. TRIBAL -->
+      <fieldset class="qsection">
+        <legend class="qsection__legend"><span class="qnum">10</span><span data-i18n="match_q_tribal">Are you a tribal / Native American member?</span></legend>
+        <div class="opts" data-q="tribal">
+          <label class="opt"><input type="radio" name="tribal" value="yes"><span data-i18n="match_yes">Yes</span></label>
+          <label class="opt"><input type="radio" name="tribal" value="no"><span data-i18n="match_no">No</span></label>
+          <label class="opt"><input type="radio" name="tribal" value="skip"><span data-i18n="match_skip">Prefer not to say</span></label>
+        </div>
+      </fieldset>
+
+      <!-- 11. REENTRY -->
+      <fieldset class="qsection">
+        <legend class="qsection__legend"><span class="qnum">11</span><span data-i18n="match_q_reentry">Recently released from incarceration?</span></legend>
+        <div class="opts" data-q="reentry">
+          <label class="opt"><input type="radio" name="reentry" value="yes"><span data-i18n="match_yes">Yes</span></label>
+          <label class="opt"><input type="radio" name="reentry" value="no"><span data-i18n="match_no">No</span></label>
+          <label class="opt"><input type="radio" name="reentry" value="skip"><span data-i18n="match_skip">Prefer not to say</span></label>
+        </div>
+      </fieldset>
+
+      <div class="match-actions">
+        <button type="submit" class="btn-primary" id="match-submit">
+          <i data-icon="check"></i>
+          <span data-i18n="match_submit">Show my results</span>
+        </button>
+        <button type="reset" class="btn-secondary" id="match-reset">
+          <i data-icon="close"></i>
+          <span data-i18n="match_reset">Start over</span>
+        </button>
+      </div>
+    </form>
+
+    <section id="match-results" class="match-results" aria-live="polite" hidden>
+      <!-- populated by match.js -->
+    </section>
+
+    <p class="match-disclaimer">
+      <i data-icon="info"></i>
+      <span data-i18n="match_disclaimer">This is a starting point, not a guarantee of eligibility. Programs have their own intake rules, so call ahead. Some shelters do not accept certain criminal histories (e.g., level 2 or 3 sex offense convictions); the questionnaire does not screen for this.</span>
+    </p>
+
+  </main>
+
+  <footer class="site-footer">
+    <svg class="site-footer__mountains" viewBox="0 0 1200 140" preserveAspectRatio="none" aria-hidden="true">
+      <circle class="site-footer__moon-glow" cx="940" cy="40" r="44"/>
+      <circle class="site-footer__moon" cx="940" cy="40" r="18"/>
+      <circle class="site-footer__star" cx="80" cy="22" r="1"/>
+      <circle class="site-footer__star site-footer__star--bright" cx="170" cy="48" r="1.4"/>
+      <circle class="site-footer__star" cx="260" cy="14" r="1.2"/>
+      <circle class="site-footer__star" cx="340" cy="34" r="0.9"/>
+      <circle class="site-footer__star site-footer__star--bright" cx="430" cy="22" r="1.5"/>
+      <circle class="site-footer__star" cx="520" cy="52" r="1"/>
+      <circle class="site-footer__star" cx="610" cy="18" r="1.1"/>
+      <circle class="site-footer__star site-footer__star--bright" cx="700" cy="38" r="1.3"/>
+      <circle class="site-footer__star" cx="790" cy="20" r="1"/>
+      <circle class="site-footer__star" cx="1050" cy="56" r="1.2"/>
+      <circle class="site-footer__star site-footer__star--bright" cx="1130" cy="28" r="1.4"/>
+      <circle class="site-footer__star" cx="1190" cy="48" r="1"/>
+      <path class="site-footer__range site-footer__range--back" d="M0 140 L0 82 L70 60 L180 78 L300 42 L420 70 L540 36 L670 64 L800 40 L920 66 L1050 46 L1160 64 L1200 56 L1200 140 Z"/>
+      <path class="site-footer__range site-footer__range--mid" d="M0 140 L0 100 L60 84 L160 104 L280 70 L400 96 L520 76 L640 100 L780 76 L900 102 L1040 80 L1160 104 L1200 92 L1200 140 Z"/>
+      <path class="site-footer__range site-footer__range--front" d="M0 140 L0 120 L50 104 L130 122 L230 100 L340 124 L460 106 L580 126 L700 108 L820 128 L940 110 L1060 126 L1160 114 L1200 128 L1200 140 Z"/>
+    </svg>
+    <div class="site-footer__inner">
+      <div class="container site-footer__grid">
+        <div class="site-footer__col site-footer__col--brand">
+          <a class="site-footer__brand" href="index.html" aria-label="Tucson Compass">
+            <img class="site-footer__logo" src="icons/logo-horizontal.png" alt="Tucson Compass" />
+          </a>
+          <p class="site-footer__tagline" data-i18n="footer_tagline">A way forward. Shelter, recovery, and help across Tucson and Pima County.</p>
+        </div>
+        <div class="site-footer__col site-footer__col--cta">
+          <a href="match.html" class="footer-cta">
+            <span class="footer-cta__badge" data-i18n="footer_cta_heading">Recommended</span>
+            <span class="footer-cta__title" data-i18n="footer_cta_title">Find personalized services</span>
+            <span class="footer-cta__sub" data-i18n="footer_cta_sub">Answer a few questions Â· 1 minute Â· Private</span>
+            <span class="footer-cta__action">
+              <span data-i18n="footer_cta_action">Start now</span>
+              <span class="footer-cta__arrow" aria-hidden="true">â†’</span>
+            </span>
+          </a>
+        </div>
+        <div class="site-footer__col">
+          <h3 class="site-footer__heading" data-i18n="footer_help_now">Help right now</h3>
+          <ul class="site-footer__contacts">
+            <li><a href="tel:911"><strong>911</strong><span data-i18n="footer_emergency_short">Emergency</span></a></li>
+            <li><a href="tel:988"><strong>988</strong><span data-i18n="footer_988_short">Crisis &amp; mental health</span></a></li>
+            <li><a href="tel:211"><strong>211</strong><span data-i18n="footer_211_short">Info &amp; referral</span></a></li>
+            <li><a href="https://tpch.net/coordinated-entry-for-homeless-services/" target="_blank" rel="noopener"><strong data-i18n="footer_ce_short">Coordinated Entry</strong><span data-i18n="footer_ce_sub">Front door to housing</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <div class="container site-footer__bottom-row">
+          <p class="site-footer__disclaimer" data-i18n="footer_disclaimer">Tucson Compass is an independent informational directory. It is not affiliated with the organizations listed and does not provide shelter, funding, or services directly. Information is provided as-is. Please call ahead to confirm availability.</p>
+          <p class="site-footer__copy">&copy; 2026 Tucson Compass &middot; <a href="about.html" data-i18n="footer_about_link">About this site</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/icons.js?v=19"></script>
+  <script src="js/app.js?v=19"></script>
+  <script src="js/match.js?v=19"></script>
+</body>
+</html>

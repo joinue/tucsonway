@@ -1,33 +1,38 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#c4452a" />
   <meta name="description" content="Map of shelters and services in Tucson and Pima County, color-coded by service type." />
-  <title>Map — Tucson Way</title>
+  <title>Map - Tucson Compass</title>
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="favicon/favicon.ico" sizes="any" />
   <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
   <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="css/styles.css?v=22" />
+  <script>(function(){try{var t=localStorage.getItem('tw.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
-<body>
+<body data-page="map">
   <a class="skip-link" href="#main" data-i18n="skip_to_content">Skip to main content</a>
   <div id="offline-banner" class="offline-banner" hidden role="status" data-i18n="offline_banner"></div>
 
   <header class="site-header">
     <div class="container site-header__row">
-      <a class="brand" href="index.html" aria-label="Tucson Way">
-        <img class="brand__mark" src="icons/logo-icon.png" alt="" width="36" height="36" />
-        <span>Tucson<span class="brand__sep">·</span>Way</span>
+      <a class="brand" href="index.html" aria-label="Tucson Compass">
+        <img class="brand__logo" src="icons/logo-horizontal.png" alt="Tucson Compass" height="36" />
       </a>
-      <button type="button" class="lang-toggle" id="lang-toggle" data-i18n="lang_toggle" data-i18n-aria-label="lang_toggle_aria">
-        <i data-icon="globe" aria-hidden="true"></i>
-        <span>Español</span>
-      </button>
+      <div class="site-header__actions">
+        <button type="button" class="header-btn theme-toggle" id="theme-toggle" aria-label="Switch theme" title="Switch theme"></button>
+        <button type="button" class="header-btn lang-toggle" id="lang-toggle" data-i18n="lang_toggle" data-i18n-aria-label="lang_toggle_aria">
+          <i data-icon="globe" aria-hidden="true"></i>
+          <span>EspaÃ±ol</span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -42,38 +47,154 @@
     </div>
   </nav>
 
-  <main id="main" class="container">
-    <h1 data-i18n="map_h1">Map</h1>
-
-    <div class="note-box">
-      <i data-icon="info"></i>
-      <span data-i18n="map_confidential_note">Domestic-violence and some women's shelters keep their location confidential for safety. Find them in the directory.</span>
+  <main id="main" class="container container--wide">
+    <div class="map-head">
+      <h1 data-i18n="map_h1">Map</h1>
+      <p class="lead lead--tight" data-i18n="map_lead">Tap a place to call or get directions. Some shelters keep their address private. Find their hotlines below.</p>
     </div>
 
-    <div id="map" role="region" aria-label="Map of resources"></div>
+    <!-- Map / List view toggle (mobile only) -->
+    <div class="view-toggle" role="tablist" aria-label="View">
+      <button class="view-toggle__btn" type="button" role="tab" aria-selected="true" data-view="map" id="view-map-btn">
+        <i data-icon="map" aria-hidden="true"></i>
+        <span data-i18n="map_view_map">Map</span>
+      </button>
+      <button class="view-toggle__btn" type="button" role="tab" aria-selected="false" data-view="list" id="view-list-btn">
+        <i data-icon="list" aria-hidden="true"></i>
+        <span data-i18n="map_view_list">List</span>
+        <span class="view-toggle__count" id="view-toggle-count" aria-hidden="true"></span>
+      </button>
+    </div>
 
-    <section class="legend" aria-labelledby="legend-title">
-      <h2 id="legend-title" class="legend__title" data-i18n="map_legend">Legend</h2>
-      <div class="legend__items" id="legend-items"></div>
+    <div class="map-controls">
+      <span class="sr-only" id="map-filter-label" data-i18n="dir_filter_label">Filter by who they serve</span>
+      <div class="filter-row" role="group" aria-labelledby="map-filter-label" id="map-filters"></div>
+      <div class="map-controls__row">
+        <button type="button" class="chip chip--solid" id="locate-me-btn" aria-pressed="false">
+          <i data-icon="location"></i>
+          <span data-i18n="map_locate_me">Use my location</span>
+        </button>
+        <span class="results-meta" id="map-results-count" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <div class="map-layout" id="map-layout" data-view="map">
+      <div class="map-layout__map-wrap">
+        <div id="map" class="map-layout__map" role="region" aria-label="Map of resources"></div>
+        <!-- Floating action button (mobile only) -->
+        <button type="button" class="map-fab" id="locate-fab" aria-pressed="false" aria-label="Use my location" title="Use my location">
+          <i data-icon="location" aria-hidden="true"></i>
+        </button>
+      </div>
+      <aside class="map-layout__list" aria-label="Places list">
+        <div id="map-list" class="map-list"></div>
+        <div id="map-no-results" class="no-results no-results--compact" hidden>
+          <p data-i18n="dir_no_results">No resources match these filters.</p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Compact hotline pill (mobile) â€” taps to open modal -->
+    <button type="button" class="hotline-pill" id="hotline-pill" hidden aria-haspopup="dialog">
+      <span class="hotline-pill__icon"><i data-icon="phone" aria-hidden="true"></i></span>
+      <span class="hotline-pill__body">
+        <span class="hotline-pill__label" data-i18n="map_hotlines_pill_label">Confidential hotlines</span>
+        <span class="hotline-pill__sub" id="hotline-pill-count"></span>
+      </span>
+      <span class="hotline-pill__chev"><i data-icon="chevron" aria-hidden="true"></i></span>
+    </button>
+
+    <!-- Full hotline block (desktop) â€” same data, expanded -->
+    <section class="hotline-block" id="hotline-block" aria-labelledby="hotlines-title" hidden>
+      <header class="hotline-block__head">
+        <span class="hotline-block__icon"><i data-icon="phone" aria-hidden="true"></i></span>
+        <div>
+          <h2 id="hotlines-title" class="hotline-block__title" data-i18n="map_hotlines_h2">Hotlines (no walk-in location)</h2>
+          <p class="hotline-block__sub" data-i18n="map_hotlines_sub">These shelters keep their address confidential for safety. Call to be connected.</p>
+        </div>
+      </header>
+      <div class="hotline-block__items" id="hotline-items"></div>
     </section>
   </main>
 
+  <!-- Hotline modal (mobile) -->
+  <div class="modal" id="hotline-modal" role="dialog" aria-modal="true" aria-labelledby="hotline-modal-title" hidden>
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__panel">
+      <header class="modal__head">
+        <div>
+          <h2 id="hotline-modal-title" class="modal__title" data-i18n="map_hotlines_h2">Hotlines (no walk-in location)</h2>
+          <p class="modal__sub" data-i18n="map_hotlines_sub">These shelters keep their address confidential for safety. Call to be connected.</p>
+        </div>
+        <button type="button" class="modal__close" data-modal-close aria-label="Close">
+          <i data-icon="close" aria-hidden="true"></i>
+        </button>
+      </header>
+      <div class="modal__body" id="hotline-modal-items"></div>
+    </div>
+  </div>
+
   <footer class="site-footer">
-    <svg class="site-footer__mountains" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 70 L0 50 L120 18 L210 42 L340 6 L470 38 L600 16 L740 44 L860 22 L1000 48 L1120 24 L1200 50 L1200 70 Z" fill="currentColor"/>
+    <svg class="site-footer__mountains" viewBox="0 0 1200 140" preserveAspectRatio="none" aria-hidden="true">
+      <circle class="site-footer__moon-glow" cx="940" cy="40" r="44"/>
+      <circle class="site-footer__moon" cx="940" cy="40" r="18"/>
+      <circle class="site-footer__star" cx="80" cy="22" r="1"/>
+      <circle class="site-footer__star site-footer__star--bright" cx="170" cy="48" r="1.4"/>
+      <circle class="site-footer__star" cx="260" cy="14" r="1.2"/>
+      <circle class="site-footer__star" cx="340" cy="34" r="0.9"/>
+      <circle class="site-footer__star site-footer__star--bright" cx="430" cy="22" r="1.5"/>
+      <circle class="site-footer__star" cx="520" cy="52" r="1"/>
+      <circle class="site-footer__star" cx="610" cy="18" r="1.1"/>
+      <circle class="site-footer__star site-footer__star--bright" cx="700" cy="38" r="1.3"/>
+      <circle class="site-footer__star" cx="790" cy="20" r="1"/>
+      <circle class="site-footer__star" cx="1050" cy="56" r="1.2"/>
+      <circle class="site-footer__star site-footer__star--bright" cx="1130" cy="28" r="1.4"/>
+      <circle class="site-footer__star" cx="1190" cy="48" r="1"/>
+      <path class="site-footer__range site-footer__range--back" d="M0 140 L0 82 L70 60 L180 78 L300 42 L420 70 L540 36 L670 64 L800 40 L920 66 L1050 46 L1160 64 L1200 56 L1200 140 Z"/>
+      <path class="site-footer__range site-footer__range--mid" d="M0 140 L0 100 L60 84 L160 104 L280 70 L400 96 L520 76 L640 100 L780 76 L900 102 L1040 80 L1160 104 L1200 92 L1200 140 Z"/>
+      <path class="site-footer__range site-footer__range--front" d="M0 140 L0 120 L50 104 L130 122 L230 100 L340 124 L460 106 L580 126 L700 108 L820 128 L940 110 L1060 126 L1160 114 L1200 128 L1200 140 Z"/>
     </svg>
     <div class="site-footer__inner">
-      <div class="container">
-        <p class="site-footer__emergency"><i data-icon="warn"></i><span data-i18n="footer_emergency">In an emergency, call 911.</span></p>
-        <p data-i18n="footer_disclaimer">Tucson Way is an independent informational directory. It is not affiliated with the organizations listed and does not provide shelter, funding, or services directly. Information is provided as-is. Please call ahead to confirm availability.</p>
+      <div class="container site-footer__grid">
+        <div class="site-footer__col site-footer__col--brand">
+          <a class="site-footer__brand" href="index.html" aria-label="Tucson Compass">
+            <img class="site-footer__logo" src="icons/logo-horizontal.png" alt="Tucson Compass" />
+          </a>
+          <p class="site-footer__tagline" data-i18n="footer_tagline">A way forward. Shelter, recovery, and help across Tucson and Pima County.</p>
+        </div>
+        <div class="site-footer__col site-footer__col--cta">
+          <a href="match.html" class="footer-cta">
+            <span class="footer-cta__badge" data-i18n="footer_cta_heading">Recommended</span>
+            <span class="footer-cta__title" data-i18n="footer_cta_title">Find personalized services</span>
+            <span class="footer-cta__sub" data-i18n="footer_cta_sub">Answer a few questions Â· 1 minute Â· Private</span>
+            <span class="footer-cta__action">
+              <span data-i18n="footer_cta_action">Start now</span>
+              <span class="footer-cta__arrow" aria-hidden="true">â†’</span>
+            </span>
+          </a>
+        </div>
+        <div class="site-footer__col">
+          <h3 class="site-footer__heading" data-i18n="footer_help_now">Help right now</h3>
+          <ul class="site-footer__contacts">
+            <li><a href="tel:911"><strong>911</strong><span data-i18n="footer_emergency_short">Emergency</span></a></li>
+            <li><a href="tel:988"><strong>988</strong><span data-i18n="footer_988_short">Crisis &amp; mental health</span></a></li>
+            <li><a href="tel:211"><strong>211</strong><span data-i18n="footer_211_short">Info &amp; referral</span></a></li>
+            <li><a href="https://tpch.net/coordinated-entry-for-homeless-services/" target="_blank" rel="noopener"><strong data-i18n="footer_ce_short">Coordinated Entry</strong><span data-i18n="footer_ce_sub">Front door to housing</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <div class="container site-footer__bottom-row">
+          <p class="site-footer__disclaimer" data-i18n="footer_disclaimer">Tucson Compass is an independent informational directory. It is not affiliated with the organizations listed and does not provide shelter, funding, or services directly. Information is provided as-is. Please call ahead to confirm availability.</p>
+          <p class="site-footer__copy">&copy; 2026 Tucson Compass &middot; <a href="about.html" data-i18n="footer_about_link">About this site</a></p>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="js/icons.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/map.js"></script>
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="js/icons.js?v=19"></script>
+  <script src="js/app.js?v=19"></script>
+  <script src="js/map.js?v=19"></script>
 </body>
 </html>

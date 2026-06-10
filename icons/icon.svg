@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Tucson Way">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Tucson Compass">
   <rect width="512" height="512" rx="96" fill="#a93423"/>
   <path d="M256 96c-66 0-120 51-120 114 0 84 120 206 120 206s120-122 120-206c0-63-54-114-120-114zm0 154a40 40 0 1 1 0-80 40 40 0 0 1 0 80z" fill="#faf7f2"/>
 </svg>

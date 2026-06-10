@@ -1,12 +1,12 @@
-/* Tucson Way service worker
+/* Tucson Compass service worker
    Goal: site (HTML/CSS/JS/data) usable on weak or no signal.
    Strategy:
-   - Pre-cache the app shell + data on install
+   - Pre-cache the app shell + data + Leaflet on install
    - Network-first for JSON + HTML (so updates land), cache fallback offline
    - Cache-first for CSS/JS/icons
-   - Stale-while-revalidate for Leaflet CSS/JS and OSM map tiles
+   - Stale-while-revalidate for OSM map tiles
 */
-const VERSION = 'v3';
+const VERSION = 'v19';
 const SHELL = 'tw-shell-' + VERSION;
 const RUNTIME = 'tw-runtime-' + VERSION;
 
@@ -15,12 +15,14 @@ const SHELL_ASSETS = [
   './index.html',
   './directory.html',
   './map.html',
+  './match.html',
   './about.html',
   './css/styles.css',
   './js/app.js',
   './js/icons.js',
   './js/directory.js',
   './js/map.js',
+  './js/match.js',
   './data/resources.json',
   './data/i18n.json',
   './manifest.webmanifest',
@@ -29,6 +31,8 @@ const SHELL_ASSETS = [
   './favicon/favicon.svg',
   './favicon/apple-touch-icon.png',
   './favicon/favicon-96x96.png',
+  './vendor/leaflet/leaflet.css',
+  './vendor/leaflet/leaflet.js',
 ];
 
 self.addEventListener('install', (event) => {
@@ -54,9 +58,6 @@ function isHtmlOrJson(req) {
 function isOsmTile(url) {
   return /tile\.openstreetmap\.org/.test(url);
 }
-function isLeafletCdn(url) {
-  return /unpkg\.com\/leaflet/.test(url);
-}
 
 self.addEventListener('fetch', (event) => {
   const req = event.request;
@@ -64,8 +65,8 @@ self.addEventListener('fetch', (event) => {
 
   const url = req.url;
 
-  // OSM tiles + Leaflet CDN: stale-while-revalidate
-  if (isOsmTile(url) || isLeafletCdn(url)) {
+  // OSM tiles: stale-while-revalidate (Leaflet is now in the shell)
+  if (isOsmTile(url)) {
     event.respondWith(staleWhileRevalidate(req));
     return;
   }

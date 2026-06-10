@@ -1,9 +1,10 @@
-/* Tucson Way — shared boot, i18n, language toggle, offline banner, SW registration.
+/* Tucson Compass — shared boot, i18n, language toggle, offline banner, SW registration.
    No external dependencies. No analytics. Stays small on purpose. */
 (function () {
   'use strict';
 
   const STORAGE_LANG = 'tw.lang';
+  const STORAGE_THEME = 'tw.theme';
   const DEFAULT_LANG = 'en';
 
   // expose a tiny namespace for the page-specific scripts
@@ -70,6 +71,131 @@
     });
   }
 
+  // ---------- theme (light / dark) ----------
+  // Stored values: 'light' | 'dark' | null (follow OS).
+  // An inline <head> script applies the stored theme before paint to avoid flash.
+  function getStoredTheme() {
+    const v = localStorage.getItem(STORAGE_THEME);
+    return v === 'light' || v === 'dark' ? v : null;
+  }
+  function getEffectiveTheme() {
+    const stored = getStoredTheme();
+    if (stored) return stored;
+    return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function applyTheme(theme) {
+    if (theme === 'light' || theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', theme);
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }
+  function updateThemeButton() {
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    const effective = getEffectiveTheme();
+    // Show the icon of the theme the user would switch TO.
+    const next = effective === 'dark' ? 'light' : 'dark';
+    const iconName = next === 'dark' ? 'moon' : 'sun';
+    btn.innerHTML = (TW.icon && TW.icon(iconName)) || '';
+    const label = next === 'dark' ? 'Switch to dark mode' : 'Switch to light mode';
+    btn.setAttribute('aria-label', t(`theme_switch_to_${next}`) !== `theme_switch_to_${next}` ? t(`theme_switch_to_${next}`) : label);
+    btn.setAttribute('title', btn.getAttribute('aria-label'));
+  }
+  TW.updateThemeButton = updateThemeButton;
+
+  function setTheme(theme) {
+    localStorage.setItem(STORAGE_THEME, theme);
+    applyTheme(theme);
+    updateThemeButton();
+  }
+  function wireThemeToggle() {
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const current = getEffectiveTheme();
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+    updateThemeButton();
+    // If the user hasn't chosen, follow OS changes live.
+    const mq = matchMedia('(prefers-color-scheme: dark)');
+    const onMQ = () => { if (!getStoredTheme()) updateThemeButton(); };
+    if (mq.addEventListener) mq.addEventListener('change', onMQ);
+    else if (mq.addListener) mq.addListener(onMQ);
+  }
+
+  // ---------- install nudge ----------
+  // Captures Android/desktop Chrome's beforeinstallprompt and shows a dismissible
+  // bar. Stays hidden if already in standalone mode or recently dismissed.
+  const INSTALL_DISMISS_KEY = 'tw.install.dismissed';
+  const INSTALL_DISMISS_TTL = 1000 * 60 * 60 * 24 * 30; // 30 days
+  let deferredInstallPrompt = null;
+
+  function recentlyDismissed() {
+    const v = parseInt(localStorage.getItem(INSTALL_DISMISS_KEY) || '0', 10);
+    return v && (Date.now() - v) < INSTALL_DISMISS_TTL;
+  }
+
+  function isStandalone() {
+    return matchMedia('(display-mode: standalone)').matches ||
+      window.navigator.standalone === true; // iOS Safari
+  }
+
+  function buildInstallNudge() {
+    if (document.getElementById('install-nudge')) return;
+    const div = document.createElement('div');
+    div.id = 'install-nudge';
+    div.className = 'install-nudge';
+    div.hidden = true;
+    div.setAttribute('role', 'region');
+    div.setAttribute('aria-label', 'Install app');
+    div.innerHTML =
+      '<div class="install-nudge__body">' +
+        '<span class="install-nudge__text" data-i18n="install_prompt">' + t('install_prompt') + '</span>' +
+      '</div>' +
+      '<div class="install-nudge__actions">' +
+        '<button type="button" id="install-nudge-install" class="install-nudge__btn install-nudge__btn--primary" data-i18n="install_action">' + t('install_action') + '</button>' +
+        '<button type="button" id="install-nudge-dismiss" class="install-nudge__btn" data-i18n="install_dismiss">' + t('install_dismiss') + '</button>' +
+      '</div>';
+    document.body.appendChild(div);
+    document.getElementById('install-nudge-install').addEventListener('click', async () => {
+      if (!deferredInstallPrompt) { hideInstallNudge(); return; }
+      deferredInstallPrompt.prompt();
+      try { await deferredInstallPrompt.userChoice; } catch (_) { /* ignore */ }
+      deferredInstallPrompt = null;
+      hideInstallNudge();
+    });
+    document.getElementById('install-nudge-dismiss').addEventListener('click', () => {
+      try { localStorage.setItem(INSTALL_DISMISS_KEY, String(Date.now())); } catch (_) {}
+      hideInstallNudge();
+    });
+  }
+
+  function showInstallNudge() {
+    if (isStandalone() || recentlyDismissed()) return;
+    buildInstallNudge();
+    const el = document.getElementById('install-nudge');
+    if (el) el.hidden = false;
+  }
+
+  function hideInstallNudge() {
+    const el = document.getElementById('install-nudge');
+    if (el) el.hidden = true;
+  }
+
+  function wireInstallNudge() {
+    if (isStandalone() || recentlyDismissed()) return;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      showInstallNudge();
+    });
+    window.addEventListener('appinstalled', () => {
+      deferredInstallPrompt = null;
+      hideInstallNudge();
+    });
+  }
+
   // ---------- offline banner ----------
   function wireOfflineBanner() {
     const banner = document.getElementById('offline-banner');
@@ -129,17 +255,25 @@
   };
 
   TW.loadResources = async function () {
-    const res = await fetch('data/resources.json', { cache: 'force-cache' });
+    /* no-cache: browser sends a conditional GET so resources.json changes
+       propagate on next page load. (force-cache previously pinned a stale
+       copy that ignored edits.) The service worker still serves a cached
+       copy when offline via networkFirst. */
+    const res = await fetch('data/resources.json', { cache: 'no-cache' });
     return res.json();
   };
 
   // ---------- boot ----------
   loadI18n().then(() => {
     applyTranslations();
+    updateThemeButton();
     document.dispatchEvent(new CustomEvent('tw:i18nready'));
   });
+  document.addEventListener('tw:langchange', updateThemeButton);
 
   wireLangToggle();
+  wireThemeToggle();
   wireOfflineBanner();
+  wireInstallNudge();
   registerSW();
 })();

@@ -1,6 +1,6 @@
 {
-  "name": "Tucson Way",
-  "short_name": "Tucson Way",
+  "name": "Tucson Compass",
+  "short_name": "Tucson Compass",
   "description": "A way forward. Shelter and recovery resources in Tucson and Pima County.",
   "start_url": "./index.html",
   "scope": "./",

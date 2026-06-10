@@ -1,4 +1,4 @@
-/* Tucson Way — directory page: filter, search, sort-by-nearest.
+/* Tucson Compass — directory page: filter, search, sort-by-nearest.
    Card hierarchy: name first, then BIG call button + directions button.
    Reading is optional — icons carry every action. */
 (function () {
@@ -6,7 +6,7 @@
 
   const CATEGORIES = [
     'all', 'emergency', 'family', 'women', 'men',
-    'youth', 'veterans', 'domestic_violence', 'employment', 'outreach',
+    'youth', 'veterans', 'domestic_violence', 'employment', 'outreach', 'civic',
   ];
 
   /* Map category -> icon name (some categories also reuse 'need' icons) */
@@ -20,7 +20,40 @@
     domestic_violence: 'domestic_violence',
     employment: 'employment',
     outreach: 'outreach',
+    civic: 'civic',
+    drop_in: 'drop_in',
+    coordinated_entry: 'coordinated_entry',
   };
+
+  /* Org logos shown opposite the category icon for brand recognition.
+     Match by id prefix so multi-location orgs share one logo. */
+  const LOGOS = [
+    ['gospel_rescue_mission',          'gospel-rescue-mission.png'],
+    ['primavera',                      'primavera.jpg'],
+    ['salvation_army',                 'salvation-army.png'],
+    ['sister_jose',                    'sister-jose.jpg'],
+    ['emerge',                         'emerge.jpg'],
+    ['our_family_services',            'our-family.jpg'],
+    ['youth_on_their_own',             'youth-on-their-own.png'],
+    ['va_homeless_program',            'va.png'],
+    ['opcs_low_barrier_bridge',        'opcs.png'],
+    ['community_bridges_mens_shelter', 'community-bridges.jpg'],
+    ['la_frontera',                    'la_frontera_logo.png'],
+    ['saaf_anti_violence',             'saaf.webp'],
+    ['sullivan_jackson',               'pima-county.webp'],
+    ['city_housing_first',             'city-of-tucson.webp'],
+    ['tucson_homeless_work_program',   'city-of-tucson.webp'],
+    ['tucson_ward',                    'city-of-tucson.webp'],
+    ['pima_county_crisis_line',        'pima-county.webp'],
+  ];
+
+  function logoFor(r) {
+    const id = r.id || '';
+    for (const [prefix, file] of LOGOS) {
+      if (id.startsWith(prefix)) return 'images/services-logos/' + file;
+    }
+    return null;
+  }
 
   let resources = [];
   let activeFilter = 'all';
@@ -81,8 +114,21 @@
   }
 
   function primaryCategoryFor(r) {
-    const order = ['emergency', 'domestic_violence', 'women', 'family', 'youth', 'veterans', 'men', 'employment', 'outreach'];
-    for (const c of order) if ((r.categories || []).includes(c)) return c;
+    const cats = r.categories || [];
+    if (cats.includes('emergency')) return 'emergency';
+    if (cats.includes('domestic_violence')) return 'domestic_violence';
+
+    // Multi-population entries use a service-type icon, not one group's icon
+    const populations = ['women', 'men', 'family', 'youth'].filter((c) => cats.includes(c));
+    if (populations.length >= 2) {
+      if (cats.includes('drop_in')) return 'drop_in';
+      if (cats.includes('coordinated_entry')) return 'coordinated_entry';
+      if (cats.includes('outreach')) return 'outreach';
+      return 'family';
+    }
+
+    const order = ['women', 'men', 'family', 'youth', 'veterans', 'drop_in', 'coordinated_entry', 'employment', 'civic', 'outreach'];
+    for (const c of order) if (cats.includes(c)) return c;
     return 'outreach';
   }
 
@@ -121,6 +167,18 @@
     );
   }
 
+  function emailButton(email) {
+    return (
+      '<a class="act act--dir" href="mailto:' + escapeHtml(email) + '">' +
+        TW.icon('mail') +
+        '<span class="act__txt">' +
+          '<span class="act__label">' + TW.t('card_email') + '</span>' +
+          '<span class="act__val">' + escapeHtml(email) + '</span>' +
+        '</span>' +
+      '</a>'
+    );
+  }
+
   function cardHtml(r) {
     const eligibility = TW.fieldByLang(r, 'eligibility_notes');
     const hours = TW.fieldByLang(r, 'hours_notes');
@@ -143,6 +201,7 @@
     const actions = [];
     if (phones.length) actions.push(phoneButton(phones[0], true, color));
     if (r.address && !r.confidential_location) actions.push(directionsButton(r.address));
+    if (r.email) actions.push(emailButton(r.email));
     /* additional phone lines as smaller secondary actions if no directions */
     phones.slice(1).forEach((p) => actions.push(phoneButton(p, false, color)));
 
@@ -152,7 +211,35 @@
       ? '<div class="card__note">' + TW.t('card_coords_approximate') + '</div>'
       : '';
 
+    /* eligibility/hours/notes collapse behind a "Show details" toggle so the
+       default card height stays short. Critical info (name, badges, address,
+       phone) stays visible above the fold. */
+    const detailFields = [];
+    if (eligibility) detailFields.push({ label: TW.t('card_eligibility'), val: eligibility });
+    if (hours) detailFields.push({ label: TW.t('card_hours'), val: hours });
+    if (notes) detailFields.push({ label: TW.t('card_notes'), val: notes });
+
+    const moreHtml = detailFields.length
+      ? '<details class="card__more">' +
+          '<summary class="card__more-toggle">' +
+            '<span class="card__more-text card__more-text--show">' + TW.t('card_show_details') + '</span>' +
+            '<span class="card__more-text card__more-text--hide">' + TW.t('card_hide_details') + '</span>' +
+            TW.icon('chevron') +
+          '</summary>' +
+          '<div class="card__more-body">' +
+            detailFields
+              .map((f) => '<div class="card__field"><span class="card__field-label">' + f.label + '</span><span class="card__field-val">' + escapeHtml(f.val) + '</span></div>')
+              .join('') +
+          '</div>' +
+        '</details>'
+      : '';
+
     const cardStyle = ' style="--c: ' + color + '"';
+
+    const logo = logoFor(r);
+    const logoHtml = logo
+      ? '<img class="card__logo" src="' + logo + '" alt="" loading="lazy" decoding="async" />'
+      : '';
 
     return (
       '<article class="card" id="r-' + escapeHtml(r.id) + '"' + cardStyle + '>' +
@@ -163,12 +250,11 @@
               '<h2 class="card__name">' + escapeHtml(r.name) + '</h2>' +
               '<div class="card__cats">' + escapeHtml(catLabels(r.categories)) + '</div>' +
             '</div>' +
+            logoHtml +
           '</div>' +
           (badges.length ? '<div class="badges">' + badges.join('') + '</div>' : '') +
           addrHtml +
-          (eligibility ? '<div class="card__field"><span class="card__field-label">' + TW.t('card_eligibility') + '</span><span class="card__field-val">' + escapeHtml(eligibility) + '</span></div>' : '') +
-          (hours ? '<div class="card__field"><span class="card__field-label">' + TW.t('card_hours') + '</span><span class="card__field-val">' + escapeHtml(hours) + '</span></div>' : '') +
-          (notes ? '<div class="card__field"><span class="card__field-label">' + TW.t('card_notes') + '</span><span class="card__field-val">' + escapeHtml(notes) + '</span></div>' : '') +
+          moreHtml +
           (actions.length ? '<div class="' + actionsCls + '">' + actions.join('') + '</div>' : '') +
           approxNote +
         '</div>' +
