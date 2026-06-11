@@ -1372,6 +1372,8 @@
       "id": "tucson_indian_center",
       "name": "Tucson Indian Center",
       "categories": [
+        "health",
+        "behavioral_health",
         "employment",
         "prevention",
         "tribal"
@@ -1384,20 +1386,30 @@
         {
           "label": "Main",
           "tel": "5208847131"
+        },
+        {
+          "label": "Palimo Clinic (direct)",
+          "tel": "5205067131"
         }
       ],
       "hotline_24h": false,
       "open_24_7": false,
-      "eligibility_notes": "For Native Americans / Alaska Natives of ANY tribe — intertribal, not limited to one nation (Tucson's largest are Tohono O'odham and Pascua Yaqui). Workforce programs require proof of enrollment or descent in a federally recognized tribe; some services are open to all.",
-      "eligibility_notes_es": "Para indígenas americanos / nativos de Alaska de CUALQUIER tribu — intertribal, no limitado a una sola nación (las más grandes de Tucson son Tohono O'odham y Pascua Yaqui). Los programas laborales requieren comprobante de inscripción o descendencia de una tribu reconocida federalmente; algunos servicios están abiertos a todos.",
+      "eligibility_notes": "For Native Americans / Alaska Natives of ANY tribe — intertribal, not limited to one nation (Tucson's largest are Tohono O'odham and Pascua Yaqui). Workforce programs require proof of enrollment or descent in a federally recognized tribe; many health, behavioral health, and social services are open more broadly — call to confirm.",
+      "eligibility_notes_es": "Para indígenas americanos / nativos de Alaska de CUALQUIER tribu — intertribal, no limitado a una sola nación (las más grandes de Tucson son Tohono O'odham y Pascua Yaqui). Los programas laborales requieren comprobante de inscripción o descendencia de una tribu reconocida federalmente; muchos servicios de salud, salud conductual y servicios sociales están más abiertos — llame para confirmar.",
       "hours_notes": "M–F 8 a.m.–5 p.m. Walk in or call.",
       "hours_notes_es": "L–V 8 a.m.–5 p.m. Visite sin cita o llame.",
-      "notes": "Job-readiness training, resume help, on-the-job training, GED referrals, emergency assistance (including housing help), youth and elder programs, and cultural activities. Downtown at Stone & Alameda.",
-      "notes_es": "Capacitación laboral, ayuda con currículum, entrenamiento en el trabajo, referencias para GED, asistencia de emergencia (incluyendo ayuda de vivienda), programas para jóvenes y mayores, y actividades culturales. En el centro, en Stone y Alameda.",
+      "notes": "Full-service urban Indian center, not just employment. The Rodney W. Palimo Sr. Clinic provides primary care (vaccines, screenings, labs, chronic-condition and medication management, physicals, women's health, telemedicine) and behavioral health therapy (individual, family/group, assessments; treatment for substance use, depression, anxiety). Also social services and outreach: AHCCCS/SNAP enrollment help, case management, transportation, welfare checks, care packages, and health education. Plus employment services (job-readiness, resume help, on-the-job training, GED referrals), emergency/housing assistance, and youth, elder, and cultural programs. Clinic direct line 520-506-7131; main line 520-884-7131. Downtown at Stone & Alameda.",
+      "notes_es": "Centro indígena urbano de servicio completo, no solo empleo. La Clínica Rodney W. Palimo Sr. ofrece atención primaria (vacunas, exámenes, laboratorio, manejo de condiciones crónicas y medicamentos, exámenes físicos, salud de la mujer, telemedicina) y terapia de salud conductual (individual, familiar/grupo, evaluaciones; tratamiento para uso de sustancias, depresión, ansiedad). También servicios sociales y de alcance: ayuda con inscripción a AHCCCS/SNAP, gestión de casos, transporte, visitas de bienestar, paquetes de ayuda y educación de salud. Además servicios de empleo (preparación laboral, currículum, entrenamiento en el trabajo, referencias para GED), asistencia de emergencia/vivienda, y programas para jóvenes, mayores y culturales. Línea directa de la clínica 520-506-7131; línea principal 520-884-7131. En el centro, en Stone y Alameda.",
       "source_url": "https://www.ticenter.org",
       "match": {
         "tribal_only": true,
         "needs": [
+          "health",
+          "mental_health",
+          "substance_use",
+          "benefits",
+          "transportation",
+          "outreach",
           "employment",
           "rent_assistance"
         ],
