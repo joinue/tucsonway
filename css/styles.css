@@ -103,6 +103,8 @@
   --cat-coordinated_entry: #8a5e3a;
   --cat-prevention:        #1f6e7e;
   --cat-heat:              #a4631f;
+  --cat-recovery:          #4a5aa8;
+  --cat-behavioral_health: #2c7a8c;
 
   /* Type — Geist with system fallback */
   --font-sans: 'Geist', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

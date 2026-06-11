@@ -19,6 +19,7 @@
   ];
   const NEED_OPTS = [
     ['all', 'map_filter_anything'], ['emergency', 'map_need_shelter'], ['food', 'map_need_food'],
+    ['recovery', 'map_need_recovery'], ['behavioral_health', 'filter_behavioral_health'],
     ['employment', 'map_need_employment'], ['civic', 'map_need_advocacy'],
   ];
   const POP_TAGS = ['women', 'men', 'family', 'youth', 'veterans'];
@@ -43,11 +44,13 @@
     employment: 'employment',
     outreach: 'outreach',
     civic: 'civic',
+    recovery: 'recovery',
+    behavioral_health: 'heart',
   };
 
   const PRIMARY_ORDER = [
-    'emergency', 'domestic_violence', 'women', 'family',
-    'youth', 'veterans', 'men', 'food', 'employment', 'civic', 'outreach',
+    'emergency', 'domestic_violence', 'recovery', 'women', 'family',
+    'youth', 'veterans', 'men', 'food', 'employment', 'civic', 'behavioral_health', 'outreach',
   ];
 
   /* ---------- state ---------- */
@@ -122,9 +125,14 @@
       (r) => !r.confidential_location && r.lat != null && r.lng != null
     );
   }
+  /* The "call, don't visit" rail: confidential-address services (DV shelters)
+     plus placeless 24/7 hotlines — crisis and recovery lines that have a phone
+     but no street address to map. Both are reached by phone, not by walking in.
+     Keying only off confidential_location used to drop the latter off the map
+     page entirely (e.g. the Pima County crisis line, SAMHSA, the OAR line). */
   function hotlineResources() {
     return resources.filter(
-      (r) => r.confidential_location && (r.phone || []).length
+      (r) => (r.confidential_location || (r.lat == null && r.hotline_24h)) && (r.phone || []).length
     );
   }
 

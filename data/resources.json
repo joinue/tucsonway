@@ -134,6 +134,7 @@
       "name": "Center of Opportunity (Gospel Rescue Mission)",
       "categories": [
         "emergency",
+        "recovery",
         "men",
         "women",
         "family"
@@ -159,6 +160,7 @@
       "notes_es": "Gestión de casos, recuperación de adicciones, capacitación laboral, consejería. Campus principal de GRM. Vea también: 28th St (hombres) y Miracle Mile (mujeres y niños).",
       "source_url": "https://www.grmtucson.com/center-of-opportunity/about-coop/",
       "match": {
+        "sober": true,
         "g": "any",
         "kids": "ok",
         "faith": true,
@@ -180,6 +182,7 @@
       "name": "Gospel Rescue Mission: 28th St Campus",
       "categories": [
         "emergency",
+        "recovery",
         "men"
       ],
       "address": "312 W. 28th St, Tucson, AZ",
@@ -201,6 +204,7 @@
       "hours_notes_es": "Admisión 4:00–5:15 p.m.",
       "source_url": "https://grmtucson.com",
       "match": {
+        "sober": true,
         "g": "men",
         "ages": [
           18,
@@ -224,6 +228,7 @@
       "name": "Gospel Rescue Mission: Miracle Mile (Women & Children)",
       "categories": [
         "emergency",
+        "recovery",
         "women",
         "family"
       ],
@@ -246,6 +251,7 @@
       "hours_notes_es": "Admisión con cita previa. Llame para programar.",
       "source_url": "https://grmtucson.com",
       "match": {
+        "sober": true,
         "g": "women",
         "kids": "ok",
         "faith": true,
@@ -1946,7 +1952,8 @@
       "id": "codac",
       "name": "CODAC Behavioral Health Services",
       "categories": [
-        "behavioral_health"
+        "behavioral_health",
+        "recovery"
       ],
       "address": "1650 E. Ft. Lowell Rd., #202, Tucson, AZ 85719",
       "confidential_location": false,
@@ -1988,6 +1995,7 @@
       "name": "Community Bridges (CBI) — SAFR Center (Crisis & Detox)",
       "categories": [
         "behavioral_health",
+        "recovery",
         "crisis",
         "drop_in"
       ],
@@ -2037,7 +2045,8 @@
       "id": "cbi_dodge",
       "name": "Community Bridges (CBI) — Dodge Residential",
       "categories": [
-        "behavioral_health"
+        "behavioral_health",
+        "recovery"
       ],
       "address": "2950 N. Dodge Blvd., Tucson, AZ 85716",
       "confidential_location": false,
@@ -2080,6 +2089,7 @@
       "name": "COPE Community Services",
       "categories": [
         "behavioral_health",
+        "recovery",
         "health"
       ],
       "address": "620 N. Craycroft Rd., Tucson, AZ 85711",
@@ -2128,6 +2138,7 @@
       "name": "HOPE Inc. (Peer Support & Warm Line)",
       "categories": [
         "behavioral_health",
+        "recovery",
         "drop_in"
       ],
       "address": "877 S. Alvernon Way, Tucson, AZ 85711",
@@ -2174,7 +2185,7 @@
       "id": "amity_circle_tree_ranch",
       "name": "Amity Foundation — Circle Tree Ranch",
       "categories": [
-        "behavioral_health"
+        "recovery"
       ],
       "address": "10500 E. Tanque Verde Rd., Tucson, AZ 85749",
       "confidential_location": false,
@@ -2216,7 +2227,7 @@
       "id": "aa_tucson",
       "name": "Alcoholics Anonymous — Tucson Central Office",
       "categories": [
-        "behavioral_health"
+        "recovery"
       ],
       "address": "1920 E. Spring St., Tucson, AZ 85719",
       "confidential_location": false,
@@ -2261,7 +2272,7 @@
       "id": "na_southern_arizona",
       "name": "Narcotics Anonymous — Southern Arizona",
       "categories": [
-        "behavioral_health"
+        "recovery"
       ],
       "address": null,
       "confidential_location": false,
@@ -2297,7 +2308,7 @@
       "id": "smart_recovery_tucson",
       "name": "SMART Recovery — Tucson",
       "categories": [
-        "behavioral_health"
+        "recovery"
       ],
       "address": null,
       "confidential_location": false,
@@ -2329,6 +2340,7 @@
       "name": "SAMHSA National Helpline",
       "categories": [
         "behavioral_health",
+        "recovery",
         "crisis"
       ],
       "address": null,
@@ -2366,7 +2378,7 @@
       "id": "az_oar_line",
       "name": "Arizona Opioid Assistance & Referral (OAR) Line",
       "categories": [
-        "behavioral_health",
+        "recovery",
         "crisis"
       ],
       "address": null,
@@ -2403,7 +2415,8 @@
       "id": "la_frontera_center",
       "name": "La Frontera Center",
       "categories": [
-        "behavioral_health"
+        "behavioral_health",
+        "recovery"
       ],
       "address": "504 W. 29th St., Tucson, AZ 85713",
       "confidential_location": false,
@@ -2439,6 +2452,7 @@
       "name": "The Haven (Women's Recovery)",
       "categories": [
         "behavioral_health",
+        "recovery",
         "women"
       ],
       "address": "1107 E. Adelaide Dr., Tucson, AZ 85719",
@@ -3169,6 +3183,7 @@
       "id": "sonoran_prevention_works",
       "name": "Sonoran Prevention Works (Free Naloxone / Narcan)",
       "categories": [
+        "recovery",
         "health",
         "outreach"
       ],

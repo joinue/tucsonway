@@ -5,7 +5,7 @@
   'use strict';
 
   const CATEGORIES = [
-    'all', 'emergency', 'food', 'heat', 'family', 'women', 'men',
+    'all', 'emergency', 'food', 'recovery', 'behavioral_health', 'heat', 'family', 'women', 'men',
     'youth', 'veterans', 'domestic_violence', 'prevention', 'employment', 'outreach', 'civic',
   ];
 
@@ -26,6 +26,8 @@
     drop_in: 'drop_in',
     coordinated_entry: 'coordinated_entry',
     prevention: 'home',
+    recovery: 'recovery',
+    behavioral_health: 'heart',
   };
 
   /* Org logos shown opposite the category icon for brand recognition.
@@ -136,7 +138,7 @@
       return 'family';
     }
 
-    const order = ['women', 'men', 'family', 'youth', 'veterans', 'heat', 'food', 'drop_in', 'coordinated_entry', 'employment', 'civic', 'prevention', 'outreach'];
+    const order = ['recovery', 'women', 'men', 'family', 'youth', 'veterans', 'heat', 'food', 'drop_in', 'coordinated_entry', 'employment', 'civic', 'prevention', 'behavioral_health', 'outreach'];
     for (const c of order) if (cats.includes(c)) return c;
     return 'outreach';
   }
