@@ -1984,6 +1984,422 @@
       "website": "https://www.codac.org"
     },
     {
+      "id": "cbi_safr_toole",
+      "name": "Community Bridges (CBI) — SAFR Center (Crisis & Detox)",
+      "categories": [
+        "behavioral_health",
+        "crisis",
+        "drop_in"
+      ],
+      "address": "250 S. Toole Ave., Suite A, Tucson, AZ 85701",
+      "confidential_location": false,
+      "lat": 32.220167,
+      "lng": -110.963333,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "24/7 Access to Care",
+          "tel": "8779319142"
+        },
+        {
+          "label": "Crisis Mobile Team (Pima, 24/7)",
+          "tel": "8445344673"
+        },
+        {
+          "label": "Scheduling",
+          "tel": "8882246593"
+        }
+      ],
+      "hotline_24h": true,
+      "open_24_7": true,
+      "eligibility_notes": "Adults 18+. No cost and no wrong door — served regardless of insurance, ability to pay, or citizenship status. AHCCCS, commercial insurance, and uninsured all accepted. Walk in any time.",
+      "eligibility_notes_es": "Adultos mayores de 18 años. Sin costo y sin puerta equivocada — se atiende sin importar el seguro, la capacidad de pago o el estatus migratorio. Se acepta AHCCCS, seguro comercial y personas sin seguro. Puede llegar sin cita a cualquier hora.",
+      "hours_notes": "SAFR Center open 24/7 — walk-in or drop-off welcome at any hour. Or call the 24/7 Access to Care line.",
+      "hours_notes_es": "El Centro SAFR está abierto 24/7 — puede llegar sin cita a cualquier hora. O llame a la línea de Acceso a la Atención 24/7.",
+      "notes": "Community Bridges (CBI) SAFR Center — 24/7 crisis stabilization for substance use and mental health: walk-in or police/EMS drop-off, medically supervised withdrawal management (detox), medication-assisted treatment (MAT) for opioid use, psychiatric and ASAM assessment, take-home naloxone, peer support, and case management. CBI also runs a 24/7 Crisis Mobile Team across Pima County (844-534-4673). Outpatient services on the same campus.",
+      "notes_es": "Centro SAFR de Community Bridges (CBI) — estabilización de crisis 24/7 para uso de sustancias y salud mental: llegada sin cita o traslado por policía/ambulancia, manejo de abstinencia con supervisión médica (desintoxicación), tratamiento asistido por medicamentos (MAT) para uso de opioides, evaluación psiquiátrica y ASAM, naloxona para llevar, apoyo de pares y gestión de casos. CBI también opera un Equipo Móvil de Crisis 24/7 en todo el Condado de Pima (844-534-4673). Servicios ambulatorios en el mismo campus.",
+      "source_url": "https://communitybridgesinc.org/safrcenter/",
+      "match": {
+        "needs": [
+          "substance_use",
+          "mental_health",
+          "health"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in",
+        "crisis": true
+      },
+      "website": "https://communitybridgesinc.org/safrcenter/"
+    },
+    {
+      "id": "cbi_dodge",
+      "name": "Community Bridges (CBI) — Dodge Residential",
+      "categories": [
+        "behavioral_health"
+      ],
+      "address": "2950 N. Dodge Blvd., Tucson, AZ 85716",
+      "confidential_location": false,
+      "lat": 32.260557,
+      "lng": -110.914035,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "24/7 Access to Care",
+          "tel": "8779319142"
+        },
+        {
+          "label": "Scheduling",
+          "tel": "8882246593"
+        }
+      ],
+      "hotline_24h": true,
+      "open_24_7": true,
+      "eligibility_notes": "Adults. AHCCCS, commercial insurance, and uninsured/underinsured accepted (CBI 'no wrong door' policy). Residential intake by screening — call the 24/7 Access to Care line first.",
+      "eligibility_notes_es": "Adultos. Se acepta AHCCCS, seguro comercial y personas con seguro insuficiente o sin seguro (política de CBI de 'sin puerta equivocada'). La admisión residencial es por evaluación — primero llame a la línea de Acceso a la Atención 24/7.",
+      "hours_notes": "Residential care 24/7. Call CBI's 24/7 Access to Care line (877-931-9142) to be screened for a bed.",
+      "hours_notes_es": "Atención residencial 24/7. Llame a la línea de Acceso a la Atención 24/7 de CBI (877-931-9142) para ser evaluado para una cama.",
+      "notes": "Community Bridges (CBI) Dodge campus — 24/7 residential substance-use and co-occurring (mental health) treatment for adults. Outpatient services also on site. Call the 24/7 Access to Care line to start; for immediate crisis or detox, the SAFR Center downtown (250 S. Toole Ave.) takes walk-ins any time.",
+      "notes_es": "Campus Dodge de Community Bridges (CBI) — tratamiento residencial 24/7 para uso de sustancias y trastornos concurrentes (salud mental) para adultos. También hay servicios ambulatorios en el sitio. Llame a la línea de Acceso a la Atención 24/7 para comenzar; para crisis o desintoxicación inmediata, el Centro SAFR en el centro (250 S. Toole Ave.) recibe sin cita a cualquier hora.",
+      "source_url": "https://communitybridgesinc.org/regions/arizona/",
+      "match": {
+        "needs": [
+          "substance_use",
+          "mental_health"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "call"
+      },
+      "website": "https://communitybridgesinc.org/regions/arizona/"
+    },
+    {
+      "id": "cope_community_services",
+      "name": "COPE Community Services",
+      "categories": [
+        "behavioral_health",
+        "health"
+      ],
+      "address": "620 N. Craycroft Rd., Tucson, AZ 85711",
+      "confidential_location": false,
+      "lat": 32.229313,
+      "lng": -110.875358,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Enrollment / Intake",
+          "tel": "5202054732"
+        },
+        {
+          "label": "Main",
+          "tel": "5207923293"
+        },
+        {
+          "label": "After-hours crisis",
+          "tel": "5209031563"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "AHCCCS, Medicare, and commercial insurance accepted. Uninsured may qualify for grant funding or sliding-scale fees; MAT offered at little to no cost. Call the enrollment line to start.",
+      "eligibility_notes_es": "Se acepta AHCCCS, Medicare y seguro comercial. Las personas sin seguro pueden calificar para fondos de subvención o tarifas según ingresos; el MAT se ofrece a poco o ningún costo. Llame a la línea de inscripción para comenzar.",
+      "hours_notes": "Craycroft clinic Mon–Fri 8 a.m.–5 p.m. Enrollment line Mon–Fri 8 a.m.–5 p.m. After-hours crisis line available.",
+      "hours_notes_es": "Clínica Craycroft L–V 8 a.m.–5 p.m. Línea de inscripción L–V 8 a.m.–5 p.m. Línea de crisis disponible fuera de horario.",
+      "notes": "COPE Community Services — integrated behavioral health, substance-use treatment, and primary care. MAT (buprenorphine, methadone, naltrexone) and outpatient substance-use counseling. Opioid-treatment / methadone clinics at the 5th Street (5401 E. 5th St.) and Northwest (5840 N. La Cholla Blvd.) sites. Eight Tucson clinics in all; Craycroft is the main intake location.",
+      "notes_es": "COPE Community Services — salud conductual integrada, tratamiento de uso de sustancias y atención primaria. MAT (buprenorfina, metadona, naltrexona) y consejería ambulatoria para uso de sustancias. Clínicas de tratamiento de opioides / metadona en los sitios de 5th Street (5401 E. 5th St.) y Noroeste (5840 N. La Cholla Blvd.). Ocho clínicas en Tucson en total; Craycroft es el sitio principal de admisión.",
+      "source_url": "https://copecommunityservices.org/",
+      "match": {
+        "needs": [
+          "substance_use",
+          "mental_health",
+          "health"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "call"
+      },
+      "website": "https://copecommunityservices.org/"
+    },
+    {
+      "id": "hope_inc_peer",
+      "name": "HOPE Inc. (Peer Support & Warm Line)",
+      "categories": [
+        "behavioral_health",
+        "drop_in"
+      ],
+      "address": "877 S. Alvernon Way, Tucson, AZ 85711",
+      "confidential_location": false,
+      "lat": 32.210059,
+      "lng": -110.909513,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Warm Line (Pima)",
+          "tel": "5207709909"
+        },
+        {
+          "label": "Warm Line (toll-free)",
+          "tel": "8447339912"
+        },
+        {
+          "label": "Main",
+          "tel": "5207701197"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free and open to anyone in Pima County. Peer support from people with lived experience of mental illness and/or substance use. No insurance or diagnosis required.",
+      "eligibility_notes_es": "Gratis y abierto a cualquier persona en el Condado de Pima. Apoyo de pares con experiencia vivida de enfermedad mental y/o uso de sustancias. No se requiere seguro ni diagnóstico.",
+      "hours_notes": "Warm Line: every day, 8 a.m.–midnight (520-770-9909, Pima County). Offices Mon–Fri 8 a.m.–5 p.m. Drop-in center at 1200 N. Country Club Rd. (520-903-6610).",
+      "hours_notes_es": "Línea Cálida: todos los días, 8 a.m.–medianoche (520-770-9909, Condado de Pima). Oficinas L–V 8 a.m.–5 p.m. Centro de visita libre en 1200 N. Country Club Rd. (520-903-6610).",
+      "notes": "HOPE Inc. (Helping Ourselves Pursue Enrichment) — peer- and family-run recovery support. The non-emergency, confidential Warm Line gives you someone to talk to when you're struggling but not in crisis. Also recovery and wellness groups, life-skills and employment help, AHCCCS application assistance, and a drop-in center. Free.",
+      "notes_es": "HOPE Inc. (Helping Ourselves Pursue Enrichment) — apoyo de recuperación dirigido por pares y familias. La Línea Cálida, confidencial y para situaciones que no son de emergencia, le da con quién hablar cuando está pasando por un momento difícil sin estar en crisis. También grupos de recuperación y bienestar, ayuda con habilidades para la vida y empleo, asistencia para solicitar AHCCCS y un centro de visita libre. Gratis.",
+      "source_url": "https://hopearizona.org/",
+      "match": {
+        "needs": [
+          "substance_use",
+          "mental_health"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://hopearizona.org/"
+    },
+    {
+      "id": "amity_circle_tree_ranch",
+      "name": "Amity Foundation — Circle Tree Ranch",
+      "categories": [
+        "behavioral_health"
+      ],
+      "address": "10500 E. Tanque Verde Rd., Tucson, AZ 85749",
+      "confidential_location": false,
+      "lat": 32.254378,
+      "lng": -110.790583,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Enrollment",
+          "tel": "8003813318"
+        },
+        {
+          "label": "Facility",
+          "tel": "5207495980"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": true,
+      "eligibility_notes": "Adults with longer substance-use / addiction histories. Accepts AHCCCS/Medicaid, tribal (ITU/IHS) funds, private insurance, and self-pay. Call enrollment to check bed availability and funding.",
+      "eligibility_notes_es": "Adultos con historiales más largos de uso de sustancias / adicción. Acepta AHCCCS/Medicaid, fondos tribales (ITU/IHS), seguro privado y pago propio. Llame a inscripción para verificar disponibilidad de camas y financiamiento.",
+      "hours_notes": "Residential, 24/7. Call the enrollment line (800-381-3318) to apply.",
+      "hours_notes_es": "Residencial, 24/7. Llame a la línea de inscripción (800-381-3318) para solicitar.",
+      "notes": "Amity Foundation Circle Tree Ranch — long-term residential substance-use treatment on a 60-acre campus using a therapeutic-community model. Programs range from about 90 days to 7 months for people with long addiction histories. Co-occurring mental health, trauma/PTSD, MAT monitoring, vocational training, and family services. CARF-accredited.",
+      "notes_es": "Circle Tree Ranch de Amity Foundation — tratamiento residencial de uso de sustancias a largo plazo en un campus de 60 acres con un modelo de comunidad terapéutica. Los programas van de unos 90 días a 7 meses para personas con largos historiales de adicción. Salud mental concurrente, trauma/TEPT, monitoreo de MAT, capacitación vocacional y servicios familiares. Acreditado por CARF.",
+      "source_url": "https://www.amityfdn.org/circle-tree-ranch",
+      "match": {
+        "needs": [
+          "substance_use",
+          "mental_health"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "call"
+      },
+      "website": "https://www.amityfdn.org/circle-tree-ranch"
+    },
+    {
+      "id": "aa_tucson",
+      "name": "Alcoholics Anonymous — Tucson Central Office",
+      "categories": [
+        "behavioral_health"
+      ],
+      "address": "1920 E. Spring St., Tucson, AZ 85719",
+      "confidential_location": false,
+      "lat": 32.250914,
+      "lng": -110.943574,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "24-hour helpline",
+          "tel": "5206244183"
+        },
+        {
+          "label": "Office",
+          "tel": "5208827422"
+        },
+        {
+          "label": "Spanish meetings (OISA)",
+          "tel": "5206225112"
+        }
+      ],
+      "hotline_24h": true,
+      "open_24_7": false,
+      "eligibility_notes": "Free. Anyone with a desire to stop drinking. No insurance, fees, or eligibility requirements; anonymous.",
+      "eligibility_notes_es": "Gratis. Cualquier persona con el deseo de dejar de beber. Sin seguro, cuotas ni requisitos de elegibilidad; anónimo.",
+      "hours_notes": "24-hour helpline (520-624-4183) to talk to someone or find a meeting. Office Mon–Fri 9:30 a.m.–5 p.m. In-person and online meetings throughout Tucson.",
+      "hours_notes_es": "Línea de ayuda 24 horas (520-624-4183) para hablar con alguien o encontrar una reunión. Oficina L–V 9:30 a.m.–5 p.m. Reuniones presenciales y en línea en todo Tucson.",
+      "notes": "Alcoholics Anonymous Tucson Central Office (Intergroup) — free, anonymous peer recovery from alcohol. Call the 24-hour helpline to talk to someone or find a meeting; full meeting directory at aatucson.org/meetings. Spanish-language meetings through OISA (520-622-5112, 2914 E. 22nd St.).",
+      "notes_es": "Oficina Central de Alcohólicos Anónimos de Tucson (Intergrupo) — recuperación entre pares del alcohol, gratuita y anónima. Llame a la línea de ayuda de 24 horas para hablar con alguien o encontrar una reunión; directorio completo en aatucson.org/meetings. Reuniones en español a través de OISA (520-622-5112, 2914 E. 22nd St.).",
+      "source_url": "https://aatucson.org/",
+      "match": {
+        "needs": [
+          "substance_use"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "call"
+      },
+      "website": "https://aatucson.org/"
+    },
+    {
+      "id": "na_southern_arizona",
+      "name": "Narcotics Anonymous — Southern Arizona",
+      "categories": [
+        "behavioral_health"
+      ],
+      "address": null,
+      "confidential_location": false,
+      "lat": null,
+      "lng": null,
+      "phone": [
+        {
+          "label": "AZ NA help line",
+          "tel": "8449912962"
+        }
+      ],
+      "hotline_24h": true,
+      "open_24_7": false,
+      "eligibility_notes": "Free. Anyone with a desire to stop using drugs. No fees, insurance, or eligibility requirements; anonymous.",
+      "eligibility_notes_es": "Gratis. Cualquier persona con el deseo de dejar de usar drogas. Sin cuotas, seguro ni requisitos de elegibilidad; anónimo.",
+      "hours_notes": "Call the Arizona NA help line (1-844-991-2962). Find in-person and virtual meetings anytime at natucson.org. Mail-only office — no walk-in location.",
+      "hours_notes_es": "Llame a la línea de ayuda de NA de Arizona (1-844-991-2962). Encuentre reuniones presenciales y virtuales en cualquier momento en natucson.org. Oficina solo por correo — sin ubicación física para visitas.",
+      "notes": "Narcotics Anonymous, Southeastern Arizona (SEAZNA) — free, anonymous peer recovery from drug addiction, covering the Tucson metro and surrounding counties. Call the help line or browse the meeting finder at natucson.org for in-person and virtual meetings.",
+      "notes_es": "Narcóticos Anónimos, Sureste de Arizona (SEAZNA) — recuperación entre pares de la adicción a las drogas, gratuita y anónima, que cubre el área metropolitana de Tucson y los condados circundantes. Llame a la línea de ayuda o consulte el buscador de reuniones en natucson.org para reuniones presenciales y virtuales.",
+      "source_url": "https://natucson.org/",
+      "match": {
+        "needs": [
+          "substance_use"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "call"
+      },
+      "website": "https://natucson.org/"
+    },
+    {
+      "id": "smart_recovery_tucson",
+      "name": "SMART Recovery — Tucson",
+      "categories": [
+        "behavioral_health"
+      ],
+      "address": null,
+      "confidential_location": false,
+      "lat": null,
+      "lng": null,
+      "phone": [],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Free, science-based, and secular — open to anyone working on any addictive behavior. No insurance, fees, or 'higher power' required.",
+      "eligibility_notes_es": "Gratis, basado en la ciencia y laico — abierto a cualquier persona que trabaje en cualquier conducta adictiva. No se requiere seguro, cuotas ni un 'poder superior'.",
+      "hours_notes": "Free online meetings daily. In-person Tucson meetings: Pima Community College NW Campus (7600 N. Shannon Rd., Bldg. G), Saturdays 5–6:30 p.m.; SAAF Health (375 S. Euclid Ave.), Wednesdays 9–10:30 p.m.",
+      "hours_notes_es": "Reuniones en línea gratuitas todos los días. Reuniones presenciales en Tucson: Pima Community College Campus NW (7600 N. Shannon Rd., Edif. G), sábados 5–6:30 p.m.; SAAF Health (375 S. Euclid Ave.), miércoles 9–10:30 p.m.",
+      "notes": "SMART Recovery — a free, science-based, secular alternative to 12-step programs, built on self-empowerment and practical tools rather than 'powerlessness.' Daily free online meetings plus weekly in-person Tucson meetings. Find and join meetings at meetings.smartrecovery.org.",
+      "notes_es": "SMART Recovery — una alternativa gratuita, basada en la ciencia y laica a los programas de 12 pasos, centrada en el autoempoderamiento y herramientas prácticas en lugar de la 'impotencia'. Reuniones en línea gratuitas a diario más reuniones presenciales semanales en Tucson. Encuentre y únase a reuniones en meetings.smartrecovery.org.",
+      "source_url": "https://meetings.smartrecovery.org/",
+      "match": {
+        "needs": [
+          "substance_use"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "online"
+      },
+      "website": "https://smartrecovery.org/"
+    },
+    {
+      "id": "samhsa_national_helpline",
+      "name": "SAMHSA National Helpline",
+      "categories": [
+        "behavioral_health",
+        "crisis"
+      ],
+      "address": null,
+      "confidential_location": false,
+      "lat": null,
+      "lng": null,
+      "phone": [
+        {
+          "label": "Helpline",
+          "tel": "8006624357"
+        }
+      ],
+      "hotline_24h": true,
+      "open_24_7": true,
+      "eligibility_notes": "Free and confidential. Anyone facing substance-use and/or mental-health challenges, and their family members. No insurance needed.",
+      "eligibility_notes_es": "Gratis y confidencial. Cualquier persona que enfrente desafíos de uso de sustancias y/o salud mental, y sus familiares. No se necesita seguro.",
+      "hours_notes": "24/7, 365 days a year. English and Spanish. Also text your ZIP code to 435748 (HELP4U).",
+      "hours_notes_es": "24/7, 365 días al año. Inglés y español. También envíe su código postal por mensaje de texto al 435748 (HELP4U).",
+      "notes": "SAMHSA National Helpline — free, confidential treatment referral and information (not counseling) for substance use and mental health. Connects you to local treatment facilities, support groups, and community organizations.",
+      "notes_es": "Línea Nacional de Ayuda de SAMHSA — referencias a tratamiento e información gratuitas y confidenciales (no consejería) para uso de sustancias y salud mental. Le conecta con centros de tratamiento locales, grupos de apoyo y organizaciones comunitarias.",
+      "source_url": "https://www.samhsa.gov/find-help/helplines/national-helpline",
+      "match": {
+        "needs": [
+          "substance_use",
+          "mental_health"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "call"
+      },
+      "website": "https://www.samhsa.gov/find-help/helplines/national-helpline"
+    },
+    {
+      "id": "az_oar_line",
+      "name": "Arizona Opioid Assistance & Referral (OAR) Line",
+      "categories": [
+        "behavioral_health",
+        "crisis"
+      ],
+      "address": null,
+      "confidential_location": false,
+      "lat": null,
+      "lng": null,
+      "phone": [
+        {
+          "label": "OAR Line",
+          "tel": "8886884222"
+        }
+      ],
+      "hotline_24h": true,
+      "open_24_7": true,
+      "eligibility_notes": "Free and confidential. Anyone with questions about opioids — people who use, patients in pain, families, caregivers, and providers.",
+      "eligibility_notes_es": "Gratis y confidencial. Cualquier persona con preguntas sobre opioides — personas que los usan, pacientes con dolor, familias, cuidadores y proveedores.",
+      "hours_notes": "24/7.",
+      "hours_notes_es": "24/7.",
+      "notes": "Arizona Opioid Assistance and Referral (OAR) Line — free, confidential, 24/7 help with opioids: withdrawal, chronic pain, overdose risk, treatment options, and referrals. Staffed by pharmacists, nurses, and physicians at the Arizona Poison & Drug Information Center (University of Arizona, Tucson).",
+      "notes_es": "Línea de Asistencia y Referencia de Opioides de Arizona (OAR) — ayuda gratuita, confidencial y 24/7 con opioides: abstinencia, dolor crónico, riesgo de sobredosis, opciones de tratamiento y referencias. Atendida por farmacéuticos, enfermeros y médicos del Centro de Información sobre Venenos y Medicamentos de Arizona (Universidad de Arizona, Tucson).",
+      "source_url": "https://oarline.com/",
+      "match": {
+        "needs": [
+          "substance_use"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "call"
+      },
+      "website": "https://oarline.com/"
+    },
+    {
       "id": "la_frontera_center",
       "name": "La Frontera Center",
       "categories": [
