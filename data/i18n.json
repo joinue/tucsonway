@@ -336,7 +336,8 @@
     "match_your_answers": "Your answers",
     "match_print_title": "Your services list",
     "match_print_date": "Printed {date}",
-    "match_print_note": "Call ahead to confirm hours, beds, and eligibility."
+    "match_print_note": "Call ahead to confirm hours, beds, and eligibility.",
+    "footer_311_short": "City services"
   },
   "es": {
     "site_title": "Tucson Compass",
@@ -675,6 +676,7 @@
     "match_your_answers": "Sus respuestas",
     "match_print_title": "Su lista de servicios",
     "match_print_date": "Impreso el {date}",
-    "match_print_note": "Llame antes para confirmar horarios, camas y elegibilidad."
+    "match_print_note": "Llame antes para confirmar horarios, camas y elegibilidad.",
+    "footer_311_short": "Servicios municipales"
   }
 }

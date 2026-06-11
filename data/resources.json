@@ -16,48 +16,13 @@
       "Pima County Health Department WIC Program (pima.gov/2180)",
       "Individual organization websites (SACASA, SALA, The Haven, Tucson Indian Center, Sonoran Prevention Works, Catholic Community Services/Pio Decimo)",
       "Community Food Bank of Southern Arizona: Prepared Meals / Comidas Preparadas one-sheet (June 2026)",
-      "Community Food Bank of Southern Arizona: Combined Food Directory (April 2026); communityfoodbank.org/get-help"
+      "Community Food Bank of Southern Arizona: Combined Food Directory (April 2026); communityfoodbank.org/get-help",
+      "Compass Affordable Housing (compassaffordablehousing.org) — added 2026-06-10, geocoded via Nominatim",
+      "Individual organization websites (StandUp For Kids Tucson, SAAF/Thornhill Lopez Center, Goodwill Southern Arizona, Fred G. Acosta Job Corps, Tucson Youth Development, PPEP YouthBuild, Pima County Youth Employment Center, Pima County Housing Center/El Banco) — added 2026-06-10, geocoded via Nominatim"
     ],
-    "notes": "Legacy entries (12 originals from City of Tucson list) have surveyed coordinates. New entries added 2026-06-09 from TPCH and partner sources have null lat/lng. Geocode via OpenStreetMap Nominatim before mapping. Users are always steered to call ahead. Entries added 2026-06-10 (SACASA, CAA, SALA, Pio Decimo, The Haven, Tucson Indian Center, WIC, St. Elizabeth’s, SPW) were geocoded via Nominatim at add time.",
+    "notes": "Legacy entries (12 originals from City of Tucson list) have surveyed coordinates. New entries added 2026-06-09 from TPCH and partner sources have null lat/lng. Geocode via OpenStreetMap Nominatim before mapping. Users are always steered to call ahead. Entries added 2026-06-10 (SACASA, CAA, SALA, Pio Decimo, The Haven, Tucson Indian Center, WIC, St. Elizabeth’s, SPW) were geocoded via Nominatim at add time. Entries added 2026-06-10 (StandUp For Kids, Thornhill Lopez Center, SAAF Housing, Pima County Housing Center/El Banco, Goodwill Workforce, Fred G. Acosta Job Corps, Tucson Youth Development, PPEP Youth, Pima County Youth Employment Center) were geocoded via Nominatim at add time.",
     "coords_status": "partial: see per-entry lat/lng"
   },
-  "quick_access": [
-    {
-      "id": "911",
-      "label": "911",
-      "purpose": "Immediate danger or medical emergency",
-      "purpose_es": "Peligro inmediato o emergencia médica",
-      "tel": "911"
-    },
-    {
-      "id": "988",
-      "label": "988",
-      "purpose": "Suicide & Crisis Lifeline (24/7)",
-      "purpose_es": "Línea de Vida para Suicidio y Crisis (24/7)",
-      "tel": "988"
-    },
-    {
-      "id": "211",
-      "label": "211",
-      "purpose": "Statewide info & referral (housing, food, utilities)",
-      "purpose_es": "Información y referencia estatal (vivienda, comida, servicios)",
-      "tel": "211"
-    },
-    {
-      "id": "tpch_ce",
-      "label": "Coordinated Entry (TPCH)",
-      "purpose": "The system 'front door' into housing services",
-      "purpose_es": "La 'puerta principal' al sistema de servicios de vivienda",
-      "url": "https://tpch.net/coordinated-entry-for-homeless-services/"
-    },
-    {
-      "id": "bed_dashboard",
-      "label": "Live Shelter Bed Dashboard",
-      "purpose": "Real-time shelter bed availability (Pima County)",
-      "purpose_es": "Disponibilidad de camas en refugios en tiempo real (Condado de Pima)",
-      "url": "https://pimamaps.maps.arcgis.com/apps/dashboards/ca4fb93ec7014433b14e39a909873bd7"
-    }
-  ],
   "resources": [
     {
       "id": "salvation_army_hospitality_house",
@@ -968,6 +933,216 @@
       "website": "https://yotoaz.org"
     },
     {
+      "id": "bgc_morton",
+      "name": "Boys & Girls Clubs — Frank & Edith Morton Clubhouse",
+      "categories": [
+        "youth"
+      ],
+      "address": "3155 E. Grant Rd., Tucson, AZ 85716",
+      "confidential_location": false,
+      "lat": 32.250482,
+      "lng": -110.925406,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Clubhouse",
+          "tel": "5203258400"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Youth roughly ages 5–18 (K–12). Low-cost annual membership; ask the clubhouse about fee assistance.",
+      "eligibility_notes_es": "Jóvenes de aproximadamente 5 a 18 años (K–12). Membresía anual de bajo costo; pregunte en la sede por ayuda con la cuota.",
+      "hours_notes": "After-school hours during the school year, full days in summer. Call the clubhouse for current hours.",
+      "hours_notes_es": "Horario después de la escuela durante el año escolar, días completos en verano. Llame a la sede para conocer el horario actual.",
+      "notes": "Boys & Girls Clubs of Tucson clubhouse (Midtown). After-school and summer programs for youth: homework help and academic support, sports and recreation, arts, mentoring, and teen workforce-readiness and college-prep programming. Serves kids who need it most.",
+      "notes_es": "Sede de Boys & Girls Clubs of Tucson (Midtown). Programas para jóvenes después de la escuela y en verano: ayuda con tareas y apoyo académico, deportes y recreación, arte, mentoría, y preparación laboral y universitaria para adolescentes. Sirve a los niños que más lo necesitan.",
+      "source_url": "https://www.bgctucson.org/",
+      "match": {
+        "ages": [
+          5,
+          18
+        ],
+        "intake": "call"
+      },
+      "website": "https://www.bgctucson.org/"
+    },
+    {
+      "id": "bgc_holmes_tuttle",
+      "name": "Boys & Girls Clubs — Holmes Tuttle Clubhouse",
+      "categories": [
+        "youth"
+      ],
+      "address": "2585 E. 36th St., Tucson, AZ 85713",
+      "confidential_location": false,
+      "lat": 32.192528,
+      "lng": -110.933083,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Clubhouse",
+          "tel": "5206220694"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Youth roughly ages 5–18 (K–12). Low-cost annual membership; ask the clubhouse about fee assistance.",
+      "eligibility_notes_es": "Jóvenes de aproximadamente 5 a 18 años (K–12). Membresía anual de bajo costo; pregunte en la sede por ayuda con la cuota.",
+      "hours_notes": "After-school hours during the school year, full days in summer. Call the clubhouse for current hours.",
+      "hours_notes_es": "Horario después de la escuela durante el año escolar, días completos en verano. Llame a la sede para conocer el horario actual.",
+      "notes": "Boys & Girls Clubs of Tucson clubhouse (South). After-school and summer programs for youth: homework help and academic support, sports and recreation, arts, mentoring, and teen workforce-readiness and college-prep programming. Serves kids who need it most.",
+      "notes_es": "Sede de Boys & Girls Clubs of Tucson (Sur). Programas para jóvenes después de la escuela y en verano: ayuda con tareas y apoyo académico, deportes y recreación, arte, mentoría, y preparación laboral y universitaria para adolescentes. Sirve a los niños que más lo necesitan.",
+      "source_url": "https://www.bgctucson.org/",
+      "match": {
+        "ages": [
+          5,
+          18
+        ],
+        "intake": "call"
+      },
+      "website": "https://www.bgctucson.org/"
+    },
+    {
+      "id": "bgc_click",
+      "name": "Boys & Girls Clubs — Jim & Vicki Click Clubhouse",
+      "categories": [
+        "youth"
+      ],
+      "address": "1935 S. Columbus Blvd., Tucson, AZ 85711",
+      "confidential_location": false,
+      "lat": 32.201227,
+      "lng": -110.900982,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Clubhouse",
+          "tel": "5203005715"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Youth roughly ages 5–18 (K–12). Low-cost annual membership; ask the clubhouse about fee assistance.",
+      "eligibility_notes_es": "Jóvenes de aproximadamente 5 a 18 años (K–12). Membresía anual de bajo costo; pregunte en la sede por ayuda con la cuota.",
+      "hours_notes": "After-school hours during the school year, full days in summer. Call the clubhouse for current hours.",
+      "hours_notes_es": "Horario después de la escuela durante el año escolar, días completos en verano. Llame a la sede para conocer el horario actual.",
+      "notes": "Boys & Girls Clubs of Tucson clubhouse (East). After-school and summer programs for youth: homework help and academic support, sports and recreation, arts, mentoring, and teen workforce-readiness and college-prep programming. Serves kids who need it most.",
+      "notes_es": "Sede de Boys & Girls Clubs of Tucson (Este). Programas para jóvenes después de la escuela y en verano: ayuda con tareas y apoyo académico, deportes y recreación, arte, mentoría, y preparación laboral y universitaria para adolescentes. Sirve a los niños que más lo necesitan.",
+      "source_url": "https://www.bgctucson.org/",
+      "match": {
+        "ages": [
+          5,
+          18
+        ],
+        "intake": "call"
+      },
+      "website": "https://www.bgctucson.org/"
+    },
+    {
+      "id": "bgc_drachman",
+      "name": "Boys & Girls Clubs — Roy Drachman Clubhouse",
+      "categories": [
+        "youth"
+      ],
+      "address": "5901 S. Santa Clara Ave., Tucson, AZ 85706",
+      "confidential_location": false,
+      "lat": 32.144775,
+      "lng": -110.981774,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Clubhouse",
+          "tel": "5207419947"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Youth roughly ages 5–18 (K–12). Low-cost annual membership; ask the clubhouse about fee assistance.",
+      "eligibility_notes_es": "Jóvenes de aproximadamente 5 a 18 años (K–12). Membresía anual de bajo costo; pregunte en la sede por ayuda con la cuota.",
+      "hours_notes": "After-school hours during the school year, full days in summer. Call the clubhouse for current hours.",
+      "hours_notes_es": "Horario después de la escuela durante el año escolar, días completos en verano. Llame a la sede para conocer el horario actual.",
+      "notes": "Boys & Girls Clubs of Tucson clubhouse (South). After-school and summer programs for youth: homework help and academic support, sports and recreation, arts, mentoring, and teen workforce-readiness and college-prep programming. Serves kids who need it most.",
+      "notes_es": "Sede de Boys & Girls Clubs of Tucson (Sur). Programas para jóvenes después de la escuela y en verano: ayuda con tareas y apoyo académico, deportes y recreación, arte, mentoría, y preparación laboral y universitaria para adolescentes. Sirve a los niños que más lo necesitan.",
+      "source_url": "https://www.bgctucson.org/",
+      "match": {
+        "ages": [
+          5,
+          18
+        ],
+        "intake": "call"
+      },
+      "website": "https://www.bgctucson.org/"
+    },
+    {
+      "id": "bgc_daru",
+      "name": "Boys & Girls Clubs — Steve Daru Clubhouse",
+      "categories": [
+        "youth"
+      ],
+      "address": "1375 N. El Rio Dr., Tucson, AZ 85745",
+      "confidential_location": false,
+      "lat": 32.239691,
+      "lng": -110.992471,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Clubhouse",
+          "tel": "5207920331"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Youth roughly ages 5–18 (K–12). Low-cost annual membership; ask the clubhouse about fee assistance.",
+      "eligibility_notes_es": "Jóvenes de aproximadamente 5 a 18 años (K–12). Membresía anual de bajo costo; pregunte en la sede por ayuda con la cuota.",
+      "hours_notes": "After-school hours during the school year, full days in summer. Call the clubhouse for current hours.",
+      "hours_notes_es": "Horario después de la escuela durante el año escolar, días completos en verano. Llame a la sede para conocer el horario actual.",
+      "notes": "Boys & Girls Clubs of Tucson clubhouse (Northwest). After-school and summer programs for youth: homework help and academic support, sports and recreation, arts, mentoring, and teen workforce-readiness and college-prep programming. Serves kids who need it most.",
+      "notes_es": "Sede de Boys & Girls Clubs of Tucson (Noroeste). Programas para jóvenes después de la escuela y en verano: ayuda con tareas y apoyo académico, deportes y recreación, arte, mentoría, y preparación laboral y universitaria para adolescentes. Sirve a los niños que más lo necesitan.",
+      "source_url": "https://www.bgctucson.org/",
+      "match": {
+        "ages": [
+          5,
+          18
+        ],
+        "intake": "call"
+      },
+      "website": "https://www.bgctucson.org/"
+    },
+    {
+      "id": "bgc_pascua_yaqui",
+      "name": "Boys & Girls Clubs — Pascua Yaqui Clubhouse",
+      "categories": [
+        "youth"
+      ],
+      "address": "5305 W. Calle Torim, Building 3, Tucson, AZ 85757",
+      "confidential_location": false,
+      "lat": 32.0975,
+      "lng": -111.0855,
+      "coords_approximate": true,
+      "phone": [
+        {
+          "label": "Clubhouse",
+          "tel": "5208838172"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Youth roughly ages 5–18 (K–12). Low-cost annual membership; ask the clubhouse about fee assistance.",
+      "eligibility_notes_es": "Jóvenes de aproximadamente 5 a 18 años (K–12). Membresía anual de bajo costo; pregunte en la sede por ayuda con la cuota.",
+      "hours_notes": "After-school hours during the school year, full days in summer. Call the clubhouse for current hours.",
+      "hours_notes_es": "Horario después de la escuela durante el año escolar, días completos en verano. Llame a la sede para conocer el horario actual.",
+      "notes": "Boys & Girls Clubs of Tucson clubhouse on the Pascua Yaqui reservation (New Pascua, southwest). After-school and summer programs for youth: homework help and academic support, sports and recreation, arts, mentoring, and teen workforce-readiness and college-prep programming. Serves kids who need it most.",
+      "notes_es": "Sede de Boys & Girls Clubs of Tucson en la reservación Pascua Yaqui (New Pascua, suroeste). Programas para jóvenes después de la escuela y en verano: ayuda con tareas y apoyo académico, deportes y recreación, arte, mentoría, y preparación laboral y universitaria para adolescentes. Sirve a los niños que más lo necesitan.",
+      "source_url": "https://www.bgctucson.org/",
+      "match": {
+        "ages": [
+          5,
+          18
+        ],
+        "intake": "call"
+      },
+      "website": "https://www.bgctucson.org/"
+    },
+    {
       "id": "va_homeless_program",
       "name": "VA Hospital Homeless Program",
       "categories": [
@@ -1118,6 +1293,55 @@
       "website": "https://esperanzaveterans.org"
     },
     {
+      "id": "compass_affordable_housing",
+      "name": "Compass Affordable Housing",
+      "categories": [
+        "family",
+        "veterans",
+        "behavioral_health",
+        "food",
+        "employment",
+        "prevention"
+      ],
+      "address": "48 N. Tucson Blvd., Suite 102, Tucson, AZ 85716",
+      "confidential_location": false,
+      "lat": 32.222085,
+      "lng": -110.935095,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main office",
+          "tel": "5203054724"
+        }
+      ],
+      "email": "info@compassaffordablehousing.org",
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Low-income individuals and families who are homeless or at risk. Affordable and transitional housing across communities — one for people with disabilities, one for veterans and seniors, one for those in substance-use recovery. Apply through the office; waitlists may apply.",
+      "eligibility_notes_es": "Personas y familias de bajos ingresos sin hogar o en riesgo. Vivienda asequible y de transición en varias comunidades — una para personas con discapacidades, una para veteranos y personas mayores, y una para quienes están en recuperación de uso de sustancias. Solicite a través de la oficina; puede haber listas de espera.",
+      "hours_notes": "Office Mon–Fri. Call ahead to confirm availability and the application process. Not emergency or walk-in shelter.",
+      "hours_notes_es": "Oficina de lunes a viernes. Llame antes para confirmar disponibilidad y el proceso de solicitud. No es refugio de emergencia ni sin cita.",
+      "notes": "Tucson nonprofit since 1996. ~144 units of affordable and transitional housing plus support services, with rent that includes utilities. Programs include tenant support, employment assistance, financial help for people with special needs, and the Your Healthy Home Market food program (fresh produce). In 2024–25 it served 1,742 people and moved 451 from homelessness into stable housing.",
+      "notes_es": "Organización sin fines de lucro de Tucson desde 1996. ~144 unidades de vivienda asequible y de transición más servicios de apoyo, con renta que incluye servicios públicos. Los programas incluyen apoyo al inquilino, ayuda laboral, asistencia financiera para personas con necesidades especiales y el programa de alimentos Your Healthy Home Market (productos frescos). En 2024–25 atendió a 1,742 personas y ayudó a 451 a pasar de la falta de vivienda a una vivienda estable.",
+      "source_url": "https://compassaffordablehousing.org/",
+      "match": {
+        "g": "any",
+        "kids": "ok",
+        "vet": true,
+        "needs": [
+          "shelter",
+          "employment",
+          "food"
+        ],
+        "housing": [
+          "unhoused",
+          "at_risk"
+        ],
+        "intake": "call"
+      },
+      "website": "https://compassaffordablehousing.org/"
+    },
+    {
       "id": "sullivan_jackson",
       "name": "Sullivan Jackson Employment Center",
       "categories": [
@@ -1157,6 +1381,49 @@
         "intake": "referral"
       },
       "website": "https://www.pima.gov/988/Sullivan-Jackson-Employment-Center"
+    },
+    {
+      "id": "kino_veterans_workforce_center",
+      "name": "Kino Veterans' Workforce Center",
+      "categories": [
+        "veterans",
+        "employment"
+      ],
+      "address": "2801 E. Ajo Way, Tucson, AZ 85714",
+      "confidential_location": false,
+      "lat": 32.178038,
+      "lng": -110.93052,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5207242646"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Veterans and their families. Many on-site partners; bring your DD-214 if you have it to speed up benefits and claims help.",
+      "eligibility_notes_es": "Veteranos y sus familias. Muchos socios en el sitio; traiga su DD-214 si lo tiene para agilizar la ayuda con beneficios y reclamos.",
+      "hours_notes": "Call (520) 724-2646 for hours and to connect with a specific partner.",
+      "hours_notes_es": "Llame al (520) 724-2646 para conocer el horario y conectarse con un socio específico.",
+      "notes": "Pima County One-Stop center for veterans (opened 2012). Job search and career counseling, resume help, skill/aptitude assessments and interview prep; adult education, tutoring, occupational skills and on-the-job training; benefits and claims counseling for education, medical care, disability, and behavioral health; plus help with housing, basic needs, tools, and uniforms. Peer support, networking clubs, and computer labs on site. On-site partners include AZ DES Disabled Veterans Outreach Program (DVOP/LVER), the Southern Arizona VA Healthcare System, Pima County One-Stop Business Services and case managers, and the Sullivan Jackson Employment Center.",
+      "notes_es": "Centro Pima County One-Stop para veteranos (abierto en 2012). Búsqueda de empleo y orientación profesional, ayuda con currículum, evaluaciones de aptitudes y preparación para entrevistas; educación para adultos, tutoría, capacitación ocupacional y en el trabajo; orientación sobre beneficios y reclamos para educación, atención médica, discapacidad y salud conductual; además de ayuda con vivienda, necesidades básicas, herramientas y uniformes. Apoyo de pares, clubes de networking y laboratorios de computación en el sitio. Los socios en el sitio incluyen el Programa de Alcance para Veteranos Discapacitados de AZ DES (DVOP/LVER), el Sistema de Salud para Veteranos del Sur de Arizona (VA), los Servicios Empresariales y gestores de casos de Pima County One-Stop, y el Sullivan Jackson Employment Center.",
+      "source_url": "https://www.pima.gov/1310/Veteran-Services",
+      "match": {
+        "vet": true,
+        "ages": [
+          18,
+          999
+        ],
+        "needs": [
+          "employment",
+          "benefits",
+          "mental_health",
+          "health"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://www.pima.gov/1310/Veteran-Services"
     },
     {
       "id": "city_housing_first",
@@ -2669,6 +2936,406 @@
       "eligibility_notes_es": "Atiende a residentes del Distrito 6 de Tucson. Oficina del concejo para servicios al constituyente y referencias.",
       "source_url": "https://www.tucsonaz.gov/Mayor-Council",
       "website": "https://www.tucsonaz.gov/Government/Mayor-Council-and-City-Manager/City-Council-Wards/Ward-6"
+    },
+    {
+      "id": "standup_for_kids",
+      "name": "StandUp For Kids — Tucson",
+      "categories": [
+        "youth",
+        "drop_in",
+        "outreach"
+      ],
+      "address": "5375 E. Pima St., Tucson, AZ 85712",
+      "confidential_location": false,
+      "lat": 32.2435236,
+      "lng": -110.878126,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main / text",
+          "tel": "5202715369"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Youth experiencing or at risk of homelessness, age 24 and under.",
+      "eligibility_notes_es": "Jóvenes que viven o están en riesgo de quedarse sin hogar, de 24 años o menos.",
+      "hours_notes": "Drop-in center Mon & Wed 3–7 p.m. (hours vary — call/text ahead). Mailing address is a PO Box; services are at the E. Pima St. center.",
+      "hours_notes_es": "Centro de día (drop-in) Lun y Mié 3–7 p.m. (el horario varía — llame o envíe un mensaje antes). La dirección postal es un apartado; los servicios son en el centro de E. Pima St.",
+      "notes": "Volunteer-run street outreach providing food, clothing, hygiene supplies, mentoring, and tutoring.",
+      "notes_es": "Programa dirigido por voluntarios con alcance en la calle: comida, ropa, artículos de higiene, mentoría y tutoría.",
+      "source_url": "https://www.standupforkids.org/tucson/",
+      "match": {
+        "ages": [
+          0,
+          24
+        ],
+        "needs": [
+          "food",
+          "outreach"
+        ],
+        "housing": [
+          "unhoused",
+          "at_risk"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://www.standupforkids.org/tucson/"
+    },
+    {
+      "id": "thornhill_lopez_center",
+      "name": "Thornhill Lopez Center on 4th (SAAF)",
+      "categories": [
+        "youth",
+        "drop_in",
+        "lgbtq"
+      ],
+      "address": "526 N. 4th Ave., Tucson, AZ 85705",
+      "confidential_location": false,
+      "lat": 32.2284296,
+      "lng": -110.9654582,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "SAAF main",
+          "tel": "5206287223"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "LGBTQ+ and allied youth ages 13–24.",
+      "eligibility_notes_es": "Jóvenes LGBTQ+ y aliados de 13 a 24 años.",
+      "hours_notes": "Drop-in 'Eon' youth lounge; hours vary by program — call ahead to confirm the current schedule.",
+      "hours_notes_es": "Sala de día juvenil 'Eon'; el horario varía según el programa — llame antes para confirmar el horario actual.",
+      "notes": "A SAAF program. Safe space with basic needs (clothing, food, toiletries, laundry), peer education, harm reduction, and affirming programming.",
+      "notes_es": "Un programa de SAAF. Espacio seguro con necesidades básicas (ropa, comida, artículos de aseo, lavandería), educación entre pares, reducción de daños y programación afirmativa.",
+      "source_url": "https://saaf.org/services/thornhill-lopez-center-on-4th/",
+      "match": {
+        "ages": [
+          13,
+          24
+        ],
+        "needs": [
+          "food",
+          "mental_health",
+          "outreach"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://saaf.org/services/thornhill-lopez-center-on-4th/"
+    },
+    {
+      "id": "saaf_housing",
+      "name": "SAAF Housing Services",
+      "categories": [
+        "prevention"
+      ],
+      "address": "375 S. Euclid Ave., Tucson, AZ 85719 (office; housing units scattered-site & confidential)",
+      "confidential_location": false,
+      "lat": 32.2169068,
+      "lng": -110.9571938,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206287223"
+        },
+        {
+          "label": "Toll-free",
+          "tel": "8007719054"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Requires an HIV+/AIDS diagnosis, income at or below 80% of area median, Pima County residency, and being homeless or at risk of homelessness.",
+      "eligibility_notes_es": "Requiere un diagnóstico de VIH+/SIDA, ingresos iguales o menores al 80% del ingreso medio del área, residencia en el Condado de Pima, y estar sin hogar o en riesgo de estarlo.",
+      "hours_notes": "By referral/appointment through SAAF case management (not walk-in). Call the main office. Housing units are scattered-site and confidential.",
+      "hours_notes_es": "Por referencia/cita a través del manejo de casos de SAAF (no se aceptan visitas sin cita). Llame a la oficina principal. Las viviendas son de ubicación dispersa y confidencial.",
+      "notes": "Subsidized, affordable housing (SAAF-owned and scattered-site units) for qualified people living with HIV/AIDS.",
+      "notes_es": "Vivienda subsidiada y asequible (unidades propias de SAAF y de ubicación dispersa) para personas que califican y viven con VIH/SIDA.",
+      "source_url": "https://saaf.org/services/housing-services/",
+      "match": {
+        "ages": [
+          18,
+          999
+        ],
+        "needs": [
+          "rent_assistance",
+          "shelter"
+        ],
+        "housing": [
+          "unhoused",
+          "at_risk"
+        ],
+        "intake": "referral"
+      },
+      "website": "https://saaf.org/services/housing-services/"
+    },
+    {
+      "id": "pima_county_housing_center",
+      "name": "Pima County Housing Center (El Banco)",
+      "categories": [
+        "prevention"
+      ],
+      "address": "801 W. Congress St., Tucson, AZ 85745",
+      "confidential_location": false,
+      "lat": 32.220543,
+      "lng": -110.984011,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5207242460"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Open to all Pima County residents seeking affordable-housing resources; no age restriction.",
+      "eligibility_notes_es": "Abierto a todos los residentes del Condado de Pima que buscan recursos de vivienda asequible; sin restricción de edad.",
+      "hours_notes": "M–F 8 a.m.–5 p.m. Walk-in or by appointment; HousingCenter@pima.gov.",
+      "hours_notes_es": "L–V 8 a.m.–5 p.m. Sin cita o con cita; HousingCenter@pima.gov.",
+      "notes": "Pima County one-stop center with information and counseling on affordable rentals, homebuyer education, foreclosure prevention, and federal housing programs (Section 8, HOME, HOPWA).",
+      "notes_es": "Centro integral del Condado de Pima con información y asesoría sobre alquileres asequibles, educación para compradores de vivienda, prevención de ejecución hipotecaria y programas federales de vivienda (Sección 8, HOME, HOPWA).",
+      "source_url": "https://www.webcms.pima.gov/cms/one.aspx?pageId=23529",
+      "match": {
+        "ages": [
+          0,
+          999
+        ],
+        "needs": [
+          "rent_assistance"
+        ],
+        "housing": [
+          "any",
+          "at_risk"
+        ],
+        "intake": "mixed"
+      },
+      "website": "https://www.webcms.pima.gov/cms/one.aspx?pageId=23529"
+    },
+    {
+      "id": "goodwill_workforce",
+      "name": "Goodwill Southern Arizona — Workforce Development",
+      "categories": [
+        "employment"
+      ],
+      "address": "1940 E. Silverlake Rd., Suite 405, Tucson, AZ 85713",
+      "confidential_location": false,
+      "lat": 32.20101,
+      "lng": -110.943951,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Workforce / One-Stop",
+          "tel": "5206235174"
+        },
+        {
+          "label": "Flowing Wells career center (walk-in)",
+          "tel": "5202060333"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Open to the community at no cost; workforce services target unemployed and underemployed adults.",
+      "eligibility_notes_es": "Abierto a la comunidad sin costo; los servicios laborales se enfocan en adultos desempleados y subempleados.",
+      "hours_notes": "Career centers M–F 9 a.m.–4 p.m. Walk-in career centers across Tucson (largest: 3925 N. Flowing Wells Rd.); the Silverlake office houses adult workforce case management.",
+      "hours_notes_es": "Centros de carrera L–V 9 a.m.–4 p.m. Centros con atención sin cita en todo Tucson (el más grande: 3925 N. Flowing Wells Rd.); la oficina de Silverlake alberga el manejo de casos laborales para adultos.",
+      "notes": "Free career guidance, computer/job-search skills, resume help, and paid work experience via Arizona@Work.",
+      "notes_es": "Orientación profesional gratuita, habilidades informáticas y de búsqueda de empleo, ayuda con currículum y experiencia laboral remunerada a través de Arizona@Work.",
+      "source_url": "https://goodwillsouthernaz.org/programs-and-services/one-stop-adult-employment/",
+      "match": {
+        "ages": [
+          16,
+          999
+        ],
+        "needs": [
+          "employment"
+        ],
+        "housing": [
+          "any"
+        ],
+        "intake": "walk_in"
+      },
+      "website": "https://goodwillsouthernaz.org/career-centers/"
+    },
+    {
+      "id": "fred_acosta_job_corps",
+      "name": "Fred G. Acosta Job Corps Center",
+      "categories": [
+        "employment",
+        "youth"
+      ],
+      "address": "901 S. Campbell Ave., Tucson, AZ 85719",
+      "confidential_location": false,
+      "lat": 32.210432,
+      "lng": -110.94359,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Local",
+          "tel": "5207923015"
+        },
+        {
+          "label": "National admissions (toll-free)",
+          "tel": "8007335627"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Ages 16–24, low-income, meeting income and program eligibility requirements.",
+      "eligibility_notes_es": "De 16 a 24 años, de bajos ingresos, que cumplan los requisitos de ingresos y elegibilidad del programa.",
+      "hours_notes": "Residential and non-residential campus. Apply online at enroll.jobcorps.gov or through an admissions representative — call for office hours.",
+      "hours_notes_es": "Campus residencial y no residencial. Solicite en línea en enroll.jobcorps.gov o con un representante de admisiones — llame para conocer el horario de oficina.",
+      "notes": "Free career-technical training plus academics (HS diploma/GED) to prepare low-income youth for employment.",
+      "notes_es": "Capacitación técnica-profesional gratuita más estudios académicos (diploma de secundaria/GED) para preparar a jóvenes de bajos ingresos para el empleo.",
+      "source_url": "https://fredgacosta.jobcorps.gov/",
+      "match": {
+        "ages": [
+          16,
+          24
+        ],
+        "needs": [
+          "employment"
+        ],
+        "housing": [
+          "any",
+          "unhoused"
+        ],
+        "intake": "online"
+      },
+      "website": "https://fredgacosta.jobcorps.gov/"
+    },
+    {
+      "id": "tucson_youth_development",
+      "name": "Tucson Youth Development (TYD)",
+      "categories": [
+        "employment",
+        "youth"
+      ],
+      "address": "1901 N. Stone Ave., Tucson, AZ 85705",
+      "confidential_location": false,
+      "lat": 32.24502,
+      "lng": -110.97197,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206235843"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Youth and young adults in Pima County (charter high schools serve roughly ages 14–21).",
+      "eligibility_notes_es": "Jóvenes y adultos jóvenes del Condado de Pima (las escuelas charter atienden aproximadamente de 14 a 21 años).",
+      "hours_notes": "M–F 8 a.m.–4 p.m. Call or walk in for case management and enrollment.",
+      "hours_notes_es": "L–V 8 a.m.–4 p.m. Llame o visite para manejo de casos e inscripción.",
+      "notes": "Education, case management, vocational training, paid work experience, and job placement, plus two alternative charter high schools.",
+      "notes_es": "Educación, manejo de casos, capacitación vocacional, experiencia laboral remunerada y colocación de empleo, además de dos escuelas charter alternativas.",
+      "source_url": "https://www.tucsonyouth.org/",
+      "match": {
+        "ages": [
+          14,
+          24
+        ],
+        "needs": [
+          "employment"
+        ],
+        "housing": [
+          "any",
+          "at_risk"
+        ],
+        "intake": "mixed"
+      },
+      "website": "https://www.tucsonyouth.org/"
+    },
+    {
+      "id": "ppep_youth",
+      "name": "PPEP YouthBuild & WIOA Youth Programs",
+      "categories": [
+        "employment",
+        "youth"
+      ],
+      "address": "802 E. 46th St., Tucson, AZ 85713",
+      "confidential_location": false,
+      "lat": 32.1812808,
+      "lng": -110.9586332,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5206223553"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "WIOA youth ages 14–21; YouthBuild low-income youth ages 17–24.",
+      "eligibility_notes_es": "Jóvenes WIOA de 14 a 21 años; YouthBuild para jóvenes de bajos ingresos de 17 a 24 años.",
+      "hours_notes": "Call PPEP for enrollment and program schedules.",
+      "hours_notes_es": "Llame a PPEP para inscripción y horarios de los programas.",
+      "notes": "GED, job training, leadership, and affordable-housing construction experience (YouthBuild) for low-income and out-of-school youth.",
+      "notes_es": "GED, capacitación laboral, liderazgo y experiencia en construcción de vivienda asequible (YouthBuild) para jóvenes de bajos ingresos y fuera de la escuela.",
+      "source_url": "https://ppep.org/programs/youth/",
+      "match": {
+        "ages": [
+          14,
+          24
+        ],
+        "needs": [
+          "employment"
+        ],
+        "housing": [
+          "any",
+          "at_risk"
+        ],
+        "intake": "call"
+      },
+      "website": "https://ppep.org/programs/youth/"
+    },
+    {
+      "id": "pima_youth_employment_center",
+      "name": "Pima County Youth Employment Center",
+      "categories": [
+        "employment",
+        "youth"
+      ],
+      "address": "175 W. Irvington Rd., Tucson, AZ 85714",
+      "confidential_location": false,
+      "lat": 32.1631642,
+      "lng": -110.9711729,
+      "coords_approximate": false,
+      "phone": [
+        {
+          "label": "Main",
+          "tel": "5207249649"
+        }
+      ],
+      "hotline_24h": false,
+      "open_24_7": false,
+      "eligibility_notes": "Youth ages 14–24 (students 14–21; non-students 16–24 at/above 7th-grade level). Summer Youth Employment Program serves ages 14–21.",
+      "eligibility_notes_es": "Jóvenes de 14 a 24 años (estudiantes 14–21; no estudiantes 16–24 con nivel igual o superior a 7º grado). El Programa de Empleo Juvenil de Verano atiende de 14 a 21 años.",
+      "hours_notes": "M–F 8 a.m.–5 p.m. Walk in or call. Summer Youth Employment Program (SYEP) applications open seasonally at summeryouth.pima.gov.",
+      "hours_notes_es": "L–V 8 a.m.–5 p.m. Visite o llame. Las solicitudes del Programa de Empleo Juvenil de Verano (SYEP) abren por temporada en summeryouth.pima.gov.",
+      "notes": "Year-round Arizona@Work youth center: career planning, paid work experience, diploma/GED support, and job placement.",
+      "notes_es": "Centro juvenil de Arizona@Work durante todo el año: planificación de carrera, experiencia laboral remunerada, apoyo para diploma/GED y colocación de empleo.",
+      "source_url": "https://www.pima.gov/994/Youth-Development-Employment-Center",
+      "match": {
+        "ages": [
+          14,
+          24
+        ],
+        "needs": [
+          "employment"
+        ],
+        "housing": [
+          "any",
+          "at_risk"
+        ],
+        "intake": "mixed"
+      },
+      "website": "https://www.pima.gov/994/Youth-Development-Employment-Center"
     }
   ]
 }
