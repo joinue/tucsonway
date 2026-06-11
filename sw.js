@@ -7,7 +7,7 @@
    - Cache-first for CSS/JS/icons
    - Cache-first for OSM map tiles, network fallback cached opportunistically
 */
-const VERSION = 'v36';
+const VERSION = 'v37';
 const SHELL = 'tw-shell-' + VERSION;
 const RUNTIME = 'tw-runtime-' + VERSION;
 const TILES = 'tw-tiles-' + VERSION;

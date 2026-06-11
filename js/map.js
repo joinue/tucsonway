@@ -136,6 +136,20 @@
     );
   }
 
+  /* Relevance rank for the no-location sort (lower = more relevant). A WHO
+     population filter is inclusive — it keeps general services that serve
+     everyone — so float providers that specifically serve the chosen
+     population above those general ones (weighted heaviest). Likewise float a
+     resource whose *defining* category IS the chosen need above one that
+     merely also offers it. Mirrors the directory's "float dedicated first". */
+  function relevanceRank(r) {
+    let rank = 0;
+    const cats = r.categories || [];
+    if (whoFilter !== 'all') rank += cats.includes(whoFilter) ? 0 : 2;
+    if (needFilter !== 'all') rank += primaryCategoryFor(r) === needFilter ? 0 : 1;
+    return rank;
+  }
+
   function visibleResources() {
     let list = mappableResources();
     if (whoFilter !== 'all') {
@@ -145,9 +159,16 @@
       list = list.filter((r) => (r.categories || []).includes(needFilter));
     }
     if (userPos) {
+      // Location on: nearest first — the user explicitly asked for closest.
       list = list
         .map((r) => ({ r, d: distanceKm(r) }))
         .sort((a, b) => a.d - b.d)
+        .map((x) => x.r);
+    } else if (whoFilter !== 'all' || needFilter !== 'all') {
+      // Location off: float the most relevant matches first, stable otherwise.
+      list = list
+        .map((r, i) => ({ r, i, t: relevanceRank(r) }))
+        .sort((a, b) => a.t - b.t || a.i - b.i)
         .map((x) => x.r);
     }
     return list;
