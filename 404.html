@@ -25,8 +25,10 @@
     <div class="container container--wide site-header__row">
       <a class="brand" href="/index.html" aria-label="Tucson Compass">
         <picture>
+          <source media="(min-width: 980px)" srcset="/icons/logo-horizontal.webp" type="image/webp" />
           <source media="(min-width: 980px)" srcset="/icons/logo-horizontal.png" />
-          <img class="brand__logo" src="/icons/logo-icon-circle.png" alt="" />
+          <source srcset="/icons/logo-icon-circle.webp" type="image/webp" />
+          <img class="brand__logo" src="/icons/logo-icon-circle.png" alt="" width="38" height="38" />
         </picture>
         <span class="brand__name">Tucson Compass</span>
       </a>
@@ -103,7 +105,10 @@
         <div class="site-footer__grid">
           <div class="site-footer__col site-footer__col--brand">
             <a class="site-footer__brand" href="/index.html" aria-label="Tucson Compass">
-              <img class="site-footer__logo" src="/icons/logo-horizontal.png" alt="Tucson Compass" />
+              <picture>
+                <source srcset="/icons/logo-horizontal.webp" type="image/webp" />
+                <img class="site-footer__logo" src="/icons/logo-horizontal.png" alt="Tucson Compass" width="480" height="240" />
+              </picture>
             </a>
             <p class="site-footer__tagline" data-i18n="footer_tagline">A way forward. Shelter, recovery, and help across Tucson and Pima County.</p>
           </div>

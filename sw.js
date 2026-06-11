@@ -7,7 +7,7 @@
    - Cache-first for CSS/JS/icons
    - Cache-first for OSM map tiles, network fallback cached opportunistically
 */
-const VERSION = 'v33';
+const VERSION = 'v34';
 const SHELL = 'tw-shell-' + VERSION;
 const RUNTIME = 'tw-runtime-' + VERSION;
 const TILES = 'tw-tiles-' + VERSION;
@@ -33,7 +33,9 @@ const SHELL_ASSETS = [
   './manifest.webmanifest',
   './icons/logo-icon.png',
   './icons/logo-icon-circle.png',
+  './icons/logo-icon-circle.webp',
   './icons/logo-horizontal.png',
+  './icons/logo-horizontal.webp',
   './favicon/favicon.ico',
   './favicon/favicon.svg',
   './favicon/apple-touch-icon.png',

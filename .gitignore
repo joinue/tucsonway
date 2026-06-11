@@ -19,3 +19,6 @@ yarn-debug.log*
 dist/
 build/
 *.log
+
+# High-res logo masters (used to regenerate optimized web assets; not deployed)
+icons/masters/

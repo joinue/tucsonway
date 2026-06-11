@@ -5,7 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#c4452a" />
   <meta name="description" content="Map of shelters and services in Tucson and Pima County, color-coded by service type." />
+  <meta name="robots" content="index, follow" />
   <title>Map - Tucson Compass</title>
+  <link rel="canonical" href="https://tucsoncompass.org/map" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tucson Compass" />
+  <meta property="og:title" content="Map — Tucson Compass" />
+  <meta property="og:description" content="Map of shelters and services in Tucson and Pima County, color-coded by service type." />
+  <meta property="og:url" content="https://tucsoncompass.org/map" />
+  <meta property="og:image" content="https://tucsoncompass.org/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Tucson Compass — find shelter, food, and support services in Tucson and Pima County" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Map — Tucson Compass" />
+  <meta name="twitter:description" content="Map of shelters and services in Tucson and Pima County, color-coded by service type." />
+  <meta name="twitter:image" content="https://tucsoncompass.org/images/og-image.jpg" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="favicon/favicon.ico" sizes="any" />
   <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -25,8 +41,10 @@
     <div class="container container--wide site-header__row">
       <a class="brand" href="index.html" aria-label="Tucson Compass">
         <picture>
+          <source media="(min-width: 980px)" srcset="icons/logo-horizontal.webp" type="image/webp" />
           <source media="(min-width: 980px)" srcset="icons/logo-horizontal.png" />
-          <img class="brand__logo" src="icons/logo-icon-circle.png" alt="" />
+          <source srcset="icons/logo-icon-circle.webp" type="image/webp" />
+          <img class="brand__logo" src="icons/logo-icon-circle.png" alt="" width="38" height="38" />
         </picture>
         <span class="brand__name">Tucson Compass</span>
       </a>
@@ -180,7 +198,10 @@
         <div class="site-footer__grid">
           <div class="site-footer__col site-footer__col--brand">
             <a class="site-footer__brand" href="index.html" aria-label="Tucson Compass">
-              <img class="site-footer__logo" src="icons/logo-horizontal.png" alt="Tucson Compass" />
+              <picture>
+                <source srcset="icons/logo-horizontal.webp" type="image/webp" />
+                <img class="site-footer__logo" src="icons/logo-horizontal.png" alt="Tucson Compass" width="480" height="240" />
+              </picture>
             </a>
             <p class="site-footer__tagline" data-i18n="footer_tagline">A way forward. Shelter, recovery, and help across Tucson and Pima County.</p>
           </div>
