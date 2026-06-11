@@ -23,7 +23,7 @@
 
   async function loadI18n() {
     if (i18nData) return i18nData;
-    const res = await fetch('data/i18n.json', { cache: 'force-cache' });
+    const res = await fetch('/data/i18n.json', { cache: 'force-cache' });
     i18nData = await res.json();
     return i18nData;
   }
@@ -257,7 +257,7 @@
     const ok = location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
     if (!ok) return;
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js').catch(() => { /* silent */ });
+      navigator.serviceWorker.register('/sw.js').catch(() => { /* silent */ });
     });
   }
 
@@ -308,7 +308,7 @@
        propagate on next page load. (force-cache previously pinned a stale
        copy that ignored edits.) The service worker still serves a cached
        copy when offline via networkFirst. */
-    const res = await fetch('data/resources.json', { cache: 'no-cache' });
+    const res = await fetch('/data/resources.json', { cache: 'no-cache' });
     return res.json();
   };
 

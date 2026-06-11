@@ -414,6 +414,12 @@ a { color: var(--link); text-decoration-thickness: 1.5px; text-underline-offset:
   .brand__logo { height: 78px; width: auto; }
   .brand__name { display: none; }
 }
+/* Super-small screens (≤374px, incl. common 360px Androids): drop the wordmark
+   so the theme + language toggles stay on the brand's line instead of wrapping
+   beneath it. The round logo keeps its "Tucson Compass" aria-label. */
+@media (max-width: 374px) {
+  .brand__name { display: none; }
+}
 
 /* Pill button base used by header toggles */
 .header-btn {
@@ -4363,3 +4369,73 @@ body.wizard-on .privacy-banner { display: none; }
   .res-note { font-size: 8pt !important; color: #333 !important; }
   .res-note svg { display: none !important; }
 }
+
+/* ---------- 404 / error page ---------- */
+.err-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: clamp(60vh, 70vh, 720px);
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+.err-card { max-width: 560px; }
+.err-compass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 22px;
+  border-radius: 50%;
+  background: var(--bg-elev);
+  border: 1.5px solid var(--border-strong);
+  box-shadow: var(--shadow-sm);
+  color: var(--accent);
+}
+.err-compass svg { width: 48px; height: 48px; }
+.err-eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.err-h1 {
+  margin: 0 0 12px;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  line-height: 1.1;
+  color: var(--ink);
+}
+.err-lead {
+  margin: 0 auto 28px;
+  max-width: 46ch;
+  font-size: 1.1rem;
+  color: var(--ink-muted);
+}
+.err-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+.err-actions a { text-decoration: none; }
+.err-crisis {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 48ch;
+  margin: 0 auto;
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  background: var(--bg-warm);
+  border: 1px solid var(--border-strong);
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  text-align: left;
+}
+.err-crisis svg { width: 18px; height: 18px; flex: 0 0 18px; color: var(--accent); }

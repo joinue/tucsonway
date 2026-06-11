@@ -4,38 +4,38 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#c4452a" />
-  <meta name="description" content="Every helpful link and phone number for homeless services in Tucson and Pima County, organized by need: crisis lines, housing, food, health, youth, veterans, and more." />
-  <meta name="robots" content="index, follow" />
-  <title>Resources &amp; Links - Tucson Compass</title>
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="favicon/favicon.ico" sizes="any" />
-  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
-  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+  <meta name="description" content="The page you were looking for could not be found. Find shelter, recovery, and support services across Tucson and Pima County on Tucson Compass." />
+  <meta name="robots" content="noindex, follow" />
+  <title>Page not found - Tucson Compass</title>
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" />
-  <link rel="stylesheet" href="css/styles.css?v=48" />
+  <link rel="stylesheet" href="/css/styles.css?v=48" />
   <script>(function(){try{var t=localStorage.getItem('tw.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
-<body data-page="resources">
+<body data-page="error">
   <a class="skip-link" href="#main" data-i18n="skip_to_content">Skip to main content</a>
   <div id="offline-banner" class="offline-banner" hidden role="status" data-i18n="offline_banner"></div>
 
   <header class="site-header">
     <div class="container container--wide site-header__row">
-      <a class="brand" href="index.html" aria-label="Tucson Compass">
+      <a class="brand" href="/index.html" aria-label="Tucson Compass">
         <picture>
-          <source media="(min-width: 980px)" srcset="icons/logo-horizontal.png" />
-          <img class="brand__logo" src="icons/logo-icon-circle.png" alt="" />
+          <source media="(min-width: 980px)" srcset="/icons/logo-horizontal.png" />
+          <img class="brand__logo" src="/icons/logo-icon-circle.png" alt="" />
         </picture>
         <span class="brand__name">Tucson Compass</span>
       </a>
       <nav class="nav-primary" aria-label="Primary" data-i18n-aria-label="aria_nav_primary">
         <ul>
-          <li><a href="index.html"><i data-icon="home"></i><span data-i18n="nav_find_help">Find Help</span></a></li>
-          <li><a href="directory.html"><i data-icon="list"></i><span data-i18n="nav_directory">Directory</span></a></li>
-          <li><a href="map.html"><i data-icon="map"></i><span data-i18n="nav_map">Map</span></a></li>
-          <li><a href="resources.html" aria-current="page"><i data-icon="external"></i><span data-i18n="nav_resources">Resources</span></a></li>
+          <li><a href="/index.html"><i data-icon="home"></i><span data-i18n="nav_find_help">Find Help</span></a></li>
+          <li><a href="/directory.html"><i data-icon="list"></i><span data-i18n="nav_directory">Directory</span></a></li>
+          <li><a href="/map.html"><i data-icon="map"></i><span data-i18n="nav_map">Map</span></a></li>
+          <li><a href="/resources.html"><i data-icon="external"></i><span data-i18n="nav_resources">Resources</span></a></li>
         </ul>
       </nav>
       <div class="site-header__actions">
@@ -48,28 +48,21 @@
     </div>
   </header>
 
-  <main id="main" class="container">
-    <div class="res-head">
-      <div class="res-head__text">
-        <h1 data-i18n="res_h1">Resources &amp; links</h1>
-        <p class="lead" data-i18n="res_lead">Every helpful website and phone number, in one place. Crisis lines first.</p>
+  <main id="main" class="container err-page">
+    <div class="err-card">
+      <span class="err-compass" aria-hidden="true"><i data-icon="compass"></i></span>
+      <p class="err-eyebrow" data-i18n="err_404_eyebrow">Page not found</p>
+      <h1 class="err-h1" data-i18n="err_404_h1">You've wandered off the map.</h1>
+      <p class="err-lead" data-i18n="err_404_lead">This page doesn't exist, or it moved. The link may have been mistyped. Let's point you back the right way.</p>
+      <div class="err-actions">
+        <a href="/index.html" class="btn-primary"><i data-icon="home" aria-hidden="true"></i><span data-i18n="err_404_home">Back to Find Help</span></a>
+        <a href="/directory.html" class="btn-secondary"><i data-icon="list" aria-hidden="true"></i><span data-i18n="err_404_directory">Browse the directory</span></a>
       </div>
-      <div class="res-head__actions">
-        <button type="button" class="btn-secondary" id="res-print">
-          <i data-icon="printer" aria-hidden="true"></i>
-          <span data-i18n="res_print">Print this list</span>
-        </button>
-      </div>
+      <p class="err-crisis">
+        <i data-icon="phone" aria-hidden="true"></i>
+        <span data-i18n="err_404_crisis">Need help right now? Call 988 for crisis and mental health, or 911 for an emergency.</span>
+      </p>
     </div>
-
-    <nav class="jump-row" id="res-jump" aria-label="Sections" data-i18n-aria-label="aria_sections"></nav>
-
-    <div id="res-groups"></div>
-
-    <p class="res-note">
-      <i data-icon="info" aria-hidden="true"></i>
-      <span data-i18n="res_note">Links open each organization's own website. Information changes — call ahead to confirm hours and availability.</span>
-    </p>
   </main>
 
   <footer class="site-footer">
@@ -96,7 +89,7 @@
     </svg>
     <div class="site-footer__inner">
       <div class="container">
-        <a href="match.html" class="footer-cta">
+        <a href="/match.html" class="footer-cta">
           <span class="footer-cta__body">
             <span class="footer-cta__badge" data-i18n="footer_cta_heading">Recommended</span>
             <span class="footer-cta__title" data-i18n="footer_cta_title">Find personalized services</span>
@@ -109,19 +102,19 @@
         </a>
         <div class="site-footer__grid">
           <div class="site-footer__col site-footer__col--brand">
-            <a class="site-footer__brand" href="index.html" aria-label="Tucson Compass">
-              <img class="site-footer__logo" src="icons/logo-horizontal.png" alt="Tucson Compass" />
+            <a class="site-footer__brand" href="/index.html" aria-label="Tucson Compass">
+              <img class="site-footer__logo" src="/icons/logo-horizontal.png" alt="Tucson Compass" />
             </a>
             <p class="site-footer__tagline" data-i18n="footer_tagline">A way forward. Shelter, recovery, and help across Tucson and Pima County.</p>
           </div>
           <div class="site-footer__col site-footer__col--explore">
             <h3 class="site-footer__heading" data-i18n="footer_explore">Explore</h3>
             <ul class="site-footer__links">
-              <li><a href="index.html" data-i18n="nav_find_help">Find Help</a></li>
-              <li><a href="directory.html" data-i18n="nav_directory">Directory</a></li>
-              <li><a href="map.html" data-i18n="nav_map">Map</a></li>
-              <li><a href="resources.html" data-i18n="nav_resources">Resources</a></li>
-              <li><a href="about.html" data-i18n="nav_about">About</a></li>
+              <li><a href="/index.html" data-i18n="nav_find_help">Find Help</a></li>
+              <li><a href="/directory.html" data-i18n="nav_directory">Directory</a></li>
+              <li><a href="/map.html" data-i18n="nav_map">Map</a></li>
+              <li><a href="/resources.html" data-i18n="nav_resources">Resources</a></li>
+              <li><a href="/about.html" data-i18n="nav_about">About</a></li>
             </ul>
           </div>
           <div class="site-footer__col site-footer__col--help">
@@ -138,14 +131,13 @@
       <div class="site-footer__bottom">
         <div class="container site-footer__bottom-row">
           <p class="site-footer__disclaimer" data-i18n="footer_disclaimer">Tucson Compass is an independent, free informational directory. It is not affiliated with, and does not endorse, the organizations listed, and does not provide shelter, funding, food, or services directly. Listings are compiled from public sources and may be incomplete or out of date. Information is provided as-is, without warranty, and is not legal, medical, or crisis advice. Always call ahead to confirm hours, eligibility, and availability before traveling. We are not responsible for the content or services of third-party websites or organizations.</p>
-          <p class="site-footer__copy">&copy; 2026 Tucson Compass &middot; <a href="about.html" data-i18n="footer_about_link">About this site</a></p>
+          <p class="site-footer__copy">&copy; 2026 Tucson Compass &middot; <a href="/about.html" data-i18n="footer_about_link">About this site</a></p>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="js/icons.js?v=20"></script>
-  <script src="js/app.js?v=24"></script>
-  <script src="js/resources.js?v=5"></script>
+  <script src="/js/icons.js?v=20"></script>
+  <script src="/js/app.js?v=24"></script>
 </body>
 </html>

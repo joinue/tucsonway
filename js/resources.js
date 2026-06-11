@@ -127,7 +127,7 @@
   }
 
   async function boot() {
-    const res = await fetch('data/links.json', { cache: 'no-cache' });
+    const res = await fetch('/data/links.json', { cache: 'no-cache' });
     const data = await res.json();
     groups = data.groups || [];
     render();

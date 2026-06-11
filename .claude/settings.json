@@ -278,7 +278,21 @@
       "Bash(curl -s -o /dev/null -w \"resources: %{http_code}\\\\n\" https://tucsoncompass.org/resources.html)",
       "Bash(node -e \"for \\(const f of ['data/i18n.json','data/links.json','data/resources.json']\\) { try { JSON.parse\\(require\\('fs'\\).readFileSync\\(f,'utf8'\\)\\); console.log\\('OK   '+f\\); } catch\\(e\\){ console.log\\('BAD  '+f+': '+e.message\\);} }\")",
       "Bash(node verify-ready.js)",
-      "Bash(node verify-a11y.js)"
+      "Bash(node verify-a11y.js)",
+      "Bash(git commit -m 'Accessibility pass plus pending content, data, and asset updates *)",
+      "Bash(node -e 'const d=require\\(\"./data/i18n.json\"\\);console.log\\(\"i18n OK\"\\);console.log\\(\"EN:\",d.en.home_hero_lead\\);console.log\\(\"ES:\",d.es.home_hero_lead\\)')",
+      "Bash(node -e 'const d=require\\(\"./data/i18n.json\"\\);console.log\\(\"i18n OK\\\\nEN:\",d.en.home_hero_lead,\"\\\\nES:\",d.es.home_hero_lead\\)')",
+      "Bash(node verify-infosheet.js)",
+      "Bash(node measure-header.js)",
+      "Bash(node -e \"const QR=require\\('./node_modules/playwright-core'\\);\")",
+      "Bash(perl -pi -e 's/styles\\\\.css\\\\?v=46/styles.css?v=47/g' about.html directory.html index.html map.html match.html resources.html)",
+      "Bash(node shot-header360.js)",
+      "Bash(node -e 'const v=require\\(\"./vercel.json\"\\);console.log\\(\"vercel.json valid;\", v.rewrites.length, \"rewrites:\"\\);v.rewrites.forEach\\(r=>console.log\\(\"  \"+r.source+\"  ->  \"+r.destination\\)\\)')",
+      "Bash(node verify-404.js)",
+      "Bash(node probe404.js)",
+      "Bash(node -e 'for\\(const f of [\"data/i18n.json\",\"data/links.json\",\"data/resources.json\",\"vercel.json\",\"manifest.webmanifest\"]\\){try{JSON.parse\\(require\\(\"fs\"\\).readFileSync\\(f,\"utf8\"\\)\\);console.log\\(\"OK  \"+f\\)}catch\\(e\\){console.log\\(\"BAD \"+f+\": \"+e.message\\)}}')",
+      "Bash(awk '{print $5, $9}')",
+      "Bash(perl -pi -e 's{css/styles\\\\.css\\\\?v=47}{css/styles.css?v=48}g' index.html directory.html map.html match.html resources.html about.html)"
     ],
     "additionalDirectories": [
       "C:\\Users\\MarcS\\AppData\\Local\\Temp\\twverify",
